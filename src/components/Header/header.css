@@ -1,0 +1,335 @@
+.header {
+  display: flex;
+  height: max-content;
+  position: absolute;
+  justify-content: space-between;
+  left: 0;
+  right: 0;
+  padding: 0 2.4rem 0 2.4rem;
+  z-index: 300;
+}
+
+/* .header a {
+  align-self: center;
+} */
+
+.logo {
+  display: block;
+  max-width: 18rem;
+  margin: 2.4rem 0 0 2.4rem;
+  position: relative;
+}
+
+.logo.logomark {
+  display: block;
+  max-width: 8.4rem;
+  margin: 1.2rem;
+  margin-bottom: 0;
+  position: relative;
+}
+
+.hamburger-menu-icon-container {
+  display: flex;
+  align-items: center;
+  justify-items: center;
+  background-color: rgba(254, 229, 238, 0.75);
+  height: 15.7rem;
+  padding: 7.25rem 0 7.25rem 0;
+}
+
+.hamburger-menu-checkbox {
+  display: none;
+}
+.hamburger-menu-btn-toggle {
+  cursor: pointer;
+}
+
+.hamburger-menu-icon {
+  position: relative;
+  margin: 0 4.8rem 0 4.8rem;
+}
+
+.hamburger-menu-icon,
+.hamburger-menu-icon::before,
+.hamburger-menu-icon::after {
+  width: 4rem;
+  height: 0.5rem;
+  background-color: #12d0ff;
+  display: inline-block;
+  transition: all 0.2s;
+}
+
+.hamburger-menu-icon::before,
+.hamburger-menu-icon::after {
+  content: "";
+  position: absolute;
+  left: 0;
+}
+
+.hamburger-menu-icon::before {
+  top: -2rem;
+  width: 2rem;
+  transform: translateX(1rem);
+}
+.hamburger-menu-icon::after {
+  top: 2rem;
+  width: 6rem;
+  transform: translateX(-1rem);
+}
+
+.hamburger-menu-icon:hover {
+  height: 3rem;
+  border: 0.1rem solid white;
+}
+
+.hamburger-menu-icon:hover::before {
+  height: 2rem;
+  border: 0.1rem solid white;
+}
+
+.hamburger-menu-icon:hover::after {
+  height: 3rem;
+  border: 0.1rem solid white;
+}
+
+.hamburger-menu-checkbox:checked
+  + .hamburger-menu-btn-toggle
+  .hamburger-menu-icon {
+  background-color: transparent;
+  border: none;
+}
+
+.hamburger-menu-checkbox:checked
+  + .hamburger-menu-btn-toggle
+  .hamburger-menu-icon::before {
+  top: 0;
+  transform: rotate(135deg);
+  width: 4rem;
+  height: 0.5rem;
+  border: none;
+}
+
+.hamburger-menu-checkbox:checked
+  + .hamburger-menu-btn-toggle
+  .hamburger-menu-icon::after {
+  top: 0;
+  transform: rotate(-135deg);
+  width: 4rem;
+  height: 0.5rem;
+  border: none;
+}
+
+@media (max-width: 2040px) AND (max-height: 860px) {
+  .logo {
+    margin: 2.4rem 0 0 0;
+  }
+}
+
+/* @media (max-width: 1890px) AND (max-height: 560px) {
+  .hamburger-menu-icon-container {
+    padding: 4.8rem 0 4.8rem 0;
+  }
+} */
+@media (max-width: 1700px) {
+  .header a {
+    align-self: center;
+  }
+
+  .logo {
+    display: block;
+    max-width: 18rem;
+    margin: 0 0 0 2.4rem;
+    position: relative;
+  }
+  .hamburger-menu-icon-container {
+    height: 9.6rem;
+    padding: 4.8rem 0 4.8rem 0;
+  }
+
+  .hamburger-menu-icon {
+    margin: 0 3rem 0 3rem;
+  }
+
+  .hamburger-menu-icon,
+  .hamburger-menu-icon::before,
+  .hamburger-menu-icon::after {
+    width: 3rem;
+  }
+
+  .hamburger-menu-icon::before,
+  .hamburger-menu-icon::after {
+    content: "";
+    position: absolute;
+    left: 0;
+  }
+
+  .hamburger-menu-icon::before {
+    top: -1.5rem;
+    width: 1.25rem;
+    transform: translateX(0.851rem);
+  }
+  .hamburger-menu-icon::after {
+    top: 1.5rem;
+    width: 4.5rem;
+    transform: translateX(-0.75rem);
+  }
+
+  .hamburger-menu-icon:hover::before {
+    height: 1.5rem;
+  }
+
+  .hamburger-menu-checkbox:checked
+    + .hamburger-menu-btn-toggle
+    .hamburger-menu-icon::before {
+    width: 3rem;
+  }
+
+  .hamburger-menu-checkbox:checked
+    + .hamburger-menu-btn-toggle
+    .hamburger-menu-icon::after {
+    width: 3rem;
+  }
+}
+
+/* @media (max-width: 1511px) AND (max-height: 1002px) {
+  .header {
+    padding: 0;
+  }
+} */
+
+/* @media (max-width: 1341px) {
+  .hamburger-menu-icon-container {
+    padding: 6.2rem 0 6.2rem 0;
+  }
+
+  .hamburger-menu-icon {
+    position: relative;
+    margin: 0 4.1rem 0 4.1rem;
+  }
+
+  .hamburger-menu-icon,
+  .hamburger-menu-icon::before,
+  .hamburger-menu-icon::after {
+    width: 3.5rem;
+  }
+
+  .hamburger-menu-icon::before {
+    top: -2rem;
+    width: 1.5rem;
+    transform: translateX(1rem);
+  }
+  .hamburger-menu-icon::after {
+    top: 2rem;
+    width: 5.5rem;
+    transform: translateX(-1rem);
+  }
+} */
+
+@media (max-width: 1323px) {
+  .header {
+    padding: 0;
+  }
+}
+
+/* @media (max-width: 665px) {
+  .hamburger-menu-icon-container {
+    padding: 5.1rem 0 5.1rem 0;
+  }
+
+  .hamburger-menu-icon {
+    position: relative;
+    margin: 0 3.2rem 0 3.2rem;
+  }
+
+  .hamburger-menu-icon,
+  .hamburger-menu-icon::before,
+  .hamburger-menu-icon::after {
+    width: 3rem;
+  }
+
+  .hamburger-menu-icon::before {
+    top: -2rem;
+    width: 1rem;
+    transform: translateX(1rem);
+  }
+  .hamburger-menu-icon::after {
+    top: 2rem;
+    width: 5rem;
+    transform: translateX(-1rem);
+  }
+} */
+
+/* HEIGHT */
+
+/* @media (max-height: 1110px) {
+  .hamburger-menu-icon-container {
+    padding: 6.2rem 0 6.2rem 0;
+    max-height: 13.6rem;
+  }
+}
+
+@media (max-height: 670px) {
+  .hamburger-menu-icon-container {
+    padding: 0;
+  }
+} */
+
+@media (max-height: 860px) {
+  .header {
+    padding: 0;
+  }
+  .header a {
+    padding-left: 2.4rem;
+  }
+}
+
+@media (max-height: 700px) {
+  .hamburger-menu-icon-container {
+    height: 9.6rem;
+    padding: 4.8rem 0 4.8rem 0;
+  }
+
+  .hamburger-menu-icon {
+    margin: 0 3rem 0 3rem;
+  }
+
+  .hamburger-menu-icon,
+  .hamburger-menu-icon::before,
+  .hamburger-menu-icon::after {
+    width: 3rem;
+  }
+
+  .hamburger-menu-icon::before,
+  .hamburger-menu-icon::after {
+    content: "";
+    position: absolute;
+    left: 0;
+  }
+
+  .hamburger-menu-icon::before {
+    top: -1.5rem;
+    width: 1.25rem;
+    transform: translateX(0.851rem);
+  }
+  .hamburger-menu-icon::after {
+    top: 1.5rem;
+    width: 4.5rem;
+    transform: translateX(-0.75rem);
+  }
+
+  .hamburger-menu-icon:hover::before {
+    height: 1.5rem;
+  }
+
+  .hamburger-menu-checkbox:checked
+    + .hamburger-menu-btn-toggle
+    .hamburger-menu-icon::before {
+    width: 3rem;
+  }
+
+  .hamburger-menu-checkbox:checked
+    + .hamburger-menu-btn-toggle
+    .hamburger-menu-icon::after {
+    width: 3rem;
+  }
+}

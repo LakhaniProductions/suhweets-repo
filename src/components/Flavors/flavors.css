@@ -1,0 +1,2453 @@
+.cake-flavors {
+  flex-direction: row;
+  max-width: 97.65rem;
+}
+.cake-info-container {
+  padding-right: 8.7rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.flavors-container.fillings {
+  justify-content: space-between;
+  width: 100%;
+}
+
+.title {
+  font-size: 4.1rem;
+  text-transform: uppercase;
+  color: #2d5059;
+  padding-bottom: 3.6rem;
+  min-width: max-content;
+}
+
+.title.second {
+  padding-top: 7.2rem;
+}
+
+.flavors-box--favs {
+  display: flex;
+  flex-direction: column;
+}
+
+.flavors-box--flav {
+  display: flex;
+  flex-direction: column;
+}
+
+.cake-flav .flavors-two-col {
+  max-height: 83%;
+  min-height: 0%;
+}
+
+.cake-flav .flavors-two-col .flavors-container.cake-flavors {
+  height: 100%;
+  overflow-y: scroll;
+  min-width: 100%;
+  width: 100%;
+  max-height: 100%;
+  overflow-x: hidden;
+}
+
+.flavors-two-col .flavors-container::-webkit-scrollbar {
+  width: 0.8rem;
+}
+.flavors-two-col .flavors-container::-webkit-scrollbar-track {
+  background: white;
+}
+.flavors-two-col .flavors-container::-webkit-scrollbar-thumb {
+  background: #a6a6a6;
+  border-radius: 1rem;
+}
+
+.menu-options {
+  cursor: default;
+  font-family: fjalla one;
+  text-transform: capitalize;
+  padding-bottom: 1.8rem;
+  font-size: 4.6rem;
+}
+
+.menu-options.baker {
+  cursor: pointer;
+  opacity: 0.7;
+  color: #a6a6a6;
+}
+
+.baker,
+.buttercream,
+.flavor {
+  padding-left: 1.8rem;
+  padding-right: 1.8rem;
+}
+
+.buttercream {
+  min-width: 37rem;
+}
+
+.menu-options.baker.active-flavor {
+  color: #2d5059;
+  font-size: 5.2rem;
+  text-shadow: 0.4rem 0.4rem 0.4rem rgba(82, 97, 102, 0.1);
+  text-transform: uppercase;
+  opacity: 1;
+}
+
+.pagination-menu-container .hide-pagination-item {
+  display: none;
+}
+
+.lazy-img {
+  background-size: contain;
+  right: 0rem;
+  width: 94.5%;
+  height: 90%;
+  position: absolute;
+}
+
+@media (max-width: 2560px) AND (max-height: 1110px) {
+  .menu-options.baker {
+    font-size: 4.1rem;
+  }
+
+  .menu-options.baker.active-flavor {
+    font-size: 4.9rem;
+  }
+}
+
+@media (max-width: 2560px) AND (max-height: 1100px) {
+  .flavors-container.fav {
+    max-height: 95%;
+    overflow-y: scroll;
+    min-width: 49%;
+  }
+
+  .flavors-container.fav::-webkit-scrollbar {
+    width: 0.8rem;
+  }
+  .flavors-container.fav::-webkit-scrollbar-track {
+    background: white;
+  }
+  .flavors-container.fav::-webkit-scrollbar-thumb {
+    background: #a6a6a6;
+    border-radius: 1rem;
+  }
+}
+
+@media (max-width: 2560px) AND (max-height: 1080px) {
+  .flavors-container.fav {
+    position: absolute;
+    top: 2.4rem;
+    left: 50rem;
+  }
+
+  .menu-options.baker {
+    font-size: 4.6rem;
+  }
+
+  .menu-options.baker.active-flavor {
+    font-size: 5.8rem;
+  }
+}
+
+@media (max-width: 2560px) AND (max-height: 1040px) {
+  .flavors-container.fav {
+    min-width: 51%;
+  }
+}
+
+@media (max-width: 2560px) AND (max-height: 1000px) {
+  .flavors-container.fav {
+    min-width: 52%;
+  }
+}
+
+@media (max-width: 2560px) AND (max-height: 960px) {
+  .flavors-container.fav {
+    min-width: 53%;
+  }
+
+  .menu-options.baker {
+    font-size: 4.1rem;
+  }
+
+  .menu-options.baker.active-flavor {
+    font-size: 5.2rem;
+  }
+}
+
+@media (max-width: 2560px) AND (max-height: 920px) {
+  .flavors-container.fav {
+    min-width: 54%;
+  }
+  .menu-options.baker {
+    font-size: 3.9rem;
+  }
+
+  .menu-options.baker.active-flavor {
+    font-size: 4.9rem;
+  }
+}
+
+@media (max-width: 2560px) AND (max-height: 880px) {
+  .flavors-container.fav {
+    min-width: 55%;
+  }
+}
+
+@media (max-width: 2560px) AND (max-height: 860px) {
+  .flavors-container.fav {
+    max-width: 58%;
+    height: 85vh;
+    overflow-y: unset;
+  }
+
+  .cake-flav .flavors-container.cake-flavors {
+    overflow-y: scroll;
+    height: 100%;
+    overflow-x: hidden;
+  }
+
+  .cake-flav .flavors-container.cake-flavors::-webkit-scrollbar {
+    width: 0.8rem;
+  }
+  .cake-flav .flavors-container.cake-flavors::-webkit-scrollbar-track {
+    background: white;
+  }
+  .cake-flav .flavors-container.cake-flavors::-webkit-scrollbar-thumb {
+    background: #a6a6a6;
+    border-radius: 1rem;
+  }
+  .menu-options.baker {
+    font-size: 3.9rem;
+    padding: 0 0 2.4rem 0;
+  }
+
+  .menu-options.baker.active-flavor {
+    font-size: 5.2rem;
+  }
+}
+
+@media (max-width: 2560px) AND (max-height: 830px) {
+  .cake-flav .flavors-container.cake-flavors {
+    min-width: 54%;
+  }
+}
+
+@media (max-width: 2560px) AND (max-height: 800px) {
+  .flavors-container.fav {
+    min-width: 58%;
+    height: 80vh;
+    overflow-y: scroll;
+    margin-top: 2.4rem;
+  }
+
+  .menu-options.baker {
+    font-size: 3.9rem;
+    padding: 0 0 2.4rem 0;
+  }
+
+  .menu-options.baker.active-flavor {
+    font-size: 5.2rem;
+  }
+}
+
+@media (max-width: 2560px) AND (max-height: 780px) {
+  .cake-flav .flavors-container.cake-flavors {
+    min-width: 56%;
+  }
+}
+
+@media (max-width: 2560px) AND (max-height: 730px) {
+  .cake-flav .flavors-container.cake-flavors {
+    min-width: 56.5%;
+  }
+}
+
+@media (max-width: 2560px) AND (max-height: 680px) {
+  .cake-flav .flavors-container.cake-flavors {
+    min-width: 58%;
+  }
+}
+
+@media (max-width: 2560px) AND (max-height: 630px) {
+  .cake-flav .flavors-container.cake-flavors {
+    min-width: 59%;
+  }
+}
+
+@media (max-width: 2560px) AND (max-height: 620px) {
+  .flavors-container.fav {
+    max-width: 64%;
+  }
+
+  .menu-options.baker {
+    font-size: 2.6rem;
+    min-height: 5rem;
+
+    min-width: 44%;
+    margin-bottom: 3.6rem;
+  }
+
+  .menu-options.baker.active-flavor {
+    font-size: 3.9rem;
+  }
+}
+
+@media (max-width: 2560px) AND (max-height: 560px) {
+  .flavors-container.fav {
+    max-width: 59%;
+  }
+
+  .cake-flav .flavors-container.cake-flavors {
+    min-width: 55%;
+  }
+
+  .menu-options.baker {
+    font-size: 2.6rem;
+    min-height: 4.9rem;
+
+    min-width: 50%;
+  }
+
+  .menu-options.baker,
+  .menu-options.baker.active-flavor {
+    margin-bottom: 0 3.2rem 2.4rem 0;
+  }
+}
+
+@media (max-width: 2560px) AND (max-height: 520px) {
+  .flavors-container.fav {
+    overflow-y: scroll;
+    max-height: 70%;
+  }
+}
+
+@media (max-width: 2560px) AND (max-height: 460px) {
+  .flavors-container.fav {
+    overflow-y: scroll;
+    max-height: 65%;
+  }
+}
+
+@media (max-width: 2560px) AND (max-height: 380px) {
+  .flavors-container.fav {
+    overflow-y: scroll;
+    max-height: 60%;
+  }
+}
+
+@media (max-width: 2480px) AND (max-height: 800px) {
+  .flavors-container.fav {
+    min-width: 56%;
+  }
+}
+
+@media (max-width: 2440px) AND (max-height: 840px) {
+  .fav .flavors-box--favs {
+    flex-wrap: nowrap;
+    flex-direction: column;
+  }
+  .menu-options.baker {
+    min-height: 5.2rem;
+  }
+}
+
+@media (max-width: 2420px) AND (max-height: 800px) {
+  .flavors-container.fav {
+    max-width: 56%;
+  }
+
+  .menu-options.baker {
+    font-size: 3.9rem;
+  }
+
+  .menu-options.baker.active-flavor {
+    font-size: 4.6rem;
+  }
+}
+
+@media (max-width: 2400px) AND (max-height: 1294px) {
+  .menu-options.flavor {
+    font-size: 4.1rem;
+  }
+  .cake-flavors .cake-info-container .title {
+    font-size: 3.7rem;
+  }
+}
+
+@media (max-width: 2400px) AND (max-height: 1074px) {
+  .flavors-container.fav {
+    min-width: 48%;
+  }
+}
+
+@media (max-width: 2400px) AND (max-height: 800px) {
+  .flavors-container.fav {
+    min-width: 55%;
+  }
+}
+@media (max-width: 2350px) AND (max-height: 800px) {
+  .menu-options.baker {
+    font-size: 3.6rem;
+  }
+
+  .menu-options.baker.active-flavor {
+    font-size: 4.1rem;
+  }
+}
+
+@media (max-width: 2340px) AND (max-height: 1294px) {
+  .menu-options.baker {
+    font-size: 4.1rem;
+  }
+
+  .menu-options.baker.active-flavor {
+    font-size: 4.9rem;
+  }
+}
+
+@media (max-width: 2340px) AND (max-height: 1074px) {
+  .flavors-container.fav {
+    min-width: 47%;
+  }
+}
+
+@media (max-width: 2340px) AND (max-height: 860px) {
+  .menu-options.baker {
+    font-size: 3.9rem;
+    padding: 0 0 2.4rem 0;
+  }
+
+  .menu-options.baker.active-flavor {
+    font-size: 5.2rem;
+  }
+}
+
+@media (max-width: 2340px) AND (max-height: 800px) {
+  .flavors-container.fav {
+    min-width: 53%;
+  }
+}
+
+@media (max-width: 2300px) AND (max-height: 1294px) {
+  .menu-options.flavor {
+    font-size: 3.9rem;
+  }
+  .cake-flavors .cake-info-container .title {
+    font-size: 2.9rem;
+  }
+}
+@media (max-width: 2280px) AND (max-height: 1294px) {
+  .menu-options.baker {
+    font-size: 3.7rem;
+  }
+
+  .menu-options.baker.active-flavor {
+    font-size: 4.6rem;
+  }
+}
+
+@media (max-width: 2280px) AND (max-height: 800px) {
+  .flavors-container.fav {
+    max-width: 54%;
+  }
+
+  .menu-options.baker {
+    font-size: 3.1rem;
+  }
+
+  .menu-options.baker.active-flavor {
+    font-size: 3.9rem;
+  }
+}
+
+@media (max-width: 2220px) AND (max-height: 1294px) {
+  .fillings .cake-info-container .title {
+    font-size: 3.9rem;
+  }
+}
+
+@media (max-width: 2200px) AND (max-height: 1294px) {
+  .menu-options.baker.active-flavor {
+    padding-left: 0;
+  }
+
+  .menu-options.baker {
+    font-size: 3.7rem;
+    padding-left: 0;
+  }
+
+  .menu-options.baker.active-flavor {
+    font-size: 4.6rem;
+  }
+
+  .menu-options.flavor {
+    font-size: 4.6rem;
+  }
+  .cake-info-container .title {
+    font-size: 3.7rem;
+  }
+}
+
+@media (max-width: 2200px) AND (max-height: 1245px) {
+  .flavors-container.fav {
+    padding-right: 0;
+    max-width: 64%;
+    overflow: hidden;
+  }
+  .flavors-box--favs {
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+  }
+  .menu-options.baker,
+  .menu-options.baker.active-flavor {
+    padding: 0 4.8rem 3.2rem 0;
+  }
+  .menu-options.baker {
+    min-height: 9rem;
+    align-content: center;
+  }
+}
+
+@media (max-width: 2200px) AND (max-height: 1080px) {
+  .flavors-container.fav {
+    min-width: 38%;
+    max-width: 43%;
+  }
+  .fav .flavors-box--favs {
+    flex-wrap: nowrap;
+    flex-direction: column;
+    align-items: unset;
+  }
+  .menu-options.baker {
+    min-height: max-content;
+  }
+}
+@media (max-width: 2200px) AND (max-height: 1060px) {
+  .cake-flav .flavors-container.cake-flavors {
+    overflow-y: scroll;
+    min-width: 66%;
+  }
+  .cake-flav .flavors-container.cake-flavors::-webkit-scrollbar {
+    width: 0.8rem;
+  }
+  .cake-flav .flavors-container.cake-flavors::-webkit-scrollbar-track {
+    background: white;
+  }
+  .cake-flav .flavors-container.cake-flavors::-webkit-scrollbar-thumb {
+    background: #a6a6a6;
+    border-radius: 1rem;
+  }
+}
+@media (max-width: 2200px) AND (max-height: 990px) {
+  .flavors-container.fav {
+    position: absolute;
+    top: 1.2rem;
+    left: 40rem;
+    margin: 0;
+  }
+  .flavors-box--favs {
+    flex-wrap: nowrap;
+    flex-direction: column;
+    align-items: unset;
+  }
+  .menu-options.baker {
+    min-height: max-content;
+    font-size: 3.6rem;
+  }
+  .menu-options.baker.active-flavor {
+    font-size: 4.6rem;
+  }
+
+  .menu-options.baker,
+  .menu-options.baker.active-flavor {
+    padding-bottom: 2.4rem;
+  }
+}
+
+@media (max-width: 2200px) AND (max-height: 910px) {
+  .flavors-container.fav {
+    overflow-y: scroll;
+    height: 78%;
+  }
+  .menu-options.baker {
+    min-height: max-content;
+    font-size: 3.9rem;
+  }
+  .menu-options.baker.active-flavor {
+    font-size: 4.9rem;
+  }
+}
+
+@media (max-width: 2200px) AND (max-height: 860px) {
+  .flavors-container.fav {
+    margin-top: 2.4rem;
+    min-width: 54%;
+  }
+}
+
+@media (max-width: 2200px) AND (max-height: 720px) {
+  .flavors-container.fav {
+    top: 2.4rem;
+  }
+}
+
+@media (max-width: 2200px) AND (max-height: 590px) {
+  .menu-options.baker {
+    align-self: unset;
+  }
+}
+@media (max-width: 2200px) AND (max-height: 560px) {
+  .flavors-container.fav {
+    max-height: 63%;
+  }
+}
+
+@media (max-width: 2160px) AND (max-height: 1294px) {
+  .fillings .cake-info-container .title {
+    font-size: 3.6rem;
+  }
+  .menu-options.buttercream {
+    font-size: 4.1rem;
+  }
+}
+
+@media (max-width: 2160px) AND (max-height: 1245px) {
+  .menu-options.baker {
+    font-size: 3.2rem;
+    min-height: 8.4rem;
+  }
+
+  .menu-options.baker.active-flavor {
+    font-size: 4.1rem;
+  }
+}
+
+@media (max-width: 2200px) AND (max-height: 860px) {
+  .flavors-container.fav {
+    min-width: 53%;
+  }
+  .menu-options.baker {
+    min-height: max-content;
+  }
+}
+
+@media (max-width: 2040px) AND (max-height: 1245px) {
+  .flavors-container.fav {
+    max-width: 58%;
+  }
+  .menu-options.baker {
+    font-size: 2.9rem;
+    min-height: 8.1rem;
+  }
+
+  .menu-options.baker.active-flavor {
+    font-size: 3.9rem;
+  }
+}
+
+@media (max-width: 2040px) AND (max-height: 860px) {
+  .flavors-container.fav {
+    min-width: 50%;
+  }
+  .menu-options.baker,
+  .menu-options.baker.active-flavor {
+    min-height: max-content;
+    margin: 0 0 3.6rem 0;
+    padding: 0;
+  }
+}
+
+@media (max-width: 2040px) AND (max-height: 800px) {
+  .menu-options.baker,
+  .menu-options.baker.active-flavor {
+    min-height: max-content;
+    margin: 0 0 2.4rem 0;
+    padding: 0;
+  }
+}
+
+@media (max-width: 2020px) AND (max-height: 1294px) {
+  .fillings .cake-info-container .title {
+    font-size: 3.9rem;
+  }
+  .menu-options.buttercream {
+    font-size: 4.6rem;
+  }
+  .flavors-container.fillings {
+    justify-content: flex-start;
+  }
+  .fillings .cake-info-container {
+    width: 50%;
+  }
+
+  .fillings .cake-info-container:last-of-type .title {
+    padding-top: 7.2rem;
+  }
+}
+
+@media (max-width: 1965px) AND (max-height: 1245px) {
+  .flavors-container.fav {
+    max-width: 56%;
+  }
+
+  .menu-options.baker {
+    font-size: 2.6rem;
+    min-height: 7.8rem;
+  }
+
+  .menu-options.baker.active-flavor {
+    font-size: 3.6rem;
+  }
+}
+
+@media (max-width: 1965px) AND (max-height: 860px) {
+  .flavors-container.fav {
+    min-width: 48%;
+  }
+  .menu-options.baker,
+  .menu-options.baker.active-flavor {
+    min-height: max-content;
+    margin: 0 0 3rem 0;
+    padding: 0;
+  }
+}
+
+@media (max-width: 1965px) AND (max-height: 800px) {
+  .menu-options.baker,
+  .menu-options.baker.active-flavor {
+    min-height: max-content;
+    margin: 0 0 2.4rem 0;
+    padding: 0;
+  }
+}
+
+@media (max-width: 1870px) AND (max-height: 1245px) {
+  .flavors-container.fav {
+    overflow-y: scroll;
+    max-width: 51.5%;
+  }
+  .flavors-container.fav::-webkit-scrollbar {
+    width: 0.8rem;
+  }
+  .flavors-container.fav::-webkit-scrollbar-track {
+    background: white;
+  }
+  .flavors-container.fav::-webkit-scrollbar-thumb {
+    background: #a6a6a6;
+    border-radius: 1rem;
+  }
+
+  .menu-options.baker {
+    font-size: 3.9rem;
+    min-height: max-content;
+  }
+
+  .menu-options.baker.active-flavor {
+    font-size: 4.9rem;
+  }
+}
+
+@media (max-width: 1870px) AND (max-height: 1200px) {
+  .flavors-container.fav {
+    max-width: 55%;
+    max-height: 68%;
+  }
+}
+
+@media (max-width: 1870px) AND (max-height: 1142px) {
+  .flavors-container.fav {
+    max-width: 58%;
+    max-height: 67%;
+  }
+}
+
+@media (max-width: 1870px) AND (max-height: 1100px) {
+  .flavors-container.fav {
+    max-width: 59%;
+    max-height: 65%;
+  }
+}
+@media (max-width: 1870px) AND (max-height: 1080px) {
+  .flavors-container.fav {
+    max-width: 61%;
+    max-height: 64%;
+    position: relative;
+    top: unset;
+    left: unset;
+  }
+  .menu-options.baker {
+    font-size: 4.1rem;
+  }
+
+  .menu-options.baker.active-flavor {
+    font-size: 5.1rem;
+  }
+}
+
+@media (max-width: 1870px) AND (max-height: 1000px) {
+  .flavors-container.fav {
+    max-width: 63%;
+    max-height: 60%;
+  }
+}
+@media (max-width: 1870px) AND (max-height: 950px) {
+  .flavors-container.fav {
+    max-width: 65%;
+    min-height: 68%;
+    margin-top: 3.6rem;
+  }
+
+  .menu-options.baker {
+    font-size: 3.1rem;
+  }
+
+  .menu-options.baker.active-flavor {
+    font-size: 4.1rem;
+  }
+}
+
+@media (max-width: 1870px) AND (max-height: 860px) {
+  .flavors-container.fav {
+    position: absolute;
+    top: 4.8rem;
+    left: 40rem;
+    min-height: 78%;
+    margin-top: 0;
+    min-width: 45%;
+  }
+
+  .menu-options.baker {
+    font-size: 2.6rem;
+  }
+
+  .menu-options.baker.active-flavor {
+    font-size: 3.6rem;
+  }
+
+  .flavors-box--favs {
+    flex-wrap: nowrap;
+    flex-direction: column;
+    align-items: unset;
+  }
+}
+
+@media (max-width: 1870px) AND (max-height: 800px) {
+  .flavors-container.fav {
+    min-width: 49%;
+    max-height: 80%;
+    min-height: 50%;
+  }
+
+  .menu-options.baker {
+    align-self: unset;
+  }
+}
+
+@media (max-width: 1870px) AND (max-height: 770px) {
+  .flavors-container.fav {
+    min-width: 40%;
+    max-height: 81%;
+    min-height: 70%;
+    overflow-y: scroll;
+  }
+}
+
+@media (max-width: 1870px) AND (max-height: 720px) {
+  .flavors-container.fav {
+    min-width: 52%;
+    max-height: 80%;
+  }
+}
+
+@media (max-width: 1870px) AND (max-height: 700px) {
+  .flavors-container.fav {
+    min-width: 49%;
+    max-height: 50%;
+    min-height: 70%;
+    overflow-y: scroll;
+  }
+}
+@media (max-width: 1870px) AND (max-height: 670px) {
+  .flavors-container.fav {
+    min-width: 54%;
+    max-height: 77%;
+  }
+}
+
+@media (max-width: 1870px) AND (max-height: 645px) {
+  .flavors-container.fav {
+    min-width: 49%;
+    max-height: 76%;
+    min-height: 70%;
+    overflow-y: scroll;
+  }
+}
+
+@media (max-width: 1870px) AND (max-height: 600px) {
+  .flavors-container.fav {
+    min-width: 57%;
+    max-height: 75%;
+  }
+}
+
+@media (max-width: 1870px) AND (max-height: 580px) {
+  .flavors-container.fav {
+    min-width: 49%;
+    max-height: 73%;
+    min-height: 70%;
+    overflow-y: scroll;
+  }
+}
+
+@media (max-width: 1870px) AND (max-height: 560px) {
+  .flavors-container.fav {
+    min-width: 57%;
+    max-height: 75%;
+  }
+}
+
+@media (max-width: 1870px) AND (max-height: 490px) {
+  .flavors-container.fav {
+    min-width: 49%;
+    max-height: 67%;
+    min-height: 50%;
+    overflow-y: scroll;
+  }
+}
+
+@media (max-width: 1800px) AND (max-height: 860px) {
+  .flavors-container.fav {
+    min-width: 43%;
+  }
+}
+
+@media (max-width: 1780px) AND (max-height: 1245px) {
+  .flavors-container.fav {
+    max-width: 49%;
+  }
+}
+
+@media (max-width: 1780px) AND (max-height: 950px) {
+  .flavors-container.fav {
+    position: absolute;
+    top: 2.4rem;
+    left: 35rem;
+    margin: 0;
+  }
+  .menu-options.baker {
+    font-size: 3.6rem;
+  }
+
+  .menu-options.baker.active-flavor {
+    font-size: 4.6rem;
+  }
+}
+
+@media (max-width: 1780px) AND (max-height: 860px) {
+  .menu-options.baker {
+    font-size: 2.6rem;
+  }
+
+  .menu-options.baker.active-flavor {
+    font-size: 3.6rem;
+  }
+}
+
+@media (max-width: 1776px) AND (max-height: 1294px) {
+  .menu-options.flavor {
+    font-size: 4.1rem;
+  }
+  .cake-info-container .title {
+    font-size: 3.2rem;
+  }
+}
+
+@media (max-width: 1720px) AND (max-height: 1294px) {
+  .menu-options.baker {
+    font-size: 3.2rem;
+  }
+
+  .menu-options.baker.active-flavor {
+    font-size: 4.1rem;
+  }
+}
+
+@media (max-width: 1720px) AND (max-height: 950px) {
+  .flavors-container.fav {
+    max-width: 42%;
+    min-width: 40%;
+  }
+}
+
+@media (max-width: 1720px) AND (max-height: 860px) {
+  .menu-options.baker {
+    font-size: 2.6rem;
+  }
+
+  .menu-options.baker.active-flavor {
+    font-size: 3.6rem;
+  }
+}
+
+@media (max-width: 1680px) AND (max-height: 1245px) {
+  .flavors-container.fav {
+    max-width: 46%;
+  }
+}
+
+@media (max-width: 1616px) AND (max-height: 1074px) {
+  .flavors-container.fav {
+    min-width: 50%;
+  }
+}
+
+@media (max-width: 1615px) AND (max-height: 1245px) {
+  .flavors-container.fav {
+    max-width: 52%;
+  }
+}
+@media (max-width: 1615px) AND (max-height: 1120px) {
+  .cake-flav .flavors-container {
+    overflow-y: scroll;
+    max-width: 50%;
+  }
+
+  .cake-flav .flavors-container::-webkit-scrollbar {
+    width: 0.8rem;
+  }
+  .cake-flav .flavors-container::-webkit-scrollbar-track {
+    background: white;
+  }
+  .cake-flav .flavors-container::-webkit-scrollbar-thumb {
+    background: #a6a6a6;
+    border-radius: 1rem;
+  }
+}
+@media (max-width: 1615px) AND (max-height: 1050px) {
+  .flavors-container.fav {
+    max-width: 55%;
+  }
+  .menu-options.baker {
+    font-size: 3.6rem;
+  }
+  .menu-options.baker.active-flavor {
+    font-size: 4.6rem;
+  }
+}
+
+@media (max-width: 1615px) AND (max-height: 950px) {
+  .flavors-container.fav {
+    min-height: 65%;
+    overflow-y: scroll;
+    position: relative;
+    margin-top: 4.8rem;
+    top: unset;
+    left: unset;
+  }
+}
+
+@media (max-width: 1615px) AND (max-height: 860px) {
+  .flavors-container.fav {
+    left: 35rem;
+    position: absolute;
+    left: 38rem;
+    margin: 0;
+    width: 40%;
+    min-width: unset;
+    top: 18rem;
+  }
+  .menu-options.baker {
+    font-size: 2.6rem;
+  }
+  .menu-options.baker.active-flavor {
+    font-size: 3.2rem;
+  }
+}
+
+@media (max-width: 1615px) AND (max-height: 820px) {
+  .flavors-container.fav {
+    width: 40%;
+    min-width: unset;
+    height: 55%;
+    min-height: unset;
+  }
+}
+
+@media (max-width: 1615px) AND (max-height: 800px) {
+  .flavors-container.fav {
+    min-width: 44%;
+    max-height: unset;
+    min-height: unset;
+    height: 100%;
+    left: 34rem;
+    top: 4.8rem;
+  }
+}
+
+@media (max-width: 1615px) AND (max-height: 720px) {
+  .flavors-container.fav {
+    min-width: 48%;
+    max-height: 70%;
+  }
+}
+
+@media (max-width: 1615px) AND (max-height: 600px) {
+  .flavors-container.fav {
+    min-width: 48%;
+    max-height: 60%;
+  }
+}
+
+@media (max-width: 1580px) AND (max-height: 1020px) {
+  .cake-flav .flavors-container.cake-flavors {
+    min-width: 55%;
+  }
+}
+
+@media (max-width: 1550px) AND (max-height: 860px) {
+  .menu-options.baker {
+    font-size: 2.3rem;
+  }
+  .menu-options.baker.active-flavor {
+    font-size: 2.9rem;
+  }
+}
+@media (max-width: 1540px) AND (max-height: 1245px) {
+  .flavors-container.fav {
+    max-width: 50%;
+  }
+}
+
+@media (max-width: 1480px) AND (max-height: 1294px) {
+  .menu-options.baker {
+    font-size: 2.9rem;
+  }
+
+  .menu-options.baker.active-flavor {
+    font-size: 3.9rem;
+  }
+}
+
+@media (max-width: 1480px) AND (max-height: 860px) {
+  .menu-options.baker {
+    font-size: 2.3rem;
+  }
+  .menu-options.baker.active-flavor {
+    font-size: 2.9rem;
+  }
+}
+@media (max-width: 1470px) AND (max-height: 1294px) {
+  .cake-flavors .cake-info-container {
+    padding-right: 4.8rem;
+  }
+}
+
+@media (max-width: 1470px) AND (max-height: 1245px) {
+  .flavors-container.fav {
+    max-width: 48%;
+  }
+  .menu-options.baker {
+    font-size: 2.8rem;
+  }
+
+  .menu-options.baker.active-flavor {
+    font-size: 3.6rem;
+  }
+}
+
+@media (max-width: 1470px) AND (max-height: 860px) {
+  .menu-options.baker {
+    font-size: 2.3rem;
+  }
+  .menu-options.baker.active-flavor {
+    font-size: 2.9rem;
+  }
+}
+
+@media (max-width: 1450px) AND (max-height: 1294px) {
+  .menu-options.baker {
+    font-size: 2.8rem;
+  }
+
+  .menu-options.baker.active-flavor {
+    font-size: 3.6rem;
+  }
+}
+
+@media (max-width: 1450px) AND (max-height: 860px) {
+  .menu-options.baker {
+    font-size: 2.1rem;
+  }
+  .menu-options.baker.active-flavor {
+    font-size: 2.6rem;
+  }
+}
+
+@media (max-width: 1410px) AND (max-height: 1245px) {
+  .flavors-container.fav {
+    max-width: 46%;
+  }
+  .menu-options.baker {
+    font-size: 2.6rem;
+  }
+
+  .menu-options.baker.active-flavor {
+    font-size: 3.2rem;
+  }
+}
+
+@media (max-width: 1410px) AND (max-height: 860px) {
+  .menu-options.baker {
+    font-size: 2.1rem;
+  }
+  .menu-options.baker.active-flavor {
+    font-size: 2.6rem;
+  }
+}
+@media (max-width: 1380px) AND (max-height: 1294px) {
+  .cake-flavors .cake-info-container {
+    margin-left: 4.8rem;
+  }
+  .cake-flav .flavors-two-col .flavors-container.cake-flavors {
+    min-width: 55%;
+    width: 55%;
+  }
+  .fillings .cake-info-container:last-of-type .title {
+    padding-top: 7.2rem;
+  }
+  .flavors-two-col .flavors-container {
+    margin-top: 0;
+  }
+  .cake-flav
+    .flavors-container.cake-flavors
+    .cake-info-container:first-of-type {
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 1380px) AND (max-height: 1245px) {
+  .fav .flavors-two-col {
+    margin-top: 2.4rem;
+    height: 100%;
+  }
+  .menu-options.baker {
+    font-size: 3.1rem;
+  }
+
+  .menu-options.baker.active-flavor {
+    font-size: 4.1rem;
+  }
+}
+
+@media (max-width: 1380px) AND (max-height: 1195px) {
+  .flavors-box--favs {
+    flex-wrap: nowrap;
+    flex-direction: column;
+    align-items: unset;
+  }
+  .menu-options.baker {
+    font-size: 2.9rem;
+    padding-bottom: 2.4rem;
+  }
+
+  .menu-options.baker.active-flavor {
+    font-size: 3.9rem;
+  }
+}
+
+@media (max-width: 1380px) AND (max-height: 1140px) {
+  .fav .flavors-two-col .flavors-container {
+    overflow-y: scroll;
+    width: 80%;
+  }
+}
+
+@media (max-width: 1380px) AND (max-height: 1100px) {
+  .fav .flavors-two-col {
+    height: 75%;
+  }
+  .fav .flavors-two-col .flavors-container {
+    width: 80%;
+    min-width: unset;
+    max-width: unset;
+  }
+}
+
+@media (max-width: 1380px) AND (max-height: 1090px) {
+  .flavors-two-col .flavors-container {
+    min-width: unset;
+    max-width: unset;
+    width: 88%;
+  }
+
+  .flavors-two-col .flavors-container::-webkit-scrollbar {
+    width: 0.8rem;
+  }
+  .flavors-two-col .flavors-container::-webkit-scrollbar-track {
+    background: white;
+  }
+  .flavors-two-col .flavors-container::-webkit-scrollbar-thumb {
+    background: #a6a6a6;
+    border-radius: 1rem;
+  }
+}
+
+@media (max-width: 1380px) AND (max-height: 900px) {
+  .fav .flavors-two-col {
+    height: 60%;
+    width: 65%;
+    max-width: unset;
+  }
+  .fav .flavors-two-col .flavors-container {
+    margin: 0;
+  }
+}
+
+@media (max-width: 1380px) AND (max-height: 860px) {
+  .menu-options.baker,
+  .menu-options.baker.active-flavor {
+    min-height: max-content;
+    margin: 0 0 2.4rem 0;
+    padding: 0;
+  }
+}
+
+@media (max-width: 1380px) AND (max-height: 800px) {
+  .fav .flavors-two-col {
+    height: 90%;
+    max-height: unset;
+  }
+
+  .fav .flavors-container {
+    min-width: 58%;
+    max-height: 95%;
+    min-height: unset;
+    left: 2.4rem;
+    top: 18rem;
+  }
+}
+
+@media (max-width: 1380px) AND (max-height: 740px) {
+  .cake-flav .flavors-two-col {
+    margin-top: 0;
+  }
+}
+
+@media (max-width: 1380px) AND (max-height: 720px) {
+  .fav .flavors-container.fav {
+    position: absolute;
+    top: 2.4rem;
+    left: 32rem;
+  }
+  .menu-options.baker {
+    font-size: 2.4rem;
+  }
+
+  .menu-options.baker.active-flavor {
+    font-size: 3.2rem;
+  }
+  .fav .flavors-box--favs {
+    flex-wrap: nowrap;
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 1380px) AND (max-height: 670px) {
+  .flavors-content.fav {
+    padding-top: 13rem;
+  }
+}
+
+@media (max-width: 1380px) AND (max-height: 650px) {
+  .fav .flavors-container.fav {
+    overflow-y: scroll;
+    max-height: 75%;
+    max-width: max-content;
+  }
+}
+
+@media (max-width: 1380px) AND (max-height: 600px) {
+  .fav .flavors-two-col {
+    height: 90%;
+    max-height: unset;
+  }
+
+  .fav .flavors-container {
+    min-width: 58%;
+    max-height: 95%;
+    min-height: unset;
+    left: 2.4rem;
+    top: 18rem;
+  }
+}
+
+@media (max-width: 1380px) AND (max-height: 560px) {
+  .cake-flav .flavors-two-col .flavors-container.cake-flavors {
+    width: 98%;
+  }
+
+  .cake-flav .flavors-two-col {
+    min-height: 100%;
+  }
+}
+
+@media (max-width: 1310px) AND (max-height: 800px) {
+  .fav .flavors-container {
+    min-width: 55%;
+  }
+}
+
+@media (max-width: 1300px) AND (max-height: 860px) {
+  .menu-options.baker,
+  .menu-options.baker.active-flavor {
+    min-height: max-content;
+    margin: 0 0 2.4rem 0;
+    padding: 0;
+  }
+  .fav .flavors-container {
+    max-width: 53%;
+  }
+}
+
+@media (max-width: 1280px) {
+  .cake-flav
+    .flavors-container.cake-flavors
+    .cake-info-container:first-of-type {
+    margin-left: 7.6rem;
+  }
+
+  .cake-flav .flavors-two-col .flavors-container.cake-flavors {
+    width: 100%;
+  }
+}
+
+@media (max-width: 1280px) AND (max-height: 1200px) {
+  .cake-flav
+    .flavors-container.cake-flavors
+    .cake-info-container:first-of-type {
+    margin-left: 0;
+  }
+}
+@media (max-width: 1280px) AND (max-height: 946px) {
+  .cake-flav .flavors-two-col .flavors-container.cake-flavors {
+    width: 98%;
+  }
+}
+@media (max-width: 1280px) AND (max-height: 860px) {
+  .menu-options.baker {
+    font-size: 2.6rem;
+  }
+  .menu-options.baker.active-flavor {
+    font-size: 3.6rem;
+  }
+
+  .fav .flavors-container {
+    max-width: 50%;
+  }
+}
+
+@media (max-width: 1250px) AND (max-height: 1294px) {
+  .menu-options.baker {
+    font-size: 2.5rem;
+  }
+
+  .menu-options.baker.active-flavor {
+    font-size: 3.2rem;
+  }
+}
+
+@media (max-width: 1220px) AND (max-height: 800px) {
+  .fav .flavors-container {
+    min-width: 51%;
+    max-height: 95%;
+    min-height: unset;
+    left: 2.4rem;
+    top: 18rem;
+  }
+
+  .menu-options.baker {
+    font-size: 2.9rem;
+  }
+
+  .menu-options.baker.active-flavor {
+    font-size: 3.2rem;
+  }
+}
+
+@media (max-width: 1180px) AND (max-height: 1294px) {
+  .menu-options.baker {
+    font-size: 2.3rem;
+  }
+
+  .menu-options.baker.active-flavor {
+    font-size: 2.9rem;
+  }
+}
+@media (max-width: 1180px) AND (max-height: 860px) {
+  .fav .flavors-container {
+    max-width: 48%;
+  }
+}
+
+@media (max-width: 1140px) AND (max-height: 1294px) {
+  .flavors-content.fav {
+    flex-direction: row;
+  }
+  .menu-options.baker {
+    font-size: 2.8rem;
+  }
+
+  .menu-options.baker.active-flavor {
+    font-size: 3.6rem;
+  }
+  .fillings .cake-info-container .title {
+    font-size: 3.2rem;
+  }
+  .menu-options.buttercream {
+    font-size: 3.9rem;
+  }
+  .fillings .cake-info-container {
+    width: max-content;
+  }
+  .cake-flavors .cake-info-container {
+    margin-left: 0rem;
+  }
+
+  .cake-flav
+    .flavors-container.cake-flavors
+    .cake-info-container:first-of-type {
+    margin-left: 0;
+  }
+  .fav .flavors-two-col {
+    margin-top: 0;
+    height: 95%;
+  }
+  .fav .flavors-two-col .flavors-container {
+    margin-top: 42.4rem;
+    /* margin-left: 6rem; */
+    max-width: unset;
+    overflow-y: scroll;
+  }
+
+  .flavors-two-col .flavors-container.cake-flavors {
+    margin-top: 2.4rem;
+    margin-left: 0;
+  }
+  .fav .flavors-two-col {
+    width: 100%;
+    max-width: unset;
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 1140px) AND (max-height: 1245px) {
+  .fav .flavors-two-col {
+    max-height: 90%;
+    margin-top: 0;
+    max-width: 100%;
+  }
+  .menu-options.baker,
+  .menu-options.baker.active-flavor {
+    min-height: max-content;
+    min-width: 100%;
+    padding: 0 0 1.8rem 0;
+  }
+}
+
+@media (max-width: 1140px) AND (max-height: 1150px) {
+  .flavors-content.fav {
+    flex-direction: row;
+  }
+
+  .flavors-two-col .flavors-container {
+    margin-top: 36rem;
+    max-width: unset;
+  }
+}
+
+@media (max-width: 1140px) AND (max-height: 1120px) {
+  .fav .flavors-two-col .flavors-container {
+    margin-top: 36rem;
+    margin-left: 6rem;
+  }
+}
+
+@media (max-width: 1140px) AND (max-height: 900px) {
+  .flavors-content.fav {
+    flex-direction: column;
+  }
+  .fav .flavors-two-col {
+    position: unset;
+  }
+  .fav .flavors-two-col .flavors-container {
+    max-height: 58%;
+    max-width: 45%;
+    margin: 2.4rem 0 0 0;
+  }
+
+  .menu-options.baker {
+    font-size: 2.6rem;
+  }
+  .menu-options.baker.active-flavor {
+    font-size: 2.9rem;
+  }
+}
+
+@media (max-width: 1140px) AND (max-height: 840px) {
+  .flavors-content.fav {
+    flex-direction: column;
+  }
+
+  .fav .flavors-two-col {
+    min-width: 100%;
+  }
+
+  .fav .flavors-container {
+    margin: 0;
+    max-width: 48%;
+    overflow-y: scroll;
+    max-height: 43vh;
+  }
+
+  .menu-options.baker {
+    align-self: unset;
+    font-size: 2.4rem;
+  }
+
+  .menu-options.baker.active-flavor {
+    font-size: 2.9rem;
+  }
+}
+
+@media (max-width: 1140px) AND (max-height: 800px) {
+  .fav .flavors-container {
+    max-width: 50%;
+    min-width: unset;
+    min-height: 100%;
+  }
+
+  .fav .flavors-two-col {
+    min-height: 100%;
+  }
+}
+
+@media (max-width: 1140px) AND (max-height: 720px) {
+  .fav .flavors-container {
+    position: unset;
+    min-width: 51%;
+    max-height: 100%;
+    min-height: unset;
+    left: 2.4rem;
+    top: 18rem;
+  }
+}
+
+@media (max-width: 1140px) AND (max-height: 710px) {
+  .fav .flavors-container {
+    top: 0;
+    left: 58rem;
+  }
+}
+
+@media (max-width: 1140px) AND (max-height: 660px) {
+  .fav .flavors-container {
+    left: 52rem;
+    max-height: 93%;
+  }
+
+  .menu-options.baker,
+  .menu-options.baker.active-flavor {
+    min-height: max-content;
+    margin: 0;
+    padding: 0;
+    margin-bottom: 2.4rem;
+  }
+}
+
+@media (max-width: 1140px) AND (max-height: 580px) {
+  .fav .flavors-container {
+    top: -15rem;
+    left: 45rem;
+    max-height: 90%;
+  }
+}
+@media (max-width: 1100px) AND (max-height: 900px) {
+  .flavors-two-col .flavors-container {
+    width: 53rem;
+    max-height: 62%;
+  }
+  .flavors-box--favs {
+    min-width: max-content;
+    max-width: max-content;
+    width: 100%;
+  }
+  .menu-options.baker,
+  .menu-options.baker.active-flavor {
+    padding-right: 4.8rem;
+  }
+}
+@media (max-width: 1080px) AND (max-height: 1294px) {
+  .flavors-two-col .flavors-container {
+    margin: 40rem 0 0 4.6rem;
+  }
+}
+
+@media (max-width: 1080px) AND (max-height: 900px) {
+  .flavors-two-col .flavors-container {
+    margin: 0;
+    max-width: 100%;
+    min-width: unset;
+  }
+}
+
+@media (max-width: 1070px) AND (max-height: 900px) {
+  .flavors-two-col .flavors-container {
+    width: 50rem;
+  }
+  .flavors-box--favs {
+    flex-wrap: wrap;
+    min-width: unset;
+  }
+
+  .menu-options.baker,
+  .menu-options.baker.active-flavor {
+    padding-right: 4.8rem;
+  }
+}
+
+@media (max-width: 1040px) AND (max-height: 900px) {
+  .flavors-two-col .flavors-container {
+    width: 46rem;
+  }
+}
+
+@media (max-width: 1020px) {
+  .flavors-two-col .flavors-container {
+    margin: 35rem 0 0 7.4rem;
+  }
+}
+
+@media (max-width: 1020px) AND (max-height: 1150px) {
+  .flavors-two-col .flavors-container {
+    margin: 35rem 0 0 0rem;
+  }
+}
+
+@media (max-width: 1020px) AND (max-height: 900px) {
+  .flavors-two-col .flavors-container {
+    margin: 0;
+  }
+}
+
+@media (max-width: 990px) AND (max-height: 1294px) {
+  .fillings .cake-info-container {
+    padding-right: 4.8rem;
+  }
+
+  .fillings .cake-info-container .title {
+    font-size: 2.9rem;
+  }
+  .menu-options.buttercream {
+    font-size: 3.6rem;
+  }
+}
+
+@media (max-width: 990px) AND (max-height: 900px) {
+  .flavors-two-col .flavors-container {
+    max-height: 80%;
+  }
+}
+
+@media (max-width: 940px) AND (max-height: 1294px) {
+  .fav .flavors-two-col .flavors-container {
+    margin-top: 28rem;
+    margin-left: 3rem;
+  }
+}
+
+@media (max-width: 940px) AND (max-height: 1150px) {
+  .fav .flavors-two-col .flavors-container {
+    margin-top: 28rem;
+    margin-left: 4rem;
+  }
+}
+
+@media (max-width: 940px) AND (max-height: 900px) {
+  .fav .flavors-two-col {
+    height: 75%;
+  }
+
+  .fav .flavors-two-col .flavors-container {
+    margin: 2.4rem 0 0 0;
+    max-height: unset;
+  }
+}
+
+@media (max-width: 920px) {
+  .flavors-two-col .flavors-container {
+    margin: 30rem 0 0 7.4rem;
+  }
+}
+
+@media (max-width: 920px) AND (max-height: 1150px) {
+  .fav .flavors-two-col {
+    max-width: 100%;
+  }
+
+  .flavors-two-col .flavors-container {
+    margin: 30rem 0 0 4rem;
+    min-width: unset;
+    width: 91%;
+  }
+}
+
+@media (max-width: 920px) AND (max-height: 900px) {
+  .flavors-two-col .flavors-container {
+    margin: 0;
+    min-width: unset;
+    max-width: unset;
+    width: 44rem;
+  }
+}
+
+@media (max-width: 920px) AND (max-height: 800px) {
+  .flavors-two-col .flavors-container {
+    margin-top: 0rem;
+  }
+  .fav .flavors-two-col {
+    margin-top: 0rem;
+  }
+}
+
+@media (max-width: 915px) AND (max-height: 1294px) {
+  .menu-options.flavor {
+    font-size: 3.9rem;
+  }
+  .cake-info-container .title {
+    font-size: 3.6rem;
+  }
+}
+
+@media (max-width: 880px) AND (max-height: 800px) {
+  .fav .flavors-two-col .flavors-container {
+    max-width: 47%;
+  }
+  .fav .flavors-two-col {
+    margin-top: 0rem;
+  }
+}
+
+@media (max-width: 870px) AND (max-height: 1294px) {
+  .fillings .cake-info-container {
+    padding-right: 4.8rem;
+  }
+
+  .fillings .cake-info-container .title {
+    font-size: 4.1rem;
+  }
+
+  .fillings .cake-info-container:not(:first-of-type) .title {
+    padding-top: 7.2rem;
+  }
+  .menu-options.buttercream {
+    font-size: 4.6rem;
+  }
+}
+
+@media (max-width: 860px) AND (max-height: 1294px) {
+  .fav .flavors-two-col .flavors-container {
+    margin: 4.8rem 0 0 0;
+    overflow-y: scroll;
+    height: 100%;
+  }
+}
+
+@media (max-width: 860px) AND (max-height: 900px) {
+  .flavors-content.fav {
+    flex-direction: column;
+  }
+  .fav .flavors-two-col {
+    max-height: 75%;
+  }
+
+  .fav .flavors-two-col .flavors-container {
+    max-height: 100%;
+  }
+}
+
+@media (max-width: 848px) {
+  .flavors-two-col .flavors-container {
+    margin: 22rem 0 0 7.2rem;
+  }
+}
+
+@media (max-width: 848px) AND (max-height: 900px) {
+  .flavors-two-col .flavors-container {
+    margin: 1.2rem 0 0 0;
+    height: 78%;
+  }
+}
+
+@media (max-width: 830px) AND (max-height: 900px) {
+  .fav .flavors-two-col {
+    max-width: 100%;
+    min-height: unset;
+    max-height: unset;
+  }
+  .fav .flavors-two-col .flavors-container {
+    min-width: unset;
+    max-width: 50%;
+    height: 100%;
+  }
+}
+
+@media (max-width: 830px) AND (max-height: 800px) {
+  .flavors-two-col .flavors-container {
+    margin-top: 0rem;
+  }
+  .fav .flavors-two-col {
+    margin-top: 0rem;
+  }
+}
+
+@media (max-width: 825px) AND (max-height: 1294px) {
+  .flavors-container.cake-flavors .cake-info-container:not(:first-child) {
+    padding-top: 4.8rem;
+  }
+
+  .flavors-two-col .flavors-container.cake-flavors {
+    min-width: 100%;
+  }
+}
+
+@media (max-width: 820px) {
+  .flavors-two-col .flavors-container {
+    margin: 20rem 0 0 6.8rem;
+  }
+}
+
+@media (max-width: 820px) AND (max-height: 900px) {
+  .flavors-two-col .flavors-container {
+    margin: 1.2rem 0 0 0;
+  }
+}
+
+@media (max-width: 780px) {
+  .flavors-two-col .flavors-container {
+    margin: 20rem 0 0 4.8rem;
+  }
+}
+
+@media (max-width: 780px) AND (max-height: 900px) {
+  .flavors-two-col .flavors-container {
+    margin: 0;
+  }
+}
+
+@media (max-width: 750px) AND (max-height: 1294px) {
+  .flavors-content.fav {
+    flex-direction: column;
+  }
+
+  .fav .flavors-two-col {
+    height: 85%;
+  }
+  .fav .flavors-two-col .flavors-container {
+    height: 100%;
+    overflow-y: scroll;
+    margin: 2.4rem 0 0 0;
+  }
+}
+
+@media (max-width: 750px) AND (max-height: 1250px) {
+  .flavors-two-col .flavors-container {
+    margin-top: 4.8rem;
+  }
+
+  .menu-options.baker {
+    padding: 0 1.8rem 1.8rem 0;
+    min-width: 100%;
+  }
+
+  .fav .flavors-two-col {
+    margin-top: 0;
+  }
+
+  .menu-options.baker:last-child {
+    padding-bottom: 0;
+  }
+}
+
+@media (max-width: 750px) AND (max-height: 1180px) {
+  .flavors-content.fav {
+    flex-direction: row;
+  }
+}
+
+@media (max-width: 750px) AND (max-height: 1170px) {
+  .fav .flavors-two-col {
+    position: relative;
+  }
+}
+
+@media (max-width: 750px) AND (max-height: 1150px) {
+  .fav .flavors-two-col {
+    height: 100%;
+    max-height: unset;
+  }
+  .fav .flavors-two-col .flavors-container {
+    width: 98%;
+  }
+}
+
+@media (max-width: 750px) AND (max-height: 1120px) {
+  .flavors-content.fav {
+    min-width: 100%;
+  }
+}
+
+@media (max-width: 750px) AND (max-height: 1100px) {
+  .flavors-content.fav {
+    padding-right: 2.4rem;
+  }
+
+  .fav .flavors-two-col .flavors-container {
+    height: 100%;
+    /* margin-top: 42rem; */
+  }
+}
+
+@media (max-width: 750px) AND (max-height: 960px) {
+  .flavors-two-col .flavors-container {
+    width: 100%;
+  }
+}
+
+@media (max-width: 750px) AND (max-height: 900px) {
+  .fav .flavors-two-col .flavors-container {
+    width: 100%;
+    max-width: unset;
+    max-height: 100%;
+    min-height: unset;
+    margin-top: 38rem;
+  }
+}
+
+@media (max-width: 750px) AND (max-height: 860px) {
+  .fav .flavors-two-col {
+    /* position: relative; */
+    min-height: unset;
+    max-height: unset;
+    height: 100%;
+  }
+  .flavors-content.fav {
+    flex-direction: column;
+  }
+  .menu-options.baker {
+    padding: 0 0 1.8rem 0;
+    margin: 0;
+  }
+
+  .menu-options.baker.active-flavor {
+    margin: 0;
+    padding: 0 0 1.8rem 0;
+  }
+}
+@media (max-width: 750px) AND (max-height: 800px) {
+  .fav .flavors-two-col {
+    flex-direction: row;
+  }
+
+  .fav .flavors-two-col .flavors-container {
+    width: 100%;
+    margin: 0;
+  }
+}
+
+@media (max-width: 720px) AND (max-height: 1294px) {
+  .menu-options.baker {
+    font-size: 2.5rem;
+  }
+
+  .menu-options.baker.active-flavor {
+    font-size: 3.1rem;
+  }
+}
+
+@media (max-width: 680px) AND (max-height: 1100px) {
+  .fav .flavors-two-col .flavors-container {
+    margin-top: 4.8rem;
+  }
+}
+
+@media (max-width: 620px) AND (max-height: 1294px) {
+  .flavors-content.fav {
+    padding: 15rem 2.4rem 10.4rem 2.4rem;
+  }
+  .flavors-two-col .flavors-container {
+    max-height: unset;
+    min-height: unset;
+    height: max-content;
+  }
+}
+
+@media (max-width: 620px) AND (max-height: 1100px) {
+  .flavors-two-col .flavors-container {
+    margin: 20rem 0 0 0;
+  }
+}
+
+@media (max-width: 620px) AND (max-height: 1000px) {
+  .flavors-two-col .flavors-container {
+    margin: 3.6rem 0 0 0;
+  }
+}
+
+@media (max-width: 620px) AND (max-height: 900px) {
+  .flavors-content.fav {
+    padding: 16rem 2.4rem 10.4rem 2.4rem;
+  }
+
+  .fav .flavors-two-col {
+    margin: 0;
+    padding: 0;
+  }
+
+  .flavors-two-col .flavors-container {
+    width: 100%;
+    margin: 4.8rem 0 0 0;
+    min-height: 31%;
+  }
+}
+
+@media (max-width: 620px) AND (max-height: 860px) {
+  .fav .flavors-two-col {
+    height: 100%;
+  }
+  .fav .flavors-two-col .flavors-container {
+    min-width: 98%;
+  }
+
+  .menu-options.baker,
+  .menu-options.baker.active-flavor {
+    margin: 0 0 1.2rem 0;
+    padding: 0;
+  }
+}
+
+@media (max-width: 620px) AND (max-height: 820px) {
+  .flavors-two-col .flavors-container {
+    height: 42%;
+  }
+}
+
+@media (max-width: 620px) AND (max-height: 800px) {
+  .flavors-two-col .flavors-container {
+    height: 38%;
+  }
+}
+
+@media (max-width: 620px) AND (max-height: 740px) {
+  .flavors-two-col .flavors-container {
+    height: 35%;
+  }
+}
+
+@media (max-width: 620px) AND (max-height: 710px) {
+  .flavors-two-col .flavors-container {
+    height: 32%;
+  }
+}
+
+@media (max-width: 620px) AND (max-height: 670px) {
+  .flavors-two-col .flavors-container {
+    height: 32%;
+    margin-top: 3.6rem;
+  }
+}
+
+@media (max-width: 620px) AND (max-height: 640px) {
+  .flavors-two-col .flavors-container {
+    height: 28%;
+  }
+}
+
+@media (max-width: 620px) AND (max-height: 610px) {
+  .flavors-two-col .flavors-container {
+    height: 24%;
+  }
+}
+
+@media (max-width: 600px) AND (max-height: 1180px) {
+  .flavors-content.fav {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 600px) AND (max-height: 1150px) {
+  .fav .flavors-two-col {
+    height: 85%;
+  }
+}
+
+@media (max-width: 600px) AND (max-height: 900px) {
+  .fav .flavors-two-col {
+    height: 80%;
+  }
+}
+
+@media (max-width: 600px) AND (max-height: 860px) {
+  .fav .flavors-two-col {
+    height: 100%;
+  }
+}
+
+@media (max-width: 600px) AND (max-height: 800px) {
+  .fav .flavors-two-col {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 590px) AND (max-height: 1294px) {
+  .menu-options.baker {
+    font-size: 2.3rem;
+  }
+
+  .menu-options.baker.active-flavor {
+    font-size: 2.9rem;
+  }
+}
+
+@media (max-width: 580px) AND (max-height: 1294px) {
+  .fillings .cake-info-container {
+    padding-right: 2.4rem;
+  }
+}
+
+@media (max-width: 550px) AND (max-height: 1294px) {
+  .fillings .cake-info-container .title {
+    font-size: 3.6rem;
+  }
+
+  .menu-options.buttercream {
+    font-size: 4.1rem;
+  }
+
+  .fillings .cake-info-container:not(:first-of-type) .title {
+    padding-top: 4.8rem;
+  }
+}
+
+@media (max-width: 540px) AND (max-height: 900px) {
+  .flavors-two-col .flavors-container {
+    min-height: 37%;
+  }
+}
+
+@media (max-width: 490px) AND (max-height: 1294px) {
+  .fillings .cake-info-container .title {
+    font-size: 3.2rem;
+  }
+
+  .menu-options.buttercream {
+    font-size: 3.9rem;
+  }
+}
+
+@media (max-width: 490px) AND (max-height: 900px) {
+  .flavors-two-col .flavors-container {
+    min-height: 43%;
+  }
+}
+
+@media (max-height: 480px) {
+  .flavors-content {
+    padding-top: 16rem;
+  }
+}
+
+@media (max-width: 460px) AND (max-height: 1180px) {
+  .flavors-content.fav {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 460px) AND (max-height: 1150px) {
+  .fav .flavors-two-col {
+    height: 83%;
+  }
+}
+@media (max-width: 460px) AND (max-height: 900px) {
+  .fav .flavors-two-col {
+    height: 78%;
+  }
+}
+
+@media (max-width: 460px) AND (max-height: 860px) {
+  .fav .flavors-two-col {
+    height: 95%;
+  }
+}
+
+@media (max-width: 460px) AND (max-height: 800px) {
+  .fav .flavors-two-col {
+    flex-direction: column;
+  }
+}
+@media (max-width: 450px) AND (max-height: 1294px) {
+  .menu-options.flavor {
+    font-size: 3.6rem;
+  }
+  .cake-info-container .title {
+    font-size: 2.9rem;
+  }
+}
+
+@media (max-width: 440px) AND (max-height: 1294px) {
+  .fillings .cake-info-container .title {
+    font-size: 2.9rem;
+  }
+
+  .menu-options.buttercream {
+    font-size: 3.6rem;
+  }
+
+  .fillings .cake-info-container:not(:first-of-type) .title {
+    padding-top: 2.4rem;
+  }
+}
+
+@media (max-width: 430px) AND (max-height: 1294px) {
+  .fillings .cake-info-container .title {
+    font-size: 2.4rem;
+  }
+
+  .menu-options.buttercream {
+    font-size: 3.2rem;
+  }
+}
+
+@media (max-width: 430px) AND (max-height: 900px) {
+  .flavors-two-col .flavors-container {
+    min-height: 50%;
+  }
+}
+
+@media (max-width: 395px) AND (max-height: 1294px) {
+  .menu-options.flavor {
+    font-size: 2.9rem;
+  }
+  .cake-info-container .title {
+    font-size: 2.3rem;
+  }
+}
+
+@media (max-width: 380px) AND (max-height: 1294px) {
+  .menu-options.baker {
+    font-size: 2rem;
+  }
+
+  .menu-options.baker.active-flavor {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 380px) AND (max-height: 900px) {
+  .flavors-two-col .flavors-container {
+    min-height: 62%;
+  }
+}
+
+@media (max-width: 320px) AND (max-height: 1180px) {
+  .flavors-content.fav {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 320px) AND (max-height: 1150px) {
+  .fav .flavors-two-col {
+    height: 85%;
+  }
+}
+
+@media (max-width: 320px) AND (max-height: 1145px) {
+  .fav .flavors-two-col .flavors-container {
+    min-width: unset;
+    width: 100%;
+    max-height: 100%;
+    min-height: 20%;
+  }
+}
+
+@media (max-width: 320px) AND (max-height: 1100px) {
+  .fav .flavors-two-col .flavors-container {
+    margin: 4.8rem 0 0 0;
+  }
+}
+
+@media (max-width: 320px) AND (max-height: 950px) {
+  .fav .flavors-two-col {
+    height: 80%;
+  }
+}
+
+@media (max-width: 320px) AND (max-height: 900px) {
+  .fav .flavors-two-col .flavors-container {
+    max-width: unset;
+    width: 100%;
+  }
+}
+
+@media (max-width: 320px) AND (max-height: 860px) {
+  .fav .flavors-two-col {
+    position: relative;
+  }
+
+  .fav .flavors-two-col {
+    height: 100%;
+  }
+}
+
+@media (max-width: 320px) AND (max-height: 840px) {
+  .menu-options.baker {
+    font-size: 2rem;
+  }
+
+  .menu-options.baker.active-flavor {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 320px) AND (max-height: 800px) {
+  .fav .flavors-two-col {
+    flex-direction: column;
+  }
+  .menu-options.baker {
+    font-size: 2rem;
+  }
+
+  .menu-options.baker.active-flavor {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 320px) AND (max-height: 730px) {
+  .fillings .flavors-container {
+    margin-top: 0;
+  }
+}
+
+@media (max-width: 320px) AND (max-height: 670px) {
+  .flavors-content.fav {
+    padding: 14rem 2.4rem 10.4rem 2.4rem;
+  }
+}
+
+@media (max-width: 320px) AND (max-height: 600px) {
+  .fav .flavors-two-col .flavors-container {
+    margin: 1.8rem 0 0 0;
+  }
+}
