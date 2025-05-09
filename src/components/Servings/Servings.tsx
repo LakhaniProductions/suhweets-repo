@@ -13,8 +13,12 @@ import Loader from "../Loader/Loader";
 import useWindowDimensions from "../../hooks/useWindowDimensions";
 
 const Servings = (props: ServingsProps) => {
+  const context = useContext(GalleryImgLoadContext);
+  if (!context) {
+    return;
+  }
   const { width } = useWindowDimensions();
-  const { showLoadingGif } = useContext(GalleryImgLoadContext);
+  const { showLoadingGif } = context;
 
   const menu = ["1 tier", "2 tier", "3 tier", "4 tier", "5 tier"];
   const [html, setHTML] = useState("1-tier");

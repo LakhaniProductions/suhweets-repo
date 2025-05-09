@@ -1,4 +1,7 @@
+import { Dispatch, SetStateAction } from "react";
+
 export interface GalleryNavProps {
   customGalleryOpt: string;
-  setCustomGalleryOpt: React.Dispatch<React.SetStateAction<string>>;
+  setCustomGalleryOpt: Dispatch<SetStateAction<string>>;
+  setActiveThumbnail: Dispatch<SetStateAction<number | undefined>>;
 }

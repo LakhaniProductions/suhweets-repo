@@ -7,7 +7,7 @@ const Dropdown = (props: DropdownProps) => {
 
   const optionLiRefs = useRef<any>([]);
   const [toggleMenu, setToggleMenu] = useState<boolean>(false);
-  const [sizeTopVal, setSizeTopVal] = useState<any>();
+
   const [ddClass, setDdClass] = useState<string>("");
 
   const getDropdownTopValue = useCallback(() => {
@@ -119,7 +119,7 @@ const Dropdown = (props: DropdownProps) => {
         marginBuffer = 82 - props.formCoords.y;
       }
     }
-    topValue = timeSelectRef.bottom - formMargin! - marginBuffer;
+    topValue = timeSelectRef.bottom - formMargin! - marginBuffer!;
     return topValue;
   }, [props.selectRef.current, props.formCoords.y, width, height]);
 
@@ -151,25 +151,11 @@ const Dropdown = (props: DropdownProps) => {
     };
   }, []);
 
-  useEffect(() => {
-    props.selectRef.current &&
-      setSizeTopVal(
-        props.selectRef.current.getBoundingClientRect().top -
-          props.selectRef.current.getBoundingClientRect().height -
-          5
-      );
-  }, [toggleMenu, props.selectRef]);
-
   useEffect(() => {}, [props.isError]);
 
   useEffect(() => {
     const ceilingTop = props.ceilingRef.current?.getBoundingClientRect().top;
     const ddTop = props.dDwnRef.current?.getBoundingClientRect().top;
-    setSizeTopVal(
-      props.selectRef.current.getBoundingClientRect().top -
-        props.selectRef.current.getBoundingClientRect().height -
-        5
-    );
 
     if (ceilingTop && ddTop <= ceilingTop) {
       toggleMenu && setToggleMenu(!toggleMenu);

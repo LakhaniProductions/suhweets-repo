@@ -5,10 +5,13 @@ import useWindowDimensions from "../../hooks/useWindowDimensions";
 import { useLocation } from "react-router-dom";
 
 const PageNav = (props: PageNavProps) => {
+  const context = useContext(GalleryImgLoadContext);
+  if (!context) {
+    return;
+  }
   const { width } = useWindowDimensions();
   const location = useLocation();
-  const { setShowLoadingGif, setShowLoadingFlavorGif, setAllGalleryImagesArr } =
-    useContext(GalleryImgLoadContext);
+  const { setShowLoadingFlavorGif, setAllGalleryImagesArr } = context;
   const [active, setActive] = useState("0");
 
   const handleClick = (e: SyntheticEvent) => {

@@ -1,11 +1,13 @@
 import { useContext, useEffect, useState } from "react";
 import { servingCardsProp } from "./ServingCards.type";
 import { GalleryImgLoadContext } from "../../context/GalleryImgLoadContext";
-import useWindowDimensions from "../../hooks/useWindowDimensions";
 
 const ServingCards = (props: servingCardsProp) => {
-  const { setShowLoadingGif, allGalleryImagesArr, setAllGalleryImagesArr } =
-    useContext(GalleryImgLoadContext);
+  const context = useContext(GalleryImgLoadContext);
+  if (!context) {
+    return;
+  }
+  const { setAllGalleryImagesArr } = context;
   const servingImages = Object.values(
     import.meta.glob("../../img/servingssizes/*.{png,jpg,jpeg,PNG,JPEG}", {
       eager: true,

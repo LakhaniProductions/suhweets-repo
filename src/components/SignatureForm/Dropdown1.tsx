@@ -5,14 +5,13 @@ import useWindowDimensions from "../../hooks/useWindowDimensions";
 const Dropdown1 = (props: DropdownProps1) => {
   const { width, height } = useWindowDimensions();
   const [ddHeight, setDdHeight] = useState(0);
-  const [formIsScrolled, setFormIsScrolled] = useState(false);
 
   const getDropdownTopValue = useCallback(
     (i: number) => {
       const flavSelectRef =
+        props.selectRefs &&
         props.selectRefs.current[i]?.getBoundingClientRect();
       if (!flavSelectRef) return 0;
-      // if (!props.formCoords.y) return 0;
       let marginBuffer;
       let formMargin;
       let topValue;
@@ -117,11 +116,11 @@ const Dropdown1 = (props: DropdownProps1) => {
           marginBuffer = 82 - props.formCoords.y;
         }
       }
-      topValue = flavSelectRef.bottom - formMargin! - marginBuffer;
+      topValue = flavSelectRef.bottom - formMargin! - marginBuffer!;
       return topValue;
     },
     [
-      props.selectRefs.current[props.index],
+      props.selectRefs!.current[props.index],
       props.formCoords.y,
       props.index,
       width,
@@ -133,7 +132,15 @@ const Dropdown1 = (props: DropdownProps1) => {
     if (!props.cakeDetails.length) {
       // If no cake details exist, add the first item
       props.setCakeDetails(
-        (prevState: Array<Record<string, string | number> | null>) => [
+        (
+          prevState: Array<{
+            inscription?: string | undefined | any;
+            index: number;
+            flavor?: string | Array<string> | undefined | any;
+            size?: string | undefined | any;
+            quantity?: string | undefined | any;
+          }>
+        ) => [
           ...prevState,
           props.ddClass === "sig-flavor" || props.ddClass === "cc-flavor"
             ? { index: props.index, flavor: option }
@@ -219,11 +226,21 @@ const Dropdown1 = (props: DropdownProps1) => {
   };
 
   useEffect(() => {
-    const closeDDFunc = (side: keyof DOMRect) => {
-      const formPanelSide =
-        props.formPanelRef.current?.getBoundingClientRect()[side];
-      const ddTop =
-        props.ddRefs.current[props.index]?.getBoundingClientRect().top;
+    type RectSide =
+      | "top"
+      | "bottom"
+      | "left"
+      | "right"
+      | "width"
+      | "height"
+      | "x"
+      | "y";
+
+    const closeDDFunc = (side: RectSide) => {
+      const formPanelSide: number =
+        props.formPanelRef.current!.getBoundingClientRect()[side];
+      const ddTop: number =
+        props.ddRefs.current[props.index]!.getBoundingClientRect().top;
       if (side === "top") {
         if (ddTop && formPanelSide && ddTop <= formPanelSide) {
           props.setMenuToggle(null);
@@ -238,22 +255,7 @@ const Dropdown1 = (props: DropdownProps1) => {
     closeDDFunc("top");
     // close dropdown when ddtop is out of bottom view
     closeDDFunc("bottom");
-
-    // props.formCoords.y && props.formCoords.y > 0
-    //   ? setFormIsScrolled(true)
-    //   : setFormIsScrolled(false);
-  }, [
-    props.formCoords,
-    props.formPanelRef.current?.getBoundingClientRect().bottom,
-    props.formPanelRef.current?.getBoundingClientRect().top
-  ]);
-
-  // useEffect(() => {
-  //   props.menuToggle === props.index &&
-  //     formIsScrolled &&
-  //     props.setMenuToggle(null);
-  //   setFormIsScrolled(false);
-  // }, [formIsScrolled]);
+  }, [props.formCoords]);
 
   useEffect(() => {
     const handleResize = () => {
@@ -307,7 +309,7 @@ const Dropdown1 = (props: DropdownProps1) => {
           !props.ddRefs.current[props.menuToggle]?.contains(
             event.target as Element
           ) &&
-          !props.selectRefs.current[props.menuToggle]?.contains(
+          !props.selectRefs!.current[props.menuToggle]?.contains(
             event.target as Element
           )
         ) {
@@ -340,15 +342,9 @@ const Dropdown1 = (props: DropdownProps1) => {
       style={{
         top: getDropdownTopValue(props.index),
         width: `${
-          props.selectRefs.current[props.index]?.getBoundingClientRect().width
+          props.selectRefs!.current[props.index]?.getBoundingClientRect().width
         }px`,
-        ...(ddHeight !== 0 && { height: `${ddHeight}px` }),
-        left: props.isRightSide
-          ? `${
-              props.selectRefs?.current[props.index]?.getBoundingClientRect()
-                .left - 50
-            }px`
-          : ""
+        ...(ddHeight !== 0 && { height: `${ddHeight}px` })
       }}
       ref={(el) => {
         props.ddRefs.current[props.index] = el;

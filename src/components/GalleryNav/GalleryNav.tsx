@@ -1,4 +1,4 @@
-import React, { useCallback, useContext, useEffect, useState } from "react";
+import React, { useCallback, useContext, useState } from "react";
 import { GalleryNavProps } from "./GalleryNav.types";
 import "../MainNav/mainnav.css";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
@@ -6,10 +6,12 @@ import { GalleryImgLoadContext } from "../../context/GalleryImgLoadContext";
 import useWindowDimensions from "../../hooks/useWindowDimensions";
 
 const GalleryNav = (props: GalleryNavProps) => {
-  const { selectedMenuItem: menuFromUrl, activeThumbnail: thumbnailFromUrl } =
-    useParams();
-  const { setShowLoadingGif, allGalleryImagesArr, setAllGalleryImagesArr } =
-    useContext(GalleryImgLoadContext);
+  const context = useContext(GalleryImgLoadContext);
+  if (!context) {
+    return;
+  }
+  const { selectedMenuItem: menuFromUrl } = useParams();
+  const { setShowLoadingGif } = context;
 
   const { width, height } = useWindowDimensions();
   const navigate = useNavigate();
@@ -23,7 +25,9 @@ const GalleryNav = (props: GalleryNavProps) => {
   const galleryMenu = galleryLocation.pathname.includes("/custom-cakes")
     ? menus.custom
     : menus.wedding;
-  const [selectedMenuItem, setSelectedMenuItem] = useState<string>(menuFromUrl);
+  const [selectedMenuItem, setSelectedMenuItem] = useState<string>(
+    menuFromUrl ?? galleryMenu[0]
+  );
   const [activeIndex, setActiveIndex] = useState(
     galleryMenu.indexOf(selectedMenuItem)
   );

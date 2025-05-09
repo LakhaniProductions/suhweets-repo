@@ -1,10 +1,9 @@
-import React, { useCallback, useEffect, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import { CakeDetailsGroupProps } from "./CakeDetailsGroup.type";
 import SelectBtn from "./SelectBtn";
 import Dropdown1 from "./Dropdown1";
 
 const CakeDetailsGroup = (props: CakeDetailsGroupProps) => {
-  // const sizeSelectRefs = useRef<Array<any>>([]);
   const flavDDRefs = useRef<Array<HTMLElement | null>>([]);
   const sizeDDRefs = useRef<Array<HTMLElement | null>>([]);
   const flavOptionRefs = useRef<Array<HTMLElement | null>>([]);
@@ -98,7 +97,7 @@ const CakeDetailsGroup = (props: CakeDetailsGroupProps) => {
         </div>
       )}
       {showOrders &&
-        props.cakeOrderCountArr.map((instance, i) => (
+        props.cakeOrderCountArr.map((_, i) => (
           <React.Fragment key={props.cakeDetails[i]?.index || i}>
             {(props.cakeDetails?.length &&
               props.cakeDetails[i]?.flavor &&

@@ -10,6 +10,6 @@ export interface DropdownProps {
   setSelectedOption: React.Dispatch<React.SetStateAction<string>>;
   isError: boolean;
   errMsg: string;
-  formCoords: Record<string, number | undefined>;
+  formCoords: Record<string, number>;
   ceilingRef: RefObject<HTMLDivElement>;
 }

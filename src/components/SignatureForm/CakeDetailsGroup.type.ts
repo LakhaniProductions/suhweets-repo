@@ -1,5 +1,5 @@
 export interface CakeDetailsGroupProps {
-  formCoords: Record<string, number | undefined>;
+  formCoords: Record<string, number>;
   cakeOrderCountArr: Array<number>;
   setCakeOrderCountArr: React.Dispatch<React.SetStateAction<Array<number>>>;
   errObj: Array<Record<string, boolean>>;

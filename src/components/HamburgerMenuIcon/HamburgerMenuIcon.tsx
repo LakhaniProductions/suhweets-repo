@@ -1,4 +1,4 @@
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import MenuContext from "../../context/HamburgerMenuContext";
 import { HamburgerProps } from "./HamburgerProps.types";
 

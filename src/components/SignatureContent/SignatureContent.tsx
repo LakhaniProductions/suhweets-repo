@@ -1,20 +1,16 @@
-import React, {
-  SyntheticEvent,
-  useCallback,
-  useContext,
-  useEffect,
-  useState
-} from "react";
+import { useContext, useEffect, useState } from "react";
 import { SignatureContentProps } from "./SignatureContentProps.type";
 import TextPanel from "../TextPanel/TextPanel";
 import { GalleryImgLoadContext } from "../../context/GalleryImgLoadContext";
 import { useLocation } from "react-router-dom";
 
 const SignatureContent = (props: SignatureContentProps) => {
+  const context = useContext(GalleryImgLoadContext);
+  if (!context) {
+    return;
+  }
   const location = useLocation();
-  const {setShowLoadingFlavorGif } = useContext(
-    GalleryImgLoadContext
-  );
+  const { setShowLoadingFlavorGif } = context;
 
   const flavorImages = Object.values(
     import.meta.glob("../../img/cakeflavors/*.{png,jpg,jpeg,PNG,JPEG}", {

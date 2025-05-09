@@ -6,8 +6,11 @@ import { GalleryImgLoadContext } from "../../context/GalleryImgLoadContext";
 import useWindowDimensions from "../../hooks/useWindowDimensions";
 
 const PageButtons = () => {
-  const { setShowLoadingFlavorGif, setShowLoadingGif, setAllGalleryImagesArr } =
-    useContext(GalleryImgLoadContext);
+  const context = useContext(GalleryImgLoadContext);
+  if (!context) {
+    return;
+  }
+  const { setShowLoadingFlavorGif, setAllGalleryImagesArr } = context;
 
   const navigate = useNavigate();
   const { width } = useWindowDimensions();
@@ -15,7 +18,7 @@ const PageButtons = () => {
   const [forwardRoute, setForwardRoute] = useState<string>("/serving-sizes");
   const [forwardRouteText, setForwardRouteText] =
     useState<string>("view serving sizes");
-  const [backRoute, setBackRoute] = useState<string>("/");
+  // const [backRoute, setBackRoute] = useState<string>("/");
   const [backRouteText, setBackRouteText] = useState<string>("back");
   const [previousRoute, setPreviousRoute] = useState<string>("");
   const [secondaryClassName, setSecondaryClassName] = useState("");
@@ -29,7 +32,7 @@ const PageButtons = () => {
       location.pathname.includes("/custom-cakes")
     ) {
       setForwardRoute("/serving-sizes");
-      setBackRoute("/");
+      // setBackRoute("/");
 
       setSecondaryClassName("flavors");
     }
@@ -37,7 +40,7 @@ const PageButtons = () => {
     if (location.pathname.includes("/serving-sizes")) {
       setForwardRoute("/flavors");
       setForwardRouteText("explore our flavors");
-      setBackRoute(previousRoute);
+      // setBackRoute(previousRoute);
       setBackRouteText("gallery");
       setSecondaryClassName("serving-page");
     }
@@ -45,7 +48,7 @@ const PageButtons = () => {
     if (location.pathname.includes("/flavors")) {
       setForwardRoute("/contact-us");
       setForwardRouteText("request a quote");
-      setBackRoute(previousRoute);
+      // setBackRoute(previousRoute);
       setBackRouteText("servings");
       setSecondaryClassName("flavors");
     }
@@ -53,7 +56,7 @@ const PageButtons = () => {
     if (location.pathname.includes("/signature")) {
       setForwardRoute("/signature-form");
       setForwardRouteText("place an order");
-      setBackRoute("/");
+      // setBackRoute("/");
       setBackRouteText("home");
       setSecondaryClassName("flavors");
     }
@@ -61,7 +64,7 @@ const PageButtons = () => {
     if (location.pathname.includes("/cupcakes")) {
       setForwardRoute("/cupcake-form");
       setForwardRouteText("place an order");
-      setBackRoute("/");
+      // setBackRoute("/");
       setBackRouteText("home");
       setSecondaryClassName("flavors");
     }
