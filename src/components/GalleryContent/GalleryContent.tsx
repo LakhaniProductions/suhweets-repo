@@ -14,17 +14,20 @@ import allCakesData from "../../data/allGalleryCakesData";
 import useWindowDimensions from "../../hooks/useWindowDimensions";
 
 const GalleryContent = (props: GalleryContentProps) => {
+  const context = useContext(GalleryImgLoadContext);
+  if (!context) {
+    return;
+  }
   const { selectedMenuItem } = useParams();
   const { width, height } = useWindowDimensions();
-  const { setShowLoadingGif, allGalleryImagesArr, setAllGalleryImagesArr } =
-    useContext(GalleryImgLoadContext);
+  const { setShowLoadingGif, setAllGalleryImagesArr } = context;
   const location = useLocation();
   const [isGourmetPage, setIsGourmetPage] = useState<boolean>(false);
   const [weddingGalleryContent, setWeddingGalleryContent] = useState<
-    Record<string, string>[]
+    Record<string, string | number>[]
   >([]);
   const [customGalleryContent, setCustomGalleryContent] = useState<
-    Record<string, string>[]
+    Record<string, string | number>[]
   >([]);
   const [twoColLayout, setTwoColLayout] = useState(false);
   const [threeColLayout, setThreeColLayout] = useState(true);
@@ -91,10 +94,10 @@ const GalleryContent = (props: GalleryContentProps) => {
   const handleImageLoading = (e: SyntheticEvent) => {
     const target = e.target as HTMLImageElement;
 
-    setAllGalleryImagesArr((prevState: Record<string, any>[]) => [
-      ...prevState,
-      `${/[^/]*$/.exec(target.src)[0]}` // gets everything after the last "/" in target.src string
-    ]);
+    setAllGalleryImagesArr((prevState: string[]) => {
+      const match = /[^/]*$/.exec(target.src);
+      return match ? [...prevState, match[0]] : prevState;
+    });
   };
 
   useEffect(() => {
@@ -146,10 +149,12 @@ const GalleryContent = (props: GalleryContentProps) => {
       Object.keys(cakeObj).filter((key) => {
         if (key === "category") {
           if (cakeObj[key] === "wedding") {
-            setWeddingGalleryContent((prevState: Record<string, string>[]) => [
-              ...prevState,
-              cakeObj
-            ]);
+            setWeddingGalleryContent(
+              (prevState: Record<string, string | number>[]) => [
+                ...prevState,
+                cakeObj
+              ]
+            );
           }
           if (
             cakeObj[key] === "birthday" ||
@@ -157,33 +162,23 @@ const GalleryContent = (props: GalleryContentProps) => {
             cakeObj[key] === "fashion" ||
             cakeObj[key] === "food"
           ) {
-            setCustomGalleryContent((prevState: Record<string, string>[]) => [
-              ...prevState,
-              cakeObj
-            ]);
+            setCustomGalleryContent(
+              (prevState: Record<string, string | number>[]) => [
+                ...prevState,
+                cakeObj
+              ]
+            );
           }
         }
       })
     );
   }, []); // these values cannot be hardcoded, dervive from allcakesdata????
 
-  // useEffect(() => {
-  //   console.log(allCakesOnPage, "allcakesonpage");
-  //   console.log(cakeGalleryContent, "cakeGalleryContent");
-  //   if (allCakesOnPage && allGalleryImagesArr) {
-  //     if (
-  //       allCakesOnPage.length === allGalleryImagesArr.length &&
-  //       mainImgLoaded
-  //     ) {
-  //       setShowLoadingGif(false);
-  //     }
-  //   }
-  // }, [allCakesOnPage.length, allGalleryImagesArr.length, mainImgLoaded]);
   const [thumbImgsLoaded, setThumbImgsLoaded] = useState<Array<string>>([]);
 
   useEffect(() => {
     const loadedImgs = imgRefs.current.filter((img) => img && img.complete);
-    // console.log(loadedImgs);
+
     loadedImgs.forEach((img) =>
       setThumbImgsLoaded((prev) => {
         if (!prev.includes(img!.id.split("_")[0])) {
@@ -256,9 +251,9 @@ const GalleryContent = (props: GalleryContentProps) => {
     <>
       {uniqueCategoryArr.length && width > 1511 && !oneColLayout && (
         <TextPanel
-          h2={uniqueCategoryArr[props.activeThumbnail].subhead}
-          h1={uniqueCategoryArr[props.activeThumbnail].heading}
-          p={uniqueCategoryArr[props.activeThumbnail].p}
+          h2={uniqueCategoryArr[props.activeThumbnail!].subhead}
+          h1={uniqueCategoryArr[props.activeThumbnail!].heading}
+          p={uniqueCategoryArr[props.activeThumbnail!].p}
           widthClass={"gallery"}
           layout={twoColLayout}
         />
@@ -271,7 +266,7 @@ const GalleryContent = (props: GalleryContentProps) => {
           <TextPanel
             h2={""}
             h1={""}
-            p={uniqueCategoryArr[props.activeThumbnail].p}
+            p={uniqueCategoryArr[props.activeThumbnail!].p}
             widthClass={"gallery"}
             layout={twoColLayout}
           />
@@ -326,7 +321,7 @@ const GalleryContent = (props: GalleryContentProps) => {
               className={mainImgLoaded ? "" : "lazy-img"}
               style={{
                 backgroundImage: `url(${
-                  uniqueCategoryArr[props.activeThumbnail].lazyImg
+                  uniqueCategoryArr[props.activeThumbnail!].lazyImg
                 })`
               }}
             ></div>
@@ -337,8 +332,8 @@ const GalleryContent = (props: GalleryContentProps) => {
                 }}
                 src={
                   oneColLayout
-                    ? uniqueCategoryArr[props.activeThumbnail].mobileImg
-                    : uniqueCategoryArr[props.activeThumbnail].img
+                    ? uniqueCategoryArr[props.activeThumbnail!].mobileImg
+                    : uniqueCategoryArr[props.activeThumbnail!].img
                 }
                 alt=""
               />
@@ -348,8 +343,8 @@ const GalleryContent = (props: GalleryContentProps) => {
 
             {uniqueCategoryArr.length && twoColLayout && width <= 1511 && (
               <TextPanel
-                h2={uniqueCategoryArr[props.activeThumbnail].subhead}
-                h1={uniqueCategoryArr[props.activeThumbnail].heading}
+                h2={uniqueCategoryArr[props.activeThumbnail!].subhead}
+                h1={uniqueCategoryArr[props.activeThumbnail!].heading}
                 p={""}
                 widthClass={"gallery"}
                 layout={twoColLayout}

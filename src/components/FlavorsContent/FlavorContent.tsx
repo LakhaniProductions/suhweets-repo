@@ -1,4 +1,4 @@
-import React, {
+import {
   SyntheticEvent,
   useCallback,
   useContext,
@@ -11,8 +11,12 @@ import { GalleryImgLoadContext } from "../../context/GalleryImgLoadContext";
 import useWindowDimensions from "../../hooks/useWindowDimensions";
 
 const FlavorsContent = (props: FlavorsContentProps) => {
+  const context = useContext(GalleryImgLoadContext);
+  if (!context) {
+    return;
+  }
   const { width, height } = useWindowDimensions();
-  const { setShowLoadingFlavorGif } = useContext(GalleryImgLoadContext);
+  const { setShowLoadingFlavorGif } = context;
   const flavorImages = Object.values(
     import.meta.glob("../../img/cakeflavors/*.{png,jpg,jpeg,PNG,JPEG}", {
       eager: true,

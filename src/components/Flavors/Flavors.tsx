@@ -8,10 +8,13 @@ import PageNav from "../PageNav/PageNav";
 import "./flavors.css";
 import FlavorsContent from "../FlavorsContent/FlavorContent";
 import { GalleryImgLoadContext } from "../../context/GalleryImgLoadContext";
-import Loader from "../Loader/Loader";
 
 const Flavors = (props: FlavorsProps) => {
-  const { showLoadingFlavorGif } = useContext(GalleryImgLoadContext);
+  const context = useContext(GalleryImgLoadContext);
+  if (!context) {
+    return;
+  }
+  const { showLoadingFlavorGif } = context;
   const menu = ["baker's favorites", "cake flavors", "fillings"];
   const [html, setHTML] = useState("baker's-favorites");
   const [secClass, setSecClass] = useState("");

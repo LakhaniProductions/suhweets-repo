@@ -1,7 +1,7 @@
 import { CakeDetailsGroupProps } from "../SignatureForm/CakeDetailsGroup.type";
 import SelectBtn from "../SignatureForm/SelectBtn";
 import Dropdown1 from "../SignatureForm/Dropdown1";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 
 const CupcakeDetailsGroup = (props: CakeDetailsGroupProps) => {
   const flavDDRefs = useRef<Array<HTMLElement | null>>([]);
@@ -32,7 +32,9 @@ const CupcakeDetailsGroup = (props: CakeDetailsGroupProps) => {
 
   const removeCake = (i: number) => {
     if (
-      confirm("Are you sure you'd like to remove this cake from your order?")
+      confirm(
+        "Are you sure you would like to remove this cake from your order?"
+      )
     ) {
       props.setCakeDetails((prevState) => {
         return prevState
@@ -95,7 +97,7 @@ const CupcakeDetailsGroup = (props: CakeDetailsGroupProps) => {
         </div>
       )}
       {showOrders &&
-        props.cakeOrderCountArr.map((instance, i) => (
+        props.cakeOrderCountArr.map((_, i) => (
           <React.Fragment key={props.cakeDetails[i]?.index || i}>
             {(props.cakeDetails?.length &&
               props.cakeDetails[i]?.flavor &&

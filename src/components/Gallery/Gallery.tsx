@@ -12,10 +12,14 @@ import Loader from "../Loader/Loader";
 import { useNavigate, useParams } from "react-router-dom";
 
 const Gallery = (props: GalleryProps) => {
-  const { showLoadingGif } = useContext(GalleryImgLoadContext);
+  const context = useContext(GalleryImgLoadContext);
+  if (!context) {
+    return;
+  }
+  const { showLoadingGif } = context;
   const { selectedMenuItem, activeThumbnail } = useParams();
-  const [galleryOpt, setGalleryOpt] = useState<string>();
-  const [activeIndex, setActiveIndex] = useState<number>();
+  const [galleryOpt, setGalleryOpt] = useState<string>("");
+  const [activeIndex, setActiveIndex] = useState<number | undefined>();
   const navigate = useNavigate();
 
   useEffect(() => {

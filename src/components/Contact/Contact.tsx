@@ -204,7 +204,6 @@ const Contact = (props: ContactProps) => {
     };
     const formData = toFormData(data);
 
-    // await axios.post("http://localhost:5000/api/sendemail", data); //original
     await axios.post("http://localhost:5000/api/sendemail", formData, {
       headers: { "Content-Type": "multipart/form-data" }
     }); //testing image add
@@ -546,7 +545,6 @@ const Contact = (props: ContactProps) => {
           <label
             htmlFor="submit-form"
             onClick={(e) => {
-              // sendEmail(e);
               formValidation(e);
             }}
             className="form-submit-label"
