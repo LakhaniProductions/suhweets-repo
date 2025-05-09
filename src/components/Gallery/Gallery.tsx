@@ -34,7 +34,7 @@ const Gallery = (props: GalleryProps) => {
     if (activeIndex !== undefined && galleryOpt !== undefined) {
       const isWedding = location.pathname.includes("/wedding-cakes");
       const basePath = isWedding ? "wedding-cakes" : "custom-cakes";
-      const newPath = `/${basePath}/${galleryOpt}/${activeIndex}`;
+      const newPath = `/${basePath}/${galleryOpt}/${+activeIndex}`;
       navigate(newPath, { replace: true });
     }
   }, [activeIndex, galleryOpt, navigate]);
