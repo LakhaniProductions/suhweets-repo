@@ -19,7 +19,7 @@ const Gallery = (props: GalleryProps) => {
   const { showLoadingGif } = context;
   const { selectedMenuItem, activeThumbnail } = useParams();
   const [galleryOpt, setGalleryOpt] = useState<string>("");
-  const [activeIndex, setActiveIndex] = useState<number | undefined>();
+  const [activeIndex, setActiveIndex] = useState<number>(+activeThumbnail!);
   const navigate = useNavigate();
 
   useEffect(() => {
