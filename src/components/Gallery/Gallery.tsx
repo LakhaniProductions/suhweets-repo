@@ -30,17 +30,18 @@ const Gallery = (props: GalleryProps) => {
     isWedding ? setGalleryOpt("wedding") : setGalleryOpt("all");
   }, []);
 
-  if (activeIndex !== undefined && galleryOpt !== undefined) {
-    const isWedding = location.pathname.includes("/wedding-cakes");
-    const basePath = isWedding ? "wedding-cakes" : "custom-cakes";
-    const newPath = `/${basePath}/${galleryOpt}/${+activeIndex}`;
-    navigate(newPath, { replace: true });
-  }
-  // useEffect(() => {
-  //   console.log(activeIndex, galleryOpt);
-  // }, [activeIndex, galleryOpt, navigate]);
+  useEffect(() => {
+    console.log(activeIndex, galleryOpt);
+    if (activeIndex !== undefined && galleryOpt !== undefined) {
+      const isWedding = location.pathname.includes("/wedding-cakes");
+      const basePath = isWedding ? "wedding-cakes" : "custom-cakes";
+      const newPath = `/${basePath}/${galleryOpt}/${+activeIndex}`;
+      navigate(newPath, { replace: true });
+    }
+  }, [activeIndex, galleryOpt, navigate]);
 
   useEffect(() => {
+    console.log(activeThumbnail);
     if (selectedMenuItem && activeThumbnail !== undefined) {
       // Update active thumbnail from URL
       setGalleryOpt(selectedMenuItem);
