@@ -10,7 +10,7 @@ const SignatureContent = (props: SignatureContentProps) => {
     return;
   }
   const location = useLocation();
-  const { setShowLoadingFlavorGif } = context;
+  // const { setShowLoadingFlavorGif } = context;
 
   const flavorImages = Object.values(
     import.meta.glob("../../img/cakeflavors/*.{png,jpg,jpeg,PNG,JPEG}", {
@@ -238,7 +238,7 @@ const SignatureContent = (props: SignatureContentProps) => {
     }
   ];
 
-  const [imgLoaded, setImgLoaded] = useState(false);
+  // const [imgLoaded, setImgLoaded] = useState(false);
   const [txtPanelContent, setTxtPanelContent] = useState<Record<string, any>>();
 
   useEffect(() => {
@@ -277,9 +277,9 @@ const SignatureContent = (props: SignatureContentProps) => {
     }
   }, [props.html]);
 
-  useEffect(() => {
-    imgLoaded && setShowLoadingFlavorGif(false);
-  }, [imgLoaded]);
+  // useEffect(() => {
+  //   imgLoaded && setShowLoadingFlavorGif(false);
+  // }, [imgLoaded]);
 
   return (
     <>

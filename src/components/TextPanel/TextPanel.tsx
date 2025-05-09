@@ -18,7 +18,7 @@ const TextPanel = (props: TextPanelProps) => {
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
       const target = event.target as Element;
-      if (props.showIns) {
+      if (props.showIns && props.setShowIns) {
         if (
           instructionsRef.current &&
           !instructionsRef.current.contains(target)
@@ -40,11 +40,12 @@ const TextPanel = (props: TextPanelProps) => {
   }, [props.showIns]);
 
   const handleClickExpand = (event: React.MouseEvent) => {
+    const target = event.target as HTMLElement;
     if (
-      (event.target instanceof Element && event.target.className === "down") ||
-      (event.target.nodeName === "P" && !props.showIns)
+      target.className === "down" ||
+      (target.nodeName === "P" && !props.showIns)
     ) {
-      props.setShowIns(!props.showIns);
+      props.setShowIns?.(!props.showIns);
     }
   };
 
