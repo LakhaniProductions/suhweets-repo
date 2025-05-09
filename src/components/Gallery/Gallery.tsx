@@ -18,7 +18,9 @@ const Gallery = (props: GalleryProps) => {
   }
   const { showLoadingGif } = context;
   const { selectedMenuItem, activeThumbnail } = useParams();
-  const [galleryOpt, setGalleryOpt] = useState<string>("");
+  const [galleryOpt, setGalleryOpt] = useState<string>(
+    location.pathname.includes("/wedding-cakes") ? "wedding" : "all"
+  );
   const [activeIndex, setActiveIndex] = useState<number>(
     parseInt(activeThumbnail!)
   );
