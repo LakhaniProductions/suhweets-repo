@@ -1,7 +1,7 @@
 export interface TextPanelProps {
   h2: string;
   h1: string;
-  p: string | Element[];
+  p: string | JSX.Element[];
   widthClass: string;
   layout?: boolean;
   showIns?: boolean;

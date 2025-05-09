@@ -1,7 +1,7 @@
 export interface DropdownProps1 {
-  formCoords: Record<string, number | undefined>;
+  formCoords: Record<string, number>;
   index: number;
-  selectRefs: React.MutableRefObject<Array<HTMLDivElement | null>>;
+  selectRefs?: React.MutableRefObject<Array<HTMLDivElement | null>>;
   ddRefs: React.MutableRefObject<Array<HTMLElement | null>>;
   menuToggle: number;
   setMenuToggle: React.SetStateAction<any>;

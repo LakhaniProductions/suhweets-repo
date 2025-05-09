@@ -1,15 +1,30 @@
-import { createContext, useState } from "react";
+import {
+  createContext,
+  Dispatch,
+  ReactNode,
+  SetStateAction,
+  useState
+} from "react";
 
-const GalleryImgLoadContext = createContext();
+interface GalleryImgLoadContextType {
+  showLoadingGif: boolean;
+  setShowLoadingGif: Dispatch<SetStateAction<boolean>>;
+  showLoadingFlavorGif: boolean;
+  setShowLoadingFlavorGif: Dispatch<SetStateAction<boolean>>;
+  allGalleryImagesArr: string[];
+  setAllGalleryImagesArr: Dispatch<SetStateAction<string[]>>;
+}
 
-const GalleryImgLoadProvider = ({ children }) => {
+const GalleryImgLoadContext = createContext<
+  GalleryImgLoadContextType | undefined
+>(undefined);
+
+const GalleryImgLoadProvider = ({ children }: { children: ReactNode }) => {
   const [showLoadingGif, setShowLoadingGif] = useState<boolean>(true); // original
 
   const [showLoadingFlavorGif, setShowLoadingFlavorGif] =
     useState<boolean>(true);
-  const [allGalleryImagesArr, setAllGalleryImagesArr] = useState<
-    Record<string, any>[]
-  >([]);
+  const [allGalleryImagesArr, setAllGalleryImagesArr] = useState<string[]>([]);
 
   return (
     <GalleryImgLoadContext.Provider

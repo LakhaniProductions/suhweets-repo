@@ -40,7 +40,7 @@ const SelectBtn = (props: SelectBtnProps) => {
     <div
       className={getBorderClass() ? " dd-btn err-border" : "dd-btn"}
       ref={(el) => {
-        props.refs.current[props.index] = el;
+        props.refs!.current[props.index] = el;
       }}
       onClick={() => {
         props.index === props.menuToggle

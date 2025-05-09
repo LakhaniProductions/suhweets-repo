@@ -20,9 +20,6 @@ import CakeDetailsGroup from "./CakeDetailsGroup";
 import useWindowDimensions from "../../hooks/useWindowDimensions";
 import CupcakeDetailsGroup from "../CupcakeForm/CupcakeDetailsGroup";
 import ThankYou from "../ThankYou/ThankYou";
-import Dropdown1 from "./Dropdown1";
-
-// import ThankYou from "./ThankYou";
 
 const SignatureForm = (props: SignatureFormProps) => {
   const { width } = useWindowDimensions();
@@ -36,15 +33,12 @@ const SignatureForm = (props: SignatureFormProps) => {
   const sizeSelectRefs = useRef<Array<HTMLDivElement | null>>([]);
   const ccFlavSelectRefs = useRef<Array<HTMLDivElement | null>>([]);
   const quantitySelectRefs = useRef<Array<HTMLInputElement | null>>([]);
+  const timeSelectRef: RefObject<any> = useRef(null);
+  const timeDrpDwnRef: RefObject<any> = useRef(null);
 
   const [cakeOrderCountArr, setCakeOrderCountArr] = useState<Array<number>>([
     0
   ]);
-
-  const timeSelectRef: RefObject<any> = useRef(null);
-  const timeDrpDwnRef: RefObject<any> = useRef(null);
-
-  // const fileRef: any = useRef(null);
   const [allData, setAllData] = useState<boolean>(false);
   const [pickUpDateErr, setPickupDateError] = useState<boolean>(false);
   const [rushErr, setRushErr] = useState<boolean>(false);
@@ -65,9 +59,11 @@ const SignatureForm = (props: SignatureFormProps) => {
 
   const [cupcakeDetails, setCupcakeDetails] = useState<
     Array<{
+      inscription?: string;
       index: number;
-      quantity: number;
-      flavor: string;
+      flavor?: string;
+      size?: string;
+      quantity?: number;
     }>
   >([]);
   const [editIconIndex, setEditIconIndex] = useState<null | number>(0);
@@ -94,9 +90,7 @@ const SignatureForm = (props: SignatureFormProps) => {
   const [phoneNumber, setPhoneNumber] = useState<string>("");
   const [email, setEmail] = useState<string>("");
   const [formPosY, setFormPosY] = useState<number | any>(0);
-  const [formCoords, setFormCoords] = useState<
-    Record<string, number | undefined>
-  >({
+  const [formCoords, setFormCoords] = useState<Record<string, number>>({
     top: 0,
     y: +`${formPosY}`
   });
@@ -524,10 +518,10 @@ const SignatureForm = (props: SignatureFormProps) => {
             onScroll={() => {
               setFormPosY(formPanelRef.current?.scrollTop);
 
-              setFormCoords((prevState) => ({
+              setFormCoords((prevState: Record<string, number>) => ({
                 ...prevState,
-                top: formPanelRef.current?.getBoundingClientRect().top,
-                y: formPanelRef.current?.scrollTop
+                top: formPanelRef.current!.getBoundingClientRect().top,
+                y: formPanelRef.current!.scrollTop
               }));
             }}
           >
@@ -576,7 +570,6 @@ const SignatureForm = (props: SignatureFormProps) => {
                     defaultVal={"Pickup Time*"}
                     selectRef={timeSelectRef}
                     dDwnRef={timeDrpDwnRef}
-                    // isRightSide={true}
                     selectedOpt={selectedTime}
                     setSelectedOption={setSelectedTime}
                     isError={timeErr}
