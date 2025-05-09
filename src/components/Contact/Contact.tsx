@@ -180,7 +180,7 @@ const Contact = (props: ContactProps) => {
     const formData = new FormData();
     for (const key in data) {
       if (key === "images" && Array.isArray(data[key])) {
-        data[key].forEach((file) => {
+        data[key].forEach((file: File) => {
           formData.append("images", file); // must match backend field name
         });
       } else {
