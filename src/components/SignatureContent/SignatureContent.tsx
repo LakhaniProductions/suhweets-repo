@@ -13,7 +13,8 @@ const SignatureContent = (props: SignatureContentProps) => {
   // const { setShowLoadingFlavorGif } = context;
 
   const flavorImages = Object.values(
-    import.meta.glob("../../img/cakeflavors/*.{png,jpg,jpeg,PNG,JPEG}", {
+    // import.meta.glob("../../img/cakeflavors/*.{png,jpg,jpeg,PNG,JPEG}", {
+    import.meta.glob("../public/cakeflavors/*.{png,jpg,jpeg,PNG,JPEG}", {
       eager: true,
       as: "url"
     })
