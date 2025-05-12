@@ -18,7 +18,7 @@ const FlavorsContent = (props: FlavorsContentProps) => {
   const { width, height } = useWindowDimensions();
   const { setShowLoadingFlavorGif } = context;
   const flavorImages = Object.values(
-    import.meta.glob("../../img/cakeflavors/*.{png,jpg,jpeg,PNG,JPEG}", {
+    import.meta.glob("../../img/cakeflavors/*.{png,jpg,jpeg}", {
       eager: true,
       as: "url"
     })
@@ -26,238 +26,224 @@ const FlavorsContent = (props: FlavorsContentProps) => {
   const flavorsContent = [
     {
       flav: "red velvet w/ vanilla cream cheese",
-      img: `${flavorImages.filter((img) => img.includes("chocolate.jpg"))}`,
-      lsImg: `${flavorImages.filter((img) => img.includes("one-col.jpg"))}`,
-      bgimg: `${flavorImages.filter((img) =>
-        img.includes("chocolate-small.jpg")
-      )}`,
+      img: flavorImages.find((img) => img.includes("chocolate")),
+      lsImg: flavorImages.find((img) => img.includes("one-col")),
+      bgimg: flavorImages.find((img) => img.includes("chocolate-small")),
       category: "baker's-favorites"
     },
     {
       flav: "spiced carrot w/ vanilla cream cheese*",
-      img: `${flavorImages.filter((img) => img.includes("carrot.jpg"))}`,
-      lsImg: `${flavorImages.filter((img) => img.includes("one-col.jpg"))}`,
-      bgimg: `${flavorImages.filter((img) =>
-        img.includes("carrot-small.jpg")
-      )}`,
+      img: flavorImages.find((img) => img.includes("carrot")),
+      lsImg: flavorImages.find((img) => img.includes("one-col")),
+      bgimg: flavorImages.find((img) => img.includes("carrot-small")),
       category: "baker's-favorites"
     },
     {
       flav: "chocolate w/ chocolate buttercream",
-      img: `${flavorImages.filter((img) => img.includes("oreo.jpg"))}`,
-      lsImg: `${flavorImages.filter((img) => img.includes("one-col.jpg"))}`,
-      bgimg: `${flavorImages.filter((img) => img.includes("oreo-small.jpg"))}`,
+      img: flavorImages.find((img) => img.includes("oreo")),
+      lsImg: flavorImages.find((img) => img.includes("one-col")),
+      bgimg: flavorImages.find((img) => img.includes("oreo-small")),
       category: "baker's-favorites"
     },
     {
       flav: "white almond w/ raspberry compote*",
-      img: `${flavorImages.filter((img) => img.includes("chocolate.jpg"))}`,
-      lsImg: `${flavorImages.filter((img) => img.includes("one-col.jpg"))}`,
-      bgimg: `${flavorImages.filter((img) =>
-        img.includes("chocolate-small.jpg")
-      )}`,
+      img: flavorImages.find((img) => img.includes("chocolate")),
+      lsImg: flavorImages.find((img) => img.includes("one-col")),
+      bgimg: flavorImages.find((img) => img.includes("chocolate-small")),
       category: "baker's-favorites"
     },
     {
       flav: "lemon w/ raspberry compote*",
-      img: `${flavorImages.filter((img) => img.includes("chocolate.jpg"))}`,
-      lsImg: `${flavorImages.filter((img) => img.includes("one-col.jpg"))}`,
-      bgimg: `${flavorImages.filter((img) =>
-        img.includes("chocolate-small.jpg")
-      )}`,
+      img: flavorImages.find((img) => img.includes("chocolate")),
+      lsImg: flavorImages.find((img) => img.includes("one-col")),
+      bgimg: flavorImages.find((img) => img.includes("chocolate-small")),
       category: "baker's-favorites"
     },
     {
       flav: "funfetti w/ strawberry buttercream",
-      img: `${flavorImages.filter((img) => img.includes("chocolate.jpg"))}`,
-      lsImg: `${flavorImages.filter((img) => img.includes("one-col.jpg"))}`,
-      bgimg: `${flavorImages.filter((img) =>
-        img.includes("chocolate-small.jpg")
-      )}`,
+      img: flavorImages.find((img) => img.includes("chocolate")),
+      lsImg: flavorImages.find((img) => img.includes("one-col")),
+      bgimg: flavorImages.find((img) => img.includes("chocolate-small")),
       category: "baker's-favorites"
     },
     {
       flav: "spice cake w/ vanilla cream cheese",
-      img: `${flavorImages.filter((img) => img.includes("chocolate.jpg"))}`,
-      lsImg: `${flavorImages.filter((img) => img.includes("one-col.jpg"))}`,
-      bgimg: `${flavorImages.filter((img) =>
-        img.includes("chocolate-small.jpg")
-      )}`,
+      img: flavorImages.find((img) => img.includes("chocolate")),
+      lsImg: flavorImages.find((img) => img.includes("one-col")),
+      bgimg: flavorImages.find((img) => img.includes("chocolate-small")),
       category: "baker's-favorites"
     },
     {
       flav: "chocolate w/ cookies & cream",
-      img: `${flavorImages.filter((img) => img.includes("chocolate.jpg"))}`,
-      lsImg: `${flavorImages.filter((img) => img.includes("one-col.jpg"))}`,
-      bgimg: `${flavorImages.filter((img) =>
-        img.includes("chocolate-small.jpg")
-      )}`,
+      img: flavorImages.find((img) => img.includes("chocolate")),
+      lsImg: flavorImages.find((img) => img.includes("one-col")),
+      bgimg: flavorImages.find((img) => img.includes("chocolate-small")),
       category: "baker's-favorites"
     },
     {
       flav: "chocolate",
-      img: `${flavorImages.filter((img) => img.includes("carrot.jpg"))}`,
-      lsImg: `${flavorImages.filter((img) => img.includes("one-col.jpg"))}`,
+      img: flavorImages.find((img) => img.includes("carrot")),
+      lsImg: flavorImages.find((img) => img.includes("one-col")),
       category: "classic-flavors"
     },
     {
       flav: "funfetti",
-      img: `${flavorImages.filter((img) => img.includes("chocolate.jpg"))}`,
+      img: flavorImages.find((img) => img.includes("chocolate")),
       category: "classic-flavors"
     },
     {
       flav: "vanilla",
-      img: `${flavorImages.filter((img) => img.includes("strawberry.jpg"))}`,
+      img: flavorImages.find((img) => img.includes("strawberry")),
       category: "classic-flavors"
     },
     {
       flav: "white almond",
-      img: `${flavorImages.filter((img) => img.includes("oreo.jpg"))}`,
+      img: flavorImages.find((img) => img.includes("oreo")),
       category: "classic-flavors"
     },
     {
       flav: "red velvet",
-      img: `${flavorImages.filter((img) => img.includes("chocolate.jpg"))}`,
+      img: flavorImages.find((img) => img.includes("chocolate")),
       category: "classic-flavors"
     },
     {
       flav: "spice",
-      img: `${flavorImages.filter((img) => img.includes("chocolate.jpg"))}`,
+      img: flavorImages.find((img) => img.includes("chocolate")),
       category: "classic-flavors"
     },
     {
       flav: "lemon",
-      img: `${flavorImages.filter((img) => img.includes("oreo.jpg"))}`,
+      img: flavorImages.find((img) => img.includes("oreo")),
       category: "specialty-flavors"
     },
     {
       flav: "spiced carrot*",
-      img: `${flavorImages.filter((img) => img.includes("strawberry.jpg"))}`,
+      img: flavorImages.find((img) => img.includes("strawberry")),
       category: "specialty-flavors"
     },
     {
       flav: "apple caramel*",
-      img: `${flavorImages.filter((img) => img.includes("carrot.jpg"))}`,
+      img: flavorImages.find((img) => img.includes("carrot")),
       category: "specialty-flavors"
     },
     {
       flav: "coconut",
-      img: `${flavorImages.filter((img) => img.includes("chocolate.jpg"))}`,
+      img: flavorImages.find((img) => img.includes("chocolate")),
       category: "specialty-flavors"
     },
     {
       flav: "almond",
-      img: `${flavorImages.filter((img) => img.includes("chocolate.jpg"))}`,
+      img: flavorImages.find((img) => img.includes("chocolate")),
       category: "buttercream-fillings"
     },
     {
       flav: "chocolate",
-      img: `${flavorImages.filter((img) => img.includes("carrot.jpg"))}`,
+      img: flavorImages.find((img) => img.includes("carrot")),
       category: "buttercream-fillings"
     },
     {
       flav: "coconut",
-      img: `${flavorImages.filter((img) => img.includes("strawberry.jpg"))}`,
+      img: flavorImages.find((img) => img.includes("strawberry")),
       category: "buttercream-fillings"
     },
     {
       flav: "coffee",
-      img: `${flavorImages.filter((img) => img.includes("oreo.jpg"))}`,
+      img: flavorImages.find((img) => img.includes("oreo")),
       category: "buttercream-fillings"
     },
     {
       flav: "cookies & cream",
-      img: `${flavorImages.filter((img) => img.includes("chocolate.jpg"))}`,
+      img: flavorImages.find((img) => img.includes("chocolate")),
       category: "buttercream-fillings"
     },
     {
       flav: "lemon",
-      img: `${flavorImages.filter((img) => img.includes("chocolate.jpg"))}`,
+      img: flavorImages.find((img) => img.includes("chocolate")),
       category: "buttercream-fillings"
     },
     {
       flav: "peanut butter",
-      img: `${flavorImages.filter((img) => img.includes("chocolate.jpg"))}`,
+      img: flavorImages.find((img) => img.includes("chocolate")),
       category: "buttercream-fillings"
     },
     {
       flav: "raspberry",
-      img: `${flavorImages.filter((img) => img.includes("chocolate.jpg"))}`,
+      img: flavorImages.find((img) => img.includes("chocolate")),
       category: "buttercream-fillings"
     },
     {
       flav: "salted caramel",
-      img: `${flavorImages.filter((img) => img.includes("chocolate.jpg"))}`,
+      img: flavorImages.find((img) => img.includes("chocolate")),
       category: "buttercream-fillings"
     },
     {
       flav: "strawberry",
-      img: `${flavorImages.filter((img) => img.includes("chocolate.jpg"))}`,
+      img: flavorImages.find((img) => img.includes("chocolate")),
       category: "buttercream-fillings"
     },
     {
       flav: "vanilla",
-      img: `${flavorImages.filter((img) => img.includes("chocolate.jpg"))}`,
+      img: flavorImages.find((img) => img.includes("chocolate")),
       category: "buttercream-fillings"
     },
     {
       flav: "chocolate",
-      img: `${flavorImages.filter((img) => img.includes("chocolate.jpg"))}`,
+      img: flavorImages.find((img) => img.includes("chocolate")),
       category: "cream-cheese-fillings"
     },
     {
       flav: "coconut",
-      img: `${flavorImages.filter((img) => img.includes("chocolate.jpg"))}`,
+      img: flavorImages.find((img) => img.includes("chocolate")),
       category: "cream-cheese-fillings"
     },
     {
       flav: "lemon",
-      img: `${flavorImages.filter((img) => img.includes("chocolate.jpg"))}`,
+      img: flavorImages.find((img) => img.includes("chocolate")),
       category: "cream-cheese-fillings"
     },
     {
       flav: "milk chocolate",
-      img: `${flavorImages.filter((img) => img.includes("chocolate.jpg"))}`,
+      img: flavorImages.find((img) => img.includes("chocolate")),
       category: "ganache-fillings"
     },
     {
       flav: "white chocolate*",
-      img: `${flavorImages.filter((img) => img.includes("carrot.jpg"))}`,
+      img: flavorImages.find((img) => img.includes("carrot")),
       category: "ganache-fillings"
     },
     {
       flav: "semi-sweet chocolate",
-      img: `${flavorImages.filter((img) => img.includes("chocolate.jpg"))}`,
+      img: flavorImages.find((img) => img.includes("chocolate")),
       category: "ganache-fillings"
     },
     {
       flav: "blueberry*",
-      img: `${flavorImages.filter((img) => img.includes("strawberry.jpg"))}`,
+      img: flavorImages.find((img) => img.includes("strawberry")),
       category: "other-fillings"
     },
     {
       flav: "dulce de leche*",
-      img: `${flavorImages.filter((img) => img.includes("chocolate.jpg"))}`,
+      img: flavorImages.find((img) => img.includes("chocolate")),
       category: "other-fillings"
     },
     {
       flav: "fresh fruits*",
-      img: `${flavorImages.filter((img) => img.includes("chocolate.jpg"))}`,
+      img: flavorImages.find((img) => img.includes("chocolate")),
       category: "other-fillings"
     },
     {
       flav: "pineapple*",
-      img: `${flavorImages.filter((img) => img.includes("chocolate.jpg"))}`,
+      img: flavorImages.find((img) => img.includes("chocolate")),
       category: "other-fillings"
     },
     {
       flav: "raspberry",
-      img: `${flavorImages.filter((img) => img.includes("chocolate.jpg"))}`,
+      img: flavorImages.find((img) => img.includes("chocolate")),
       category: "other-fillings"
     },
     {
       flav: "strawberry*",
-      img: `${flavorImages.filter((img) => img.includes("chocolate.jpg"))}`,
+      img: flavorImages.find((img) => img.includes("chocolate")),
       category: "other-fillings"
     }
   ];
@@ -642,9 +628,7 @@ const FlavorsContent = (props: FlavorsContentProps) => {
             {/* CAKE FLAVORS IMAGE */}
             {htmlKey === "cake-flavors" && !hideFlavImg && (
               <img
-                src={`${flavorImages.filter((img) =>
-                  img.includes("chocolate.jpg")
-                )}`}
+                src={flavorImages.find((img) => img.includes("chocolate"))}
                 alt={"Image for " + htmlKey + " list"}
                 key={htmlKey}
                 onLoad={() => {

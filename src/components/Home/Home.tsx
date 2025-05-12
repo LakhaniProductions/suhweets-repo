@@ -72,10 +72,6 @@ const Home = (props: HomeProps) => {
     setJumbotron(homeMenu[0]);
   }, [location]);
 
-  useEffect(() => {
-    console.log(menuContext);
-  }, [menuContext]);
-
   return (
     <section className="container">
       <MenuContext.Provider

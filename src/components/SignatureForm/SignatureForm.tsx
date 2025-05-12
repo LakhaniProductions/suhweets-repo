@@ -775,7 +775,6 @@ const SignatureForm = (props: SignatureFormProps) => {
             htmlFor="submit-form"
             onClick={(e) => {
               formValidation(e);
-              console.log("test ");
             }}
             className="form-submit-label"
           >

@@ -31,7 +31,6 @@ const Gallery = (props: GalleryProps) => {
   }, []);
 
   useEffect(() => {
-    console.log(activeIndex, galleryOpt);
     if (activeIndex !== undefined && galleryOpt !== undefined) {
       const isWedding = location.pathname.includes("/wedding-cakes");
       const basePath = isWedding ? "wedding-cakes" : "custom-cakes";
