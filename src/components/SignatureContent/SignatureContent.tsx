@@ -257,7 +257,7 @@ const SignatureContent = (props: SignatureContentProps) => {
             ).map((item: Record<string, any>) => {
               return (
                 <div className="cake-detail-card">
-                  <img src={`${item.lsImg}`} alt="" />
+                  <img src={item.lsImg} alt="" />
                   <div className="cake-info-box">
                     <h3>{item.flav}</h3>
                     <p>{item.desc}</p>
