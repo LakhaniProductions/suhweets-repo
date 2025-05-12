@@ -13,8 +13,7 @@ const SignatureContent = (props: SignatureContentProps) => {
   // const { setShowLoadingFlavorGif } = context;
 
   const flavorImages = Object.values(
-    // import.meta.glob("../../img/cakeflavors/*.{png,jpg,jpeg,PNG,JPEG}", {
-    import.meta.glob("../../public/cakeflavors/*.{png,jpg,jpeg,PNG,JPEG}", {
+    import.meta.glob("../../img/cakeflavors/*.{png,jpg,jpeg}", {
       eager: true,
       as: "url"
     })
@@ -22,107 +21,107 @@ const SignatureContent = (props: SignatureContentProps) => {
   const signatureContent = [
     {
       flav: "tres leches (three milks)",
-      img: `${flavorImages.filter((img) => img.includes("chocolate.jpg"))}`,
-      lsImg: `${flavorImages.filter((img) => img.includes("one-col.jpg"))}`,
-      bgimg: `${flavorImages.filter((img) =>
+      img: `${flavorImages.find((img) => img.includes("chocolate.jpg"))}`,
+      lsImg: `${flavorImages.find((img) => img.includes("one-col.jpg"))}`,
+      bgimg: `${flavorImages.find((img) =>
         img.includes("chocolate-small.jpg")
       )}`,
       desc: "Vanilla cake soaked in sweetened condensed milk, evaporated milk, and whole milk."
     },
     {
       flav: "hazelnut",
-      img: `${flavorImages.filter((img) => img.includes("strawberry.jpg"))}`,
-      lsImg: `${flavorImages.filter((img) => img.includes("one-col.jpg"))}`,
-      bgimg: `${flavorImages.filter((img) =>
+      img: `${flavorImages.find((img) => img.includes("strawberry.jpg"))}`,
+      lsImg: `${flavorImages.find((img) => img.includes("one-col.jpg"))}`,
+      bgimg: `${flavorImages.find((img) =>
         img.includes("strawberry-small.jpg")
       )}`,
       desc: "your choice of Rich vanilla or chocolate cake layers with hazelnut ganache"
     },
     {
       flav: "vanilla dream",
-      img: `${flavorImages.filter((img) => img.includes("chocolate.jpg"))}`,
-      lsImg: `${flavorImages.filter((img) => img.includes("one-col.jpg"))}`,
-      bgimg: `${flavorImages.filter((img) =>
+      img: `${flavorImages.find((img) => img.includes("chocolate.jpg"))}`,
+      lsImg: `${flavorImages.find((img) => img.includes("one-col.jpg"))}`,
+      bgimg: `${flavorImages.find((img) =>
         img.includes("chocolate-small.jpg")
       )}`,
       desc: "adf"
     },
     {
       flav: "funfetti",
-      img: `${flavorImages.filter((img) => img.includes("chocolate.jpg"))}`,
-      lsImg: `${flavorImages.filter((img) => img.includes("one-col.jpg"))}`,
-      bgimg: `${flavorImages.filter((img) =>
+      img: `${flavorImages.find((img) => img.includes("chocolate.jpg"))}`,
+      lsImg: `${flavorImages.find((img) => img.includes("one-col.jpg"))}`,
+      bgimg: `${flavorImages.find((img) =>
         img.includes("chocolate-small.jpg")
       )}`,
       desc: "adf"
     },
     {
       flav: "spiced carrot",
-      img: `${flavorImages.filter((img) => img.includes("chocolate.jpg"))}`,
-      lsImg: `${flavorImages.filter((img) => img.includes("one-col.jpg"))}`,
-      bgimg: `${flavorImages.filter((img) =>
+      img: `${flavorImages.find((img) => img.includes("chocolate.jpg"))}`,
+      lsImg: `${flavorImages.find((img) => img.includes("one-col.jpg"))}`,
+      bgimg: `${flavorImages.find((img) =>
         img.includes("chocolate-small.jpg")
       )}`,
       desc: "adf"
     },
     {
       flav: "german chocolate",
-      img: `${flavorImages.filter((img) => img.includes("chocolate.jpg"))}`,
-      lsImg: `${flavorImages.filter((img) => img.includes("one-col.jpg"))}`,
-      bgimg: `${flavorImages.filter((img) =>
+      img: `${flavorImages.find((img) => img.includes("chocolate.jpg"))}`,
+      lsImg: `${flavorImages.find((img) => img.includes("one-col.jpg"))}`,
+      bgimg: `${flavorImages.find((img) =>
         img.includes("chocolate-small.jpg")
       )}`
     },
     {
       flav: "chocolate indulgence",
-      img: `${flavorImages.filter((img) => img.includes("chocolate.jpg"))}`,
-      lsImg: `${flavorImages.filter((img) => img.includes("one-col.jpg"))}`,
-      bgimg: `${flavorImages.filter((img) =>
+      img: `${flavorImages.find((img) => img.includes("chocolate.jpg"))}`,
+      lsImg: `${flavorImages.find((img) => img.includes("one-col.jpg"))}`,
+      bgimg: `${flavorImages.find((img) =>
         img.includes("chocolate-small.jpg")
       )}`,
       desc: "adf"
     },
     {
       flav: "Red Velvet",
-      img: `${flavorImages.filter((img) => img.includes("chocolate.jpg"))}`,
-      lsImg: `${flavorImages.filter((img) => img.includes("one-col.jpg"))}`,
-      bgimg: `${flavorImages.filter((img) =>
+      img: `${flavorImages.find((img) => img.includes("chocolate.jpg"))}`,
+      lsImg: `${flavorImages.find((img) => img.includes("one-col.jpg"))}`,
+      bgimg: `${flavorImages.find((img) =>
         img.includes("chocolate-small.jpg")
       )}`,
       desc: "adf"
     },
     {
       flav: "lemon blueberry",
-      img: `${flavorImages.filter((img) => img.includes("chocolate.jpg"))}`,
-      lsImg: `${flavorImages.filter((img) => img.includes("one-col.jpg"))}`,
-      bgimg: `${flavorImages.filter((img) =>
+      img: `${flavorImages.find((img) => img.includes("chocolate.jpg"))}`,
+      lsImg: `${flavorImages.find((img) => img.includes("one-col.jpg"))}`,
+      bgimg: `${flavorImages.find((img) =>
         img.includes("chocolate-small.jpg")
       )}`,
       desc: "lemon blueberry cake with vanilla cream cheese"
     },
     {
       flav: "lemon raspberry",
-      img: `${flavorImages.filter((img) => img.includes("chocolate.jpg"))}`,
-      lsImg: `${flavorImages.filter((img) => img.includes("one-col.jpg"))}`,
-      bgimg: `${flavorImages.filter((img) =>
+      img: `${flavorImages.find((img) => img.includes("chocolate.jpg"))}`,
+      lsImg: `${flavorImages.find((img) => img.includes("one-col.jpg"))}`,
+      bgimg: `${flavorImages.find((img) =>
         img.includes("chocolate-small.jpg")
       )}`,
       desc: "lemon raspberry cake with vanilla cream cheese"
     },
     {
       flav: "strawberry shortcake",
-      img: `${flavorImages.filter((img) => img.includes("chocolate.jpg"))}`,
-      lsImg: `${flavorImages.filter((img) => img.includes("one-col.jpg"))}`,
-      bgimg: `${flavorImages.filter((img) =>
+      img: `${flavorImages.find((img) => img.includes("chocolate.jpg"))}`,
+      lsImg: `${flavorImages.find((img) => img.includes("one-col.jpg"))}`,
+      bgimg: `${flavorImages.find((img) =>
         img.includes("chocolate-small.jpg")
       )}`,
       desc: "vanilla cake with whipped cream and fresh strawberries"
     },
     {
       flav: "strawberry crunch",
-      img: `${flavorImages.filter((img) => img.includes("chocolate.jpg"))}`,
-      lsImg: `${flavorImages.filter((img) => img.includes("one-col.jpg"))}`,
-      bgimg: `${flavorImages.filter((img) =>
+      img: `${flavorImages.find((img) => img.includes("chocolate.jpg"))}`,
+      lsImg: `${flavorImages.find((img) => img.includes("one-col.jpg"))}`,
+      bgimg: `${flavorImages.find((img) =>
         img.includes("chocolate-small.jpg")
       )}`,
       desc: "strawberry and vanilla cake layers with strawberry cream cheese and strawberry shortbread crunchies"
@@ -132,107 +131,107 @@ const SignatureContent = (props: SignatureContentProps) => {
   const cupcakeContent = [
     {
       flav: "tres leches (three milks)",
-      img: `${flavorImages.filter((img) => img.includes("chocolate.jpg"))}`,
-      lsImg: `${flavorImages.filter((img) => img.includes("one-col.jpg"))}`,
-      bgimg: `${flavorImages.filter((img) =>
+      img: `${flavorImages.find((img) => img.includes("chocolate.jpg"))}`,
+      lsImg: `${flavorImages.find((img) => img.includes("one-col.jpg"))}`,
+      bgimg: `${flavorImages.find((img) =>
         img.includes("chocolate-small.jpg")
       )}`,
       desc: "Vanilla cake soaked in sweetened condensed milk, evaporated milk, and whole milk."
     },
     {
       flav: "hazelnut",
-      img: `${flavorImages.filter((img) => img.includes("strawberry.jpg"))}`,
-      lsImg: `${flavorImages.filter((img) => img.includes("one-col.jpg"))}`,
-      bgimg: `${flavorImages.filter((img) =>
+      img: `${flavorImages.find((img) => img.includes("strawberry.jpg"))}`,
+      lsImg: `${flavorImages.find((img) => img.includes("one-col.jpg"))}`,
+      bgimg: `${flavorImages.find((img) =>
         img.includes("strawberry-small.jpg")
       )}`,
       desc: "your choice of rich vanilla or chocolate cake layers with hazelnut ganache"
     },
     {
       flav: "vanilla dream",
-      img: `${flavorImages.filter((img) => img.includes("chocolate.jpg"))}`,
-      lsImg: `${flavorImages.filter((img) => img.includes("one-col.jpg"))}`,
-      bgimg: `${flavorImages.filter((img) =>
+      img: `${flavorImages.find((img) => img.includes("chocolate.jpg"))}`,
+      lsImg: `${flavorImages.find((img) => img.includes("one-col.jpg"))}`,
+      bgimg: `${flavorImages.find((img) =>
         img.includes("chocolate-small.jpg")
       )}`,
       desc: "adf"
     },
     {
       flav: "funfetti",
-      img: `${flavorImages.filter((img) => img.includes("chocolate.jpg"))}`,
-      lsImg: `${flavorImages.filter((img) => img.includes("one-col.jpg"))}`,
-      bgimg: `${flavorImages.filter((img) =>
+      img: `${flavorImages.find((img) => img.includes("chocolate.jpg"))}`,
+      lsImg: `${flavorImages.find((img) => img.includes("one-col.jpg"))}`,
+      bgimg: `${flavorImages.find((img) =>
         img.includes("chocolate-small.jpg")
       )}`,
       desc: "adf"
     },
     {
       flav: "spiced carrot",
-      img: `${flavorImages.filter((img) => img.includes("chocolate.jpg"))}`,
-      lsImg: `${flavorImages.filter((img) => img.includes("one-col.jpg"))}`,
-      bgimg: `${flavorImages.filter((img) =>
+      img: `${flavorImages.find((img) => img.includes("chocolate.jpg"))}`,
+      lsImg: `${flavorImages.find((img) => img.includes("one-col.jpg"))}`,
+      bgimg: `${flavorImages.find((img) =>
         img.includes("chocolate-small.jpg")
       )}`,
       desc: "adf"
     },
     {
       flav: "german chocolate",
-      img: `${flavorImages.filter((img) => img.includes("chocolate.jpg"))}`,
-      lsImg: `${flavorImages.filter((img) => img.includes("one-col.jpg"))}`,
-      bgimg: `${flavorImages.filter((img) =>
+      img: `${flavorImages.find((img) => img.includes("chocolate.jpg"))}`,
+      lsImg: `${flavorImages.find((img) => img.includes("one-col.jpg"))}`,
+      bgimg: `${flavorImages.find((img) =>
         img.includes("chocolate-small.jpg")
       )}`
     },
     {
       flav: "chocolate indulgence",
-      img: `${flavorImages.filter((img) => img.includes("chocolate.jpg"))}`,
-      lsImg: `${flavorImages.filter((img) => img.includes("one-col.jpg"))}`,
-      bgimg: `${flavorImages.filter((img) =>
+      img: `${flavorImages.find((img) => img.includes("chocolate.jpg"))}`,
+      lsImg: `${flavorImages.find((img) => img.includes("one-col.jpg"))}`,
+      bgimg: `${flavorImages.find((img) =>
         img.includes("chocolate-small.jpg")
       )}`,
       desc: "adf"
     },
     {
       flav: "Red Velvet",
-      img: `${flavorImages.filter((img) => img.includes("chocolate.jpg"))}`,
-      lsImg: `${flavorImages.filter((img) => img.includes("one-col.jpg"))}`,
-      bgimg: `${flavorImages.filter((img) =>
+      img: `${flavorImages.find((img) => img.includes("chocolate.jpg"))}`,
+      lsImg: `${flavorImages.find((img) => img.includes("one-col.jpg"))}`,
+      bgimg: `${flavorImages.find((img) =>
         img.includes("chocolate-small.jpg")
       )}`,
       desc: "adf"
     },
     {
       flav: "lemon blueberry",
-      img: `${flavorImages.filter((img) => img.includes("chocolate.jpg"))}`,
-      lsImg: `${flavorImages.filter((img) => img.includes("one-col.jpg"))}`,
-      bgimg: `${flavorImages.filter((img) =>
+      img: `${flavorImages.find((img) => img.includes("chocolate.jpg"))}`,
+      lsImg: `${flavorImages.find((img) => img.includes("one-col.jpg"))}`,
+      bgimg: `${flavorImages.find((img) =>
         img.includes("chocolate-small.jpg")
       )}`,
       desc: "lemon blueberry cake with vanilla cream cheese"
     },
     {
       flav: "lemon raspberry",
-      img: `${flavorImages.filter((img) => img.includes("chocolate.jpg"))}`,
-      lsImg: `${flavorImages.filter((img) => img.includes("one-col.jpg"))}`,
-      bgimg: `${flavorImages.filter((img) =>
+      img: `${flavorImages.find((img) => img.includes("chocolate.jpg"))}`,
+      lsImg: `${flavorImages.find((img) => img.includes("one-col.jpg"))}`,
+      bgimg: `${flavorImages.find((img) =>
         img.includes("chocolate-small.jpg")
       )}`,
       desc: "lemon raspberry cake with vanilla cream cheese"
     },
     {
       flav: "strawberry shortcake",
-      img: `${flavorImages.filter((img) => img.includes("chocolate.jpg"))}`,
-      lsImg: `${flavorImages.filter((img) => img.includes("one-col.jpg"))}`,
-      bgimg: `${flavorImages.filter((img) =>
+      img: `${flavorImages.find((img) => img.includes("chocolate.jpg"))}`,
+      lsImg: `${flavorImages.find((img) => img.includes("one-col.jpg"))}`,
+      bgimg: `${flavorImages.find((img) =>
         img.includes("chocolate-small.jpg")
       )}`,
       desc: "vanilla cake with whipped cream and fresh strawberries"
     },
     {
       flav: "strawberry crunch",
-      img: `${flavorImages.filter((img) => img.includes("chocolate.jpg"))}`,
-      lsImg: `${flavorImages.filter((img) => img.includes("one-col.jpg"))}`,
-      bgimg: `${flavorImages.filter((img) =>
+      img: `${flavorImages.find((img) => img.includes("chocolate.jpg"))}`,
+      lsImg: `${flavorImages.find((img) => img.includes("one-col.jpg"))}`,
+      bgimg: `${flavorImages.find((img) =>
         img.includes("chocolate-small.jpg")
       )}`,
       desc: "strawberry and vanilla cake layers with strawberry cream cheese and strawberry shortbread crunchies"
