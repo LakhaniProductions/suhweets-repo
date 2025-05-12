@@ -21,85 +21,85 @@ const SignatureContent = (props: SignatureContentProps) => {
   const signatureContent = [
     {
       flav: "tres leches (three milks)",
-      img: flavorImages.find((img) => img.includes("chocolate.jpg")),
-      lsImg: flavorImages.find((img) => img.includes("one-col.jpg")),
-      bgimg: flavorImages.find((img) => img.includes("chocolate-small.jpg")),
+      img: flavorImages.find((img) => img.includes("chocolate")),
+      lsImg: flavorImages.find((img) => img.includes("one-col")),
+      bgimg: flavorImages.find((img) => img.includes("chocolate-small")),
       desc: "Vanilla cake soaked in sweetened condensed milk, evaporated milk, and whole milk."
     },
     {
       flav: "hazelnut",
-      img: flavorImages.find((img) => img.includes("strawberry.jpg")),
-      lsImg: flavorImages.find((img) => img.includes("one-col.jpg")),
-      bgimg: flavorImages.find((img) => img.includes("strawberry-small.jpg")),
+      img: flavorImages.find((img) => img.includes("strawberry")),
+      lsImg: flavorImages.find((img) => img.includes("one-col")),
+      bgimg: flavorImages.find((img) => img.includes("strawberry-small")),
       desc: "your choice of Rich vanilla or chocolate cake layers with hazelnut ganache"
     },
     {
       flav: "vanilla dream",
-      img: flavorImages.find((img) => img.includes("chocolate.jpg")),
-      lsImg: flavorImages.find((img) => img.includes("one-col.jpg")),
-      bgimg: flavorImages.find((img) => img.includes("chocolate-small.jpg")),
+      img: flavorImages.find((img) => img.includes("chocolate")),
+      lsImg: flavorImages.find((img) => img.includes("one-col")),
+      bgimg: flavorImages.find((img) => img.includes("chocolate-small")),
       desc: "adf"
     },
     {
       flav: "funfetti",
-      img: flavorImages.find((img) => img.includes("chocolate.jpg")),
-      lsImg: flavorImages.find((img) => img.includes("one-col.jpg")),
-      bgimg: flavorImages.find((img) => img.includes("chocolate-small.jpg")),
+      img: flavorImages.find((img) => img.includes("chocolate")),
+      lsImg: flavorImages.find((img) => img.includes("one-col")),
+      bgimg: flavorImages.find((img) => img.includes("chocolate-small")),
       desc: "adf"
     },
     {
       flav: "spiced carrot",
-      img: flavorImages.find((img) => img.includes("chocolate.jpg")),
-      lsImg: flavorImages.find((img) => img.includes("one-col.jpg")),
-      bgimg: flavorImages.find((img) => img.includes("chocolate-small.jpg")),
+      img: flavorImages.find((img) => img.includes("chocolate")),
+      lsImg: flavorImages.find((img) => img.includes("one-col")),
+      bgimg: flavorImages.find((img) => img.includes("chocolate-small")),
       desc: "adf"
     },
     {
       flav: "german chocolate",
-      img: flavorImages.find((img) => img.includes("chocolate.jpg")),
-      lsImg: flavorImages.find((img) => img.includes("one-col.jpg")),
-      bgimg: flavorImages.find((img) => img.includes("chocolate-small.jpg"))
+      img: flavorImages.find((img) => img.includes("chocolate")),
+      lsImg: flavorImages.find((img) => img.includes("one-col")),
+      bgimg: flavorImages.find((img) => img.includes("chocolate-small"))
     },
     {
       flav: "chocolate indulgence",
-      img: flavorImages.find((img) => img.includes("chocolate.jpg")),
-      lsImg: flavorImages.find((img) => img.includes("one-col.jpg")),
-      bgimg: flavorImages.find((img) => img.includes("chocolate-small.jpg")),
+      img: flavorImages.find((img) => img.includes("chocolate")),
+      lsImg: flavorImages.find((img) => img.includes("one-col")),
+      bgimg: flavorImages.find((img) => img.includes("chocolate-small")),
       desc: "adf"
     },
     {
       flav: "Red Velvet",
-      img: flavorImages.find((img) => img.includes("chocolate.jpg")),
-      lsImg: flavorImages.find((img) => img.includes("one-col.jpg")),
-      bgimg: flavorImages.find((img) => img.includes("chocolate-small.jpg")),
+      img: flavorImages.find((img) => img.includes("chocolate")),
+      lsImg: flavorImages.find((img) => img.includes("one-col")),
+      bgimg: flavorImages.find((img) => img.includes("chocolate-small")),
       desc: "adf"
     },
     {
       flav: "lemon blueberry",
-      img: flavorImages.find((img) => img.includes("chocolate.jpg")),
-      lsImg: flavorImages.find((img) => img.includes("one-col.jpg")),
-      bgimg: flavorImages.find((img) => img.includes("chocolate-small.jpg")),
+      img: flavorImages.find((img) => img.includes("chocolate")),
+      lsImg: flavorImages.find((img) => img.includes("one-col")),
+      bgimg: flavorImages.find((img) => img.includes("chocolate-small")),
       desc: "lemon blueberry cake with vanilla cream cheese"
     },
     {
       flav: "lemon raspberry",
-      img: flavorImages.find((img) => img.includes("chocolate.jpg")),
-      lsImg: flavorImages.find((img) => img.includes("one-col.jpg")),
-      bgimg: flavorImages.find((img) => img.includes("chocolate-small.jpg")),
+      img: flavorImages.find((img) => img.includes("chocolate")),
+      lsImg: flavorImages.find((img) => img.includes("one-col")),
+      bgimg: flavorImages.find((img) => img.includes("chocolate-small")),
       desc: "lemon raspberry cake with vanilla cream cheese"
     },
     {
       flav: "strawberry shortcake",
-      img: flavorImages.find((img) => img.includes("chocolate.jpg")),
-      lsImg: flavorImages.find((img) => img.includes("one-col.jpg")),
-      bgimg: flavorImages.find((img) => img.includes("chocolate-small.jpg")),
+      img: flavorImages.find((img) => img.includes("chocolate")),
+      lsImg: flavorImages.find((img) => img.includes("one-col")),
+      bgimg: flavorImages.find((img) => img.includes("chocolate-small")),
       desc: "vanilla cake with whipped cream and fresh strawberries"
     },
     {
       flav: "strawberry crunch",
-      img: flavorImages.find((img) => img.includes("chocolate.jpg")),
-      lsImg: flavorImages.find((img) => img.includes("one-col.jpg")),
-      bgimg: flavorImages.find((img) => img.includes("chocolate-small.jpg")),
+      img: flavorImages.find((img) => img.includes("chocolate")),
+      lsImg: flavorImages.find((img) => img.includes("one-col")),
+      bgimg: flavorImages.find((img) => img.includes("chocolate-small")),
       desc: "strawberry and vanilla cake layers with strawberry cream cheese and strawberry shortbread crunchies"
     }
   ];
@@ -107,85 +107,85 @@ const SignatureContent = (props: SignatureContentProps) => {
   const cupcakeContent = [
     {
       flav: "tres leches (three milks)",
-      img: flavorImages.find((img) => img.includes("chocolate.jpg")),
-      lsImg: flavorImages.find((img) => img.includes("one-col.jpg")),
-      bgimg: flavorImages.find((img) => img.includes("chocolate-small.jpg")),
+      img: flavorImages.find((img) => img.includes("chocolate")),
+      lsImg: flavorImages.find((img) => img.includes("one-col")),
+      bgimg: flavorImages.find((img) => img.includes("chocolate-small")),
       desc: "Vanilla cake soaked in sweetened condensed milk, evaporated milk, and whole milk."
     },
     {
       flav: "hazelnut",
-      img: flavorImages.find((img) => img.includes("strawberry.jpg")),
-      lsImg: flavorImages.find((img) => img.includes("one-col.jpg")),
-      bgimg: flavorImages.find((img) => img.includes("strawberry-small.jpg")),
+      img: flavorImages.find((img) => img.includes("strawberry")),
+      lsImg: flavorImages.find((img) => img.includes("one-col")),
+      bgimg: flavorImages.find((img) => img.includes("strawberry-small")),
       desc: "your choice of rich vanilla or chocolate cake layers with hazelnut ganache"
     },
     {
       flav: "vanilla dream",
-      img: flavorImages.find((img) => img.includes("chocolate.jpg")),
-      lsImg: flavorImages.find((img) => img.includes("one-col.jpg")),
-      bgimg: flavorImages.find((img) => img.includes("chocolate-small.jpg")),
+      img: flavorImages.find((img) => img.includes("chocolate")),
+      lsImg: flavorImages.find((img) => img.includes("one-col")),
+      bgimg: flavorImages.find((img) => img.includes("chocolate-small")),
       desc: "adf"
     },
     {
       flav: "funfetti",
-      img: flavorImages.find((img) => img.includes("chocolate.jpg")),
-      lsImg: flavorImages.find((img) => img.includes("one-col.jpg")),
-      bgimg: flavorImages.find((img) => img.includes("chocolate-small.jpg")),
+      img: flavorImages.find((img) => img.includes("chocolate")),
+      lsImg: flavorImages.find((img) => img.includes("one-col")),
+      bgimg: flavorImages.find((img) => img.includes("chocolate-small")),
       desc: "adf"
     },
     {
       flav: "spiced carrot",
-      img: flavorImages.find((img) => img.includes("chocolate.jpg")),
-      lsImg: flavorImages.find((img) => img.includes("one-col.jpg")),
-      bgimg: flavorImages.find((img) => img.includes("chocolate-small.jpg")),
+      img: flavorImages.find((img) => img.includes("chocolate")),
+      lsImg: flavorImages.find((img) => img.includes("one-col")),
+      bgimg: flavorImages.find((img) => img.includes("chocolate-small")),
       desc: "adf"
     },
     {
       flav: "german chocolate",
-      img: flavorImages.find((img) => img.includes("chocolate.jpg")),
-      lsImg: flavorImages.find((img) => img.includes("one-col.jpg")),
-      bgimg: flavorImages.find((img) => img.includes("chocolate-small.jpg"))
+      img: flavorImages.find((img) => img.includes("chocolate")),
+      lsImg: flavorImages.find((img) => img.includes("one-col")),
+      bgimg: flavorImages.find((img) => img.includes("chocolate-small"))
     },
     {
       flav: "chocolate indulgence",
-      img: flavorImages.find((img) => img.includes("chocolate.jpg")),
-      lsImg: flavorImages.find((img) => img.includes("one-col.jpg")),
-      bgimg: flavorImages.find((img) => img.includes("chocolate-small.jpg")),
+      img: flavorImages.find((img) => img.includes("chocolate")),
+      lsImg: flavorImages.find((img) => img.includes("one-col")),
+      bgimg: flavorImages.find((img) => img.includes("chocolate-small")),
       desc: "adf"
     },
     {
       flav: "Red Velvet",
-      img: flavorImages.find((img) => img.includes("chocolate.jpg")),
-      lsImg: flavorImages.find((img) => img.includes("one-col.jpg")),
-      bgimg: flavorImages.find((img) => img.includes("chocolate-small.jpg")),
+      img: flavorImages.find((img) => img.includes("chocolate")),
+      lsImg: flavorImages.find((img) => img.includes("one-col")),
+      bgimg: flavorImages.find((img) => img.includes("chocolate-small")),
       desc: "adf"
     },
     {
       flav: "lemon blueberry",
-      img: flavorImages.find((img) => img.includes("chocolate.jpg")),
-      lsImg: flavorImages.find((img) => img.includes("one-col.jpg")),
-      bgimg: flavorImages.find((img) => img.includes("chocolate-small.jpg")),
+      img: flavorImages.find((img) => img.includes("chocolate")),
+      lsImg: flavorImages.find((img) => img.includes("one-col")),
+      bgimg: flavorImages.find((img) => img.includes("chocolate-small")),
       desc: "lemon blueberry cake with vanilla cream cheese"
     },
     {
       flav: "lemon raspberry",
-      img: flavorImages.find((img) => img.includes("chocolate.jpg")),
-      lsImg: flavorImages.find((img) => img.includes("one-col.jpg")),
-      bgimg: flavorImages.find((img) => img.includes("chocolate-small.jpg")),
+      img: flavorImages.find((img) => img.includes("chocolate")),
+      lsImg: flavorImages.find((img) => img.includes("one-col")),
+      bgimg: flavorImages.find((img) => img.includes("chocolate-small")),
       desc: "lemon raspberry cake with vanilla cream cheese"
     },
     {
       flav: "strawberry shortcake",
-      img: flavorImages.find((img) => img.includes("chocolate.jpg")),
-      lsImg: flavorImages.find((img) => img.includes("one-col.jpg")),
-      bgimg: flavorImages.find((img) => img.includes("chocolate-small.jpg")),
+      img: flavorImages.find((img) => img.includes("chocolate")),
+      lsImg: flavorImages.find((img) => img.includes("one-col")),
+      bgimg: flavorImages.find((img) => img.includes("chocolate-small")),
       desc: "vanilla cake with whipped cream and fresh strawberries"
     },
     {
       flav: "strawberry crunch",
-      img: flavorImages.find((img) => img.includes("chocolate.jpg")),
-      lsImg: flavorImages.find((img) => img.includes("one-col.jpg")),
-      bgimg: flavorImages.find((img) => img.includes("chocolate-small.jpg")),
+      img: flavorImages.find((img) => img.includes("chocolate")),
+      lsImg: flavorImages.find((img) => img.includes("one-col")),
+      bgimg: flavorImages.find((img) => img.includes("chocolate-small")),
       desc: "strawberry and vanilla cake layers with strawberry cream cheese and strawberry shortbread crunchies"
     }
   ];
