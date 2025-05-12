@@ -8,12 +8,10 @@ import Jumbotron from "../Jumbotron/Jumbotron";
 import MenuContext from "../../context/HamburgerMenuContext";
 import Header from "../Header/Header";
 import HamburgerMenu from "../HamburgerMenu/HamburgerMenu";
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 
 const Home = (props: HomeProps) => {
-  const menuContext = useContext(MenuContext);
-
   const location = useLocation();
   const [homeMenu, setHomeMenu] = useState<string[]>([]);
   const [jumbotron, setJumbotron] = useState<string>("wedding");
