@@ -300,7 +300,7 @@ const GalleryContent = (props: GalleryContentProps) => {
                       mainImgLoaded &&
                       setMainImgLoaded(!mainImgLoaded)
                     }
-                    src={item.thumbnail}
+                    src={item.thumbnailTitle}
                     key={i}
                     id={`${item.thumbnailTitle}_${i}`}
                     alt=""
@@ -376,7 +376,7 @@ const GalleryContent = (props: GalleryContentProps) => {
                     onLoad={(e) => {
                       handleImageLoading(e);
                     }}
-                    src={item.thumbnail}
+                    src={item.thumbnailTitle}
                     key={i}
                     id={`${item.thumbnailTitle}_${i}`}
                     alt=""
