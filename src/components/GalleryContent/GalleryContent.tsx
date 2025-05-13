@@ -324,9 +324,10 @@ const GalleryContent = (props: GalleryContentProps) => {
             <div
               className={mainImgLoaded ? "" : "lazy-img"}
               style={{
-                backgroundImage: `url(${
-                  uniqueCategoryArr[props.activeThumbnail!].lazyImg
-                })`
+                backgroundImage:
+                  "url(" +
+                  uniqueCategoryArr[props.activeThumbnail!].lazyImg +
+                  ")"
               }}
             ></div>
             {
