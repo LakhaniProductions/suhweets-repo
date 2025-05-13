@@ -39,13 +39,13 @@ const GalleryContent = (props: GalleryContentProps) => {
 
   const imgRefs = useRef<Array<HTMLImageElement | null>>([]);
 
-  /* GET ALL IMAGES FROM IMG/GALLERYIMAGES */
-  const galleryImages = Object.values(
-    import.meta.glob("../../img/galleryImages/*.{png,jpg,jpeg,PNG,JPEG}", {
-      eager: true,
-      as: "url"
-    })
-  );
+  // /* GET ALL IMAGES FROM IMG/GALLERYIMAGES */
+  // const galleryImages = Object.values(
+  //   import.meta.glob("../../img/galleryImages/*.{png,jpg,jpeg,PNG,JPEG}", {
+  //     eager: true,
+  //     as: "url"
+  //   })
+  // );
 
   const cakeGalleryContent = useMemo(() => {
     if (weddingGalleryContent && customGalleryContent) {
@@ -106,73 +106,100 @@ const GalleryContent = (props: GalleryContentProps) => {
       : setIsGourmetPage(false);
   }, [location]);
 
-  /* Importing Thumbnail Images */
   useEffect(() => {
-    allCakesData.map((cakeObj, i) => {
-      galleryImages.forEach((image) => {
-        if (cakeObj.thumbnailTitle === image.split("/")[4]) {
-          allCakesData[i] = { ...cakeObj, thumbnail: image };
-        }
-      });
-    });
+    const imageMap = Object.fromEntries(
+      Object.entries(
+        import.meta.glob("../../img/galleryImages/*.{png,jpg,jpeg,PNG,JPEG}", {
+          eager: true,
+          as: "url"
+        })
+      ).map(([path, url]) => [path.split("/").pop(), url])
+    );
+
+    const enriched = allCakesData.map((cakeObj) => ({
+      ...cakeObj,
+      thumbnail: imageMap[cakeObj.thumbnailTitle],
+      img: imageMap[cakeObj.imgTitle],
+      mobileImg: imageMap[cakeObj.mobileImgTitle!],
+      lazyImg: imageMap[cakeObj.lazyImgTitle]
+    }));
+
+    const wedding = enriched.filter((cake) => cake.category === "wedding");
+    const custom = enriched.filter((cake) =>
+      ["birthday", "characters", "fashion", "food"].includes(cake.category)
+    );
+
+    setWeddingGalleryContent(wedding);
+    setCustomGalleryContent(custom);
   }, []);
 
-  /* Importing Main Images */
-  useEffect(() => {
-    allCakesData.map((cakeObj, i) => {
-      galleryImages.forEach((image) => {
-        if (cakeObj.imgTitle === image.split("/")[4]) {
-          allCakesData[i] = { ...cakeObj, img: image };
-        }
+  // /* Importing Thumbnail Images */
+  // useEffect(() => {
+  //   allCakesData.map((cakeObj, i) => {
+  //     galleryImages.forEach((image) => {
+  //       if (cakeObj.thumbnailTitle === image.split("/")[4]) {
+  //         allCakesData[i] = { ...cakeObj, thumbnail: image };
+  //       }
+  //     });
+  //   });
+  // }, []);
 
-        if (cakeObj.mobileImgTitle === image.split("/")[4]) {
-          allCakesData[i] = { ...allCakesData[i], mobileImg: image };
-        }
-      });
-    });
-  }, []);
+  // /* Importing Main Images */
+  // useEffect(() => {
+  //   allCakesData.map((cakeObj, i) => {
+  //     galleryImages.forEach((image) => {
+  //       if (cakeObj.imgTitle === image.split("/")[4]) {
+  //         allCakesData[i] = { ...cakeObj, img: image };
+  //       }
 
-  /* Importing Lazy Images */
-  useEffect(() => {
-    allCakesData.map((cakeObj, i) => {
-      galleryImages.forEach((image) => {
-        if (cakeObj.lazyImgTitle === image.split("/")[4]) {
-          allCakesData[i] = { ...cakeObj, lazyImg: image };
-        }
-      });
-    });
-  }, []);
+  //       if (cakeObj.mobileImgTitle === image.split("/")[4]) {
+  //         allCakesData[i] = { ...allCakesData[i], mobileImg: image };
+  //       }
+  //     });
+  //   });
+  // }, []);
+
+  // /* Importing Lazy Images */
+  // useEffect(() => {
+  //   allCakesData.map((cakeObj, i) => {
+  //     galleryImages.forEach((image) => {
+  //       if (cakeObj.lazyImgTitle === image.split("/")[4]) {
+  //         allCakesData[i] = { ...cakeObj, lazyImg: image };
+  //       }
+  //     });
+  //   });
+  // }, []);
 
   /* Creating Gallery Content Arrays */
-  useEffect(() => {
-    allCakesData.map((cakeObj) =>
-      Object.keys(cakeObj).filter((key) => {
-        if (key === "category") {
-          if (cakeObj[key] === "wedding") {
-            setWeddingGalleryContent(
-              (prevState: Record<string, string | number>[]) => [
-                ...prevState,
-                cakeObj
-              ]
-            );
-          }
-          if (
-            cakeObj[key] === "birthday" ||
-            cakeObj[key] === "characters" ||
-            cakeObj[key] === "fashion" ||
-            cakeObj[key] === "food"
-          ) {
-            setCustomGalleryContent(
-              (prevState: Record<string, string | number>[]) => [
-                ...prevState,
-                cakeObj
-              ]
-            );
-          }
-        }
-      })
-    );
-  }, []); // these values cannot be hardcoded, dervive from allcakesdata????
+  // useEffect(() => {
+  //   allCakesData.map((cakeObj) =>
+  //     Object.keys(cakeObj).filter((key) => {
+  //       if (key === "category") {
+  //         if (cakeObj[key] === "wedding") {
+  //           setWeddingGalleryContent(
+  //             (prevState: Record<string, string | number>[]) => [
+  //               ...prevState,
+  //               cakeObj
+  //             ]
+  //           );
+  //         }
+  //         if (
+  //           cakeObj[key] === "birthday" ||
+  //           cakeObj[key] === "characters" ||
+  //           cakeObj[key] === "fashion" ||
+  //           cakeObj[key] === "food"
+  //         ) {
+  //           setCustomGalleryContent(
+  //             (prevState: Record<string, string | number>[]) => [
+  //               ...prevState,
+  //               cakeObj
+  //             ]
+  //           );
+  //         }
+  //       }
+  //     })
+  //   );
+  // }, []); // these values cannot be hardcoded, dervive from allcakesdata????
 
   const [thumbImgsLoaded, setThumbImgsLoaded] = useState<Array<string>>([]);
 
