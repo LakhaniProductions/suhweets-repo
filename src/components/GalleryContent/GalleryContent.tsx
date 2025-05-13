@@ -398,7 +398,7 @@ const GalleryContent = (props: GalleryContentProps) => {
                 <div
                   className={mainImgLoaded ? "" : "lazy-img"}
                   style={{
-                    backgroundImage: `url(${cakeObj.lazyImg})`
+                    backgroundImage: `url(${cakeObj.lazyImgTitle})`
                   }}
                 ></div>
 
@@ -424,7 +424,7 @@ const GalleryContent = (props: GalleryContentProps) => {
                 <div
                   className={mainImgLoaded ? "" : "lazy-img"}
                   style={{
-                    backgroundImage: `url(${cakeObj.lazyImg})`
+                    backgroundImage: `url(${cakeObj.lazyImgTitle})`
                   }}
                 ></div>
 
