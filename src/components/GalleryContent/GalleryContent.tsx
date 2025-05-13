@@ -248,7 +248,7 @@ const GalleryContent = (props: GalleryContentProps) => {
   }, [props.customGalleryOpt]);
 
   useEffect(() => {
-    console.log(uniqueCategoryArr, "uniqkueCatearr");
+    console.log(uniqueCategoryArr, "uniqueCatearr");
   }, [uniqueCategoryArr]);
 
   return (
