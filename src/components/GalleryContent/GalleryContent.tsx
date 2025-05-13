@@ -326,7 +326,7 @@ const GalleryContent = (props: GalleryContentProps) => {
               style={{
                 backgroundImage:
                   "url(" +
-                  uniqueCategoryArr[props.activeThumbnail].lazyImg +
+                  uniqueCategoryArr[props.activeThumbnail].lazyImgTitle +
                   ")"
               }}
             ></div>
