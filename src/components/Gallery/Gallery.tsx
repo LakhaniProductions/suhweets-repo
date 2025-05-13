@@ -28,25 +28,25 @@ const Gallery = (props: GalleryProps) => {
 
   useEffect(() => {
     const isWedding = location.pathname.includes("/wedding-cakes");
-
-    isWedding ? setGalleryOpt("wedding") : setGalleryOpt("all");
+    setGalleryOpt(isWedding ? "wedding" : "all");
   }, []);
 
   useEffect(() => {
-    if (activeIndex !== undefined && galleryOpt !== undefined) {
-      const isWedding = location.pathname.includes("/wedding-cakes");
-      const basePath = isWedding ? "wedding-cakes" : "custom-cakes";
-      const newPath = `/${basePath}/${galleryOpt}/${+activeIndex}`;
-      navigate(newPath, { replace: true });
+    const isWedding = location.pathname.includes("/wedding-cakes");
+    const basePath = isWedding ? "wedding-cakes" : "custom-cakes";
+    const currentPath = `/${basePath}/${galleryOpt}/${activeIndex}`;
+    if (location.pathname !== currentPath) {
+      navigate(currentPath, { replace: true });
     }
-  }, [activeIndex, galleryOpt, navigate]);
+  }, [activeIndex, galleryOpt]);
 
   useEffect(() => {
-    console.log(selectedMenuItem, activeThumbnail);
     if (selectedMenuItem && activeThumbnail !== undefined) {
-      // Update active thumbnail from URL
-      setGalleryOpt(selectedMenuItem);
-      setActiveIndex(parseInt(activeThumbnail));
+      const parsedIndex = parseInt(activeThumbnail);
+      if (galleryOpt !== selectedMenuItem || activeIndex !== parsedIndex) {
+        setGalleryOpt(selectedMenuItem);
+        setActiveIndex(parsedIndex);
+      }
     }
   }, [selectedMenuItem, activeThumbnail]);
 
