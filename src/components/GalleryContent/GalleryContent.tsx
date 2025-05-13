@@ -300,7 +300,7 @@ const GalleryContent = (props: GalleryContentProps) => {
                       mainImgLoaded &&
                       setMainImgLoaded(!mainImgLoaded)
                     }
-                    src={item.thumbnailTitle}
+                    src={item.thumbnail}
                     key={i}
                     id={`${item.thumbnailTitle}_${i}`}
                     alt=""
@@ -325,7 +325,7 @@ const GalleryContent = (props: GalleryContentProps) => {
               className={mainImgLoaded ? "" : "lazy-img"}
               style={{
                 backgroundImage: `url(${
-                  uniqueCategoryArr[props.activeThumbnail!].lazyImgTitle
+                  uniqueCategoryArr[props.activeThumbnail!].lazyImg
                 })`
               }}
             ></div>
@@ -336,8 +336,8 @@ const GalleryContent = (props: GalleryContentProps) => {
                 }}
                 src={
                   oneColLayout
-                    ? uniqueCategoryArr[props.activeThumbnail!].mobileImgTitle
-                    : uniqueCategoryArr[props.activeThumbnail!].imgTitle
+                    ? uniqueCategoryArr[props.activeThumbnail!].mobileImg
+                    : uniqueCategoryArr[props.activeThumbnail!].img
                 }
                 alt=""
               />
@@ -376,7 +376,7 @@ const GalleryContent = (props: GalleryContentProps) => {
                     onLoad={(e) => {
                       handleImageLoading(e);
                     }}
-                    src={item.thumbnailTitle}
+                    src={item.thumbnail}
                     key={i}
                     id={`${item.thumbnailTitle}_${i}`}
                     alt=""
