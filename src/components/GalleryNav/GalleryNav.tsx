@@ -1,11 +1,11 @@
 import React, { useCallback, useContext, useState } from "react";
-import { GalleryNavProps } from "./GalleryNav.types";
+// import { GalleryNavProps } from "./GalleryNav.types";
 import "../MainNav/mainnav.css";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { GalleryImgLoadContext } from "../../context/GalleryImgLoadContext";
 import useWindowDimensions from "../../hooks/useWindowDimensions";
 
-const GalleryNav = (props: GalleryNavProps) => {
+const GalleryNav = () => {
   const context = useContext(GalleryImgLoadContext);
   if (!context) {
     return;
@@ -44,9 +44,9 @@ const GalleryNav = (props: GalleryNavProps) => {
     //   setAllGalleryImagesArr([]);
     // }
     setSelectedMenuItem(target.id);
-    props.setCustomGalleryOpt(target.id);
+    // props.setCustomGalleryOpt(target.id);
     setActiveIndex(i);
-    props.setActiveThumbnail(0);
+    // props.setActiveThumbnail(0);
     // target.id !== selectedMenuItem && setShowLoadingGif(true);
     setShowLoadingGif(true);
     navigate(newPath);
@@ -99,9 +99,9 @@ const GalleryNav = (props: GalleryNavProps) => {
               <button
                 onClick={() => {
                   setSelectedMenuItem(galleryMenu[activeIndex - 1]);
-                  props.setCustomGalleryOpt(galleryMenu[activeIndex - 1]);
+                  // props.setCustomGalleryOpt(galleryMenu[activeIndex - 1]);
                   setActiveIndex(activeIndex - 1);
-                  props.setActiveThumbnail(0);
+                  // props.setActiveThumbnail(0);
                 }}
                 className="less-btn"
               >
@@ -124,9 +124,9 @@ const GalleryNav = (props: GalleryNavProps) => {
               <button
                 onClick={() => {
                   setSelectedMenuItem(galleryMenu[activeIndex + 1]);
-                  props.setCustomGalleryOpt(galleryMenu[activeIndex + 1]);
+                  // props.setCustomGalleryOpt(galleryMenu[activeIndex + 1]);
                   setActiveIndex(activeIndex + 1);
-                  props.setActiveThumbnail(0);
+                  // props.setActiveThumbnail(0);
                 }}
                 className="greater-btn"
               >

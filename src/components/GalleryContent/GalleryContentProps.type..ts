@@ -1,7 +1,5 @@
-import { Dispatch, SetStateAction } from "react";
-
 export interface GalleryContentProps {
   customGalleryOpt: string;
   activeThumbnail: number;
-  setActiveThumbnail: Dispatch<SetStateAction<number>>;
+  // setActiveThumbnail: Dispatch<SetStateAction<number>>;
 }

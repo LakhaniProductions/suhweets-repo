@@ -6,7 +6,7 @@ import {
   useRef,
   useState
 } from "react";
-import { useLocation, useParams } from "react-router-dom";
+import { useNavigate, useLocation, useParams } from "react-router-dom";
 import TextPanel from "../TextPanel/TextPanel";
 import { GalleryContentProps } from "./GalleryContentProps.type.";
 import { GalleryImgLoadContext } from "../../context/GalleryImgLoadContext";
@@ -14,6 +14,7 @@ import allCakesData from "../../data/allGalleryCakesData";
 import useWindowDimensions from "../../hooks/useWindowDimensions";
 
 const GalleryContent = (props: GalleryContentProps) => {
+  const navigate = useNavigate();
   const context = useContext(GalleryImgLoadContext);
   if (!context) {
     return;
@@ -47,7 +48,7 @@ const GalleryContent = (props: GalleryContentProps) => {
     }
   }, [weddingGalleryContent, customGalleryContent]);
 
-  const [galleryOpt, setGalleryOpt] = useState<string>("");
+  // const [galleryOpt, setGalleryOpt] = useState<string>("");
 
   const allCustomCategoriesArr: Record<string, any>[] = [];
 
@@ -55,7 +56,9 @@ const GalleryContent = (props: GalleryContentProps) => {
   cakeGalleryContent
     ? allCustomCategoriesArr.push(...cakeGalleryContent)
     : allCustomCategoriesArr.push(
-        ...cakeGalleryContent!.filter((item) => item.category === galleryOpt)
+        ...cakeGalleryContent!.filter(
+          (item) => item.category === props.customGalleryOpt
+        )
       );
 
   const uniqueCategoryArr = allCustomCategoriesArr.filter(
@@ -77,10 +80,14 @@ const GalleryContent = (props: GalleryContentProps) => {
 
   const handleThumbnailClick = (e: SyntheticEvent) => {
     const target = e.target as HTMLImageElement;
-    if (target.className.includes("gallery-thumbnails-container")) {
-      return;
-    }
-    props.setActiveThumbnail(+target.id.replace(/^[^_]*_/, "")); // remove "_" and get everything after
+    if (target.className.includes("gallery-thumbnails-container")) return;
+
+    const clickedIndex = +target.id.replace(/^[^_]*_/, "");
+
+    const isWedding = location.pathname.includes("/wedding-cakes");
+    const basePath = isWedding ? "wedding-cakes" : "custom-cakes";
+
+    navigate(`/${basePath}/${props.customGalleryOpt}/${clickedIndex}`);
   };
 
   const handleImageLoading = (e: SyntheticEvent) => {
@@ -193,10 +200,10 @@ const GalleryContent = (props: GalleryContentProps) => {
     }
   }, [width, height]);
 
-  useEffect(() => {
-    setGalleryOpt(props.customGalleryOpt);
-    // setMainImgLoaded(false);
-  }, [props.customGalleryOpt]);
+  // useEffect(() => {
+  //   setGalleryOpt(props.customGalleryOpt);
+  //   // setMainImgLoaded(false);
+  // }, [props.customGalleryOpt]);
 
   useEffect(() => {
     console.log(uniqueCategoryArr, "uniqueCatearr");
