@@ -21,7 +21,9 @@ const Gallery = (props: GalleryProps) => {
   const [galleryOpt, setGalleryOpt] = useState<string>(
     location.pathname.includes("/wedding-cakes") ? "wedding" : "all"
   );
-  const [activeIndex, setActiveIndex] = useState<number>(0);
+  const [activeIndex, setActiveIndex] = useState<number>(
+    activeThumbnail ? +activeThumbnail : 0
+  );
   const navigate = useNavigate();
 
   useEffect(() => {
