@@ -40,7 +40,7 @@ const Gallery = (props: GalleryProps) => {
   }, [activeIndex, galleryOpt, navigate]);
 
   useEffect(() => {
-    console.log(activeThumbnail);
+    console.log(selectedMenuItem, activeThumbnail);
     if (selectedMenuItem && activeThumbnail !== undefined) {
       // Update active thumbnail from URL
       setGalleryOpt(selectedMenuItem);
