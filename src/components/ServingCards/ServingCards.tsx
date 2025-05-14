@@ -158,20 +158,14 @@ const ServingCards = (props: servingCardsProp) => {
   return (
     <div className={`serving-cards-container ${secondaryClassName}`}>
       {servingSizeContent
-        .filter((obj: Record<string, string>) => obj.category === props.html)
-        .map((item: Record<string, string>, i: number) => (
+        .filter((obj) => obj.category === props.html)
+        .map((item, i) => (
           <div className="serving-card" key={i} id={`card${props.html}`}>
             <div className="img-container" id={`img-container${props.html}`}>
               <img
                 className="serving-img"
                 src={item.img}
-                alt={
-                  "Illustration of a " +
-                  item.category +
-                  ", " +
-                  item.diameter +
-                  " cake"
-                }
+                alt={`Illustration of a ${item.category}, ${item.diameter} cake`}
                 id={`img${props.html}`}
                 onLoad={(e) => {
                   setAllGalleryImagesArr((prevState: any) => [
