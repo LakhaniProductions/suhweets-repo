@@ -23,6 +23,7 @@
   max-width: 40dvw;
   padding-right: 1.2rem;
   max-height: max-content;
+  -webkit-overflow-scrolling: touch;
 }
 .gallery-thumbnails-container::-webkit-scrollbar {
   width: 0.8rem;
@@ -364,6 +365,7 @@
     display: flex;
     overflow-x: scroll;
     z-index: 10000;
+    -webkit-overflow-scrolling: touch;
   }
 
   .fav .gallery-mainImg-container.flavors {
@@ -2879,6 +2881,7 @@
     margin: 2.4rem 2.4rem 0 2.4rem;
     padding-bottom: 1.2rem;
     flex-direction: column;
+    -webkit-overflow-scrolling: touch;
   }
 
   .gallery-thumbnails-container img {
@@ -2920,6 +2923,7 @@
     margin: 0;
     padding-bottom: 0;
     flex-direction: column;
+    -webkit-overflow-scrolling: touch;
   }
 
   .gallery-thumbnails-container::-webkit-scrollbar {
@@ -3120,6 +3124,7 @@
     overflow-y: scroll;
     flex-direction: column;
     max-width: 100%;
+    -webkit-overflow-scrolling: touch;
   }
 
   .gallery-mainImg-container img {
@@ -3196,6 +3201,7 @@
     overflow-y: scroll;
     flex-direction: column;
     max-height: fit-content;
+    -webkit-overflow-scrolling: touch;
   }
 
   .gallery-mainImg-container img {
@@ -3245,6 +3251,7 @@
     min-height: 100%;
     max-width: 100%;
     margin: 0;
+    -webkit-overflow-scrolling: touch;
   }
 
   .gallery-mainImg-container:last-of-type {
@@ -3306,6 +3313,7 @@
     justify-content: flex-start;
     overflow-x: scroll;
     margin: 0 1.2rem;
+    -webkit-overflow-scrolling: touch;
   }
 
   .gallery-mainImg-container img {
@@ -3381,6 +3389,7 @@
     flex-direction: column;
     overflow-y: scroll;
     height: 85%;
+    -webkit-overflow-scrolling: touch;
   }
   .flavors-two-col {
     max-width: 100%;
@@ -3552,6 +3561,7 @@
     justify-content: flex-start;
     overflow-x: scroll;
     margin: 0 1.2rem;
+    -webkit-overflow-scrolling: touch;
   }
 
   .gallery-mainImg-container img {
@@ -3721,6 +3731,7 @@
     justify-content: flex-start;
     overflow-x: scroll;
     margin: 0 1.2rem;
+    -webkit-overflow-scrolling: touch;
   }
 
   .gallery-mainImg-container img {
