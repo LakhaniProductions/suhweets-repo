@@ -148,7 +148,6 @@ const GalleryContent = (props: GalleryContentProps) => {
   }, [allCustomCategoriesArr]);
 
   useEffect(() => {
-    console.log(thumbImgsLoaded, "thumbImgsLoaded");
     const allThumbsLoaded = allCakesOnPage.every((cake) =>
       thumbImgsLoaded.includes(cake.thumbnailTitle)
     );
@@ -181,7 +180,7 @@ const GalleryContent = (props: GalleryContentProps) => {
       setMobileLrg(false);
     } else if (width <= 973 && width > 848) {
       setTwoColLayout(false);
-      setThreeColLayout(true);
+      setThreeColLayout(false);
 
       setOneColLayout(true);
       setMobileLrg(false);
@@ -199,15 +198,6 @@ const GalleryContent = (props: GalleryContentProps) => {
       setMobileLrg(false);
     }
   }, [width, height]);
-
-  // useEffect(() => {
-  //   setGalleryOpt(props.customGalleryOpt);
-  //   // setMainImgLoaded(false);
-  // }, [props.customGalleryOpt]);
-
-  useEffect(() => {
-    console.log(uniqueCategoryArr, "uniqueCatearr");
-  }, [uniqueCategoryArr]);
 
   return (
     <>
@@ -339,6 +329,9 @@ const GalleryContent = (props: GalleryContentProps) => {
                     id={`${item.thumbnailTitle}_${i}`}
                     alt=""
                     className={props.activeThumbnail === i ? "active" : ""}
+                    ref={(el) => {
+                      imgRefs.current[i] = el;
+                    }}
                   />
                 </>
               );
