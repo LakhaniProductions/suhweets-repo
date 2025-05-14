@@ -1,13 +1,10 @@
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { servingCardsProp } from "./ServingCards.type";
-import { GalleryImgLoadContext } from "../../context/GalleryImgLoadContext";
 
 const ServingCards = (props: servingCardsProp) => {
-  const context = useContext(GalleryImgLoadContext);
-  if (!context) {
-    return;
-  }
-  const { setAllGalleryImagesArr } = context;
+  const [secondaryClassName, setSecondaryClassName] = useState("");
+  const [loadedServImgs, setLoadedServImgs] = useState<any[]>([]);
+
   const servingImages = Object.values(
     import.meta.glob("../../img/servingssizes/*.{png,jpg,jpeg}", {
       eager: true,
@@ -56,7 +53,7 @@ const ServingCards = (props: servingCardsProp) => {
     {
       diameter: '6" & 9" diameters',
       servings: "Serves 42",
-      img: servingImages.find((img) => img.includes("6-9")),
+      img: servingImages.find((img) => img.split("/").pop() === "6-9.png"),
       category: "2-tier"
     },
     {
@@ -137,7 +134,6 @@ const ServingCards = (props: servingCardsProp) => {
       category: "5-tier"
     }
   ];
-  const [secondaryClassName, setSecondaryClassName] = useState("");
 
   useEffect(() => {
     if (props.html === "1-tier") {
@@ -155,7 +151,27 @@ const ServingCards = (props: servingCardsProp) => {
     }
   }, [props.html]);
 
-  console.log(servingSizeContent);
+  // useEffect(() => {
+  //   const allOptionsOnPage = servingSizeContent.filter(
+  //     (obj: Record<string, string>) => obj.category === props.html
+  //   );
+
+  //   allOptionsOnPage.length === allGalleryImagesArr.length &&
+  //     setShowLoadingGif(false);
+  // }, [allGalleryImagesArr]);
+  useEffect(() => {
+    const allOptionsOnPage = servingSizeContent.filter(
+      (obj) => obj.category === props.html
+    );
+    console.log(allOptionsOnPage);
+
+    //check if  loadedimgs includes  alloptionsonpage
+  }, [props.html]);
+
+  useEffect(() => {
+    console.log(loadedServImgs);
+    console.log(loadedServImgs.length);
+  }, [loadedServImgs]);
 
   return (
     <div className={`serving-cards-container ${secondaryClassName}`}>
@@ -170,10 +186,14 @@ const ServingCards = (props: servingCardsProp) => {
                 alt={`Illustration of a ${item.category}, ${item.diameter} cake`}
                 id={`img${props.html}`}
                 onLoad={(e) => {
-                  setAllGalleryImagesArr((prevState: any) => [
-                    ...prevState,
-                    e.target
-                  ]);
+                  const target = e.target as HTMLImageElement;
+                  const fileName = target.src.split("/").pop();
+                  fileName &&
+                    !loadedServImgs.includes(fileName) &&
+                    setLoadedServImgs((prevState: any) => [
+                      ...prevState,
+                      fileName
+                    ]);
                 }}
               />
             </div>
