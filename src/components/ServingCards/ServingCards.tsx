@@ -48,7 +48,8 @@ const ServingCards = (props: servingCardsProp) => {
       img: servingImages.find(
         (img) =>
           img.split("/").pop()?.includes("6-8") &&
-          !img.split("/").pop()?.includes("4")
+          !img.split("/").pop()?.includes("4") &&
+          !img.split("/").pop()?.includes("10")
       ),
       category: "2-tier"
     },
