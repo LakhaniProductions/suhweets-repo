@@ -56,7 +56,12 @@ const ServingCards = (props: servingCardsProp) => {
     {
       diameter: '6" & 9" diameters',
       servings: "Serves 42",
-      img: servingImages.find((img) => img.split("/").pop()?.includes("6-9")),
+      img: servingImages.find(
+        (img) =>
+          img.split("/").pop()?.includes("6-9") &&
+          !img.split("/").pop()?.includes("12") &&
+          !img.split("/").pop()?.includes("14")
+      ),
       category: "2-tier"
     },
     {
