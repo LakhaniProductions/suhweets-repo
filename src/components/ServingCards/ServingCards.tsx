@@ -155,6 +155,8 @@ const ServingCards = (props: servingCardsProp) => {
     }
   }, [props.html]);
 
+  console.log(servingSizeContent);
+
   return (
     <div className={`serving-cards-container ${secondaryClassName}`}>
       {servingSizeContent
@@ -162,20 +164,18 @@ const ServingCards = (props: servingCardsProp) => {
         .map((item, i) => (
           <div className="serving-card" key={i} id={`card${props.html}`}>
             <div className="img-container" id={`img-container${props.html}`}>
-              {item.img && (
-                <img
-                  className="serving-img"
-                  src={item.img}
-                  alt={`Illustration of a ${item.category}, ${item.diameter} cake`}
-                  id={`img${props.html}`}
-                  onLoad={(e) => {
-                    setAllGalleryImagesArr((prevState: any) => [
-                      ...prevState,
-                      e.target
-                    ]);
-                  }}
-                />
-              )}
+              <img
+                className="serving-img"
+                src={item.img}
+                alt={`Illustration of a ${item.category}, ${item.diameter} cake`}
+                id={`img${props.html}`}
+                onLoad={(e) => {
+                  setAllGalleryImagesArr((prevState: any) => [
+                    ...prevState,
+                    e.target
+                  ]);
+                }}
+              />
             </div>
             <div className="txt-container">
               <p className="diameter-txt">{item.diameter}</p>
