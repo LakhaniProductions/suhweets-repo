@@ -47,7 +47,7 @@ nav {
   /* transform: translateY(-0.2rem); */
 }
 
-@media (max-width: 2560px) AND (max-height: 1200px) {
+@media (max-width: 2560px) and (max-height: 1200px) {
   .favorites,
   .flavors,
   .fillings {
@@ -61,7 +61,7 @@ nav {
   }
 }
 
-@media (max-width: 2560px) AND (max-height: 1110px) {
+@media (max-width: 2560px) and (max-height: 1110px) {
   .favorites,
   .flavors,
   .fillings {

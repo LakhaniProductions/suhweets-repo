@@ -82,7 +82,7 @@
   font-size: 3.2rem;
 }
 
-@media (max-width: 2560px) AND (max-height: 1240px) {
+@media (max-width: 2560px) and (max-height: 1240px) {
   .signature-cakes-container {
     height: 95%;
   }
@@ -141,7 +141,7 @@
   }
 }
 
-@media (max-width: 1511px) AND (max-height: 900px) {
+@media (max-width: 1511px) and (max-height: 900px) {
   .signature-cakes-container {
     height: 95%;
   }
@@ -179,7 +179,7 @@
   }
 }
 
-@media (max-width: 1080px) AND (max-height: 1000px) {
+@media (max-width: 1080px) and (max-height: 1000px) {
   .signature-details h2 {
     font-size: 3.6rem;
   }
@@ -240,7 +240,7 @@
   }
 }
 
-@media (max-width: 700px) AND (max-height: 1100px) {
+@media (max-width: 700px) and (max-height: 1100px) {
   .signature-details h2 {
     font-size: 2.9rem;
   }
