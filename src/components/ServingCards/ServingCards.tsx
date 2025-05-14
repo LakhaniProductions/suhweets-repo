@@ -45,7 +45,11 @@ const ServingCards = (props: servingCardsProp) => {
     {
       diameter: '6" & 8" diameters',
       servings: "Serves 36",
-      img: servingImages.find((img) => img.split("/").pop()?.includes("6-8")),
+      img: servingImages.find(
+        (img) =>
+          img.split("/").pop()?.includes("6-8") &&
+          !img.split("/").pop()?.includes("4")
+      ),
       category: "2-tier"
     },
     {
@@ -63,7 +67,12 @@ const ServingCards = (props: servingCardsProp) => {
     {
       diameter: '8" & 10" diameters',
       servings: "Serves 62",
-      img: servingImages.find((img) => img.split("/").pop()?.includes("8-10")),
+      img: servingImages.find(
+        (img) =>
+          img.split("/").pop()?.includes("8-10") &&
+          !img.split("/").pop()?.includes("4") &&
+          !img.split("/").pop()?.includes("6")
+      ),
       category: "2-tier"
     },
     {
@@ -81,8 +90,10 @@ const ServingCards = (props: servingCardsProp) => {
     {
       diameter: '6" 8" & 10" diameters',
       servings: "Serves 74",
-      img: servingImages.find((img) =>
-        img.split("/").pop()?.includes("6-8-10")
+      img: servingImages.find(
+        (img) =>
+          img.split("/").pop()?.includes("6-8-10") &&
+          !img.split("/").pop()?.includes("4")
       ),
       category: "3-tier"
     },
