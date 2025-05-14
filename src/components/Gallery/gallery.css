@@ -20,7 +20,7 @@
   flex-wrap: wrap;
   overflow-y: scroll;
   margin-bottom: 2.4rem;
-  max-width: 40vw;
+  max-width: 40dvw;
   padding-right: 1.2rem;
   max-height: max-content;
 }
@@ -104,8 +104,8 @@
   padding-top: 2.4rem;
 }
 .loading-container span {
-  width: 100vw;
-  height: 100vh;
+  width: 100dvw;
+  height: 100dvh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -200,13 +200,13 @@
 
 @media (max-width: 2560px) and (max-height: 1260px) {
   .gallery-thumbnails-container {
-    max-width: 41vw;
+    max-width: 41dvw;
   }
 }
 
 @media (max-width: 2560px) and (max-height: 1255px) {
   .gallery-thumbnails-container {
-    max-width: 37vw;
+    max-width: 37dvw;
   }
 
   .forward {
@@ -222,7 +222,7 @@
 
 @media (max-width: 2560px) and (max-height: 1200px) {
   .gallery-thumbnails-container {
-    max-width: 39.5vw;
+    max-width: 39.5dvw;
   }
 
   .forward {
@@ -240,7 +240,7 @@
 
 @media (max-width: 2560px) and (max-height: 1150px) {
   .gallery-thumbnails-container {
-    max-width: 41vw;
+    max-width: 41dvw;
   }
 }
 
@@ -263,7 +263,7 @@
   }
 
   .gallery-thumbnails-container {
-    max-width: 43vw;
+    max-width: 43dvw;
   }
 
   .gallery-thumbnails-container img {
@@ -295,7 +295,7 @@
 
 @media (max-width: 2560px) and (max-height: 1060px) {
   .gallery-thumbnails-container {
-    max-width: 44vw;
+    max-width: 44dvw;
   }
   .gallery-thumbnails-container img {
     max-width: 22.5%;
@@ -311,31 +311,31 @@
   }
 
   .gallery-thumbnails-container {
-    max-width: 45.5vw;
+    max-width: 45.5dvw;
   }
 }
 
 @media (max-width: 2560px) and (max-height: 980px) {
   .gallery-thumbnails-container {
-    max-width: 46.5vw;
+    max-width: 46.5dvw;
   }
 }
 
 @media (max-width: 2560px) and (max-height: 960px) {
   .gallery-thumbnails-container {
-    max-width: 47vw;
+    max-width: 47dvw;
   }
 }
 
 @media (max-width: 2560px) and (max-height: 925px) {
   .gallery-thumbnails-container {
-    max-width: 50vw;
+    max-width: 50dvw;
   }
 }
 
 @media (max-width: 2560px) and (max-height: 880px) {
   .gallery-thumbnails-container {
-    max-width: 51vw;
+    max-width: 51dvw;
   }
   .gallery-thumbnails-container img {
     max-width: 23%;
@@ -473,67 +473,67 @@
 
 @media (max-width: 2480px) {
   .gallery-thumbnails-container {
-    max-width: 39.5vw;
+    max-width: 39.5dvw;
   }
 }
 
 @media (max-width: 2480px) and (max-height: 1255px) {
   .gallery-thumbnails-container {
-    max-width: 36vw;
+    max-width: 36dvw;
   }
 }
 
 @media (max-width: 2480px) and (max-height: 1200px) {
   .gallery-thumbnails-container {
-    max-width: 39.5vw;
+    max-width: 39.5dvw;
   }
 }
 
 @media (max-width: 2480px) and (max-height: 1155px) {
   .gallery-thumbnails-container {
-    max-width: 40.5vw;
+    max-width: 40.5dvw;
   }
 }
 
 @media (max-width: 2480px) and (max-height: 1110px) {
   .gallery-thumbnails-container {
-    max-width: 42.5vw;
+    max-width: 42.5dvw;
   }
 }
 
 @media (max-width: 2480px) and (max-height: 1080px) {
   .gallery-thumbnails-container {
-    max-width: 44vw;
+    max-width: 44dvw;
   }
 }
 
 @media (max-width: 2480px) and (max-height: 1040px) {
   .gallery-thumbnails-container {
-    max-width: 45vw;
+    max-width: 45dvw;
   }
 }
 
 @media (max-width: 2480px) and (max-height: 1000px) {
   .gallery-thumbnails-container {
-    max-width: 46vw;
+    max-width: 46dvw;
   }
 }
 
 @media (max-width: 2480px) and (max-height: 970px) {
   .gallery-thumbnails-container {
-    max-width: 47vw;
+    max-width: 47dvw;
   }
 }
 
 @media (max-width: 2480px) and (max-height: 925px) {
   .gallery-thumbnails-container {
-    max-width: 49vw;
+    max-width: 49dvw;
   }
 }
 
 @media (max-width: 2480px) and (max-height: 890px) {
   .gallery-thumbnails-container {
-    max-width: 50vw;
+    max-width: 50dvw;
   }
 }
 
@@ -548,7 +548,7 @@
 
 @media (max-width: 2440px) and (max-height: 1200px) {
   .gallery-thumbnails-container {
-    max-width: 39vw;
+    max-width: 39dvw;
   }
   .gallery-thumbnails-container img {
     max-width: 22%;
@@ -560,13 +560,13 @@
 
 @media (max-width: 2420px) {
   .gallery-thumbnails-container {
-    max-width: 39vw;
+    max-width: 39dvw;
   }
 }
 
 @media (max-width: 2420px) and (max-height: 1255px) {
   .gallery-thumbnails-container {
-    max-width: 36vw;
+    max-width: 36dvw;
   }
   .gallery-thumbnails-container img {
     max-width: 22%;
@@ -578,19 +578,19 @@
 
 @media (max-width: 2420px) and (max-height: 1200px) {
   .gallery-thumbnails-container {
-    max-width: 38.5vw;
+    max-width: 38.5dvw;
   }
 }
 
 @media (max-width: 2400px) and (max-height: 1255px) {
   .gallery-thumbnails-container {
-    max-width: 35vw;
+    max-width: 35dvw;
   }
 }
 
 @media (max-width: 2400px) and (max-height: 1200px) {
   .gallery-thumbnails-container {
-    max-width: 38vw;
+    max-width: 38dvw;
   }
 }
 
@@ -611,7 +611,7 @@
 
 @media (max-width: 2362px) {
   .gallery-thumbnails-container {
-    max-width: 37vw;
+    max-width: 37dvw;
   }
   .gallery-thumbnails-container img {
     max-width: 21%;
@@ -623,13 +623,13 @@
 
 @media (max-width: 2362px) and (max-height: 1255px) {
   .gallery-thumbnails-container {
-    max-width: 35vw;
+    max-width: 35dvw;
   }
 }
 
 @media (max-width: 2362px) and (max-height: 1200px) {
   .gallery-thumbnails-container {
-    max-width: 37.5vw;
+    max-width: 37.5dvw;
   }
   .gallery-thumbnails-container img {
     max-width: 22%;
@@ -641,7 +641,7 @@
 
 @media (max-width: 2340px) and (max-height: 1255px) {
   .gallery-thumbnails-container {
-    max-width: 34.5vw;
+    max-width: 34.5dvw;
   }
   .gallery-thumbnails-container img {
     max-width: 21.5%;
@@ -653,7 +653,7 @@
 
 @media (max-width: 2340px) and (max-height: 1200px) {
   .gallery-thumbnails-container {
-    max-width: 37vw;
+    max-width: 37dvw;
   }
   .gallery-thumbnails-container img {
     max-width: 22%;
@@ -679,25 +679,25 @@
 
 @media (max-width: 2290px) {
   .gallery-thumbnails-container {
-    max-width: 36vw;
+    max-width: 36dvw;
   }
 }
 
 @media (max-width: 2290px) and (max-height: 1255px) {
   .gallery-thumbnails-container {
-    max-width: 34vw;
+    max-width: 34dvw;
   }
 }
 
 @media (max-width: 2290px) and (max-height: 1200px) {
   .gallery-thumbnails-container {
-    max-width: 37vw;
+    max-width: 37dvw;
   }
 }
 
 @media (max-width: 2266px) and (max-height: 1255px) {
   .gallery-thumbnails-container {
-    max-width: 33vw;
+    max-width: 33dvw;
   }
   .gallery-thumbnails-container img {
     max-width: 21%;
@@ -709,7 +709,7 @@
 
 @media (max-width: 2266px) and (max-height: 1200px) {
   .gallery-thumbnails-container {
-    max-width: 36.5vw;
+    max-width: 36.5dvw;
   }
   .gallery-thumbnails-container img {
     max-width: 21.5%;
@@ -721,25 +721,25 @@
 
 @media (max-width: 2236px) {
   .gallery-thumbnails-container {
-    max-width: 35vw;
+    max-width: 35dvw;
   }
 }
 
 @media (max-width: 2236px) and (max-height: 1255px) {
   .gallery-thumbnails-container {
-    max-width: 32.5vw;
+    max-width: 32.5dvw;
   }
 }
 
 @media (max-width: 2236px) and (max-height: 1200px) {
   .gallery-thumbnails-container {
-    max-width: 36vw;
+    max-width: 36dvw;
   }
 }
 
 @media (max-width: 2210px) and (max-height: 1200px) {
   .gallery-thumbnails-container {
-    max-width: 35.5vw;
+    max-width: 35.5dvw;
   }
 }
 
@@ -766,13 +766,13 @@
 
 @media (max-width: 2190px) and (max-height: 1255px) {
   .gallery-thumbnails-container {
-    max-width: 32vw;
+    max-width: 32dvw;
   }
 }
 
 @media (max-width: 2190px) and (max-height: 1200px) {
   .gallery-thumbnails-container {
-    max-width: 35vw;
+    max-width: 35dvw;
   }
 }
 
@@ -787,7 +787,7 @@
     flex-direction: column;
   }
   .gallery-thumbnails-container {
-    max-width: 57vw;
+    max-width: 57dvw;
   }
   .gallery-thumbnails-container img {
     max-width: 14%;
@@ -799,7 +799,7 @@
 
 @media (max-width: 2181px) and (max-height: 1255px) {
   .gallery-thumbnails-container {
-    max-width: 58.5vw;
+    max-width: 58.5dvw;
   }
   .gallery-thumbnails-container img {
     max-width: 23%;
@@ -811,7 +811,7 @@
 
 @media (max-width: 2181px) and (max-height: 1200px) {
   .gallery-thumbnails-container {
-    max-width: 61vw;
+    max-width: 61dvw;
   }
   .gallery-thumbnails-container img {
     max-width: 23%;
@@ -823,19 +823,19 @@
 
 @media (max-width: 2160px) and (max-height: 1200px) {
   .gallery-thumbnails-container {
-    max-width: 60vw;
+    max-width: 60dvw;
   }
 }
 
 @media (max-width: 2150px) {
   .gallery-thumbnails-container {
-    max-width: 56vw;
+    max-width: 56dvw;
   }
 }
 
 @media (max-width: 2150px) and (max-height: 1255px) {
   .gallery-thumbnails-container {
-    max-width: 58vw;
+    max-width: 58dvw;
   }
   .gallery-thumbnails-container img {
     max-width: 23%;
@@ -847,13 +847,13 @@
 
 @media (max-width: 2150px) and (max-height: 1200px) {
   .gallery-thumbnails-container {
-    max-width: 60vw;
+    max-width: 60dvw;
   }
 }
 
 @media (max-width: 2132px) and (max-height: 1255px) {
   .gallery-thumbnails-container {
-    max-width: 57vw;
+    max-width: 57dvw;
   }
   .gallery-thumbnails-container img {
     max-width: 22.5%;
@@ -865,7 +865,7 @@
 
 @media (max-width: 2132px) and (max-height: 1200px) {
   .gallery-thumbnails-container {
-    max-width: 60vw;
+    max-width: 60dvw;
   }
   .gallery-thumbnails-container img {
     max-width: 23%;
@@ -889,7 +889,7 @@
 
 @media (max-width: 2100px) {
   .gallery-thumbnails-container {
-    max-width: 55vw;
+    max-width: 55dvw;
   }
   .gallery-thumbnails-container img {
     max-width: 17%;
@@ -901,7 +901,7 @@
 
 @media (max-width: 2100px) and (max-height: 1200px) {
   .gallery-thumbnails-container {
-    max-width: 59vw;
+    max-width: 59dvw;
   }
   .gallery-thumbnails-container img {
     max-width: 22.5%;
@@ -926,13 +926,13 @@
 
 @media (max-width: 2050px) {
   .gallery-thumbnails-container {
-    max-width: 54vw;
+    max-width: 54dvw;
   }
 }
 
 @media (max-width: 2050px) and (max-height: 1200px) {
   .gallery-thumbnails-container {
-    max-width: 58vw;
+    max-width: 58dvw;
   }
   .gallery-thumbnails-container img {
     max-width: 22.5%;
@@ -956,19 +956,19 @@
 
 @media (max-width: 2010px) {
   .gallery-thumbnails-container {
-    max-width: 53vw;
+    max-width: 53dvw;
   }
 }
 
 @media (max-width: 2010px) and (max-height: 1200px) {
   .gallery-thumbnails-container {
-    max-width: 57vw;
+    max-width: 57dvw;
   }
 }
 
 @media (max-width: 1960px) {
   .gallery-thumbnails-container {
-    max-width: 52vw;
+    max-width: 52dvw;
   }
   .gallery-thumbnails-container .active {
     max-width: 12%;
@@ -977,7 +977,7 @@
 
 @media (max-width: 1960px) and (max-height: 1200px) {
   .gallery-thumbnails-container {
-    max-width: 56vw;
+    max-width: 56dvw;
   }
   .gallery-thumbnails-container img {
     max-width: 22%;
@@ -1011,13 +1011,13 @@
 
 @media (max-width: 1920px) {
   .gallery-thumbnails-container {
-    max-width: 51vw;
+    max-width: 51dvw;
   }
 }
 
 @media (max-width: 1920px) and (max-height: 1200px) {
   .gallery-thumbnails-container {
-    max-width: 55vw;
+    max-width: 55dvw;
   }
 }
 
@@ -1066,13 +1066,13 @@
 
 @media (max-width: 1880px) {
   .gallery-thumbnails-container {
-    max-width: 50vw;
+    max-width: 50dvw;
   }
 }
 
 @media (max-width: 1880px) and (max-height: 1200px) {
   .gallery-thumbnails-container {
-    max-width: 54vw;
+    max-width: 54dvw;
   }
 }
 
@@ -1104,7 +1104,7 @@
 
 @media (max-width: 1850px) and (max-height: 1200px) {
   .gallery-thumbnails-container {
-    max-width: 54vw;
+    max-width: 54dvw;
   }
   .gallery-thumbnails-container img {
     max-width: 22%;
@@ -1116,7 +1116,7 @@
 
 @media (max-width: 1830px) and (max-height: 1200px) {
   .gallery-thumbnails-container {
-    max-width: 53vw;
+    max-width: 53dvw;
   }
   .gallery-thumbnails-container img {
     max-width: 22%;
@@ -1128,7 +1128,7 @@
 
 @media (max-width: 1800px) {
   .gallery-thumbnails-container {
-    max-width: 48vw;
+    max-width: 48dvw;
   }
   .gallery-thumbnails-container .active {
     max-width: 11%;
@@ -1137,7 +1137,7 @@
 
 @media (max-width: 1800px) and (max-height: 1200px) {
   .gallery-thumbnails-container {
-    max-width: 52vw;
+    max-width: 52dvw;
   }
   .gallery-thumbnails-container img {
     max-width: 22%;
@@ -1155,7 +1155,7 @@
 
 @media (max-width: 1770px) {
   .gallery-thumbnails-container {
-    max-width: 47vw;
+    max-width: 47dvw;
   }
   .gallery-thumbnails-container img {
     max-width: 16.5%;
@@ -1167,7 +1167,7 @@
 
 @media (max-width: 1770px) and (max-height: 1200px) {
   .gallery-thumbnails-container {
-    max-width: 52vw;
+    max-width: 52dvw;
   }
   .gallery-thumbnails-container img {
     max-width: 22%;
@@ -1179,7 +1179,7 @@
 
 @media (max-width: 1753px) and (max-height: 1200px) {
   .gallery-thumbnails-container {
-    max-width: 51vw;
+    max-width: 51dvw;
   }
   .gallery-thumbnails-container img {
     max-width: 22%;
@@ -1191,7 +1191,7 @@
 
 @media (max-width: 1740px) {
   .gallery-thumbnails-container {
-    max-width: 46vw;
+    max-width: 46dvw;
   }
   .gallery-thumbnails-container img {
     max-width: 16%;
@@ -1203,7 +1203,7 @@
 
 @media (max-width: 1740px) and (max-height: 1200px) {
   .gallery-thumbnails-container {
-    max-width: 50vw;
+    max-width: 50dvw;
   }
   .gallery-thumbnails-container img {
     max-width: 22%;
@@ -1221,13 +1221,13 @@
 
 @media (max-width: 1710px) {
   .gallery-thumbnails-container {
-    max-width: 45vw;
+    max-width: 45dvw;
   }
 }
 
 @media (max-width: 1710px) and (max-height: 1200px) {
   .gallery-thumbnails-container {
-    max-width: 50vw;
+    max-width: 50dvw;
   }
   .gallery-thumbnails-container img {
     max-width: 22%;
@@ -1239,7 +1239,7 @@
 
 @media (max-width: 1683px) and (max-height: 1200px) {
   .gallery-thumbnails-container {
-    max-width: 49vw;
+    max-width: 49dvw;
   }
   .gallery-thumbnails-container img {
     max-width: 21.5%;
@@ -1251,7 +1251,7 @@
 
 @media (max-width: 1670px) {
   .gallery-thumbnails-container {
-    max-width: 44vw;
+    max-width: 44dvw;
   }
 
   .gallery-thumbnails-container .active {
@@ -1261,7 +1261,7 @@
 
 @media (max-width: 1670px) and (max-height: 1200px) {
   .gallery-thumbnails-container {
-    max-width: 48vw;
+    max-width: 48dvw;
   }
   .gallery-thumbnails-container img {
     max-width: 21%;
@@ -1279,13 +1279,13 @@
 
 @media (max-width: 1640px) {
   .gallery-thumbnails-container {
-    max-width: 43vw;
+    max-width: 43dvw;
   }
 }
 
 @media (max-width: 1640px) and (max-height: 1200px) {
   .gallery-thumbnails-container {
-    max-width: 47vw;
+    max-width: 47dvw;
   }
   .gallery-thumbnails-container img {
     max-width: 21%;
@@ -1425,7 +1425,7 @@
 
 @media (max-width: 1610px) {
   .gallery-thumbnails-container {
-    max-width: 42vw;
+    max-width: 42dvw;
   }
   .gallery-thumbnails-container .active {
     max-width: 8.5%;
@@ -1434,7 +1434,7 @@
 
 @media (max-width: 1610px) and (max-height: 1200px) {
   .gallery-thumbnails-container {
-    max-width: 46vw;
+    max-width: 46dvw;
   }
   .gallery-thumbnails-container img {
     max-width: 21.5%;
@@ -1446,7 +1446,7 @@
 
 @media (max-width: 1590px) {
   .gallery-thumbnails-container {
-    max-width: 41vw;
+    max-width: 41dvw;
   }
   .gallery-thumbnails-container img {
     max-width: 21%;
@@ -1458,7 +1458,7 @@
 
 @media (max-width: 1590px) and (max-height: 1200px) {
   .gallery-thumbnails-container {
-    max-width: 46vw;
+    max-width: 46dvw;
   }
   .gallery-thumbnails-container img {
     max-width: 21.5%;
@@ -1476,7 +1476,7 @@
 
 @media (max-width: 1560px) {
   .gallery-thumbnails-container {
-    max-width: 40vw;
+    max-width: 40dvw;
   }
   .gallery-thumbnails-container img {
     max-width: 20%;
@@ -1488,7 +1488,7 @@
 
 @media (max-width: 1560px) and (max-height: 1200px) {
   .gallery-thumbnails-container {
-    max-width: 45vw;
+    max-width: 45dvw;
   }
   .gallery-thumbnails-container img {
     max-width: 21%;
@@ -1500,7 +1500,7 @@
 
 @media (max-width: 1530px) {
   .gallery-thumbnails-container {
-    max-width: 39vw;
+    max-width: 39dvw;
   }
 
   .gallery-thumbnails-container .active {
@@ -1510,7 +1510,7 @@
 
 @media (max-width: 1530px) and (max-height: 1200px) {
   .gallery-thumbnails-container {
-    max-width: 44vw;
+    max-width: 44dvw;
   }
   .gallery-thumbnails-container img {
     max-width: 21%;
@@ -1535,7 +1535,7 @@
   }
 
   .gallery-thumbnails-container {
-    max-width: 45vw;
+    max-width: 45dvw;
   }
 
   .gallery-thumbnails-container img {
@@ -1569,7 +1569,7 @@
 
 @media (max-width: 1511px) and (max-height: 1268px) {
   .gallery-thumbnails-container {
-    max-width: 47vw;
+    max-width: 47dvw;
   }
 
   .gallery-thumbnails-container img {
@@ -1589,7 +1589,7 @@
 
 @media (max-width: 1511px) and (max-height: 1244px) {
   .gallery-thumbnails-container {
-    max-width: 49vw;
+    max-width: 49dvw;
   }
 
   .gallery-mainImg-container {
@@ -1599,7 +1599,7 @@
 
 @media (max-width: 1511px) and (max-height: 1220px) {
   .gallery-thumbnails-container {
-    max-width: 50vw;
+    max-width: 50dvw;
   }
 
   .gallery-mainImg-container {
@@ -1609,7 +1609,7 @@
 
 @media (max-width: 1511px) and (max-height: 1190px) {
   .gallery-thumbnails-container {
-    max-width: 52vw;
+    max-width: 52dvw;
   }
 
   .gallery-mainImg-container {
@@ -1619,7 +1619,7 @@
 
 @media (max-width: 1511px) and (max-height: 1162px) {
   .gallery-thumbnails-container {
-    max-width: 53vw;
+    max-width: 53dvw;
   }
 
   .gallery-mainImg-container {
@@ -1629,7 +1629,7 @@
 
 @media (max-width: 1511px) and (max-height: 1136px) {
   .gallery-thumbnails-container {
-    max-width: 54vw;
+    max-width: 54dvw;
   }
 
   .gallery-thumbnails-container img {
@@ -1647,7 +1647,7 @@
 
 @media (max-width: 1511px) and (max-height: 1110px) {
   .gallery-thumbnails-container {
-    max-width: 55vw;
+    max-width: 55dvw;
   }
 
   .gallery-mainImg-container {
@@ -1657,7 +1657,7 @@
 
 @media (max-width: 1511px) and (max-height: 1083px) {
   .gallery-thumbnails-container {
-    max-width: 57vw;
+    max-width: 57dvw;
   }
 
   .gallery-mainImg-container {
@@ -1667,7 +1667,7 @@
 
 @media (max-width: 1511px) and (max-height: 1057px) {
   .gallery-thumbnails-container {
-    max-width: 58vw;
+    max-width: 58dvw;
   }
 
   .gallery-mainImg-container {
@@ -1677,7 +1677,7 @@
 
 @media (max-width: 1511px) and (max-height: 1028px) {
   .gallery-thumbnails-container {
-    max-width: 59.5vw;
+    max-width: 59.5dvw;
   }
 
   .gallery-thumbnails-container img {
@@ -1697,7 +1697,7 @@
     margin: 0;
   }
   .gallery-thumbnails-container {
-    max-width: 61vw;
+    max-width: 61dvw;
   }
 
   .gallery-mainImg-container {
@@ -1707,7 +1707,7 @@
 
 @media (max-width: 1511px) and (max-height: 995px) {
   .gallery-thumbnails-container {
-    max-width: 62vw;
+    max-width: 62dvw;
   }
 
   .gallery-mainImg-container {
@@ -1717,7 +1717,7 @@
 
 @media (max-width: 1511px) and (max-height: 968px) {
   .gallery-thumbnails-container {
-    max-width: 63.5vw;
+    max-width: 63.5dvw;
   }
 
   .gallery-mainImg-container {
@@ -1727,7 +1727,7 @@
 
 @media (max-width: 1511px) and (max-height: 942px) {
   .gallery-thumbnails-container {
-    max-width: 65vw;
+    max-width: 65dvw;
   }
 
   .gallery-mainImg-container {
@@ -1737,7 +1737,7 @@
 
 @media (max-width: 1511px) and (max-height: 913px) {
   .gallery-thumbnails-container {
-    max-width: 65vw;
+    max-width: 65dvw;
   }
 
   .gallery-mainImg-container {
@@ -1755,7 +1755,7 @@
 
 @media (max-width: 1511px) and (max-height: 888px) {
   .gallery-thumbnails-container {
-    max-width: 66vw;
+    max-width: 66dvw;
   }
 
   .gallery-mainImg-container {
@@ -1804,7 +1804,7 @@
 
 @media (max-width: 1490px) and (max-height: 1200px) {
   .gallery-thumbnails-container {
-    max-width: 48vw;
+    max-width: 48dvw;
   }
 
   .gallery-thumbnails-container img {
@@ -1824,7 +1824,7 @@
 
 @media (max-width: 1470px) {
   .gallery-thumbnails-container {
-    max-width: 44vw;
+    max-width: 44dvw;
   }
   .gallery-thumbnails-container .active {
     max-width: 13%;
@@ -1833,7 +1833,7 @@
 
 @media (max-width: 1470px) and (max-height: 1200px) {
   .gallery-thumbnails-container {
-    max-width: 47vw;
+    max-width: 47dvw;
   }
 
   .gallery-thumbnails-container img {
@@ -1857,7 +1857,7 @@
 }
 @media (max-width: 1440px) {
   .gallery-thumbnails-container {
-    max-width: 43vw;
+    max-width: 43dvw;
   }
   .gallery-thumbnails-container img {
     max-width: 20%;
@@ -1869,7 +1869,7 @@
 
 @media (max-width: 1440px) and (max-height: 1200px) {
   .gallery-thumbnails-container {
-    max-width: 47vw;
+    max-width: 47dvw;
   }
 
   .gallery-thumbnails-container img {
@@ -1883,7 +1883,7 @@
 
 @media (max-width: 1420px) {
   .gallery-thumbnails-container {
-    max-width: 42vw;
+    max-width: 42dvw;
   }
   .gallery-thumbnails-container .active {
     max-width: 11%;
@@ -1892,7 +1892,7 @@
 
 @media (max-width: 1420px) and (max-height: 1200px) {
   .gallery-thumbnails-container {
-    max-width: 46vw;
+    max-width: 46dvw;
   }
 
   .gallery-thumbnails-container img {
@@ -1939,7 +1939,7 @@
 
 @media (max-width: 1400px) and (max-height: 1200px) {
   .gallery-thumbnails-container {
-    max-width: 45vw;
+    max-width: 45dvw;
   }
 
   .gallery-thumbnails-container img {
@@ -1963,13 +1963,13 @@
 
 @media (max-width: 1390px) {
   .gallery-thumbnails-container {
-    max-width: 40vw;
+    max-width: 40dvw;
   }
 }
 
 @media (max-width: 1390px) and (max-height: 1200px) {
   .gallery-thumbnails-container {
-    max-width: 45vw;
+    max-width: 45dvw;
   }
 
   .gallery-thumbnails-container img {
@@ -2104,7 +2104,7 @@
 }
 @media (max-width: 1377px) and (max-height: 1200px) {
   .gallery-thumbnails-container {
-    max-width: 44vw;
+    max-width: 44dvw;
   }
 
   .gallery-thumbnails-container img {
@@ -2118,7 +2118,7 @@
 
 @media (max-width: 1350px) {
   .gallery-thumbnails-container {
-    max-width: 38vw;
+    max-width: 38dvw;
   }
 
   .gallery-thumbnails-container img {
@@ -2132,7 +2132,7 @@
 
 @media (max-width: 1350px) and (max-height: 1200px) {
   .gallery-thumbnails-container {
-    max-width: 43vw;
+    max-width: 43dvw;
   }
 
   .gallery-thumbnails-container img {
@@ -2228,7 +2228,7 @@
 
 @media (max-width: 1323px) {
   .gallery-thumbnails-container {
-    max-width: 41vw;
+    max-width: 41dvw;
   }
   .gallery-thumbnails-container img {
     max-width: 20%;
@@ -2266,7 +2266,7 @@
 
 @media (max-width: 1323px) and (max-height: 1200px) {
   .gallery-thumbnails-container {
-    max-width: 46vw;
+    max-width: 46dvw;
   }
 
   .gallery-thumbnails-container img {
@@ -2297,13 +2297,13 @@
 
 @media (max-width: 1315px) and (max-height: 1200px) {
   .gallery-thumbnails-container {
-    max-width: 45vw;
+    max-width: 45dvw;
   }
 }
 
 @media (max-width: 1290px) {
   .gallery-thumbnails-container {
-    max-width: 39vw;
+    max-width: 39dvw;
   }
 
   .gallery-thumbnails-container img {
@@ -2317,7 +2317,7 @@
 
 @media (max-width: 1290px) and (max-height: 1200px) {
   .gallery-thumbnails-container {
-    max-width: 44vw;
+    max-width: 44dvw;
   }
 
   .gallery-thumbnails-container img {
@@ -2396,13 +2396,13 @@
 
 @media (max-width: 1270px) and (max-height: 1200px) {
   .gallery-thumbnails-container {
-    max-width: 43vw;
+    max-width: 43dvw;
   }
 }
 
 @media (max-width: 1250px) {
   .gallery-thumbnails-container {
-    max-width: 37vw;
+    max-width: 37dvw;
   }
 
   .gallery-thumbnails-container img {
@@ -2416,7 +2416,7 @@
 
 @media (max-width: 1250px) and (max-height: 1200px) {
   .gallery-thumbnails-container {
-    max-width: 42vw;
+    max-width: 42dvw;
   }
 
   .gallery-thumbnails-container img {
@@ -2430,13 +2430,13 @@
 
 @media (max-width: 1220px) and (max-height: 1200px) {
   .gallery-thumbnails-container {
-    max-width: 41vw;
+    max-width: 41dvw;
   }
 }
 
 @media (max-width: 1200px) {
   .gallery-thumbnails-container {
-    max-width: 35vw;
+    max-width: 35dvw;
   }
 
   .gallery-thumbnails-container img {
@@ -2466,7 +2466,7 @@
 
 @media (max-width: 1200px) and (max-height: 1200px) {
   .gallery-thumbnails-container {
-    max-width: 39vw;
+    max-width: 39dvw;
   }
 }
 
@@ -2493,7 +2493,7 @@
 }
 @media (max-width: 1170px) {
   .gallery-thumbnails-container {
-    max-width: 33vw;
+    max-width: 33dvw;
   }
 
   .gallery-thumbnails-container img {
@@ -2507,7 +2507,7 @@
 
 @media (max-width: 1170px) and (max-height: 1200px) {
   .gallery-thumbnails-container {
-    max-width: 38vw;
+    max-width: 38dvw;
   }
 
   .gallery-thumbnails-container img {
@@ -2527,7 +2527,7 @@
 
 @media (max-width: 1140px) and (max-height: 1294px) {
   .gallery-thumbnails-container {
-    max-width: 31vw;
+    max-width: 31dvw;
   }
 
   .fav .gallery-mainImg-container.flavors {
@@ -2606,7 +2606,7 @@
 
 @media (max-width: 1118px) {
   .gallery-thumbnails-container {
-    max-width: 29vw;
+    max-width: 29dvw;
   }
 
   .gallery-thumbnails-container img {
@@ -2620,7 +2620,7 @@
 
 @media (max-width: 1118px) and (max-height: 1200px) {
   .gallery-thumbnails-container {
-    max-width: 36vw;
+    max-width: 36dvw;
   }
 
   .gallery-thumbnails-container img {
@@ -2645,7 +2645,7 @@
 
 @media (max-width: 1100px) and (max-height: 1200px) {
   .gallery-thumbnails-container {
-    max-width: 35vw;
+    max-width: 35dvw;
   }
 
   .gallery-thumbnails-container img {
@@ -2671,7 +2671,7 @@
 
 @media (max-width: 1085px) and (max-height: 1200px) {
   .gallery-thumbnails-container {
-    max-width: 34vw;
+    max-width: 34dvw;
   }
 
   .gallery-thumbnails-container img {
@@ -2691,7 +2691,7 @@
 
 @media (max-width: 1070px) {
   .gallery-thumbnails-container {
-    max-width: 27vw;
+    max-width: 27dvw;
   }
 
   .gallery-thumbnails-container img {
@@ -2705,7 +2705,7 @@
 
 @media (max-width: 1070px) and (max-height: 1200px) {
   .gallery-thumbnails-container {
-    max-width: 32vw;
+    max-width: 32dvw;
   }
 
   .gallery-thumbnails-container img {
@@ -2731,7 +2731,7 @@
 
 @media (max-width: 1055px) {
   .gallery-thumbnails-container {
-    max-width: 25vw;
+    max-width: 25dvw;
   }
 
   .gallery-thumbnails-container img {
@@ -2745,7 +2745,7 @@
 
 @media (max-width: 1055px) and (max-height: 1200px) {
   .gallery-thumbnails-container {
-    max-width: 31vw;
+    max-width: 31dvw;
   }
 
   .gallery-thumbnails-container img {
@@ -2759,7 +2759,7 @@
 
 @media (max-width: 1020px) {
   .gallery-thumbnails-container {
-    max-width: 24vw;
+    max-width: 24dvw;
     flex-direction: row;
     padding: 0;
     margin: 0;
@@ -2771,7 +2771,7 @@
 
 @media (max-width: 1020px) and (max-height: 1200px) {
   .gallery-thumbnails-container {
-    max-width: 30vw;
+    max-width: 30dvw;
   }
 
   .gallery-thumbnails-container img {
@@ -2785,7 +2785,7 @@
 
 @media (max-width: 1010px) and (max-height: 1200px) {
   .gallery-thumbnails-container {
-    max-width: 29vw;
+    max-width: 29dvw;
   }
 
   .gallery-thumbnails-container img {
@@ -2799,7 +2799,7 @@
 
 @media (max-width: 1000px) {
   .gallery-thumbnails-container {
-    max-width: 23vw;
+    max-width: 23dvw;
   }
 
   .gallery-thumbnails-container img {
@@ -2813,7 +2813,7 @@
 
 @media (max-width: 1000px) and (max-height: 1200px) {
   .gallery-thumbnails-container {
-    max-width: 28vw;
+    max-width: 28dvw;
   }
 
   .gallery-thumbnails-container img {
@@ -2833,7 +2833,7 @@
 
 @media (max-width: 985px) {
   .gallery-thumbnails-container {
-    max-width: 21vw;
+    max-width: 21dvw;
   }
 
   .gallery-thumbnails-container img {

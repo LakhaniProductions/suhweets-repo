@@ -9,7 +9,7 @@
   width: 100%;
   display: flex;
   flex-direction: row;
-  height: 69vh;
+  height: 69dvh;
   overflow-y: scroll;
   flex-wrap: wrap;
 }

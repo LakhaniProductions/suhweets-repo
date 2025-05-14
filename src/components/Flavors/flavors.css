@@ -198,7 +198,7 @@
 @media (max-width: 2560px) and (max-height: 860px) {
   .flavors-container.fav {
     max-width: 58%;
-    height: 85vh;
+    height: 85dvh;
     overflow-y: unset;
   }
 
@@ -237,7 +237,7 @@
 @media (max-width: 2560px) and (max-height: 800px) {
   .flavors-container.fav {
     min-width: 58%;
-    height: 80vh;
+    height: 80dvh;
     overflow-y: scroll;
     margin-top: 2.4rem;
   }
@@ -1609,7 +1609,7 @@
     margin: 0;
     max-width: 48%;
     overflow-y: scroll;
-    max-height: 43vh;
+    max-height: 43dvh;
   }
 
   .menu-options.baker {
