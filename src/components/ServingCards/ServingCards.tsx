@@ -45,9 +45,7 @@ const ServingCards = (props: servingCardsProp) => {
     {
       diameter: '6" & 8" diameters',
       servings: "Serves 36",
-      img: servingImages.find(
-        (img) => img.includes("6-8") && !img.includes("4")
-      ),
+      img: servingImages.find((img) => img.split("/").pop()?.includes("6-8")),
       category: "2-tier"
     },
     {
@@ -59,78 +57,89 @@ const ServingCards = (props: servingCardsProp) => {
     {
       diameter: '6" & 10" diameters',
       servings: "Serves 50",
-      img: servingImages.find((img) => img.includes("6-10")),
+      img: servingImages.find((img) => img.split("/").pop()?.includes("6-10")),
       category: "2-tier"
     },
     {
       diameter: '8" & 10" diameters',
       servings: "Serves 62",
-      img: servingImages.find(
-        (img) =>
-          img.includes("8-10") && !img.includes("4") && !img.includes("6")
-      ),
+      img: servingImages.find((img) => img.split("/").pop()?.includes("8-10")),
       category: "2-tier"
     },
     {
       diameter: '8" & 12" diameters',
       servings: "Serves 80",
-      img: servingImages.find((img) => img.includes("8-12")),
+      img: servingImages.find((img) => img.split("/").pop()?.includes("8-12")),
       category: "2-tier"
     },
     {
       diameter: '4" 6" & 8" diameters',
       servings: "Serves 44",
-      img: servingImages.find((img) => img.includes("4-6-8")),
+      img: servingImages.find((img) => img.split("/").pop()?.includes("4-6-8")),
       category: "3-tier"
     },
     {
       diameter: '6" 8" & 10" diameters',
       servings: "Serves 74",
-      img: servingImages.find(
-        (img) => img.includes("6-8-10") && !img.includes("4")
+      img: servingImages.find((img) =>
+        img.split("/").pop()?.includes("6-8-10")
       ),
       category: "3-tier"
     },
     {
       diameter: '6" 9" & 12" diameters',
       servings: "Serves 100",
-      img: servingImages.find((img) => img.includes("6-9-12")),
+      img: servingImages.find((img) =>
+        img.split("/").pop()?.includes("6-9-12")
+      ),
       category: "3-tier"
     },
     {
       diameter: '6" 10" & 14" diameters',
       servings: "Serves 128",
-      img: servingImages.find((img) => img.includes("6-10-14")),
+      img: servingImages.find((img) =>
+        img.split("/").pop()?.includes("6-10-14")
+      ),
       category: "3-tier"
     },
     {
       diameter: '4" 6" 8" & 10" diameters',
       servings: "Serves 82",
-      img: servingImages.find((img) => img.includes("4-6-8-10")),
+      img: servingImages.find((img) =>
+        img.split("/").pop()?.includes("4-6-8-10")
+      ),
       category: "4-tier"
     },
     {
       diameter: '6" 8" 10" & 12" diameters',
       servings: "Serves 130",
-      img: servingImages.find((img) => img.includes("6-8-10-12-4-tier")),
+      img: servingImages.find((img) =>
+        img.split("/").pop()?.includes("6-8-10-12-4-tier")
+      ),
       category: "4-tier"
     },
     {
       diameter: '6" 9" 12" & 14" diameters',
       servings: "Serves 178",
-      img: servingImages.find((img) => img.includes("6-9-12-14")),
+      img: servingImages.find((img) =>
+        img.split("/").pop()?.includes("6-9-12-14")
+      ),
       category: "4-tier"
     },
     {
       diameter: '4" 6" 8" 10" & 12" diameters',
       servings: "Serves 138",
-      img: servingImages.find((img) => img.includes("4-6-8-10-12")),
+      img: servingImages.find((img) =>
+        img.split("/").pop()?.includes("4-6-8-10-12")
+      ),
       category: "5-tier"
     },
     {
       diameter: '6" 8" 10" 12" & 14" diameters',
       servings: "Serves 208",
-      img: servingImages.find((img) => img.includes("6-8-10-12-14")),
+      img: servingImages.find((img) =>
+        img.split("/").pop()?.includes("6-8-10-12-14")
+      ),
       category: "5-tier"
     }
   ];
