@@ -136,7 +136,7 @@ const GalleryContent = (props: GalleryContentProps) => {
 
   useEffect(() => {
     const loadedImgs = imgRefs.current.filter((img) => img && img.complete);
-
+    console.log(loadedImgs);
     loadedImgs.forEach((img) =>
       setThumbImgsLoaded((prev) => {
         if (!prev.includes(img!.id.split("_")[0])) {
@@ -151,7 +151,7 @@ const GalleryContent = (props: GalleryContentProps) => {
     const allThumbsLoaded = allCakesOnPage.every((cake) =>
       thumbImgsLoaded.includes(cake.thumbnailTitle)
     );
-
+    console.log(thumbImgsLoaded);
     if (allThumbsLoaded && mainImgLoaded) {
       setShowLoadingGif(false);
     } else {
@@ -368,7 +368,7 @@ const GalleryContent = (props: GalleryContentProps) => {
       {/* CREATE MAIN IMAGE COMPONENT FOR mobile */}
       {mobileLrg && (!threeColLayout || !oneColLayout || !twoColLayout) && (
         <div className="gallery-mainImg-container mobile-two">
-          {uniqueCategoryArr.map((cakeObj: any) => {
+          {uniqueCategoryArr.map((cakeObj: any, i) => {
             return (
               <>
                 <div
@@ -384,7 +384,11 @@ const GalleryContent = (props: GalleryContentProps) => {
                     setMainImgLoaded(true);
                   }}
                   src={cakeObj.img}
+                  id={`${cakeObj.thumbnailTitle}_${i}`}
                   alt=""
+                  ref={(el) => {
+                    imgRefs.current[i] = el;
+                  }}
                 />
               </>
             );
