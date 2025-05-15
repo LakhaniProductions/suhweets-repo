@@ -11,7 +11,8 @@ const PageNav = (props: PageNavProps) => {
   }
   const { width } = useWindowDimensions();
   const location = useLocation();
-  const { setShowLoadingFlavorGif, setAllGalleryImagesArr } = context;
+  const { setShowLoadingFlavorGif, setShowLoadingGif, setAllGalleryImagesArr } =
+    context;
   const [active, setActive] = useState("0");
 
   const handleClick = (e: SyntheticEvent) => {
@@ -20,7 +21,7 @@ const PageNav = (props: PageNavProps) => {
     if (!clicked) return;
     if (props.menu[+active] !== target.innerHTML) {
       setAllGalleryImagesArr([]);
-      // setShowLoadingGif(true);
+      setShowLoadingGif(true);
     }
     setActive(target.id);
 
