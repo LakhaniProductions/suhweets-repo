@@ -39,7 +39,7 @@ const PageButtons = () => {
     }
 
     if (location.pathname.includes("/serving-sizes")) {
-      setForwardRoute("/flavors");
+      setForwardRoute("/flavors/baker-favorites/");
       setForwardRouteText("explore our flavors");
       // setBackRoute(previousRoute);
       setBackRouteText("gallery");

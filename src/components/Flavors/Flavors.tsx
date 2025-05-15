@@ -8,6 +8,7 @@ import PageNav from "../PageNav/PageNav";
 import "./flavors.css";
 import FlavorsContent from "../FlavorsContent/FlavorContent";
 import { GalleryImgLoadContext } from "../../context/GalleryImgLoadContext";
+import { useParams } from "react-router-dom";
 
 const Flavors = (props: FlavorsProps) => {
   const context = useContext(GalleryImgLoadContext);
@@ -15,9 +16,13 @@ const Flavors = (props: FlavorsProps) => {
     return;
   }
   const { showLoadingFlavorGif } = context;
+  const { selectedMenuItem } = useParams();
+
   const menu = ["baker's favorites", "cake flavors", "fillings"];
   const [html, setHTML] = useState("baker's-favorites");
   const [secClass, setSecClass] = useState("");
+
+  console.log(html);
 
   useEffect(() => {
     props.setMenuFade({
@@ -29,14 +34,14 @@ const Flavors = (props: FlavorsProps) => {
 
   useEffect(() => {}, [showLoadingFlavorGif]);
   useEffect(() => {
-    if (html === "cake-flavors") {
+    if (selectedMenuItem === "cake-flavors") {
       setSecClass("cake-flav");
-    } else if (html === "fillings") {
+    } else if (selectedMenuItem === "fillings") {
       setSecClass("fillings");
     } else {
       setSecClass("fav");
     }
-  }, [html]);
+  }, [selectedMenuItem]);
   return (
     <section className="container">
       <MenuContext.Provider
@@ -58,7 +63,7 @@ const Flavors = (props: FlavorsProps) => {
 
         className={`flavors-content ${secClass}`}
       >
-        <FlavorsContent html={html} />
+        <FlavorsContent />
       </div>
       <PageNav menu={menu} setHTML={setHTML} />
       <PageButtons />

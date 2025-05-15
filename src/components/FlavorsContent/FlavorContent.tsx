@@ -5,16 +5,19 @@ import {
   useEffect,
   useState
 } from "react";
-import { FlavorsContentProps } from "./FlavorsContentProps.type";
+
 import TextPanel from "../TextPanel/TextPanel";
 import { GalleryImgLoadContext } from "../../context/GalleryImgLoadContext";
 import useWindowDimensions from "../../hooks/useWindowDimensions";
+import { useParams } from "react-router-dom";
 
-const FlavorsContent = (props: FlavorsContentProps) => {
+const FlavorsContent = () => {
   const context = useContext(GalleryImgLoadContext);
   if (!context) {
     return;
   }
+  const { selectedMenuItem } = useParams();
+
   const { width, height } = useWindowDimensions();
   const { setShowLoadingFlavorGif } = context;
   const flavorImages = Object.values(
@@ -29,56 +32,56 @@ const FlavorsContent = (props: FlavorsContentProps) => {
       img: flavorImages.find((img) => img.includes("chocolate")),
       lsImg: flavorImages.find((img) => img.includes("one-col")),
       bgimg: flavorImages.find((img) => img.includes("chocolate-small")),
-      category: "baker's-favorites"
+      category: "baker-favorites"
     },
     {
       flav: "spiced carrot w/ vanilla cream cheese*",
       img: flavorImages.find((img) => img.includes("carrot")),
       lsImg: flavorImages.find((img) => img.includes("one-col")),
       bgimg: flavorImages.find((img) => img.includes("carrot-small")),
-      category: "baker's-favorites"
+      category: "baker-favorites"
     },
     {
-      flav: "chocolate w/ chocolate buttercream",
+      flav: "chocolate w/ chocolate ganache",
       img: flavorImages.find((img) => img.includes("oreo")),
       lsImg: flavorImages.find((img) => img.includes("one-col")),
       bgimg: flavorImages.find((img) => img.includes("oreo-small")),
-      category: "baker's-favorites"
+      category: "baker-favorites"
+    },
+    {
+      flav: "berries & cream",
+      img: flavorImages.find((img) => img.includes("oreo")),
+      lsImg: flavorImages.find((img) => img.includes("one-col")),
+      bgimg: flavorImages.find((img) => img.includes("oreo-small")),
+      category: "baker-favorites"
     },
     {
       flav: "white almond w/ raspberry compote*",
       img: flavorImages.find((img) => img.includes("chocolate")),
       lsImg: flavorImages.find((img) => img.includes("one-col")),
       bgimg: flavorImages.find((img) => img.includes("chocolate-small")),
-      category: "baker's-favorites"
+      category: "baker-favorites"
     },
     {
       flav: "lemon w/ raspberry compote*",
       img: flavorImages.find((img) => img.includes("chocolate")),
       lsImg: flavorImages.find((img) => img.includes("one-col")),
       bgimg: flavorImages.find((img) => img.includes("chocolate-small")),
-      category: "baker's-favorites"
+      category: "baker-favorites"
     },
     {
       flav: "funfetti w/ strawberry buttercream",
       img: flavorImages.find((img) => img.includes("chocolate")),
       lsImg: flavorImages.find((img) => img.includes("one-col")),
       bgimg: flavorImages.find((img) => img.includes("chocolate-small")),
-      category: "baker's-favorites"
-    },
-    {
-      flav: "spice cake w/ vanilla cream cheese",
-      img: flavorImages.find((img) => img.includes("chocolate")),
-      lsImg: flavorImages.find((img) => img.includes("one-col")),
-      bgimg: flavorImages.find((img) => img.includes("chocolate-small")),
-      category: "baker's-favorites"
+      category: "baker-favorites"
     },
     {
       flav: "chocolate w/ cookies & cream",
       img: flavorImages.find((img) => img.includes("chocolate")),
       lsImg: flavorImages.find((img) => img.includes("one-col")),
       bgimg: flavorImages.find((img) => img.includes("chocolate-small")),
-      category: "baker's-favorites"
+      category: "baker-favorites"
     },
     {
       flav: "chocolate",
@@ -107,11 +110,6 @@ const FlavorsContent = (props: FlavorsContentProps) => {
       category: "classic-flavors"
     },
     {
-      flav: "spice",
-      img: flavorImages.find((img) => img.includes("chocolate")),
-      category: "classic-flavors"
-    },
-    {
       flav: "lemon",
       img: flavorImages.find((img) => img.includes("oreo")),
       category: "specialty-flavors"
@@ -124,11 +122,6 @@ const FlavorsContent = (props: FlavorsContentProps) => {
     {
       flav: "apple caramel*",
       img: flavorImages.find((img) => img.includes("carrot")),
-      category: "specialty-flavors"
-    },
-    {
-      flav: "coconut",
-      img: flavorImages.find((img) => img.includes("chocolate")),
       category: "specialty-flavors"
     },
     {
@@ -191,6 +184,7 @@ const FlavorsContent = (props: FlavorsContentProps) => {
       img: flavorImages.find((img) => img.includes("chocolate")),
       category: "cream-cheese-fillings"
     },
+
     {
       flav: "coconut",
       img: flavorImages.find((img) => img.includes("chocolate")),
@@ -202,12 +196,12 @@ const FlavorsContent = (props: FlavorsContentProps) => {
       category: "cream-cheese-fillings"
     },
     {
-      flav: "milk chocolate",
+      flav: "vanilla",
       img: flavorImages.find((img) => img.includes("chocolate")),
-      category: "ganache-fillings"
+      category: "cream-cheese-fillings"
     },
     {
-      flav: "white chocolate*",
+      flav: "white chocolate",
       img: flavorImages.find((img) => img.includes("carrot")),
       category: "ganache-fillings"
     },
@@ -232,7 +226,7 @@ const FlavorsContent = (props: FlavorsContentProps) => {
       category: "other-fillings"
     },
     {
-      flav: "pineapple*",
+      flav: "mixed berries*",
       img: flavorImages.find((img) => img.includes("chocolate")),
       category: "other-fillings"
     },
@@ -248,9 +242,10 @@ const FlavorsContent = (props: FlavorsContentProps) => {
     }
   ];
   type objectKey = keyof typeof txtPanelContent;
-  const htmlKey = props.html as objectKey;
+  const htmlKey = selectedMenuItem as objectKey;
+
   const txtPanelContent = {
-    "baker's-favorites": {
+    "baker-favorites": {
       h2: "the baker's",
       h1: "favorites",
       p: "A specially crafted menu of our favorite flavor combinations."
@@ -299,7 +294,7 @@ const FlavorsContent = (props: FlavorsContentProps) => {
 
   useEffect(() => {
     // PAGE LOAD ACTIVE VALUES
-    if (htmlKey === "baker's-favorites") {
+    if (htmlKey === "baker-favorites") {
       setclickedFlavor("red velvet w/ vanilla cream cheese");
     }
   }, [htmlKey]);
@@ -356,7 +351,7 @@ const FlavorsContent = (props: FlavorsContentProps) => {
       {showInLftCol && (
         <>
           {/* BAKER'S FAV */}
-          {htmlKey === "baker's-favorites" && (
+          {htmlKey === "baker-favorites" && (
             <div className="flavors-container fav">
               <div className="flavors-box--favs">
                 {flavorsContent
@@ -599,7 +594,7 @@ const FlavorsContent = (props: FlavorsContentProps) => {
         <div className="flavors-two-col">
           <div className="gallery-mainImg-container flavors">
             {/* BAKER'S FAVS IMAGES */}
-            {htmlKey === "baker's-favorites" &&
+            {htmlKey === "baker-favorites" &&
               flavorsContent
                 .filter((cake) => cake.category === htmlKey)
                 .map((item) =>
@@ -641,7 +636,7 @@ const FlavorsContent = (props: FlavorsContentProps) => {
           {!showInLftCol && (
             <>
               {/* BAKER'S FAV */}
-              {htmlKey === "baker's-favorites" && (
+              {htmlKey === "baker-favorites" && (
                 <div className="flavors-container">
                   <div className="flavors-box--favs">
                     {flavorsContent

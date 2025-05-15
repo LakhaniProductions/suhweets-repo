@@ -96,7 +96,7 @@ const HamburgerMenu = (props: HamburgerMenuProps) => {
             <li>serving sizes</li>
           </Link>
           <Link
-            to="/flavors"
+            to="/flavors/baker-favorites"
             onClick={() => {
               props.setMenuFade!({
                 BGClass: "",

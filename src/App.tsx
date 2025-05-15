@@ -66,7 +66,7 @@ function App() {
         }
       />
       <Route
-        path="/flavors"
+        path="/flavors/:selectedMenuItem/:flavor?"
         element={
           <GalleryImgLoadProvider>
             <Flavors setMenuFade={setMenuFade} menuFade={menuFade} />

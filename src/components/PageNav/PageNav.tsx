@@ -32,18 +32,33 @@ const PageNav = (props: PageNavProps) => {
       setAllGalleryImagesArr([]);
       setShowLoadingGif(true);
     }
+
     if (location.pathname.includes("serving-sizes")) {
       navigate(`/serving-sizes/${target.innerHTML.replace(" ", "-")}`);
+    } else if (location.pathname.includes("flavors")) {
+      navigate(
+        `/flavors/${
+          target.innerHTML.includes("'")
+            ? "baker-favorites"
+            : target.innerHTML.replace(" ", "-")
+        }`
+      );
     } else {
       setActive(target.id);
     }
 
-    props.setHTML(target.innerHTML.replace(" ", "-"));
+    // props.setHTML(target.innerHTML.replace(" ", "-"));
     target.innerHTML !== "fillings" && setShowLoadingFlavorGif(true);
   };
   useEffect(() => {
     if (location.pathname.includes("serving-sizes")) {
       setActive(`${props.menu.indexOf(selectedMenuItem!.replace("-", " "))}`);
+    } else if (location.pathname.includes("flavors")) {
+      selectedMenuItem!.includes("baker")
+        ? setActive("0")
+        : setActive(
+            `${props.menu.indexOf(selectedMenuItem!.replace("-", " "))}`
+          );
     }
   }, [selectedMenuItem]);
   const getFilterItemsClassName = useCallback(
@@ -178,10 +193,16 @@ const PageNav = (props: PageNavProps) => {
             width < 1025 && (
               <button
                 onClick={() => {
-                  setActive(`${+active - 1}`);
                   props.menu[+active - 1].includes(" ")
-                    ? props.setHTML(props.menu[+active - 1].replace(" ", "-"))
-                    : props.setHTML(props.menu[+active - 1]);
+                    ? props.menu[+active - 1].includes("'")
+                      ? navigate("/flavors/baker-favorites")
+                      : navigate(
+                          `/flavors/${props.menu[+active - 1].replace(
+                            " ",
+                            "-"
+                          )}`
+                        )
+                    : navigate(`/flavors/${props.menu[+active - 1]}`);
                 }}
                 className="less-btn"
               >
@@ -203,7 +224,6 @@ const PageNav = (props: PageNavProps) => {
             width <= 500 && (
               <button
                 onClick={() => {
-                  // setActive(`${+active + 1}`);
                   const currentTierNum = selectedMenuItem!.match(/\d+/)![0];
                   navigate(`/serving-sizes/${+currentTierNum + 1}-tier`);
                 }}
@@ -219,11 +239,11 @@ const PageNav = (props: PageNavProps) => {
             width < 1025 && (
               <button
                 onClick={() => {
-                  setActive(`${+active + 1}`);
-                  props.setHTML(props.menu[+active + 1]);
                   props.menu[+active + 1].includes(" ")
-                    ? props.setHTML(props.menu[+active + 1].replace(" ", "-"))
-                    : props.setHTML(props.menu[+active + 1]);
+                    ? navigate(
+                        `/flavors/${props.menu[+active + 1].replace(" ", "-")}`
+                      )
+                    : navigate(`/flavors/${props.menu[+active + 1]}`);
                 }}
                 className="greater-btn"
               >
