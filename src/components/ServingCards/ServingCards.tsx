@@ -1,7 +1,14 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { servingCardsProp } from "./ServingCards.type";
+import { GalleryImgLoadContext } from "../../context/GalleryImgLoadContext";
 
 const ServingCards = (props: servingCardsProp) => {
+  const context = useContext(GalleryImgLoadContext);
+  if (!context) {
+    return;
+  }
+  const { setShowLoadingGif } = context;
+
   const [secondaryClassName, setSecondaryClassName] = useState("");
   const [loadedServImgs, setLoadedServImgs] = useState<any[]>([]);
 
@@ -184,10 +191,17 @@ const ServingCards = (props: servingCardsProp) => {
     const allOptionsOnPage = servingSizeContent.filter(
       (obj) => obj.category === props.html
     );
-    console.log(allOptionsOnPage);
+    const allLoaded = allOptionsOnPage.every((option) => {
+      const fileName = option.img?.split("/").pop();
+      return fileName && loadedServImgs.includes(fileName);
+    });
 
-    //check if  loadedimgs includes  alloptionsonpage
-  }, [props.html]);
+    if (allLoaded) {
+      setShowLoadingGif(false);
+    } else {
+      console.log("⏳ Still waiting for some images to load...");
+    }
+  }, [loadedServImgs, props.html]);
 
   useEffect(() => {
     console.log(loadedServImgs);
