@@ -19,10 +19,7 @@ const Flavors = (props: FlavorsProps) => {
   const { selectedMenuItem } = useParams();
 
   const menu = ["baker's favorites", "cake flavors", "fillings"];
-  const [html, setHTML] = useState("baker's-favorites");
   const [secClass, setSecClass] = useState("");
-
-  console.log(html);
 
   useEffect(() => {
     props.setMenuFade({
@@ -65,7 +62,7 @@ const Flavors = (props: FlavorsProps) => {
       >
         <FlavorsContent />
       </div>
-      <PageNav menu={menu} setHTML={setHTML} />
+      <PageNav menu={menu} />
       <PageButtons />
     </section>
   );

@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect } from "react";
 import { SignatureProps } from "./SignatureProps.type";
 import PageButtons from "../PageButtons/PageButtons";
 import MenuContext from "../../context/HamburgerMenuContext";
@@ -8,7 +8,6 @@ import PageNav from "../PageNav/PageNav";
 import "./signature.css";
 import SignatureContent from "../SignatureContent/SignatureContent";
 import { GalleryImgLoadContext } from "../../context/GalleryImgLoadContext";
-// import Loader from "../Loader/Loader";
 
 const Signature = (props: SignatureProps) => {
   const context = useContext(GalleryImgLoadContext);
@@ -17,7 +16,6 @@ const Signature = (props: SignatureProps) => {
   }
   const { showLoadingFlavorGif } = context;
   const menu = [`6"`, `8"`, `10"`];
-  const [html, setHTML] = useState("6");
 
   useEffect(() => {
     props.setMenuFade({
@@ -44,9 +42,9 @@ const Signature = (props: SignatureProps) => {
         <HamburgerMenu />
       </MenuContext.Provider>
       <div className={`signature-content`}>
-        <SignatureContent html={html} />
+        <SignatureContent />
       </div>
-      <PageNav menu={menu} setHTML={setHTML} />
+      <PageNav menu={menu} />
       <PageButtons />
     </section>
   );

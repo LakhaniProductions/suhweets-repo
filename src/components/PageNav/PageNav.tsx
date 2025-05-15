@@ -44,10 +44,8 @@ const PageNav = (props: PageNavProps) => {
         }`
       );
     } else {
-      setActive(target.id);
+      navigate(`/signature-cakes/${target.innerHTML.replace('"', "-inch")}`);
     }
-
-    // props.setHTML(target.innerHTML.replace(" ", "-"));
     target.innerHTML !== "fillings" && setShowLoadingFlavorGif(true);
   };
   useEffect(() => {
@@ -59,6 +57,10 @@ const PageNav = (props: PageNavProps) => {
         : setActive(
             `${props.menu.indexOf(selectedMenuItem!.replace("-", " "))}`
           );
+    } else {
+      setActive(
+        `${props.menu.indexOf(selectedMenuItem!.replace("-inch", '"'))}`
+      );
     }
   }, [selectedMenuItem]);
   const getFilterItemsClassName = useCallback(

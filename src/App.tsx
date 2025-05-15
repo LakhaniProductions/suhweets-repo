@@ -24,7 +24,7 @@ function App() {
         element={<Home setMenuFade={setMenuFade} menuFade={menuFade} />}
       />
       <Route
-        path="/wedding-cakes/:selectedMenuItem/:activeThumbnail"
+        path="/wedding-cakes/:selectedMenuItem/:activeThumbnail?"
         element={
           <GalleryImgLoadProvider>
             <Gallery setMenuFade={setMenuFade} menuFade={menuFade} />
@@ -32,7 +32,7 @@ function App() {
         }
       />
       <Route
-        path="/custom-cakes/:selectedMenuItem/:activeThumbnail"
+        path="/custom-cakes/:selectedMenuItem/:activeThumbnail?"
         element={
           <GalleryImgLoadProvider>
             <Gallery setMenuFade={setMenuFade} menuFade={menuFade} />
@@ -40,7 +40,7 @@ function App() {
         }
       />
       <Route
-        path="/signature-cakes"
+        path="/signature-cakes/:selectedMenuItem"
         element={
           <GalleryImgLoadProvider>
             <Signature setMenuFade={setMenuFade} menuFade={menuFade} />

@@ -1,15 +1,16 @@
 import { useContext, useEffect, useState } from "react";
-import { SignatureContentProps } from "./SignatureContentProps.type";
 import TextPanel from "../TextPanel/TextPanel";
 import { GalleryImgLoadContext } from "../../context/GalleryImgLoadContext";
-import { useLocation } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 
-const SignatureContent = (props: SignatureContentProps) => {
+const SignatureContent = () => {
   const context = useContext(GalleryImgLoadContext);
   if (!context) {
     return;
   }
   const location = useLocation();
+  const { selectedMenuItem } = useParams();
+
   // const { setShowLoadingFlavorGif } = context;
 
   const flavorImages = Object.values(
@@ -196,9 +197,9 @@ const SignatureContent = (props: SignatureContentProps) => {
   useEffect(() => {
     location.pathname !== "/cupcakes"
       ? setTxtPanelContent({
-          p: "Serves 8",
-          h1: "$35",
-          h2: "5 inch"
+          p: "Serves 12",
+          h1: "$50",
+          h2: "6 inch"
         })
       : setTxtPanelContent({
           p: "An assorment of delectable flavors to choose from ",
@@ -208,32 +209,31 @@ const SignatureContent = (props: SignatureContentProps) => {
   }, [location]);
 
   useEffect(() => {
-    if (props.html === '6"') {
+    console.log(selectedMenuItem);
+    if (selectedMenuItem === "6-inch") {
       setTxtPanelContent(() => ({
         p: "Serves 12",
         h1: "$50",
         h2: "6 inch"
       }));
-    } else if (props.html === '8"') {
+    } else if (selectedMenuItem === "8-inch") {
       setTxtPanelContent(() => ({
         p: "Serves 20",
         h1: "$100",
         h2: "8 inch"
       }));
-    } else if (props.html === '10"') {
+    } else if (selectedMenuItem === "10-inch") {
       setTxtPanelContent(() => ({
         p: "Serves 35",
         h1: "$150",
         h2: "10 inch"
       }));
     }
-  }, [props.html]);
+  }, [selectedMenuItem]);
 
   // useEffect(() => {
   //   imgLoaded && setShowLoadingFlavorGif(false);
   // }, [imgLoaded]);
-
-  console.log(flavorImages);
 
   return (
     <>

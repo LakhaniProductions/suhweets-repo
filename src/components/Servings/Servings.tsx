@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect } from "react";
 import MenuContext from "../../context/HamburgerMenuContext";
 import Header from "../Header/Header";
 import HamburgerMenu from "../HamburgerMenu/HamburgerMenu";
@@ -21,8 +21,6 @@ const Servings = (props: ServingsProps) => {
   const { showLoadingGif } = context;
 
   const menu = ["1 tier", "2 tier", "3 tier", "4 tier", "5 tier"];
-  const [html, setHTML] = useState("1-tier");
-  console.log(html);
 
   useEffect(() => {
     props.setMenuFade({
@@ -60,7 +58,7 @@ const Servings = (props: ServingsProps) => {
         <ServingCards />
       </div>
 
-      <PageNav menu={menu} setHTML={setHTML} />
+      <PageNav menu={menu} />
       <PageButtons />
     </section>
   );
