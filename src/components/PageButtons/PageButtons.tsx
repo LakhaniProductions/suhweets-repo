@@ -32,7 +32,7 @@ const PageButtons = () => {
       location.pathname.includes("/wedding-cakes") ||
       location.pathname.includes("/custom-cakes")
     ) {
-      setForwardRoute("/serving-sizes");
+      setForwardRoute("/serving-sizes/1-tier");
       // setBackRoute("/");
 
       setSecondaryClassName("flavors");

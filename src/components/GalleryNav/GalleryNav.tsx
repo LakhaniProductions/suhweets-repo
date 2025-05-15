@@ -40,14 +40,9 @@ const GalleryNav = () => {
     const isWedding = location.pathname.includes("/wedding-cakes");
     const basePath = isWedding ? "wedding-cakes" : "custom-cakes";
     const newPath = `/${basePath}/${target.id}/0`;
-    // if (target.id !== "all") {
-    //   setAllGalleryImagesArr([]);
-    // }
+
     setSelectedMenuItem(target.id);
-    // props.setCustomGalleryOpt(target.id);
     setActiveIndex(i);
-    // props.setActiveThumbnail(0);
-    // target.id !== selectedMenuItem && setShowLoadingGif(true);
     setShowLoadingGif(true);
     navigate(newPath);
   };
@@ -99,9 +94,7 @@ const GalleryNav = () => {
               <button
                 onClick={() => {
                   setSelectedMenuItem(galleryMenu[activeIndex - 1]);
-                  // props.setCustomGalleryOpt(galleryMenu[activeIndex - 1]);
                   setActiveIndex(activeIndex - 1);
-                  // props.setActiveThumbnail(0);
                 }}
                 className="less-btn"
               >
@@ -124,9 +117,7 @@ const GalleryNav = () => {
               <button
                 onClick={() => {
                   setSelectedMenuItem(galleryMenu[activeIndex + 1]);
-                  // props.setCustomGalleryOpt(galleryMenu[activeIndex + 1]);
                   setActiveIndex(activeIndex + 1);
-                  // props.setActiveThumbnail(0);
                 }}
                 className="greater-btn"
               >

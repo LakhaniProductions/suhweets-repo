@@ -58,7 +58,7 @@ function App() {
       />
 
       <Route
-        path="/serving-sizes"
+        path="/serving-sizes/:selectedMenuItem"
         element={
           <GalleryImgLoadProvider>
             <Servings setMenuFade={setMenuFade} menuFade={menuFade} />

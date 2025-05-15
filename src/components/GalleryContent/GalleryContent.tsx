@@ -136,7 +136,7 @@ const GalleryContent = (props: GalleryContentProps) => {
 
   useEffect(() => {
     const loadedImgs = imgRefs.current.filter((img) => img && img.complete);
-    console.log(loadedImgs);
+
     loadedImgs.forEach((img) =>
       setThumbImgsLoaded((prev) => {
         if (!prev.includes(img!.id.split("_")[0])) {
@@ -151,7 +151,7 @@ const GalleryContent = (props: GalleryContentProps) => {
     const allThumbsLoaded = allCakesOnPage.every((cake) =>
       thumbImgsLoaded.includes(cake.thumbnailTitle)
     );
-    console.log(thumbImgsLoaded);
+
     if (allThumbsLoaded && mainImgLoaded) {
       setShowLoadingGif(false);
     } else {

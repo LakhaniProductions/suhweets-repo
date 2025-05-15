@@ -22,7 +22,7 @@ const Servings = (props: ServingsProps) => {
 
   const menu = ["1 tier", "2 tier", "3 tier", "4 tier", "5 tier"];
   const [html, setHTML] = useState("1-tier");
-  const [secondaryClassName, setSecondaryClassName] = useState("");
+
   useEffect(() => {
     props.setMenuFade({
       BGClass: "",
@@ -30,21 +30,6 @@ const Servings = (props: ServingsProps) => {
       leftClass: ""
     });
   }, []);
-  useEffect(() => {
-    if (html === "1-tier") {
-      setSecondaryClassName("one-tier");
-    } else if (html === "2-tier") {
-      setSecondaryClassName("two-tier");
-    } else if (html === "3-tier") {
-      setSecondaryClassName("three-tier");
-    } else if (html === "4-tier") {
-      setSecondaryClassName("four-tier");
-    } else if (html === "5-tier") {
-      setSecondaryClassName("five-tier");
-    } else {
-      setSecondaryClassName("");
-    }
-  }, [html]);
 
   return (
     <section className="container">
@@ -60,11 +45,7 @@ const Servings = (props: ServingsProps) => {
         <Header setMenuFade={props.setMenuFade} />
         <HamburgerMenu />
       </MenuContext.Provider>
-      <div
-        className={`servings-content ${secondaryClassName} ${
-          showLoadingGif ? "no-opacity" : ""
-        }`}
-      >
+      <div className={`servings-content ${showLoadingGif ? "no-opacity" : ""}`}>
         <TextPanel
           h2={"serving"}
           h1={"sizes"}
@@ -75,7 +56,7 @@ const Servings = (props: ServingsProps) => {
           layout={width <= 2160 && true}
         />
 
-        <ServingCards html={html} />
+        <ServingCards />
       </div>
 
       <PageNav menu={menu} setHTML={setHTML} />

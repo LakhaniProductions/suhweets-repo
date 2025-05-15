@@ -1,8 +1,14 @@
-import { SyntheticEvent, useCallback, useContext, useState } from "react";
+import {
+  SyntheticEvent,
+  useCallback,
+  useContext,
+  useEffect,
+  useState
+} from "react";
 import { PageNavProps } from "./PageNavProps.type";
 import { GalleryImgLoadContext } from "../../context/GalleryImgLoadContext";
 import useWindowDimensions from "../../hooks/useWindowDimensions";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 
 const PageNav = (props: PageNavProps) => {
   const context = useContext(GalleryImgLoadContext);
@@ -13,7 +19,10 @@ const PageNav = (props: PageNavProps) => {
   const location = useLocation();
   const { setShowLoadingFlavorGif, setShowLoadingGif, setAllGalleryImagesArr } =
     context;
+  const { selectedMenuItem } = useParams();
+
   const [active, setActive] = useState("0");
+  const navigate = useNavigate();
 
   const handleClick = (e: SyntheticEvent) => {
     const target = e.target as HTMLElement;
@@ -23,12 +32,20 @@ const PageNav = (props: PageNavProps) => {
       setAllGalleryImagesArr([]);
       setShowLoadingGif(true);
     }
-    setActive(target.id);
+    if (location.pathname.includes("serving-sizes")) {
+      navigate(`/serving-sizes/${target.innerHTML.replace(" ", "-")}`);
+    } else {
+      setActive(target.id);
+    }
 
     props.setHTML(target.innerHTML.replace(" ", "-"));
     target.innerHTML !== "fillings" && setShowLoadingFlavorGif(true);
   };
-
+  useEffect(() => {
+    if (location.pathname.includes("serving-sizes")) {
+      setActive(`${props.menu.indexOf(selectedMenuItem!.replace("-", " "))}`);
+    }
+  }, [selectedMenuItem]);
   const getFilterItemsClassName = useCallback(
     (item: string, i: number) => {
       const editedName = item.includes(" ")
@@ -146,8 +163,8 @@ const PageNav = (props: PageNavProps) => {
             width <= 500 && (
               <button
                 onClick={() => {
-                  setActive(`${+active - 1}`);
-                  props.setHTML(`${+active}-tier`);
+                  const currentTierNum = selectedMenuItem!.match(/\d+/)![0];
+                  navigate(`/serving-sizes/${+currentTierNum - 1}-tier`);
                 }}
                 className="less-btn"
               >
@@ -186,8 +203,9 @@ const PageNav = (props: PageNavProps) => {
             width <= 500 && (
               <button
                 onClick={() => {
-                  setActive(`${+active + 1}`);
-                  props.setHTML(`${+active + 2}-tier`);
+                  // setActive(`${+active + 1}`);
+                  const currentTierNum = selectedMenuItem!.match(/\d+/)![0];
+                  navigate(`/serving-sizes/${+currentTierNum + 1}-tier`);
                 }}
                 className="greater-btn"
               >

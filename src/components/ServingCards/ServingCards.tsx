@@ -1,14 +1,15 @@
 import { useContext, useEffect, useState } from "react";
-import { servingCardsProp } from "./ServingCards.type";
 import { GalleryImgLoadContext } from "../../context/GalleryImgLoadContext";
+import { useParams } from "react-router-dom";
 
-const ServingCards = (props: servingCardsProp) => {
+const ServingCards = () => {
   const context = useContext(GalleryImgLoadContext);
   if (!context) {
     return;
   }
-  const { setShowLoadingGif } = context;
+  const { selectedMenuItem } = useParams();
 
+  const { setShowLoadingGif } = context;
   const [secondaryClassName, setSecondaryClassName] = useState("");
   const [loadedServImgs, setLoadedServImgs] = useState<any[]>([]);
 
@@ -165,24 +166,24 @@ const ServingCards = (props: servingCardsProp) => {
   ];
 
   useEffect(() => {
-    if (props.html === "1-tier") {
+    if (selectedMenuItem === "1-tier") {
       setSecondaryClassName("one-tier");
-    } else if (props.html === "2-tier") {
+    } else if (selectedMenuItem === "2-tier") {
       setSecondaryClassName("two-tier");
-    } else if (props.html === "3-tier") {
+    } else if (selectedMenuItem === "3-tier") {
       setSecondaryClassName("three-tier");
-    } else if (props.html === "4-tier") {
+    } else if (selectedMenuItem === "4-tier") {
       setSecondaryClassName("four-tier");
-    } else if (props.html === "5-tier") {
+    } else if (selectedMenuItem === "5-tier") {
       setSecondaryClassName("five-tier");
     } else {
       setSecondaryClassName("");
     }
-  }, [props.html]);
+  }, [selectedMenuItem]);
 
   useEffect(() => {
     const allOptionsOnPage = servingSizeContent.filter(
-      (obj) => obj.category === props.html
+      (obj) => obj.category === selectedMenuItem
     );
     const allLoaded = allOptionsOnPage.every((option) => {
       const fileName = option.img?.split("/").pop();
@@ -192,20 +193,23 @@ const ServingCards = (props: servingCardsProp) => {
     if (allLoaded) {
       setShowLoadingGif(false);
     }
-  }, [loadedServImgs, props.html]);
+  }, [loadedServImgs, selectedMenuItem]);
 
   return (
     <div className={`serving-cards-container ${secondaryClassName}`}>
       {servingSizeContent
-        .filter((obj) => obj.category === props.html)
+        .filter((obj) => obj.category === selectedMenuItem)
         .map((item, i) => (
-          <div className="serving-card" key={i} id={`card${props.html}`}>
-            <div className="img-container" id={`img-container${props.html}`}>
+          <div className="serving-card" key={i} id={`card${selectedMenuItem}`}>
+            <div
+              className="img-container"
+              id={`img-container${selectedMenuItem}`}
+            >
               <img
                 className="serving-img"
                 src={item.img}
                 alt={`Illustration of a ${item.category}, ${item.diameter} cake`}
-                id={`img${props.html}`}
+                id={`img${selectedMenuItem}`}
                 onLoad={(e) => {
                   const target = e.target as HTMLImageElement;
                   const fileName = target.src.split("/").pop();
