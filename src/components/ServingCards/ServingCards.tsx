@@ -118,7 +118,7 @@ const ServingCards = (props: servingCardsProp) => {
       diameter: '4" 6" 8" & 10" diameters',
       servings: "Serves 82",
       img: servingImages.find((img) =>
-        img.split("/").pop()?.includes("4-6-8-10-3-tier")
+        img.split("/").pop()?.includes("4-6-8-10-4-tier")
       ),
       category: "4-tier"
     },
