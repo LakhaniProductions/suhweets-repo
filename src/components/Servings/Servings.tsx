@@ -22,6 +22,7 @@ const Servings = (props: ServingsProps) => {
 
   const menu = ["1 tier", "2 tier", "3 tier", "4 tier", "5 tier"];
   const [html, setHTML] = useState("1-tier");
+  console.log(html);
 
   useEffect(() => {
     props.setMenuFade({
