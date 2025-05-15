@@ -10,7 +10,8 @@ const PageButtons = () => {
   if (!context) {
     return;
   }
-  const { setShowLoadingFlavorGif, setAllGalleryImagesArr } = context;
+  const { setShowLoadingFlavorGif, setShowLoadingGif, setAllGalleryImagesArr } =
+    context;
 
   const navigate = useNavigate();
   const { width } = useWindowDimensions();
@@ -76,7 +77,7 @@ const PageButtons = () => {
         className="gallery-btn back"
         onClick={() => {
           navigate(-1);
-          // setShowLoadingGif(true);
+          setShowLoadingGif(true);
           setShowLoadingFlavorGif(true);
         }}
       >
@@ -89,7 +90,7 @@ const PageButtons = () => {
       <button
         onClick={() => {
           navigate(forwardRoute);
-          // setShowLoadingGif(true);
+          setShowLoadingGif(true);
           setShowLoadingFlavorGif(true);
         }}
         className="gallery-btn forward"
