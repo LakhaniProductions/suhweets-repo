@@ -18,6 +18,7 @@ const ServingCards = (props: servingCardsProp) => {
       as: "url"
     })
   );
+
   const servingSizeContent = [
     {
       diameter: '6" diameter',
@@ -179,14 +180,6 @@ const ServingCards = (props: servingCardsProp) => {
     }
   }, [props.html]);
 
-  // useEffect(() => {
-  //   const allOptionsOnPage = servingSizeContent.filter(
-  //     (obj: Record<string, string>) => obj.category === props.html
-  //   );
-
-  //   allOptionsOnPage.length === allGalleryImagesArr.length &&
-  //     setShowLoadingGif(false);
-  // }, [allGalleryImagesArr]);
   useEffect(() => {
     const allOptionsOnPage = servingSizeContent.filter(
       (obj) => obj.category === props.html
@@ -198,15 +191,8 @@ const ServingCards = (props: servingCardsProp) => {
 
     if (allLoaded) {
       setShowLoadingGif(false);
-    } else {
-      console.log("⏳ Still waiting for some images to load...");
     }
   }, [loadedServImgs, props.html]);
-
-  useEffect(() => {
-    console.log(loadedServImgs);
-    console.log(loadedServImgs.length);
-  }, [loadedServImgs]);
 
   return (
     <div className={`serving-cards-container ${secondaryClassName}`}>
