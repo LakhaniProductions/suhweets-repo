@@ -18,23 +18,12 @@ const Gallery = (props: GalleryProps) => {
   }
   const { showLoadingGif } = context;
   const { selectedMenuItem, activeThumbnail } = useParams();
-  // const [galleryOpt, setGalleryOpt] = useState<string>(
-  //   location.pathname.includes("/wedding-cakes") ? "wedding" : "all"
-  // );
-  // const [activeIndex, setActiveIndex] = useState<number>(
-  //   activeThumbnail ? +activeThumbnail : 0
-  // );
 
   const galleryOpt =
     selectedMenuItem ??
     (location.pathname.includes("wedding-cakes") ? "wedding" : "all");
   const activeIndex = activeThumbnail ? parseInt(activeThumbnail) : 0;
   const navigate = useNavigate();
-
-  // useEffect(() => {
-  //   const isWedding = location.pathname.includes("/wedding-cakes");
-  //   setGalleryOpt(isWedding ? "wedding" : "all");
-  // }, []);
 
   useEffect(() => {
     const isWedding = location.pathname.includes("/wedding-cakes");
@@ -44,16 +33,6 @@ const Gallery = (props: GalleryProps) => {
       navigate(currentPath, { replace: true });
     }
   }, [activeIndex, galleryOpt]);
-
-  // useEffect(() => {
-  //   if (selectedMenuItem && activeThumbnail !== undefined) {
-  //     const parsedIndex = parseInt(activeThumbnail);
-  //     if (galleryOpt !== selectedMenuItem || activeIndex !== parsedIndex) {
-  //       setGalleryOpt(selectedMenuItem);
-  //       setActiveIndex(parsedIndex);
-  //     }
-  //   }
-  // }, [selectedMenuItem, activeThumbnail]);
 
   return (
     <section className="container">
@@ -75,9 +54,8 @@ const Gallery = (props: GalleryProps) => {
           activeThumbnail={activeIndex}
         />
       </div>
-      {/* <GalleryNav customGalleryOpt={galleryOpt} /> */}
-      <GalleryNav />
 
+      <GalleryNav />
       <PageButtons />
     </section>
   );
