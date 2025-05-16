@@ -16,7 +16,7 @@ const Flavors = (props: FlavorsProps) => {
   if (!context) {
     return;
   }
-  const { showLoadingFlavorGif } = context;
+  const { showLoadingGif } = context;
   const { selectedMenuItem } = useParams();
 
   const menu = ["baker's favorites", "cake flavors", "fillings"];
@@ -30,7 +30,6 @@ const Flavors = (props: FlavorsProps) => {
     });
   }, []);
 
-  useEffect(() => {}, [showLoadingFlavorGif]);
   useEffect(() => {
     if (selectedMenuItem === "cake-flavors") {
       setSecClass("cake-flav");
@@ -40,6 +39,7 @@ const Flavors = (props: FlavorsProps) => {
       setSecClass("fav");
     }
   }, [selectedMenuItem]);
+
   return (
     <section className="container">
       <MenuContext.Provider
@@ -49,14 +49,14 @@ const Flavors = (props: FlavorsProps) => {
           leftClass: props.menuFade.leftClass
         }}
       >
-        {showLoadingFlavorGif && <Loader />}
+        {showLoadingGif && <Loader />}
 
         <Header setMenuFade={props.setMenuFade} />
         <HamburgerMenu />
       </MenuContext.Provider>
       <div
         className={`flavors-content ${
-          showLoadingFlavorGif ? "no-opacity" : ""
+          showLoadingGif ? "no-opacity" : ""
         } ${secClass}`}
 
         // className={`flavors-content ${secClass}`}

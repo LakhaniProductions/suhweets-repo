@@ -20,7 +20,7 @@ const FlavorsContent = () => {
   const navigate = useNavigate();
 
   const { width, height } = useWindowDimensions();
-  const { setShowLoadingFlavorGif } = context;
+  const { setShowLoadingGif } = context;
   const flavorImages = Object.values(
     import.meta.glob("../../img/cakeflavors/*.{png,jpg,jpeg}", {
       eager: true,
@@ -45,14 +45,14 @@ const FlavorsContent = () => {
     {
       flav: "chocolate w/ chocolate ganache",
       img: flavorImages.find((img) => img.includes("oreo")),
-      lsImg: flavorImages.find((img) => img.includes("one-col")),
+      lsImg: flavorImages.find((img) => img.includes("oreo-small")),
       bgimg: flavorImages.find((img) => img.includes("oreo-small")),
       category: "baker-favorites"
     },
     {
       flav: "berries & cream",
       img: flavorImages.find((img) => img.includes("oreo")),
-      lsImg: flavorImages.find((img) => img.includes("one-col")),
+      lsImg: flavorImages.find((img) => img.includes("chocolate-small")),
       bgimg: flavorImages.find((img) => img.includes("oreo-small")),
       category: "baker-favorites"
     },
@@ -299,7 +299,7 @@ const FlavorsContent = () => {
 
   const handleFlavorClick = (e: SyntheticEvent) => {
     const target = e.target as HTMLDivElement;
-    clickedFlavor !== target.id && setImgLoaded(false);
+    clickedFlavor !== encodeClickedFlavor(target.id) && setImgLoaded(false);
     navigate(`/flavors/${selectedMenuItem}/${encodeClickedFlavor(target.id)}`);
   };
 
@@ -327,7 +327,7 @@ const FlavorsContent = () => {
   }, []);
 
   useEffect(() => {
-    imgLoaded && setShowLoadingFlavorGif(false);
+    imgLoaded ? setShowLoadingGif(false) : setShowLoadingGif(true);
   }, [imgLoaded]);
 
   useEffect(() => {
@@ -627,7 +627,7 @@ const FlavorsContent = () => {
                         key={item.flav}
                         onLoad={() => {
                           setImgLoaded(true);
-                          setShowLoadingFlavorGif(false);
+                          // setShowLoadingGif(false);
                         }}
                       />
                     </>
@@ -642,7 +642,7 @@ const FlavorsContent = () => {
                 key={htmlKey}
                 onLoad={() => {
                   setImgLoaded(true);
-                  setShowLoadingFlavorGif(false);
+                  // setShowLoadingGif(false);
                 }}
               />
             )}

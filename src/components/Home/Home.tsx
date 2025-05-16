@@ -1,7 +1,8 @@
 import MainNav from "../MainNav/MainNav";
 import { HomeProps } from "./Home.types";
 import weddingBG from "../../img/home-backgrounds/wedding-1.jpg";
-import customBG from "../../img/home-backgrounds/wedding-1.jpg";
+import customBG from "../../img/home-backgrounds/wedding.jpg";
+import signature from "../../img/home-backgrounds/signature.jpg";
 
 import "./home.css";
 import Jumbotron from "../Jumbotron/Jumbotron";
@@ -62,9 +63,18 @@ const Home = (props: HomeProps) => {
 
   let imgStyle;
 
-  jumbotron === "wedding"
-    ? (imgStyle = `linear-gradient(to right, rgba(255, 255, 255, 0.93), rgba(255, 255, 255, 0.3)), url(${weddingBG})`)
-    : (imgStyle = `linear-gradient(to right, rgba(255, 255, 255, 0.93), rgba(255, 255, 255, 0.3)), url(${customBG})`);
+  // useEffect(() => {
+  //   console.log(jumbotron);
+
+  // }, [jumbotron]);
+
+  if (jumbotron === "wedding") {
+    imgStyle = `linear-gradient(to right, rgba(255, 255, 255, 0.93), rgba(255, 255, 255, 0.3)), url(${weddingBG})`;
+  } else if (jumbotron === "custom") {
+    imgStyle = `linear-gradient(to right, rgba(255, 255, 255, 0.93), rgba(255, 255, 255, 0.3)), url(${customBG})`;
+  } else {
+    imgStyle = `linear-gradient(to right, rgba(255, 255, 255, 0.93), rgba(255, 255, 255, 0.3)), url(${signature})`;
+  }
 
   useEffect(() => {
     setJumbotron(homeMenu[0]);

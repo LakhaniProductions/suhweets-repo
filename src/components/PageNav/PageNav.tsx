@@ -29,7 +29,7 @@ const PageNav = (props: PageNavProps) => {
     if (!clicked) return;
     if (props.menu[+active] !== target.innerHTML) {
       setAllGalleryImagesArr([]);
-      setShowLoadingGif(true);
+      // setShowLoadingGif(true);
     }
 
     if (location.pathname.includes("serving-sizes")) {
