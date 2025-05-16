@@ -9,6 +9,7 @@ import "./flavors.css";
 import FlavorsContent from "../FlavorsContent/FlavorContent";
 import { GalleryImgLoadContext } from "../../context/GalleryImgLoadContext";
 import { useParams } from "react-router-dom";
+import Loader from "../Loader/Loader";
 
 const Flavors = (props: FlavorsProps) => {
   const context = useContext(GalleryImgLoadContext);
@@ -48,17 +49,17 @@ const Flavors = (props: FlavorsProps) => {
           leftClass: props.menuFade.leftClass
         }}
       >
-        {/* {showLoadingFlavorGif && <Loader />} */}
+        {showLoadingFlavorGif && <Loader />}
 
         <Header setMenuFade={props.setMenuFade} />
         <HamburgerMenu />
       </MenuContext.Provider>
       <div
-        // className={`flavors-content ${
-        //   showLoadingFlavorGif ? "no-opacity" : ""
-        // } ${secClass}`}
+        className={`flavors-content ${
+          showLoadingFlavorGif ? "no-opacity" : ""
+        } ${secClass}`}
 
-        className={`flavors-content ${secClass}`}
+        // className={`flavors-content ${secClass}`}
       >
         <FlavorsContent />
       </div>

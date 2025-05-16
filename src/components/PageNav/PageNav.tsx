@@ -46,7 +46,7 @@ const PageNav = (props: PageNavProps) => {
     } else {
       navigate(`/signature-cakes/${target.innerHTML.replace('"', "-inch")}`);
     }
-    target.innerHTML !== "fillings" && setShowLoadingFlavorGif(true);
+    // target.innerHTML !== "fillings" && setShowLoadingFlavorGif(true);
   };
   useEffect(() => {
     if (location.pathname.includes("serving-sizes")) {

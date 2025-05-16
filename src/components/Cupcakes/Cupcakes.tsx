@@ -14,7 +14,7 @@ const Cupcakes = (props: SignatureProps) => {
   if (!context) {
     return;
   }
-  const { showLoadingFlavorGif } = context;
+  // const { showLoadingFlavorGif } = context;
 
   useEffect(() => {
     props.setMenuFade({
@@ -24,7 +24,7 @@ const Cupcakes = (props: SignatureProps) => {
     });
   }, []);
 
-  useEffect(() => {}, [showLoadingFlavorGif]);
+  // useEffect(() => {}, [showLoadingFlavorGif]);
 
   return (
     <section className="container">

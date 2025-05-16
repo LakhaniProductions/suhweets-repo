@@ -30,7 +30,7 @@ const FlavorsContent = () => {
   const flavorsContent = [
     {
       flav: "red velvet w/ vanilla cream cheese",
-      img: flavorImages.find((img) => img.includes("chocolate")),
+      img: flavorImages.find((img) => img.includes("chocolate-big")),
       lsImg: flavorImages.find((img) => img.includes("one-col")),
       bgimg: flavorImages.find((img) => img.includes("chocolate-small")),
       category: "baker-favorites"
@@ -280,6 +280,7 @@ const FlavorsContent = () => {
       } else if (width <= 750) {
         return item.lsImg;
       } else {
+        console.log(item.img);
         return item.img;
       }
     },
@@ -287,7 +288,13 @@ const FlavorsContent = () => {
   );
 
   const encodeClickedFlavor = (flavor: string): string => {
-    return encodeURIComponent(flavor.replace(/ /g, "-"));
+    return encodeURIComponent(
+      flavor
+        .replace(/ /g, "-")
+        .replace(/\//g, "_slash_")
+        .replace(/\*/g, "_ast_")
+        .replace(/&/g, "_and_")
+    );
   };
 
   const handleFlavorClick = (e: SyntheticEvent) => {
@@ -298,7 +305,11 @@ const FlavorsContent = () => {
 
   const decodeClickedFlavor = (flavor: string): string => {
     const decoded = decodeURIComponent(flavor);
-    return decoded.replace(/-/g, " ");
+    return decoded
+      .replace(/_slash_/g, "/")
+      .replace(/_ast_/g, "*")
+      .replace(/_and_/g, "&")
+      .replace(/-/g, " ");
   };
 
   useEffect(() => {

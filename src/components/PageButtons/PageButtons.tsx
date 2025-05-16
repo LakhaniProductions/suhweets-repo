@@ -78,7 +78,7 @@ const PageButtons = () => {
         onClick={() => {
           navigate(-1);
           setShowLoadingGif(true);
-          setShowLoadingFlavorGif(true);
+          // setShowLoadingFlavorGif(true);
         }}
       >
         <span className="icon-circle-left"></span>
@@ -91,7 +91,7 @@ const PageButtons = () => {
         onClick={() => {
           navigate(forwardRoute);
           setShowLoadingGif(true);
-          setShowLoadingFlavorGif(true);
+          // setShowLoadingFlavorGif(true);
         }}
         className="gallery-btn forward"
       >
