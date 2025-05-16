@@ -39,7 +39,7 @@ const PageNav = (props: PageNavProps) => {
       navigate(
         `/flavors/${
           target.innerHTML.includes("'")
-            ? "baker-favorites"
+            ? "baker-favorites/berries-&-cream"
             : target.innerHTML.replace(" ", "-")
         }`
       );

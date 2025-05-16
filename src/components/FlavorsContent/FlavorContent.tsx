@@ -9,14 +9,15 @@ import {
 import TextPanel from "../TextPanel/TextPanel";
 import { GalleryImgLoadContext } from "../../context/GalleryImgLoadContext";
 import useWindowDimensions from "../../hooks/useWindowDimensions";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 const FlavorsContent = () => {
   const context = useContext(GalleryImgLoadContext);
   if (!context) {
     return;
   }
-  const { selectedMenuItem } = useParams();
+  const { selectedMenuItem, clickedFlavor } = useParams();
+  const navigate = useNavigate();
 
   const { width, height } = useWindowDimensions();
   const { setShowLoadingFlavorGif } = context;
@@ -262,7 +263,6 @@ const FlavorsContent = () => {
     }
   };
 
-  const [clickedFlavor, setclickedFlavor] = useState<string>("");
   const [flavorCatsArr, setFlavorCatsArr] = useState<string[]>([]);
   const [fillingCatsArr, setFillingCatsArr] = useState<string[]>([]);
   const [imgLoaded, setImgLoaded] = useState(false);
@@ -286,18 +286,20 @@ const FlavorsContent = () => {
     [width, height]
   );
 
+  const encodeClickedFlavor = (flavor: string): string => {
+    return encodeURIComponent(flavor.replace(/ /g, "-"));
+  };
+
   const handleFlavorClick = (e: SyntheticEvent) => {
     const target = e.target as HTMLDivElement;
     clickedFlavor !== target.id && setImgLoaded(false);
-    setclickedFlavor(target.id);
+    navigate(`/flavors/${selectedMenuItem}/${encodeClickedFlavor(target.id)}`);
   };
 
-  useEffect(() => {
-    // PAGE LOAD ACTIVE VALUES
-    if (htmlKey === "baker-favorites") {
-      setclickedFlavor("red velvet w/ vanilla cream cheese");
-    }
-  }, [htmlKey]);
+  const decodeClickedFlavor = (flavor: string): string => {
+    const decoded = decodeURIComponent(flavor);
+    return decoded.replace(/-/g, " ");
+  };
 
   useEffect(() => {
     flavorsContent.filter((item) => {
@@ -368,7 +370,8 @@ const FlavorsContent = () => {
                   .map((item, i) => (
                     <p
                       className={`menu-options baker ${
-                        clickedFlavor === item.flav && "active-flavor"
+                        decodeClickedFlavor(clickedFlavor || "") ===
+                          item.flav && "active-flavor"
                       }`}
                       key={i.toString()}
                       id={`${item.flav}`}
@@ -598,7 +601,7 @@ const FlavorsContent = () => {
               flavorsContent
                 .filter((cake) => cake.category === htmlKey)
                 .map((item) =>
-                  clickedFlavor === item.flav ? (
+                  decodeClickedFlavor(clickedFlavor || "") === item.flav ? (
                     <>
                       <div
                         className={imgLoaded ? "" : "lazy-img"}
@@ -653,7 +656,8 @@ const FlavorsContent = () => {
                       .map((item, i) => (
                         <p
                           className={`menu-options baker ${
-                            clickedFlavor === item.flav && "active-flavor"
+                            decodeClickedFlavor(clickedFlavor || "") ===
+                              item.flav && "active-flavor"
                           }`}
                           key={i.toString()}
                           id={`${item.flav}`}
