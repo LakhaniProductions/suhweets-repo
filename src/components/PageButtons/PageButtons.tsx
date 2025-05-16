@@ -10,8 +10,7 @@ const PageButtons = () => {
   if (!context) {
     return;
   }
-  const { setShowLoadingFlavorGif, setShowLoadingGif, setAllGalleryImagesArr } =
-    context;
+  const { setShowLoadingGif, setAllGalleryImagesArr } = context;
 
   const navigate = useNavigate();
   const { width } = useWindowDimensions();
