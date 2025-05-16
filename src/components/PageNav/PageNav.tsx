@@ -17,7 +17,7 @@ const PageNav = (props: PageNavProps) => {
   }
   const { width } = useWindowDimensions();
   const location = useLocation();
-  const { setShowLoadingGif, setAllGalleryImagesArr } = context;
+  const { setAllGalleryImagesArr } = context;
   const { selectedMenuItem } = useParams();
 
   const [active, setActive] = useState("0");
