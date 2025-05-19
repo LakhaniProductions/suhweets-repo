@@ -327,9 +327,17 @@ const FlavorsContent = () => {
   }, []);
 
   useEffect(() => {
-    imgLoaded ? setShowLoadingGif(false) : setShowLoadingGif(true);
+    if (imgLoaded) {
+      setShowLoadingGif(false);
+    } else {
+      setShowLoadingGif(true);
+      if (location.pathname.includes("cake-flavors") && hideFlavImg) {
+        setShowLoadingGif(false);
+      }
+    }
+
     location.pathname.includes("fillings") && setShowLoadingGif(false);
-  }, [imgLoaded, showLoadingGif]);
+  }, [imgLoaded, showLoadingGif, hideFlavImg, location.pathname]);
 
   useEffect(() => {
     width <= 1380 ? setShowInLftCol(false) : setShowInLftCol(true);

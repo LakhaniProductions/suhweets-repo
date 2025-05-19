@@ -196,7 +196,7 @@ const PageNav = (props: PageNavProps) => {
                 onClick={() => {
                   props.menu[+active - 1].includes(" ")
                     ? props.menu[+active - 1].includes("'")
-                      ? navigate("/flavors/baker-favorites")
+                      ? navigate("/flavors/baker-favorites/berries-_and_-cream")
                       : navigate(
                           `/flavors/${props.menu[+active - 1].replace(
                             " ",
