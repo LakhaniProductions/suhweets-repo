@@ -32,13 +32,14 @@ const GalleryNav = () => {
     galleryMenu.indexOf(selectedMenuItem)
   );
 
+  const isWedding = location.pathname.includes("/wedding-cakes");
+  const basePath = isWedding ? "wedding-cakes" : "custom-cakes";
+
   const setActiveClick = (
     e: React.MouseEvent<HTMLButtonElement>,
     i: number
   ) => {
     const target = e.currentTarget as HTMLButtonElement;
-    const isWedding = location.pathname.includes("/wedding-cakes");
-    const basePath = isWedding ? "wedding-cakes" : "custom-cakes";
     const newPath = `/${basePath}/${target.id}/0`;
 
     setSelectedMenuItem(target.id);
@@ -93,9 +94,6 @@ const GalleryNav = () => {
             (width <= 980 || height <= 560) && (
               <button
                 onClick={() => {
-                  const isWedding =
-                    location.pathname.includes("/wedding-cakes");
-                  const basePath = isWedding ? "wedding-cakes" : "custom-cakes";
                   navigate(`/${basePath}/${galleryMenu[activeIndex - 1]}/0`);
                   setSelectedMenuItem(galleryMenu[activeIndex - 1]);
                   setActiveIndex(activeIndex - 1);
@@ -120,11 +118,7 @@ const GalleryNav = () => {
             (width <= 980 || height <= 560) && (
               <button
                 onClick={() => {
-                  const isWedding =
-                    location.pathname.includes("/wedding-cakes");
-                  const basePath = isWedding ? "wedding-cakes" : "custom-cakes";
                   navigate(`/${basePath}/${galleryMenu[activeIndex + 1]}/0`);
-
                   setSelectedMenuItem(galleryMenu[activeIndex + 1]);
                   setActiveIndex(activeIndex + 1);
                 }}
