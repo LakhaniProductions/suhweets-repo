@@ -17,7 +17,7 @@ const PageNav = (props: PageNavProps) => {
   }
   const { width } = useWindowDimensions();
   const location = useLocation();
-  const { setAllGalleryImagesArr } = context;
+  const { setAllGalleryImagesArr, setShowLoadingGif } = context;
   const { selectedMenuItem } = useParams();
 
   const [active, setActive] = useState("0");
@@ -45,7 +45,7 @@ const PageNav = (props: PageNavProps) => {
     } else {
       navigate(`/signature-cakes/${target.innerHTML.replace('"', "-inch")}`);
     }
-    // target.innerHTML !== "fillings" && setShowLoadingFlavorGif(true);
+    target.innerHTML !== "fillings" && setShowLoadingGif(true);
   };
   useEffect(() => {
     if (location.pathname.includes("serving-sizes")) {

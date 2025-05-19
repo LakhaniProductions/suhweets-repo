@@ -20,7 +20,7 @@ const FlavorsContent = () => {
   const navigate = useNavigate();
 
   const { width, height } = useWindowDimensions();
-  const { setShowLoadingGif } = context;
+  const { setShowLoadingGif, showLoadingGif } = context;
   const flavorImages = Object.values(
     import.meta.glob("../../img/cakeflavors/*.{png,jpg,jpeg}", {
       eager: true,
@@ -328,7 +328,8 @@ const FlavorsContent = () => {
 
   useEffect(() => {
     imgLoaded ? setShowLoadingGif(false) : setShowLoadingGif(true);
-  }, [imgLoaded]);
+    location.pathname.includes("fillings") && setShowLoadingGif(false);
+  }, [imgLoaded, showLoadingGif]);
 
   useEffect(() => {
     width <= 1380 ? setShowInLftCol(false) : setShowInLftCol(true);
@@ -350,7 +351,6 @@ const FlavorsContent = () => {
     }
   }, [htmlKey, width]);
 
-  useEffect(() => {}, [hideFlavImg]);
   return (
     <>
       <TextPanel
@@ -627,7 +627,7 @@ const FlavorsContent = () => {
                         key={item.flav}
                         onLoad={() => {
                           setImgLoaded(true);
-                          // setShowLoadingGif(false);
+                          setShowLoadingGif(false);
                         }}
                       />
                     </>
