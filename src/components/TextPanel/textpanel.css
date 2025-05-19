@@ -1208,9 +1208,6 @@
   .cake-flav .flavors-txt p {
     margin-left: 0rem;
   }
-  .flavors-txt p {
-    margin-left: 4.8rem;
-  }
 }
 
 @media (max-width: 900px) and (max-height: 850px) {
@@ -1229,7 +1226,7 @@
 @media (max-width: 890px) {
   .flavors-txt p {
     font-size: 2rem;
-    margin-left: 4.8rem;
+    /* margin-left: 4.8rem; */
   }
 }
 @media (max-width: 850px) and (max-height: 480px) {
@@ -1285,6 +1282,10 @@
     flex-direction: row;
     min-width: 90%;
     align-items: flex-end;
+  }
+
+  .flavors-txt p {
+    margin-left: 4.8rem;
   }
 }
 

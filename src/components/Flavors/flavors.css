@@ -1879,6 +1879,9 @@
 }
 
 @media (max-width: 848px) {
+  .flavors-content.fav {
+    padding: 16rem 2.4rem 8.24rem 2.4rem;
+  }
   .flavors-two-col .flavors-container {
     margin: 22rem 0 0 7.2rem;
   }
