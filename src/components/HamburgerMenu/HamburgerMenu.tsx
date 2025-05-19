@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { HamburgerMenuProps } from "./HamburgerMenuProps.types";
 import "./hamburgermenu.css";
 import useWindowDimensions from "../../hooks/useWindowDimensions";
-import { PHONE_NUMBER } from "../../shared/constants/constants";
+// import { PHONE_NUMBER } from "../../shared/constants/constants";
 
 const HamburgerMenu = (props: HamburgerMenuProps) => {
   const { width, height } = useWindowDimensions();
