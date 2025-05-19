@@ -104,9 +104,9 @@
   display: flex;
   flex-direction: column;
   overflow-y: scroll;
-  padding-top: 18rem;
+  padding: 18rem 2.4rem 4.9rem 0;
   height: 100%;
-  justify-content: center;
+  /* justify-content: center; */
   row-gap: 15rem;
 }
 .right-menu-container::-webkit-scrollbar {
@@ -123,7 +123,7 @@
 .secondary-nav {
   list-style: none;
   text-transform: uppercase;
-  font-size: 6.5rem;
+  font-size: 5.2rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -253,7 +253,7 @@
 
 @media (max-width: 2560px) and (max-height: 1260px) {
   .secondary-nav {
-    font-size: 5.8rem;
+    font-size: 4.9rem;
   }
   .right-menu-container,
   .social-menu {
@@ -263,7 +263,7 @@
 
 @media (max-width: 2560px) and (max-height: 1160px) {
   .secondary-nav {
-    font-size: 5.2rem;
+    font-size: 4.6rem;
   }
   .right-menu-container,
   .social-menu {
@@ -280,10 +280,6 @@
 }
 
 @media (max-width: 2560px) and (max-height: 1050px) {
-  .secondary-nav {
-    font-size: 4.6rem;
-  }
-
   .icon-facebook,
   .icon-instagram,
   .icon-the-knot,
@@ -314,13 +310,13 @@
 }
 @media (max-width: 2100px) {
   .secondary-nav {
-    font-size: 5.8rem;
+    font-size: 4.9rem;
   }
 }
 
 @media (max-width: 2100px) and (max-height: 1230px) {
   .secondary-nav {
-    font-size: 5.2rem;
+    font-size: 4.6rem;
   }
 
   .social-menu a:link,
@@ -554,7 +550,7 @@
     margin: 2.4rem 0;
   }
   .secondary-nav {
-    font-size: 5.2rem;
+    font-size: 4.9rem;
   }
 }
 

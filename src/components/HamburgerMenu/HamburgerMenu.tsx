@@ -60,7 +60,7 @@ const HamburgerMenu = (props: HamburgerMenuProps) => {
       <div className={`right-menu-container ${menuContext.rightClass}`}>
         <ul className="secondary-nav">
           <Link
-            to="/about-us"
+            to="/wedding-cakes/wedding/0"
             onClick={() => {
               props.setMenuFade!({
                 BGClass: "",
@@ -69,10 +69,10 @@ const HamburgerMenu = (props: HamburgerMenuProps) => {
               });
             }}
           >
-            <li>about us</li>
+            <li>wedding</li>
           </Link>
           <Link
-            to="/contact-us"
+            to="/custom-cakes/all/0"
             onClick={() => {
               props.setMenuFade!({
                 BGClass: "",
@@ -81,7 +81,31 @@ const HamburgerMenu = (props: HamburgerMenuProps) => {
               });
             }}
           >
-            <li>contact us</li>
+            <li>custom</li>
+          </Link>
+          <Link
+            to="/signature-cakes/6-inch"
+            onClick={() => {
+              props.setMenuFade!({
+                BGClass: "",
+                rightClass: "",
+                leftClass: ""
+              });
+            }}
+          >
+            <li>signature</li>
+          </Link>
+          <Link
+            to="/cupcakes"
+            onClick={() => {
+              props.setMenuFade!({
+                BGClass: "",
+                rightClass: "",
+                leftClass: ""
+              });
+            }}
+          >
+            <li>cupcakes</li>
           </Link>
           <Link
             to="/serving-sizes/1-tier"
@@ -107,8 +131,32 @@ const HamburgerMenu = (props: HamburgerMenuProps) => {
           >
             <li>cake flavors</li>
           </Link>
+          <Link
+            to="/about-us"
+            onClick={() => {
+              props.setMenuFade!({
+                BGClass: "",
+                rightClass: "",
+                leftClass: ""
+              });
+            }}
+          >
+            <li>about us</li>
+          </Link>
+          <Link
+            to="/contact-us"
+            onClick={() => {
+              props.setMenuFade!({
+                BGClass: "",
+                rightClass: "",
+                leftClass: ""
+              });
+            }}
+          >
+            <li>contact us</li>
+          </Link>
         </ul>
-        <div className="social-menu">
+        {/* <div className="social-menu">
           <div className="top-soc-menu">
             <a
               href="https://www.facebook.com/suhweetsbakery"
@@ -160,7 +208,7 @@ const HamburgerMenu = (props: HamburgerMenuProps) => {
               </a>
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   );

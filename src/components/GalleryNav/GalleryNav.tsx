@@ -93,6 +93,10 @@ const GalleryNav = () => {
             (width <= 980 || height <= 560) && (
               <button
                 onClick={() => {
+                  const isWedding =
+                    location.pathname.includes("/wedding-cakes");
+                  const basePath = isWedding ? "wedding-cakes" : "custom-cakes";
+                  navigate(`/${basePath}/${galleryMenu[activeIndex - 1]}/0`);
                   setSelectedMenuItem(galleryMenu[activeIndex - 1]);
                   setActiveIndex(activeIndex - 1);
                 }}
@@ -116,6 +120,11 @@ const GalleryNav = () => {
             (width <= 980 || height <= 560) && (
               <button
                 onClick={() => {
+                  const isWedding =
+                    location.pathname.includes("/wedding-cakes");
+                  const basePath = isWedding ? "wedding-cakes" : "custom-cakes";
+                  navigate(`/${basePath}/${galleryMenu[activeIndex + 1]}/0`);
+
                   setSelectedMenuItem(galleryMenu[activeIndex + 1]);
                   setActiveIndex(activeIndex + 1);
                 }}
