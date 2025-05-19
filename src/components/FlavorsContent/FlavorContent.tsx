@@ -37,49 +37,49 @@ const FlavorsContent = () => {
     },
     {
       flav: "spiced carrot w/ vanilla cream cheese*",
-      img: flavorImages.find((img) => img.includes("carrot")),
+      img: flavorImages.find((img) => img.includes("chocolate-big")),
       lsImg: flavorImages.find((img) => img.includes("one-col")),
-      bgimg: flavorImages.find((img) => img.includes("carrot-small")),
+      bgimg: flavorImages.find((img) => img.includes("chocolate-small")),
       category: "baker-favorites"
     },
     {
       flav: "chocolate w/ chocolate ganache",
-      img: flavorImages.find((img) => img.includes("oreo")),
-      lsImg: flavorImages.find((img) => img.includes("oreo-small")),
-      bgimg: flavorImages.find((img) => img.includes("oreo-small")),
+      img: flavorImages.find((img) => img.includes("chocolate-big")),
+      lsImg: flavorImages.find((img) => img.includes("one-col")),
+      bgimg: flavorImages.find((img) => img.includes("chocolate-small")),
       category: "baker-favorites"
     },
     {
       flav: "berries & cream",
-      img: flavorImages.find((img) => img.includes("oreo")),
-      lsImg: flavorImages.find((img) => img.includes("chocolate-small")),
-      bgimg: flavorImages.find((img) => img.includes("oreo-small")),
+      img: flavorImages.find((img) => img.includes("chocolate-big")),
+      lsImg: flavorImages.find((img) => img.includes("one-col")),
+      bgimg: flavorImages.find((img) => img.includes("chocolate-small")),
       category: "baker-favorites"
     },
     {
       flav: "white almond w/ raspberry compote*",
-      img: flavorImages.find((img) => img.includes("chocolate")),
+      img: flavorImages.find((img) => img.includes("chocolate-big")),
       lsImg: flavorImages.find((img) => img.includes("one-col")),
       bgimg: flavorImages.find((img) => img.includes("chocolate-small")),
       category: "baker-favorites"
     },
     {
       flav: "lemon w/ raspberry compote*",
-      img: flavorImages.find((img) => img.includes("chocolate")),
+      img: flavorImages.find((img) => img.includes("chocolate-big")),
       lsImg: flavorImages.find((img) => img.includes("one-col")),
       bgimg: flavorImages.find((img) => img.includes("chocolate-small")),
       category: "baker-favorites"
     },
     {
       flav: "funfetti w/ strawberry buttercream",
-      img: flavorImages.find((img) => img.includes("chocolate")),
+      img: flavorImages.find((img) => img.includes("chocolate-big")),
       lsImg: flavorImages.find((img) => img.includes("one-col")),
       bgimg: flavorImages.find((img) => img.includes("chocolate-small")),
       category: "baker-favorites"
     },
     {
       flav: "chocolate w/ cookies & cream",
-      img: flavorImages.find((img) => img.includes("chocolate")),
+      img: flavorImages.find((img) => img.includes("chocolate-big")),
       lsImg: flavorImages.find((img) => img.includes("one-col")),
       bgimg: flavorImages.find((img) => img.includes("chocolate-small")),
       category: "baker-favorites"
