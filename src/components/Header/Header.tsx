@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import fullLogo from "../../img/suhweetslogotagline.png";
 import logoMark from "../../img/suhweets_logomark.png";
+import wordMark from "../../img/suhweets_wordmark.png";
 import { HeaderProps } from "./Header.types";
 import "./header.css";
 import HamburgerMenuIcon from "../HamburgerMenuIcon/HamburgerMenuIcon";
@@ -13,7 +14,10 @@ const Header = (props: HeaderProps) => {
   const [logoClass, setLogoClass] = useState("logo");
 
   useEffect(() => {
-    if (width <= 600) {
+    if (width <= 848 && width > 600) {
+      setLogoSRC(wordMark);
+      setLogoClass("logo wordmark");
+    } else if (width <= 600) {
       setLogoSRC(logoMark);
       setLogoClass("logo logomark");
     } else {
