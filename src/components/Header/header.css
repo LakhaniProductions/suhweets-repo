@@ -186,14 +186,14 @@
   }
 }
 
-@media (max-height: 860px) {
+/* @media (max-height: 860px) {
   .header {
     padding: 0;
   }
   .header a {
     padding-left: 2.4rem;
   }
-}
+} */
 
 @media (max-width: 848px) {
   .logo.wordmark {
@@ -249,7 +249,7 @@
     width: 3rem;
   }
 }
-
+/* 
 @media (max-height: 700px) {
   .logo.logomark {
     margin: 0;
@@ -302,4 +302,4 @@
     .hamburger-menu-icon::after {
     width: 3rem;
   }
-}
+} */
