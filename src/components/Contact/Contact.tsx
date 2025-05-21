@@ -10,8 +10,11 @@ import phoneImg from "../../img/form/phone.jpg";
 import { stringToDate } from "../../shared/utility";
 import { PHONE_NUMBER } from "../../shared/constants/constants";
 import ThankYou from "../ThankYou/ThankYou";
+import useWindowDimensions from "../../hooks/useWindowDimensions";
 
 const Contact = (props: ContactProps) => {
+  const { width } = useWindowDimensions();
+
   const dateRef: any = useRef(null);
   const servingsRef: any = useRef(null);
   const fullNameRef: any = useRef(null);
@@ -258,17 +261,101 @@ const Contact = (props: ContactProps) => {
           <Header setMenuFade={props.setMenuFade} />
           <HamburgerMenu />
         </MenuContext.Provider>
-        <div className="form-container">
-          {
-            <TextPanel
-              h2={"say"}
-              h1={"hello"}
-              p={
-                "We’d love to know more about your dream cake! Tell us about yourself and we’ll help you make it a reality."
-              }
-              widthClass={`servings contact-txt`}
-            />
+        <div
+          className={
+            location.pathname.includes("quote-request")
+              ? "form-container quote"
+              : "form-container con"
           }
+        >
+          <div className="form-lft-col">
+            {!location.pathname.includes("contact-us") ? (
+              <TextPanel
+                h2={"say"}
+                h1={"hello"}
+                p={
+                  "We’d love to know more about your dream cake! Tell us about yourself and we’ll help you make it a reality."
+                }
+                widthClass={`contact contact-txt`}
+              />
+            ) : (
+              <TextPanel
+                h2={"contact"}
+                h1={"details"}
+                p={""}
+                widthClass={`contact contact-txt`}
+              />
+            )}
+            {!location.pathname.includes("quote-request") && (
+              <div className="social-menu">
+                <div className="bottom-soc-menu">
+                  <div className="phone-container">
+                    <h3 className="phone-label">phone</h3>
+
+                    <a href={`tel:${PHONE_NUMBER}`}>
+                      {/* <span className="icon-phones"></span> */}
+                      {PHONE_NUMBER}
+                    </a>
+                  </div>
+                  <div className="mail-container">
+                    <h3 className="email-label">email</h3>
+                    <a href="mailto:baker@suhweetsbakery.com">
+                      {/* <span className="icon-mail"></span> */}
+                      {width <= 420 ? (
+                        <div className="mail-col">
+                          <span>baker</span>
+                          <span>@suhweetsbakery.com</span>
+                        </div>
+                      ) : (
+                        "baker@suhweetsbakery.com"
+                      )}
+                    </a>
+                  </div>
+                  <div className="location-container">
+                    <h3 className="location-label">location</h3>
+                    <p>9119 Church St</p>
+                    <p>Historic Manssas, VA 20110</p>
+                  </div>
+
+                  <div className="location-container">
+                    <h3 className="location-label">Hours</h3>
+                    <p>Wednesday - Sunday</p>
+                    <p>11 AM - 7 PM</p>
+                  </div>
+                </div>
+                <div className="top-soc-menu">
+                  <a
+                    href="https://www.facebook.com/suhweetsbakery"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <span className="icon-facebook"></span>
+                  </a>
+                  <a
+                    href="https://www.instagram.com/suhweets07"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <span className="icon-instagram"></span>
+                  </a>
+                  <a
+                    href="https://www.weddingwire.com/biz/suhweets-bakery-llc/dd34f44df4c1656d.html"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <span className="icon-weddingwire"></span>
+                  </a>
+                  <a
+                    href="https://www.theknot.com/marketplace/suhweets-bakery-llc-manassas-va-2057171"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <span className="icon-the_knot"></span>
+                  </a>
+                </div>
+              </div>
+            )}
+          </div>
 
           <div className="form-panel">
             <img

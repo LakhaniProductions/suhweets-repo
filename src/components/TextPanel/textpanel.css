@@ -1,5 +1,6 @@
 .gallery,
 .servings,
+.contact,
 .flavors-txt,
 .sig-txt,
 .signature-details,
@@ -76,11 +77,11 @@
   font-size: 4.1rem;
 }
 
-.servings.contact-txt {
-  max-width: 30%;
+.contact.contact-txt {
+  max-width: 80%;
 }
 
-.servings.contact-txt p {
+.contact.contact-txt p {
   font-size: 2.3rem;
 }
 .sig-txt h2 {
@@ -312,10 +313,10 @@
 }
 
 @media (max-width: 2350px) and (max-height: 1294px) {
-  .servings.contact-txt {
+  .contact.contact-txt {
     width: 25%;
   }
-  .servings.contact-txt p {
+  .contact.contact-txt p {
     font-size: 2rem;
   }
 }
@@ -446,7 +447,7 @@
     padding-left: 3.2rem;
     font-size: 2rem;
   }
-  .servings.contact-txt {
+  .contact.contact-txt {
     flex-direction: column;
     margin-right: 0;
     max-width: 20%;
@@ -466,13 +467,13 @@
 }
 
 @media (max-width: 2040px) {
-  .servings.contact-txt {
+  .contact.contact-txt {
     max-width: 30%;
     margin-right: 7.2rem;
     margin-left: 2.4rem;
   }
 
-  .servings.contact-txt p {
+  .contact.contact-txt p {
     position: absolute;
     width: 23%;
     left: 18rem;
@@ -485,11 +486,11 @@
 }
 
 @media (max-width: 2040px) and (max-height: 950px) {
-  /* .servings.contact-txt {
+  /* .contact.contact-txt {
     position: fixed;
   } */
 
-  .servings.contact-txt p {
+  .contact.contact-txt p {
     position: unset;
     width: unset;
   }
@@ -570,7 +571,7 @@
 }
 
 @media (max-width: 1900px) {
-  .servings.contact-txt p {
+  .contact.contact-txt p {
     font-size: 2rem;
   }
 }
@@ -650,7 +651,7 @@
     font-size: 2rem;
   }
 
-  .servings.contact-txt p {
+  .contact.contact-txt p {
     max-width: 100%;
     padding-left: 0;
     font-size: 1.8rem;
@@ -746,7 +747,7 @@
 }
 
 @media (max-width: 1600px) {
-  .servings.contact-txt p {
+  .contact.contact-txt p {
     position: unset;
     width: unset;
   }
@@ -944,7 +945,7 @@
 }
 
 @media (max-width: 1320px) and (max-height: 950px) {
-  .servings.contact-txt {
+  .contact.contact-txt {
     max-width: 25%;
   }
 }
@@ -976,10 +977,10 @@
 }
 
 @media (max-width: 1180px) {
-  .servings.contact-txt {
+  .contact.contact-txt {
     flex-direction: column;
   }
-  .servings.contact-txt p {
+  .contact.contact-txt p {
     position: absolute;
     left: 14.8rem;
     max-width: 42%;
@@ -1046,7 +1047,7 @@
 }
 
 @media (max-width: 1180px) and (max-height: 950px) {
-  .servings.contact-txt p {
+  .contact.contact-txt p {
     display: none;
   }
 }
@@ -1058,7 +1059,7 @@
 }
 
 @media (max-width: 1180px) and (max-height: 760px) {
-  .servings.contact-txt {
+  .contact.contact-txt {
     display: none;
   }
 
@@ -1234,7 +1235,7 @@
     display: none;
   }
 
-  .servings.contact-txt {
+  .contact.contact-txt {
     display: unset;
     flex-direction: column;
     display: flex;
@@ -1353,12 +1354,12 @@
 }
 
 @media (max-width: 660px) {
-  .servings.contact-txt {
+  .contact.contact-txt {
     flex-direction: column;
     width: 90%;
     max-width: unset;
   }
-  .servings.contact-txt p {
+  .contact.contact-txt p {
     max-width: 62%;
   }
   .instructions-box {
@@ -1377,7 +1378,7 @@
 } */
 
 @media (max-width: 660px) and (max-height: 600px) {
-  .servings.contact-txt {
+  .contact.contact-txt {
     display: none;
   }
 }
@@ -1447,8 +1448,8 @@
     display: none;
   }
 
-  .servings.contact-txt h1,
-  .servings.contact-txt h2 {
+  .contact.contact-txt h1,
+  .contact.contact-txt h2 {
     display: unset;
   }
 }

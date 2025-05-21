@@ -46,7 +46,7 @@ const PageButtons = () => {
     }
 
     if (location.pathname.includes("/flavors")) {
-      setForwardRoute("/contact-us");
+      setForwardRoute("/quote-request");
       setForwardRouteText("request a quote");
       // setBackRoute(previousRoute);
       setBackRouteText("servings");
@@ -77,7 +77,6 @@ const PageButtons = () => {
         onClick={() => {
           navigate(-1);
           setShowLoadingGif(true);
-          // setShowLoadingFlavorGif(true);
         }}
       >
         <span className="icon-circle-left"></span>
@@ -90,7 +89,6 @@ const PageButtons = () => {
         onClick={() => {
           navigate(forwardRoute);
           setShowLoadingGif(true);
-          // setShowLoadingFlavorGif(true);
         }}
         className="gallery-btn forward"
       >

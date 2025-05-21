@@ -156,59 +156,6 @@ const HamburgerMenu = (props: HamburgerMenuProps) => {
             <li>contact us</li>
           </Link>
         </ul>
-        {/* <div className="social-menu">
-          <div className="top-soc-menu">
-            <a
-              href="https://www.facebook.com/suhweetsbakery"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <span className="icon-facebook"></span>
-            </a>
-            <a
-              href="https://www.instagram.com/suhweets07"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <span className="icon-instagram"></span>
-            </a>
-            <a
-              href="https://www.weddingwire.com/biz/suhweets-bakery-llc/dd34f44df4c1656d.html"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <span className="icon-weddingwire"></span>
-            </a>
-            <a
-              href="https://www.theknot.com/marketplace/suhweets-bakery-llc-manassas-va-2057171"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <span className="icon-the_knot"></span>
-            </a>
-          </div>
-          <div className="bottom-soc-menu">
-            <div className="phone-container">
-              <a href={`tel:${PHONE_NUMBER}`}>
-                <span className="icon-phones"></span>
-                {PHONE_NUMBER}
-              </a>
-            </div>
-            <div className="mail-container">
-              <a href="mailto:baker@suhweetsbakery.com">
-                <span className="icon-mail"></span>
-                {width <= 420 ? (
-                  <div className="mail-col">
-                    <span>baker</span>
-                    <span>@suhweetsbakery.com</span>
-                  </div>
-                ) : (
-                  "baker@suhweetsbakery.com"
-                )}
-              </a>
-            </div>
-          </div>
-        </div> */}
       </div>
     </div>
   );

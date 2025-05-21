@@ -79,6 +79,11 @@ function App() {
       />
 
       <Route
+        path="/quote-request"
+        element={<Contact setMenuFade={setMenuFade} menuFade={menuFade} />}
+      />
+
+      <Route
         path="/signature-form"
         element={
           <SignatureForm setMenuFade={setMenuFade} menuFade={menuFade} />
