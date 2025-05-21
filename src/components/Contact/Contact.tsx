@@ -279,12 +279,14 @@ const Contact = (props: ContactProps) => {
                 widthClass={`contact contact-txt`}
               />
             ) : (
-              <TextPanel
-                h2={"contact"}
-                h1={"details"}
-                p={""}
-                widthClass={`contact contact-txt`}
-              />
+              width > 1180 && (
+                <TextPanel
+                  h2={"contact"}
+                  h1={"details"}
+                  p={""}
+                  widthClass={`contact contact-txt`}
+                />
+              )
             )}
             {!location.pathname.includes("quote-request") && (
               <div className="social-menu">
@@ -292,23 +294,12 @@ const Contact = (props: ContactProps) => {
                   <div className="phone-container">
                     <h3 className="phone-label">phone</h3>
 
-                    <a href={`tel:${PHONE_NUMBER}`}>
-                      {/* <span className="icon-phones"></span> */}
-                      {PHONE_NUMBER}
-                    </a>
+                    <a href={`tel:${PHONE_NUMBER}`}>{PHONE_NUMBER}</a>
                   </div>
                   <div className="mail-container">
                     <h3 className="email-label">email</h3>
                     <a href="mailto:baker@suhweetsbakery.com">
-                      {/* <span className="icon-mail"></span> */}
-                      {width <= 420 ? (
-                        <div className="mail-col">
-                          <span>baker</span>
-                          <span>@suhweetsbakery.com</span>
-                        </div>
-                      ) : (
-                        "baker@suhweetsbakery.com"
-                      )}
+                      baker@suhweetsbakery.com
                     </a>
                   </div>
                   <div className="location-container">
@@ -357,12 +348,28 @@ const Contact = (props: ContactProps) => {
             )}
           </div>
 
-          <div className="form-panel">
-            <img
-              src={phoneImg}
-              alt="Image of a rotary phone cake"
-              className="phone-img"
-            />
+          <div
+            className={
+              location.pathname.includes("contact")
+                ? "form-panel no-overflow"
+                : "form-panel"
+            }
+          >
+            {location.pathname.includes("contact") && width > 2040 && (
+              <img
+                src={phoneImg}
+                alt="Image of a rotary phone cake"
+                className="phone-img"
+              />
+            )}
+
+            {location.pathname.includes("quote") && (
+              <img
+                src={phoneImg}
+                alt="Image of a rotary phone cake"
+                className="phone-img"
+              />
+            )}
             <form
               action="#"
               className="form-box"

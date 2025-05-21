@@ -454,7 +454,7 @@
     margin-right: 4.8rem;
   }
   .contact-txt p {
-    padding: 0;
+    /* padding: 0; */
     max-width: unset;
     font-size: 1.8rem;
   }
@@ -473,6 +473,9 @@
     margin-left: 2.4rem;
   }
 
+  .form-container.con .contact.contact-txt p {
+    position: relative;
+  }
   .contact.contact-txt p {
     position: absolute;
     width: 23%;
