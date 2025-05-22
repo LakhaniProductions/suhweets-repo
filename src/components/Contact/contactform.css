@@ -506,6 +506,7 @@
   .form-container.con {
     padding-right: 0;
     margin-bottom: 7.2rem;
+    height: 90%;
   }
 
   .form-panel {
@@ -530,7 +531,7 @@
   }
 
   .form-panel.no-overflow .form-box {
-    width: 90%;
+    width: 96%;
   }
   .form-box-rt {
     width: 100%;
@@ -542,6 +543,13 @@
   }
   .phone-img {
     display: none;
+  }
+
+  .col-sub-container {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 4.8rem;
   }
 }
 

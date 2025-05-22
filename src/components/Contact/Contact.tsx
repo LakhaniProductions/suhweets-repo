@@ -631,21 +631,51 @@ const Contact = (props: ContactProps) => {
                   <p className="msg">Please call us at {PHONE_NUMBER}</p>
                 </div>
               )}
+              {location.pathname.includes("contact-us") && width <= 1180 && (
+                <div className="col-sub-container">
+                  <label
+                    htmlFor="submit-form"
+                    onClick={(e) => {
+                      formValidation(e);
+                    }}
+                    className="form-submit-label"
+                  >
+                    Let's Talk Cake
+                  </label>
+                </div>
+              )}
             </form>
           </div>
         </div>
-        <div className="form-box-rt">
-          <div className="form-img-box"></div>
-          <label
-            htmlFor="submit-form"
-            onClick={(e) => {
-              formValidation(e);
-            }}
-            className="form-submit-label"
-          >
-            Let's Talk Cake
-          </label>
-        </div>
+        {location.pathname.includes("quote-request") ? (
+          <div className="form-box-rt">
+            <div className="form-img-box"></div>
+            <label
+              htmlFor="submit-form"
+              onClick={(e) => {
+                formValidation(e);
+              }}
+              className="form-submit-label"
+            >
+              Let's Talk Cake
+            </label>
+          </div>
+        ) : (
+          width > 1180 && (
+            <div className="form-box-rt">
+              <div className="form-img-box"></div>
+              <label
+                htmlFor="submit-form"
+                onClick={(e) => {
+                  formValidation(e);
+                }}
+                className="form-submit-label"
+              >
+                Let's Talk Cake
+              </label>
+            </div>
+          )
+        )}
       </section>
     </>
   );
