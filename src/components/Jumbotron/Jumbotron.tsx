@@ -1,8 +1,11 @@
 import { Link } from "react-router-dom";
 import "./jumbotron.css";
 import { JumbotronProps } from "./Jumbotron.types";
+import { useEffect, useState } from "react";
 
 const Jumbotron = (props: JumbotronProps) => {
+  const [lineWidthClass, setLineWidthClass] = useState<string>("gallery");
+  const [linkText, setLinkText] = useState<string>("view our gallery");
   let contentObj: Record<string, any>;
   {
     props.content.map((content) =>
@@ -16,19 +19,26 @@ const Jumbotron = (props: JumbotronProps) => {
       })
     );
   }
-  const getLinkText = () => {
-    let linkText;
+  // const getLinkText = () => {
+  //   let linkText;
+
+  //   return linkText;
+  // };
+
+  useEffect(() => {
     if (contentObj) {
-      if (contentObj.linkFor === "signature") {
-        linkText = "view our cakes";
-      } else if (contentObj.linkFor === "cupcakes") {
-        linkText = "view our cupcakes";
+      if (props.jumbotron === "signature") {
+        setLinkText("view our cakes");
+        setLineWidthClass("cakes-line");
+      } else if (props.jumbotron === "cupcakes") {
+        setLinkText("view our cupcakes");
+        setLineWidthClass("cup-cakes-line");
       } else {
-        linkText = "view gallery";
+        setLinkText("view gallery");
+        setLineWidthClass("gallery-line");
       }
     }
-    return linkText;
-  };
+  }, [props.jumbotron]);
 
   return (
     <div className="jumbotron">
@@ -37,10 +47,10 @@ const Jumbotron = (props: JumbotronProps) => {
       <p className="body-text-home">{contentObj!.bodytxt}</p>
 
       <Link className="home-pg-links" to={contentObj!.galleryLink}>
-        {getLinkText()}
+        {linkText}
       </Link>
 
-      <p className="btn-home-line">&nbsp;</p>
+      <p className={`btn-home-line ${lineWidthClass}`}>&nbsp;</p>
     </div>
   );
 };

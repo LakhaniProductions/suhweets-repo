@@ -48,7 +48,16 @@
   background-color: #12d0ff;
   max-height: 0.6rem;
   color: #12d0ff;
+}
+.gallery-line {
   max-width: 30.6rem;
+}
+.cakes-line {
+  max-width: 35.6rem;
+}
+
+.cup-cakes-line {
+  max-width: 44rem;
 }
 
 @media (max-width: 2473px) {
@@ -334,8 +343,16 @@
   .home-pg-links {
     font-size: 3.6rem;
   }
-  .btn-home-line {
+
+  .gallery-line {
     max-width: 26.5rem;
+  }
+  .cakes-line {
+    max-width: 31rem;
+  }
+
+  .cup-cakes-line {
+    max-width: 38.6rem;
   }
 }
 
@@ -729,9 +746,16 @@
   .home-pg-links {
     font-size: 3.2rem;
   }
-
-  .btn-home-line {
+  .gallery-line {
     max-width: 23.5rem;
+  }
+
+  .cakes-line {
+    max-width: 28rem;
+  }
+
+  .cup-cakes-line {
+    max-width: 34.2rem;
   }
 }
 
@@ -812,8 +836,15 @@
     font-size: 2.9rem;
   }
 
-  .btn-home-line {
+  .gallery-line {
     max-width: 21.5rem;
+  }
+  .cakes-line {
+    max-width: 25rem;
+  }
+
+  .cup-cakes-line {
+    max-width: 31rem;
   }
 
   .sub-heading-home {
