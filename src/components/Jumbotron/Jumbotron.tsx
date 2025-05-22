@@ -3,7 +3,7 @@ import "./jumbotron.css";
 import { JumbotronProps } from "./Jumbotron.types";
 
 const Jumbotron = (props: JumbotronProps) => {
-  let contentObj;
+  let contentObj: Record<string, any>;
   {
     props.content.map((content) =>
       Object.keys(content).filter((key) => {
@@ -16,6 +16,19 @@ const Jumbotron = (props: JumbotronProps) => {
       })
     );
   }
+  const getLinkText = () => {
+    let linkText;
+    if (contentObj) {
+      if (contentObj.linkFor === "signature") {
+        linkText = "view our cakes";
+      } else if (contentObj.linkFor === "cupcakes") {
+        linkText = "view our cupcakes";
+      } else {
+        linkText = "view gallery";
+      }
+    }
+    return linkText;
+  };
 
   return (
     <div className="jumbotron">
@@ -24,7 +37,7 @@ const Jumbotron = (props: JumbotronProps) => {
       <p className="body-text-home">{contentObj!.bodytxt}</p>
 
       <Link className="home-pg-links" to={contentObj!.galleryLink}>
-        view gallery
+        {getLinkText()}
       </Link>
 
       <p className="btn-home-line">&nbsp;</p>
