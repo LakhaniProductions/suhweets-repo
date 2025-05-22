@@ -14,15 +14,25 @@ const SignatureContent = () => {
   // const { setShowLoadingFlavorGif } = context;
 
   const flavorImages = Object.values(
-    import.meta.glob("../../img/cakeflavors/*.{png,jpg,jpeg}", {
+    import.meta.glob("../../img/signaturecakes/*.{png,jpg,jpeg}", {
       eager: true,
       as: "url"
     })
   );
   const signatureContent = [
     {
+      flav: "Biscoff",
+      lsImg: flavorImages.find((img) => img.includes("biscoff")),
+      desc: "Vanilla cake soaked in sweetened condensed milk, evaporated milk, and whole milk."
+    },
+    {
+      flav: "Carrot",
+      lsImg: flavorImages.find((img) => img.includes("carrot")),
+      desc: "Vanilla cake soaked in sweetened condensed milk, evaporated milk, and whole milk."
+    },
+    {
       flav: "tres leches (three milks)",
-      lsImg: flavorImages.find((img) => img.includes("one-col")),
+      lsImg: flavorImages.find((img) => img.includes("biscoff")),
       desc: "Vanilla cake soaked in sweetened condensed milk, evaporated milk, and whole milk."
     },
     {
@@ -38,7 +48,6 @@ const SignatureContent = () => {
     {
       flav: "funfetti",
       lsImg: flavorImages.find((img) => img.includes("one-col")),
-      bgimg: flavorImages.find((img) => img.includes("chocolate-small")),
       desc: "adf"
     },
     {
