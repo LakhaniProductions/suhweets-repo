@@ -277,26 +277,26 @@
   .social-menu {
     row-gap: 10rem;
   }
-  .icon-facebook,
+  /* .icon-facebook,
   .icon-instagram,
   .icon-the-knot,
   .icon-weddingwire {
     font-size: 5.2rem;
-  }
+  } */
 }
 
 @media (max-width: 2560px) and (max-height: 1050px) {
-  .icon-facebook,
+  /* .icon-facebook,
   .icon-instagram,
   .icon-the-knot,
   .icon-weddingwire {
     font-size: 4.9rem;
-  }
+  } */
 
-  .social-menu a:link,
+  /* .social-menu a:link,
   .social-menu a:visited {
     font-size: 2.9rem;
-  }
+  } */
 }
 
 @media (max-width: 2560px) and (max-height: 1010px) {
@@ -322,23 +322,23 @@
   .secondary-nav {
     font-size: 4.6rem;
   }
-
+  /* 
   .social-menu a:link,
   .social-menu a:visited {
     font-size: 2.6rem;
-  }
+  } */
 
   .right-menu-container,
   .social-menu {
     row-gap: 12rem;
   }
 
-  .icon-facebook,
+  /* .icon-facebook,
   .icon-instagram,
   .icon-the-knot,
   .icon-weddingwire {
     font-size: 5.2rem;
-  }
+  } */
 }
 
 @media (max-width: 2100px) and (max-height: 1130px) {
@@ -641,6 +641,21 @@
   }
 }
 
+@media (max-width: 500px) {
+  .social-menu {
+    flex-direction: column;
+  }
+  .top-soc-menu {
+    flex-direction: row;
+    width: 100%;
+    flex-wrap: wrap;
+  }
+
+  .top-soc-menu a:last-child {
+    margin-right: 4rem;
+  }
+}
+
 @media (max-width: 420px) {
   .right-menu-container {
     row-gap: 9.6rem;
@@ -658,6 +673,17 @@
   .right-menu-container {
     justify-content: unset;
     padding-bottom: 2.4rem;
+  }
+}
+@media (max-width: 380px) {
+  .icon-facebook,
+  .icon-instagram,
+  .icon-the-knot,
+  .icon-weddingwire {
+    font-size: 2.9rem;
+    color: #526166;
+    cursor: pointer;
+    margin-right: 2.4rem;
   }
 }
 

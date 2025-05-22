@@ -11,6 +11,8 @@
 
 .form-container.con {
   column-gap: 20rem;
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
 
 .form-container::-webkit-scrollbar {
@@ -186,6 +188,11 @@
   overflow-x: hidden;
 }
 
+.form-panel.no-overflow {
+  overflow-y: visible;
+  overflow-x: unset;
+}
+
 .form-panel::-webkit-scrollbar {
   width: 0.8rem;
 }
@@ -309,7 +316,6 @@
     margin-bottom: 0;
     justify-content: space-between;
     margin: 18.1rem 0 0 0;
-    /* overflow-y: scroll; */
   }
 
   .form-panel {
@@ -499,7 +505,6 @@
 
   .form-container.con {
     padding-right: 0;
-    overflow-y: scroll;
     margin-bottom: 7.2rem;
   }
 
@@ -508,8 +513,6 @@
     position: unset;
   }
   .form-panel.no-overflow {
-    overflow-y: visible;
-    overflow-x: unset;
     margin-top: 9.6rem;
   }
 
@@ -766,8 +769,8 @@
   }
 }
 
-@media (max-height: 700px) {
+/* @media (max-height: 700px) {
   .form-container {
     margin-top: 12rem;
   }
-}
+} */
