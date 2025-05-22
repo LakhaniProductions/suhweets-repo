@@ -57,6 +57,8 @@ const Contact = (props: ContactProps) => {
     }[]
   >([]);
 
+  const [showSocMenu, setShowSocMenu] = useState(true);
+
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const selectedFiles = Array.from(e.target.files || []);
     const newDisplayItems: {
@@ -247,6 +249,10 @@ const Contact = (props: ContactProps) => {
     });
   }, []);
 
+  useEffect(() => {
+    width <= 1180 ? setShowSocMenu(false) : setShowSocMenu(true);
+  }, [width]);
+
   return (
     <>
       {showTY && <ThankYou />}
@@ -289,62 +295,84 @@ const Contact = (props: ContactProps) => {
               )
             )}
             {!location.pathname.includes("quote-request") && (
-              <div className="social-menu">
-                <div className="bottom-soc-menu">
-                  <div className="phone-container">
-                    <h3 className="phone-label">phone</h3>
+              <>
+                {width <= 1180 && (
+                  <>
+                    <div
+                      className="social-toggle"
+                      onClick={() => setShowSocMenu(!showSocMenu)}
+                      title={`${showSocMenu ? "Collapse" : "Expand"}`}
+                    >
+                      <p>Find us &nbsp;</p>
+                      <span>@ &nbsp;</span>
+                      <span
+                        className={showSocMenu ? "social-up" : "social-down"}
+                      >
+                        &#8249;
+                      </span>
+                    </div>
+                    <hr />
+                  </>
+                )}
+                {showSocMenu && (
+                  <div className="social-menu">
+                    <div className="bottom-soc-menu">
+                      <div className="phone-container">
+                        <h3 className="phone-label">phone</h3>
 
-                    <a href={`tel:${PHONE_NUMBER}`}>{PHONE_NUMBER}</a>
-                  </div>
-                  <div className="mail-container">
-                    <h3 className="email-label">email</h3>
-                    <a href="mailto:baker@suhweetsbakery.com">
-                      baker@suhweetsbakery.com
-                    </a>
-                  </div>
-                  <div className="location-container">
-                    <h3 className="location-label">location</h3>
-                    <p>9119 Church St</p>
-                    <p>Historic Manssas, VA 20110</p>
-                  </div>
+                        <a href={`tel:${PHONE_NUMBER}`}>{PHONE_NUMBER}</a>
+                      </div>
+                      <div className="mail-container">
+                        <h3 className="email-label">email</h3>
+                        <a href="mailto:baker@suhweetsbakery.com">
+                          baker@suhweetsbakery.com
+                        </a>
+                      </div>
+                      <div className="location-container">
+                        <h3 className="location-label">location</h3>
+                        <p>9119 Church St</p>
+                        <p>Historic Manssas, VA 20110</p>
+                      </div>
 
-                  <div className="location-container">
-                    <h3 className="location-label">Hours</h3>
-                    <p>Wednesday - Sunday</p>
-                    <p>11 AM - 7 PM</p>
+                      <div className="location-container">
+                        <h3 className="location-label">Hours</h3>
+                        <p>Wednesday - Sunday</p>
+                        <p>11 AM - 7 PM</p>
+                      </div>
+                    </div>
+                    <div className="top-soc-menu">
+                      <a
+                        href="https://www.facebook.com/suhweetsbakery"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <span className="icon-facebook"></span>
+                      </a>
+                      <a
+                        href="https://www.instagram.com/suhweets07"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <span className="icon-instagram"></span>
+                      </a>
+                      <a
+                        href="https://www.weddingwire.com/biz/suhweets-bakery-llc/dd34f44df4c1656d.html"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <span className="icon-weddingwire"></span>
+                      </a>
+                      <a
+                        href="https://www.theknot.com/marketplace/suhweets-bakery-llc-manassas-va-2057171"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <span className="icon-the_knot"></span>
+                      </a>
+                    </div>
                   </div>
-                </div>
-                <div className="top-soc-menu">
-                  <a
-                    href="https://www.facebook.com/suhweetsbakery"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <span className="icon-facebook"></span>
-                  </a>
-                  <a
-                    href="https://www.instagram.com/suhweets07"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <span className="icon-instagram"></span>
-                  </a>
-                  <a
-                    href="https://www.weddingwire.com/biz/suhweets-bakery-llc/dd34f44df4c1656d.html"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <span className="icon-weddingwire"></span>
-                  </a>
-                  <a
-                    href="https://www.theknot.com/marketplace/suhweets-bakery-llc-manassas-va-2057171"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <span className="icon-the_knot"></span>
-                  </a>
-                </div>
-              </div>
+                )}
+              </>
             )}
           </div>
 

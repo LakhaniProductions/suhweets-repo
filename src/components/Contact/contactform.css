@@ -551,6 +551,40 @@
     justify-content: flex-end;
     margin-top: 4.8rem;
   }
+
+  .social-toggle {
+    display: flex;
+    font-size: 2.9rem;
+    cursor: pointer;
+    width: max-content;
+    padding-bottom: 0.8rem;
+    align-items: center;
+  }
+  .form-lft-col hr {
+    border: 0.2rem solid black;
+    width: 95%;
+    margin-bottom: 3.6rem;
+  }
+
+  .social-toggle span {
+    font-family: "fjalla one", sans-serif;
+    font-size: 3.2rem;
+  }
+
+  .social-toggle span:last-of-type {
+    font-family: "Raleway", sans-serif;
+    font-size: 5rem;
+    display: inline-block;
+    font-weight: 1000;
+  }
+  .social-down {
+    transform: rotate(-90deg);
+  }
+
+  .social-up {
+    transform: rotate(90deg);
+    margin-left: 0.6rem;
+  }
 }
 
 @media (max-width: 1180px) AND (max-height: 1250px) {
