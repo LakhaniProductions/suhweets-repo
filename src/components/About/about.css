@@ -1,0 +1,93 @@
+.about-container {
+  flex-direction: column;
+}
+.about-scroll-container {
+  display: flex;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  flex-direction: column;
+  margin-top: 18.1rem;
+  padding: 0 2.4rem 2.4rem 2.4rem;
+  row-gap: 4.8rem;
+}
+.about-content {
+  display: flex;
+  position: relative;
+  min-width: 100%;
+  /* overflow-y: scroll;
+  overflow-x: hidden; */
+  height: max-content;
+}
+
+.about-img-container {
+  display: flex;
+  flex-direction: row;
+  width: 75dvw;
+  flex-wrap: wrap;
+  column-gap: 2.4rem;
+  height: max-content;
+  justify-content: space-between;
+}
+.founder-container {
+  max-width: 50dvw;
+}
+
+.founders-img {
+  max-width: 100%;
+}
+
+.awards {
+  max-width: max-content;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.awards img {
+  max-width: 12dvw;
+}
+
+.award-1,
+.award-2 {
+  margin: 0 0 2.4rem 0;
+}
+
+.award-2 {
+  border: 0.2rem solid black;
+  margin-top: 2.4rem;
+}
+
+.story-row {
+  display: flex;
+  column-gap: 4.8rem;
+  max-width: 100%;
+}
+.os-container {
+  max-width: 100dvw;
+  padding: 4.8rem;
+  display: flex;
+  align-items: center;
+}
+.os-container img {
+  max-width: 40dvw;
+}
+.text-group {
+  max-width: 50%;
+  margin: 12.1rem;
+}
+.os-container h3 {
+  font-family: fjalla one, sans-serif;
+  font-size: 3.6rem;
+  margin-bottom: 2.4rem;
+}
+
+.os-container p {
+  font-size: 2.3rem;
+  font-weight: 200;
+  text-align: justify;
+  line-height: 1.5;
+}
+.italic {
+  font-style: italic;
+  font-weight: 400;
+}

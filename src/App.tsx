@@ -9,6 +9,7 @@ import { GalleryImgLoadProvider } from "./context/GalleryImgLoadContext";
 import Signature from "./components/SignatureCakes/Signature";
 import SignatureForm from "./components/SignatureForm/SignatureForm";
 import Cupcakes from "./components/Cupcakes/Cupcakes";
+import About from "./components/About/About";
 
 function App() {
   const [menuFade, setMenuFade] = useState({
@@ -76,6 +77,11 @@ function App() {
       <Route
         path="/contact-us"
         element={<Contact setMenuFade={setMenuFade} menuFade={menuFade} />}
+      />
+
+      <Route
+        path="/about-us"
+        element={<About setMenuFade={setMenuFade} menuFade={menuFade} />}
       />
 
       <Route

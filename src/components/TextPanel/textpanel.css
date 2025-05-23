@@ -1,6 +1,7 @@
 .gallery,
 .servings,
 .contact,
+.about,
 .flavors-txt,
 .sig-txt,
 .signature-details,
@@ -12,6 +13,12 @@
 }
 .gallery {
   max-width: 20dvw;
+}
+
+.about {
+  max-width: 25dvw;
+  text-align: justify;
+  max-height: max-content;
 }
 .servings {
   max-width: 20%;
@@ -35,7 +42,7 @@
 .txt-panel h2 {
   font-family: "Raleway", sans-serif;
   font-size: 4.6rem;
-  font-weight: 700;
+  font-weight: 300;
   text-transform: uppercase;
   /* padding-bottom: 1.6rem; */
 }
@@ -52,6 +59,7 @@
   padding-bottom: 1.6rem;
   line-height: 1.75;
   color: #333;
+  font-weight: 300;
 }
 
 .flavors-details p {
