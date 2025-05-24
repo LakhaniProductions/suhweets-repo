@@ -12,6 +12,8 @@ import Couple from "../../img/about/temp-couple-img.jpg";
 import Award1 from "../../img/about/award1.jpg";
 import Award2 from "../../img/about/award2.jpg";
 import Mission from "../../img/about/temp-mission.jpg";
+import Tres from "../../img/about/tres-temp.jpg";
+import Store from "../../img/about/temp-storefront.jpg";
 
 const About = (props: AboutProps) => {
   // const context = useContext(GalleryImgLoadContext);
@@ -19,6 +21,24 @@ const About = (props: AboutProps) => {
   //   return;
   // }
   // const { showLoadingGif } = context;
+
+  const Arrow1 = (props: { className: string }) => {
+    return (
+      <svg
+        className={props.className}
+        data-name="Layer 1"
+        // width="2.75in"
+        // height=".62in"
+        viewBox="0 0 198.17 44.89"
+      >
+        <path
+          d="M174.6,20.31c-.36-.43-.73-.86-1.09-1.28-2.59-2.96-5.12-5.97-7.23-9.31-1.09-1.73-2.03-3.54-2.44-5.55-.26-1.27-.37-2.59.85-3.47,1.18-.85,2.42-.49,3.59.12,2.11,1.1,3.9,2.63,5.53,4.33,6.41,6.7,12.56,13.63,18.05,21.11.94,1.28,1.97,2.45,3.2,3.48,1.96,1.66,3.59,3.58,2.99,6.4-.62,2.94-2.97,4.08-5.54,4.76-4.51,1.19-9.17,1.58-13.78,2.24-3.62.52-7.25,1-10.88,1.51-2.44.35-4.85.34-7.27-.26-1.31-.33-2.67-.44-4-.7-1.98-.39-3.17-1.49-3.39-3.04-.23-1.63.66-2.99,2.48-3.96,4.93-2.62,10.18-3.89,15.75-3.88.68,0,1.35-.1,2.02-.17.12-.01.23-.1.35-.16-.03-.3-.25-.39-.46-.45-10.24-2.85-19.49-8.18-29.42-11.8-13.13-4.78-26.51-8.56-40.5-9.65-20.8-1.62-41.24.42-61.28,6.35-11.39,3.37-22.39,7.69-32.83,13.37-2.51,1.36-4.98,2.77-7.27,4.46-.46.34-.91.67-1.47.32-.64-.41-.64-1.06-.46-1.7.4-1.43,1.28-2.58,2.24-3.67,3.03-3.47,6.65-6.22,10.6-8.58,8.43-5.03,17.47-8.65,26.73-11.81C56.58,3.56,73.99.62,91.81.07c20.09-.62,39.5,3.01,58.33,9.88,5.01,1.83,9.94,3.87,14.91,5.8,3.28,1.27,6.43,2.79,9.55,4.55"
+          fill="currentColor"
+          fill-rule="evenodd"
+        />
+      </svg>
+    );
+  };
 
   return (
     <section className="container about-container">
@@ -62,7 +82,7 @@ const About = (props: AboutProps) => {
         <div className="story-row">
           <div className="os-container">
             <img src={Mission} alt="" />
-            <div className="text-group">
+            <div className="text-group tg-row-1">
               <h3>
                 Our Mission: Helping YOU Express Your Love and Elevate Your
                 Celebrations
@@ -76,8 +96,8 @@ const About = (props: AboutProps) => {
             </div>
           </div>
 
-          <div className="os-container">
-            <div className="text-group">
+          <div className="os-container second-row">
+            <div className="text-group tg-row-2">
               <h3>Our Story</h3>
               <p>
                 Established in 2016, Suhweets began with a Tres Leches cake and
@@ -88,6 +108,20 @@ const About = (props: AboutProps) => {
                 birthdays turned into weddings. Eventually, what began in our
                 home kitchen led to the opening of our first storefront in 2025.
               </p>
+            </div>
+            <div className="os-img-group">
+              <div>
+                <p className="tres-label">The Storefront</p>
+                <span>{<Arrow1 className={"arr-1"} />}</span>
+                <img src={Tres} alt="" />
+              </div>
+
+              <div>
+                <img className="store-img" src={Store} alt="" />
+
+                <span>{<Arrow1 className={"arr-2"} />}</span>
+                <p className="store-label">The 1st Cake</p>
+              </div>
             </div>
           </div>
         </div>

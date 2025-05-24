@@ -1,4 +1,5 @@
 .about-container {
+  max-height: max-content;
   flex-direction: column;
 }
 .about-scroll-container {
@@ -61,6 +62,7 @@
   display: flex;
   column-gap: 4.8rem;
   max-width: 100%;
+  flex-wrap: wrap;
 }
 .os-container {
   max-width: 100dvw;
@@ -68,12 +70,32 @@
   display: flex;
   align-items: center;
 }
+.second-row {
+  display: flex;
+  flex-direction: row;
+  align-items: unset;
+  padding-bottom: 0;
+  height: 70dvh;
+}
 .os-container img {
   max-width: 40dvw;
 }
 .text-group {
-  max-width: 50%;
-  margin: 12.1rem;
+  max-width: 100%;
+  margin: 30rem;
+}
+
+.tg-row-2 {
+  max-width: 35dvw;
+  justify-items: center;
+  align-content: center;
+  margin: 0;
+  /* height: max-content; */
+}
+
+.tg-row-2 p {
+  max-width: 100%;
+  margin: 0 7.2rem;
 }
 .os-container h3 {
   font-family: fjalla one, sans-serif;
@@ -83,11 +105,65 @@
 
 .os-container p {
   font-size: 2.3rem;
-  font-weight: 200;
+  font-weight: 300;
+
   text-align: justify;
   line-height: 1.5;
 }
 .italic {
   font-style: italic;
   font-weight: 400;
+}
+
+.os-img-group {
+  display: flex;
+  width: 100dvw;
+  justify-content: center;
+  flex-wrap: wrap;
+  /* flex-direction: row; */
+}
+
+.os-img-group div {
+  display: flex;
+}
+
+.os-img-group span {
+  display: flex;
+  align-items: center;
+}
+
+.os-img-group div p {
+  font-family: "Fredoka", sans-serif;
+  display: inline-block;
+  font-size: 2.3rem;
+  font-weight: 400;
+}
+.tres-label {
+  transform: translate(4rem, 24rem) rotate(-20deg);
+}
+.store-label {
+  align-self: center;
+  transform: translate(-14rem, -15rem) rotate(-10deg);
+  width: 100%;
+}
+
+.os-img-group img {
+  max-width: 26dvw;
+  margin: 0 26rem;
+}
+
+.arr-1,
+.arr-2 {
+  width: 6rem;
+}
+.arr-1 {
+  transform: translate(-12rem, 8rem) scaleY(-1) rotate(-60deg);
+}
+.arr-2 {
+  transform: translate(-5rem, -21rem) scaleY(-1) rotate(120deg);
+}
+
+.store-img {
+  transform: translate(-20rem, -10rem);
+  /* transform: translateX(-20rem); */
 }
