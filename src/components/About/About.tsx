@@ -1,4 +1,4 @@
-// import { useContext } from "react";
+// import { useContext, useEffect } from "react";
 // import { GalleryImgLoadContext } from "../../context/GalleryImgLoadContext";
 
 import MenuContext from "../../context/HamburgerMenuContext";
@@ -14,8 +14,10 @@ import Award2 from "../../img/about/award2.jpg";
 import Mission from "../../img/about/temp-mission.jpg";
 import Tres from "../../img/about/tres-temp.jpg";
 import Store from "../../img/about/temp-storefront.jpg";
+import useWindowDimensions from "../../hooks/useWindowDimensions";
 
 const About = (props: AboutProps) => {
+  const { width } = useWindowDimensions();
   // const context = useContext(GalleryImgLoadContext);
   // if (!context) {
   //   return;
@@ -73,14 +75,16 @@ const About = (props: AboutProps) => {
                 alt="Founders Suhei and Adnan in front of their bakery"
               />
             </div>
-            <div className="awards">
-              <img className="award-1" src={Award1} alt="" />
-              <img className="award-2" src={Award2} alt="" />
-            </div>
+            {width >= 1680 && (
+              <div className="awards">
+                <img className="award-1" src={Award1} alt="" />
+                <img className="award-2" src={Award2} alt="" />
+              </div>
+            )}
           </div>
         </div>
         <div className="story-row">
-          <div className="os-container">
+          <div className="os-container first-row">
             <img src={Mission} alt="" />
             <div className="text-group tg-row-1">
               <h3>
@@ -88,7 +92,9 @@ const About = (props: AboutProps) => {
                 Celebrations
               </h3>
               <p>
-                We do this by providing a hassle-free, smooth, and{" "}
+                We want you focused on making your love felt on your big day,
+                whatever celebration that may be, that's why we provide an
+                hassle-free, smooth, and&nbsp;
                 <span className="italic">Suhweet </span>
                 experience — from your first cake tasting to the unforgettable
                 moment your custom creation arrives at the table.
