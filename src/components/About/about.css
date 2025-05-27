@@ -10,13 +10,12 @@
   margin-top: 18.1rem;
   padding: 0 2.4rem 2.4rem 2.4rem;
   row-gap: 4.8rem;
+  max-height: max-content;
 }
 .about-content {
   display: flex;
   position: relative;
   min-width: 100%;
-  /* overflow-y: scroll;
-  overflow-x: hidden; */
   height: max-content;
 }
 
@@ -60,13 +59,13 @@
 
 .story-row {
   display: flex;
-  column-gap: 4.8rem;
+  row-gap: 4.8rem;
   max-width: 100%;
   flex-wrap: wrap;
+  max-height: 90%;
 }
 .os-container {
   width: 100dvw;
-  /* padding: 4.8rem 0; */
   display: flex;
   align-items: center;
 }
@@ -79,32 +78,61 @@
   flex-direction: row;
   align-items: unset;
   padding-bottom: 0;
-  height: 70dvh;
+  max-height: max-content;
+  padding-bottom: 2.4rem;
+}
+
+.third-row {
+  transform: translateY(-20rem);
+  align-items: unset;
+  height: max-content;
 }
 .os-container img {
   max-width: 40dvw;
+}
+
+.third-row img {
+  max-width: 25%;
 }
 
 .tg-row-1 {
   max-width: 32dvw;
 }
 
-.tg-row-2 {
-  max-width: 35dvw;
+.tg-row-2,
+.tg-row-3 {
+  max-width: 35%;
   justify-items: center;
   align-content: center;
   margin: 0;
-  /* height: max-content; */
+  max-height: 82%;
 }
 
-.tg-row-2 p {
+.tg-row-2 p,
+.tg-row-3 p {
   max-width: 100%;
   margin: 0 7.2rem;
 }
+
 .os-container h3 {
   font-family: fjalla one, sans-serif;
   font-size: 3.6rem;
   margin-bottom: 2.4rem;
+}
+.tg-row-3 h3 {
+  font-family: raleway, sans-serif;
+  font-weight: 300;
+  font-size: 2.6rem;
+  margin-bottom: 0.6rem;
+}
+
+.tg-row-3 h3 span {
+  font-weight: 600;
+}
+.tg-row-3 h4 {
+  font-family: fjalla one, san-serif;
+  text-transform: uppercase;
+  font-size: 2.9rem;
 }
 
 .os-container p {
@@ -121,39 +149,47 @@
 
 .os-img-group {
   display: flex;
-  width: 100dvw;
-  justify-content: center;
+  max-width: 65%;
+  justify-content: flex-end;
   flex-wrap: wrap;
-  /* flex-direction: row; */
+  margin-right: 9.6rem;
+  max-height: 82%;
 }
 
 .os-img-group div {
   display: flex;
+  height: max-content;
+}
+
+.os-img-group div:nth-of-type(1) {
+  justify-content: flex-end;
+}
+.os-img-group div:nth-of-type(2) {
+  transform: translate(-10rem, -20rem);
+  align-items: flex-end;
 }
 
 .os-img-group span {
   display: flex;
-  align-items: center;
 }
 
 .os-img-group div p {
   font-family: "Fredoka", sans-serif;
   display: inline-block;
-  font-size: 2.3rem;
+  font-size: 2.6rem;
   font-weight: 400;
 }
+
 .tres-label {
-  transform: translate(4rem, 24rem) rotate(-20deg);
+  transform: translate(14rem, 3rem) rotate(-30deg);
 }
+
 .store-label {
-  align-self: center;
-  transform: translate(-14rem, -15rem) rotate(-10deg);
-  width: 100%;
+  transform: translate(-3rem, -5rem) rotate(10deg);
 }
 
 .os-img-group img {
-  max-width: 26dvw;
-  margin: 0 26rem;
+  width: 60%;
 }
 
 .arr-1,
@@ -161,16 +197,14 @@
   width: 6rem;
 }
 .arr-1 {
-  transform: translate(-12rem, 8rem) scaleY(-1) rotate(-60deg);
-}
-.arr-2 {
-  transform: translate(-5rem, -21rem) scaleY(-1) rotate(120deg);
+  transform: translate(-2rem, -18rem) scaleY(-1);
+  align-self: center;
 }
 
-.store-img {
-  transform: translate(-20rem, -10rem);
-  /* transform: translateX(-20rem); */
+.arr-2 {
+  transform: translate(1.5rem, -4rem) scale(-1);
 }
+
 @media (max-width: 2370px) {
   .os-container h3 {
     font-size: 2.9rem;
@@ -194,5 +228,8 @@
 
   .os-container img {
     max-width: 40dvw;
+  }
+  .awards {
+    flex-direction: row;
   }
 }

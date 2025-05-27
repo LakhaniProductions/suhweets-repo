@@ -14,6 +14,8 @@ import Award2 from "../../img/about/award2.jpg";
 import Mission from "../../img/about/temp-mission.jpg";
 import Tres from "../../img/about/tres-temp.jpg";
 import Store from "../../img/about/temp-storefront.jpg";
+import Portrait from "../../img/about/portrait.jpg";
+import Portrait2 from "../../img/about/portrait-2.jpg";
 import useWindowDimensions from "../../hooks/useWindowDimensions";
 
 const About = (props: AboutProps) => {
@@ -64,7 +66,6 @@ const About = (props: AboutProps) => {
               "We’re an award-winning, couple-owned cake shop that specializes in elegant and artistic cakes for all celebrations. In addition to crafting the most beautiful designs possible, we pride ourselves on producing delicious cakes that are made completely from scratch with the freshest ingredients. Founded and located in the historic town of Manassas, we’ve grown to serve the greater Virginia, D.C., and Maryland area. We’ve even made cakes internationally—in Costa Rica and Panama!"
             }
             widthClass={"about"}
-            // layout={twoColLayout}
           />
 
           <div className="about-img-container">
@@ -75,7 +76,7 @@ const About = (props: AboutProps) => {
                 alt="Founders Suhei and Adnan in front of their bakery"
               />
             </div>
-            {width >= 1680 && (
+            {width > 1680 && (
               <div className="awards">
                 <img className="award-1" src={Award1} alt="" />
                 <img className="award-2" src={Award2} alt="" />
@@ -117,7 +118,7 @@ const About = (props: AboutProps) => {
             </div>
             <div className="os-img-group">
               <div>
-                <p className="tres-label">The Storefront</p>
+                <p className="tres-label">The 1st Cake</p>
                 <span>{<Arrow1 className={"arr-1"} />}</span>
                 <img src={Tres} alt="" />
               </div>
@@ -126,9 +127,41 @@ const About = (props: AboutProps) => {
                 <img className="store-img" src={Store} alt="" />
 
                 <span>{<Arrow1 className={"arr-2"} />}</span>
-                <p className="store-label">The 1st Cake</p>
+                <p className="store-label">The Storefront</p>
               </div>
             </div>
+          </div>
+
+          <div className="os-container third-row">
+            <img src={Portrait} alt="" />
+            <div className="text-group tg-row-3">
+              <h3>
+                <span>Suh</span>ei Lakhani
+              </h3>
+              <h4>Baker & Founder</h4>
+              <p>
+                Established in 2016, Suhweets began with a Tres Leches cake and
+                grew into something beyond our wildest dreams. Since that first
+                cake, founder and baker Suhei set off on a mission to learn as
+                much as she could about creating delicious and exciting works of
+                art. It wasn’t long before one birthday cake became two, and
+                birthdays turned into weddings. Eventually, what began in our
+                home kitchen led to the opening of our first storefront in 2025.
+              </p>
+
+              <h3>Adnan Lakhani</h3>
+              <h4>Cake Taster / Co-founder </h4>
+              <p>
+                Established in 2016, Suhweets began with a Tres Leches cake and
+                grew into something beyond our wildest dreams. Since that first
+                cake, founder and baker Suhei set off on a mission to learn as
+                much as she could about creating delicious and exciting works of
+                art. It wasn’t long before one birthday cake became two, and
+                birthdays turned into weddings. Eventually, what began in our
+                home kitchen led to the opening of our first storefront in 2025.
+              </p>
+            </div>
+            <img src={Portrait2} alt="" />
           </div>
         </div>
       </div>
