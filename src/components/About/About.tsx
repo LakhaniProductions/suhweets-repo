@@ -135,31 +135,36 @@ const About = (props: AboutProps) => {
           <div className="os-container third-row">
             <img src={Portrait} alt="" />
             <div className="text-group tg-row-3">
-              <h3>
-                <span>Suh</span>ei Lakhani
-              </h3>
-              <h4>Baker & Founder</h4>
-              <p>
-                Established in 2016, Suhweets began with a Tres Leches cake and
-                grew into something beyond our wildest dreams. Since that first
-                cake, founder and baker Suhei set off on a mission to learn as
-                much as she could about creating delicious and exciting works of
-                art. It wasn’t long before one birthday cake became two, and
-                birthdays turned into weddings. Eventually, what began in our
-                home kitchen led to the opening of our first storefront in 2025.
-              </p>
-
-              <h3>Adnan Lakhani</h3>
-              <h4>Cake Taster / Co-founder </h4>
-              <p>
-                Established in 2016, Suhweets began with a Tres Leches cake and
-                grew into something beyond our wildest dreams. Since that first
-                cake, founder and baker Suhei set off on a mission to learn as
-                much as she could about creating delicious and exciting works of
-                art. It wasn’t long before one birthday cake became two, and
-                birthdays turned into weddings. Eventually, what began in our
-                home kitchen led to the opening of our first storefront in 2025.
-              </p>
+              <div>
+                <h3>
+                  <span>Suh</span>ei Lakhani
+                </h3>
+                <h4>Baker & Founder</h4>
+                <p>
+                  Established in 2016, Suhweets began with a Tres Leches cake
+                  and grew into something beyond our wildest dreams. Since that
+                  first cake, founder and baker Suhei set off on a mission to
+                  learn as much as she could about creating delicious and
+                  exciting works of art. It wasn’t long before one birthday cake
+                  became two, and birthdays turned into weddings. Eventually,
+                  what began in our home kitchen led to the opening of our first
+                  storefront in 2025.
+                </p>
+              </div>
+              <div>
+                <h3>Adnan Lakhani</h3>
+                <h4>Cake Taster / Co-founder </h4>
+                <p>
+                  Established in 2016, Suhweets began with a Tres Leches cake
+                  and grew into something beyond our wildest dreams. Since that
+                  first cake, founder and baker Suhei set off on a mission to
+                  learn as much as she could about creating delicious and
+                  exciting works of art. It wasn’t long before one birthday cake
+                  became two, and birthdays turned into weddings. Eventually,
+                  what began in our home kitchen led to the opening of our first
+                  storefront in 2025.
+                </p>
+              </div>
             </div>
             <img src={Portrait2} alt="" />
           </div>
