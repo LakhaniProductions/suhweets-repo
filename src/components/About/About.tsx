@@ -133,40 +133,64 @@ const About = (props: AboutProps) => {
           </div>
 
           <div className="os-container third-row">
-            <img src={Portrait} alt="" />
+            {width > 1650 && <img src={Portrait} alt="" />}
+            {width <= 1650 && width > 1100 && (
+              <div className="res-img-row">
+                <img src={Portrait} alt="" />
+                <img src={Portrait2} alt="" className="coFounder" />
+              </div>
+            )}
+
             <div className="text-group tg-row-3">
               <div>
+                {width <= 1100 && <img src={Portrait} alt="" />}
+
                 <h3>
                   <span>Suh</span>ei Lakhani
                 </h3>
                 <h4>Baker & Founder</h4>
                 <p>
-                  Established in 2016, Suhweets began with a Tres Leches cake
-                  and grew into something beyond our wildest dreams. Since that
-                  first cake, founder and baker Suhei set off on a mission to
-                  learn as much as she could about creating delicious and
-                  exciting works of art. It wasn’t long before one birthday cake
-                  became two, and birthdays turned into weddings. Eventually,
-                  what began in our home kitchen led to the opening of our first
-                  storefront in 2025.
+                  In 2014, with a desire for a new, immersive experience, Suhei
+                  left her home country of Panama to pursue her dream of
+                  learning English. Little did she know that what was meant to
+                  be a temporary visit to the U.S. would become a permanent
+                  stay—and that the boy she was dating would turn out to be the
+                  love of her life and eventual business partner.
+                  <br />
+                  <br />
+                  With no intention whatsoever, Suhei made her first cake for
+                  family and friends—and was met with praise. Comments like “You
+                  should sell these!” began to emerge, and with a little
+                  encouragement from her husband, she began to pursue baking
+                  full-time. Since then, Suhei has embarked on a journey of
+                  self-teaching—first mastering the science of baking, then the
+                  art of cake decorating and design.
+                  <br />
+                  <br />
+                  Through sheer dedication and passion, Suhei grew what began in
+                  her home kitchen into a business that took her around the
+                  globe making wedding cakes, and eventually led to opening her
+                  first storefront. Who knows where she’ll go next!
                 </p>
               </div>
               <div>
+                {width <= 1100 && (
+                  <img src={Portrait2} alt="" className="coFounder" />
+                )}
+
                 <h3>Adnan Lakhani</h3>
-                <h4>Cake Taster / Co-founder </h4>
+                <h4>Cake Taster & Co-founder </h4>
                 <p>
-                  Established in 2016, Suhweets began with a Tres Leches cake
-                  and grew into something beyond our wildest dreams. Since that
-                  first cake, founder and baker Suhei set off on a mission to
-                  learn as much as she could about creating delicious and
-                  exciting works of art. It wasn’t long before one birthday cake
-                  became two, and birthdays turned into weddings. Eventually,
-                  what began in our home kitchen led to the opening of our first
-                  storefront in 2025.
+                  Beyond eating all the cake—what he likes to call "quality
+                  assurance"—and providing moral support to his amazing wife,
+                  Adnan is also responsible for all things digital, like graphic
+                  design, web development, and SEO.
                 </p>
               </div>
             </div>
-            <img src={Portrait2} alt="" />
+            {width > 1650 && (
+              <img src={Portrait2} alt="" className="coFounder" />
+            )}
           </div>
         </div>
       </div>
