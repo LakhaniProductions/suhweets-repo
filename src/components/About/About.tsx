@@ -125,7 +125,6 @@ const About = (props: AboutProps) => {
 
               <div>
                 <img className="store-img" src={Store} alt="" />
-
                 <span>{<Arrow1 className={"arr-2"} />}</span>
                 <p className="store-label">The Storefront</p>
               </div>
