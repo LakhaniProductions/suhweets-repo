@@ -20,5 +20,5 @@ body {
   overflow: hidden;
   width: 100dvw;
   height: 100dvh;
-  /* display: grid; */
+  font-weight: 300;
 }
