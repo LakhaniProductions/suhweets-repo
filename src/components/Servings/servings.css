@@ -10,6 +10,7 @@
   flex-wrap: wrap;
   max-height: max-content;
   overflow: hidden;
+  row-gap: 2.4rem;
 }
 
 .serving-cards-container::-webkit-scrollbar {
@@ -26,7 +27,7 @@
 .serving-card {
   display: flex;
   flex-direction: column;
-  margin: 0 2.4rem 2.4rem 0;
+  margin: 0 2.4rem 0 0;
   height: max-content;
 }
 
@@ -106,6 +107,14 @@
   color: #2d5059;
 }
 
+.secondary-sub-head {
+  font-family: "Raleway", sans-serif;
+  font-weight: 300;
+  font-size: 2.3rem;
+  text-transform: uppercase;
+  margin-bottom: 2.4rem;
+}
+
 @media (max-width: 2560px) and (max-height: 1293px) {
   .servings-content {
     max-height: 98%;
@@ -167,25 +176,8 @@
 }
 
 @media (max-width: 2560px) and (max-height: 1070px) {
-  #card1-tier,
-  #card2-tier {
-    min-width: 18.5%;
-  }
-  .serving-card {
-    height: 100%;
-  }
-  #img-container1-tier,
-  #img-container2-tier {
-    height: 100%;
-  }
-
-  #card1-tier,
-  #card2-tier,
-  #card3-tier,
-  #card4-tier,
-  #card5-tier {
-    margin-bottom: 0;
-    height: 100%;
+  .serving-cards-container {
+    overflow-y: scroll;
   }
 }
 
@@ -201,6 +193,12 @@
   #img4-tier,
   #img5-tier {
     max-height: 30rem;
+  }
+}
+
+@media (max-width: 2560px) and (max-height: 860px) {
+  .servings-content {
+    padding-top: 14.4rem;
   }
 }
 
@@ -223,11 +221,21 @@
   }
 }
 
+@media (max-width: 2560px) and (max-height: 680px) {
+}
+
 @media (max-width: 2560px) and (max-height: 670px) {
   #img3-tier,
   #img4-tier,
   #img5-tier {
     max-height: 16rem;
+  }
+}
+
+@media (max-width: 2560px) and (max-height: 650px) {
+  #card1-tier,
+  #card2-tier {
+    min-width: 18.5%;
   }
 }
 
@@ -312,22 +320,29 @@
   }
 }
 
-@media (max-width: 2432px) and (max-height: 1070px) {
+@media (max-width: 2432px) and (max-height: 650px) {
   #card1-tier,
   #card2-tier {
     min-width: 18.5%;
   }
 }
 
-@media (max-width: 2205px) and (max-height: 1070px) {
+/* @media (max-width: 2205px) and (max-height: 1070px) {
   #card1-tier,
   #card2-tier {
     min-width: 18%;
   }
-}
+} */
 @media (max-width: 2195px) {
   .serving-cards-container.three-tier {
     min-width: 78%;
+  }
+}
+
+@media (max-width: 2170px) and (max-height: 650px) {
+  #card1-tier,
+  #card2-tier {
+    min-width: 17%;
   }
 }
 
@@ -345,14 +360,6 @@
   #card1-tier,
   #card2-tier {
     min-width: 32%;
-    margin-bottom: 2.4rem;
-  }
-
-  #card1-tier:nth-of-type(4),
-  #card1-tier:nth-of-type(5),
-  #card2-tier:nth-of-type(4),
-  #card2-tier:nth-of-type(5) {
-    margin-bottom: 0;
   }
 
   #img1-tier,
@@ -424,7 +431,6 @@
   #card3-tier,
   #card4-tier,
   #card5-tier {
-    margin-bottom: 0;
     height: 100%;
   }
 }
@@ -600,14 +606,21 @@
 @media (max-width: 1895px) and (max-height: 770px) {
   .serving-cards-container.one-tier {
     min-width: 86%;
+    row-gap: 2.4rem;
+    min-height: 63dvh;
   }
   .serving-card#card1-tier {
     min-width: 31%;
     max-width: 31%;
-    height: 92%;
-    margin-bottom: 2.4rem;
+    height: 90%;
   }
 }
+
+/* @media (max-width: 1895px) and (max-height: 700px) {
+  .serving-cards-container.one-tier {
+    row-gap: 3.6rem;
+  }
+} */
 
 @media (max-width: 1890px) and (max-height: 480px) {
   .servings-content.one-tier,
@@ -623,7 +636,6 @@
   #card1-tier,
   #card2-tier {
     min-width: 30%;
-    margin-bottom: 2.4rem;
   }
 
   #img1-tier,
@@ -944,7 +956,6 @@
   #card3-tier {
     min-width: 47%;
     max-height: max-content;
-    margin-bottom: 2.4rem;
   }
 }
 
@@ -1060,12 +1071,6 @@
 @media (max-width: 1260px) and (max-height: 1200px) {
   .serving-cards-container.three-tier {
     overflow-y: scroll;
-  }
-}
-
-@media (max-width: 1260px) and (max-height: 1150px) {
-  #card3-tier {
-    margin-bottom: 2.4rem;
   }
 }
 
@@ -1199,12 +1204,6 @@
 
   #img-container4-tier {
     max-height: max-content;
-  }
-}
-
-@media (max-width: 1063px) and (max-height: 1150px) {
-  #card4-tier {
-    margin-bottom: 2.4rem;
   }
 }
 
@@ -1361,6 +1360,12 @@
   }
 }
 
+@media (max-width: 848px) {
+  .servings-content {
+    padding-top: 11.8rem;
+  }
+}
+
 @media (max-width: 838px) {
   #card4-tier {
     min-width: 46%;
@@ -1377,11 +1382,6 @@
   .servings-content.two-tier {
     flex-direction: column;
   }
-  /* .serving-cards-container.one-tier {
-    min-width: 73%;
-    max-width: 73%;
-    justify-content: center;
-  } */
 
   .serving-cards-container.two-tier {
     min-width: 98%;
@@ -1391,20 +1391,17 @@
   .serving-card#card1-tier {
     min-width: 85%;
     max-width: 85%;
-    margin-bottom: 2.4rem;
   }
 
   .serving-card#card2-tier {
     min-width: 46%;
     max-width: 46%;
-    margin-bottom: 2.4rem;
   }
 }
 
 @media (max-width: 823px) {
   #card5-tier {
     min-width: 95%;
-    margin-bottom: 2.4rem;
     height: 93%;
   }
   .serving-cards-container.five-tier {
@@ -1636,7 +1633,7 @@
   }
 
   .serving-card {
-    margin: 0 0 2.4rem 0;
+    margin: 0;
     padding-right: 2.4rem;
     max-height: max-content;
   }
@@ -1659,10 +1656,6 @@
     max-height: 25rem;
   }
 
-  #card1-tier:nth-of-type(4),
-  #card2-tier:nth-of-type(4) {
-    margin-bottom: 2.4rem;
-  }
   #card3-tier,
   #card4-tier {
     padding-bottom: 0rem;

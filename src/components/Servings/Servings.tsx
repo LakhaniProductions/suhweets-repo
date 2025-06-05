@@ -17,7 +17,7 @@ const Servings = (props: ServingsProps) => {
   if (!context) {
     return;
   }
-  const { width } = useWindowDimensions();
+  const { width, height } = useWindowDimensions();
   const { showLoadingGif } = context;
 
   const menu = ["1 tier", "2 tier", "3 tier", "4 tier", "5 tier"];
@@ -54,7 +54,9 @@ const Servings = (props: ServingsProps) => {
           widthClass={"servings"}
           layout={width <= 2160 && true}
         />
-
+        {width <= 670 && height <= 770 && (
+          <h2 className="secondary-sub-head">serving sizes</h2>
+        )}
         <ServingCards />
       </div>
 
