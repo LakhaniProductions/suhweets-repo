@@ -244,26 +244,17 @@
   }
 }
 
-@media (max-width: 2471px) {
-  .servings p {
-    font-size: 2.1rem;
-  }
-}
-
 @media (max-width: 2409px) {
   .gallery {
     width: 23.5%;
   }
-  .gallery h2,
-  .servings h2 {
+  .gallery h2 {
     font-size: 3.9rem;
   }
-  .gallery h1,
-  .servings h1 {
+  .gallery h1 {
     font-size: 6.6rem;
   }
-  .gallery p,
-  .servings p {
+  .gallery p {
     font-size: 2rem;
   }
 }
@@ -440,6 +431,8 @@
     max-width: 50%;
     padding-left: 3.2rem;
     font-size: 2.3rem;
+    align-self: flex-end;
+    margin-bottom: 2.4rem;
   }
   .contact.contact-txt {
     flex-direction: column;

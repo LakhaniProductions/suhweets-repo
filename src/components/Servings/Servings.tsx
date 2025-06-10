@@ -48,15 +48,14 @@ const Servings = (props: ServingsProps) => {
         <TextPanel
           h2={"serving"}
           h1={"sizes"}
-          p={
-            "Our custom cakes come in many different sizes. We've complied a visual guide of all the tier combinations we offer to make things a bit easier."
-          }
+          p={"A visual guide of all the tier combinations we offer."}
           widthClass={"servings"}
           layout={width <= 2160 && true}
         />
-        {width <= 670 && height <= 770 && (
-          <h2 className="secondary-sub-head">serving sizes</h2>
-        )}
+        {(width <= 670 && height <= 770) ||
+          (width <= 850 && height <= 480 && (
+            <h2 className="secondary-sub-head">serving sizes</h2>
+          ))}
         <ServingCards />
       </div>
 

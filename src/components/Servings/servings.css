@@ -5,11 +5,12 @@
   min-width: 100%;
 }
 .serving-cards-container {
-  min-width: 75%;
+  min-width: 80%;
   display: flex;
   flex-wrap: wrap;
   max-height: max-content;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: scroll;
   row-gap: 2.4rem;
 }
 
@@ -28,27 +29,30 @@
   display: flex;
   flex-direction: column;
   margin: 0 2.4rem 0 0;
-  min-height: max-content;
+  /* height: max-content; */
 }
 
-#card1-tier,
-#card2-tier {
+.serving-card#card1-tier,
+.serving-card#card2-tier {
   min-width: 31.5%;
 }
 
-#card3-tier {
-  min-width: 23.7%;
-  height: 97%;
+.serving-card#card3-tier {
+  min-width: 23.5%;
+  height: 95%;
 }
 
-#card4-tier {
-  min-width: 32%;
-  height: 97%;
+.serving-card#card4-tier,
+.serving-card#card5-tier {
+  height: 95%;
 }
 
-#card5-tier {
-  min-width: 48.7%;
-  height: 97%;
+.serving-card#card4-tier {
+  min-width: 30%;
+}
+
+.serving-card#card5-tier {
+  min-width: 47%;
 }
 
 .img-container {
@@ -175,12 +179,6 @@
   }
 }
 
-@media (max-width: 2560px) and (max-height: 1070px) {
-  .serving-cards-container {
-    overflow-y: scroll;
-  }
-}
-
 @media (max-width: 2560px) and (max-height: 1040px) {
   #img4-tier,
   #img5-tier {
@@ -208,7 +206,7 @@
   #img5-tier {
     max-height: 25rem;
   }
-  #card5-tier {
+  .serving-card#card5-tier {
     min-width: 30%;
   }
 }
@@ -233,16 +231,13 @@
 }
 
 @media (max-width: 2560px) and (max-height: 650px) {
-  #card1-tier,
-  #card2-tier {
+  .serving-card#card1-tier,
+  .serving-card#card2-tier {
     min-width: 18.5%;
   }
 }
 
 @media (max-width: 2560px) and (max-height: 620px) {
-  .serving-cards-container {
-    overflow-y: scroll;
-  }
   #img1-tier {
     max-height: 12rem;
   }
@@ -266,88 +261,143 @@
   }
 }
 
-@media (max-width: 2560px) and (max-height: 480px) {
+@media (max-width: 2560px) and (max-height: 500px) {
   #img1-tier,
   #img2-tier,
   #img3-tier,
   #img4-tier,
   #img5-tier {
-    max-height: 12rem;
+    max-height: 13rem;
+  }
+
+  .serving-card#card1-tier,
+  .serving-card#card2-tier,
+  .serving-card#card3-tier,
+  .serving-card#card4-tier,
+  .serving-card#card5-tier {
+    flex-direction: row;
+    height: max-content;
+    min-width: max-content;
+  }
+
+  .img-container {
+    height: max-content;
+    border-radius: 3rem 0 0 3rem;
+  }
+
+  .img-container {
+    padding: 2.4rem;
+  }
+
+  .txt-container {
+    border-top: none;
+    border-left: 0.8rem solid #526166;
+    border-radius: 0 3rem 3rem 0;
+    align-content: center;
   }
 }
 
 @media (max-width: 2532px) {
-  #card3-tier {
+  .serving-card#card3-tier {
     min-width: 23%;
   }
-  #card5-tier {
+  .serving-card#card5-tier {
     min-width: 48.5%;
   }
 }
 
 @media (max-width: 2532px) and (max-height: 770px) {
-  #card5-tier {
+  .serving-card#card5-tier {
     min-width: 30%;
   }
 }
 
+@media (max-width: 2532px) and (max-height: 500px) {
+  .serving-card#card3-tier,
+  .serving-card#card5-tier {
+    min-width: max-content;
+  }
+}
+
 @media (max-width: 2499px) {
-  #card3-tier {
+  .serving-card#card3-tier {
     min-width: 23%;
   }
 
-  #card5-tier {
+  .serving-card#card5-tier {
     min-width: 48%;
   }
 }
 
 @media (max-width: 2499px) and (max-height: 770px) {
-  #card5-tier {
+  .serving-card#card5-tier {
     min-width: 30%;
   }
 }
 
 @media (max-width: 2471px) {
-  #card4-tier {
+  .serving-card#card4-tier {
     min-width: 31%;
   }
 }
 
 @media (max-width: 2432px) {
-  #card1-tier,
-  #card2-tier {
+  .serving-card#card1-tier,
+  .serving-card#card2-tier {
     min-width: 31.5%;
   }
 }
 
 @media (max-width: 2432px) and (max-height: 650px) {
-  #card1-tier,
-  #card2-tier {
+  .serving-card#card1-tier,
+  .serving-card#card2-tier {
     min-width: 18.5%;
   }
 }
 
-/* @media (max-width: 2205px) and (max-height: 1070px) {
-  #card1-tier,
-  #card2-tier {
-    min-width: 18%;
-  }
-} */
-@media (max-width: 2195px) {
-  .serving-cards-container.three-tier {
-    min-width: 78%;
+@media (max-width: 2432px) and (max-height: 500px) {
+  .serving-card#card1-tier,
+  .serving-card#card2-tier,
+  .serving-card#card3-tier,
+  .serving-card#card4-tier,
+  .serving-card#card5-tier {
+    min-width: max-content;
   }
 }
 
+@media (max-width: 2370px) {
+  .serving-cards-container {
+    min-width: 85%;
+  }
+}
+
+@media (max-width: 2250px) and (max-height: 500px) {
+  .serving-card#card1-tier,
+  .serving-card#card2-tier,
+  .serving-card#card3-tier {
+    min-width: 22%;
+  }
+  .serving-card#card1-tier .txt-container,
+  .serving-card#card2-tier .txt-container,
+  .serving-card#card3-tier .txt-container {
+    min-width: 55%;
+  }
+}
+
+@media (max-width: 2170px) {
+  .serving-card#card3-tier {
+    min-width: 23%;
+  }
+}
 @media (max-width: 2170px) and (max-height: 650px) {
-  #card1-tier,
-  #card2-tier {
+  .serving-card#card1-tier,
+  .serving-card#card2-tier {
     min-width: 17%;
   }
 }
 
 @media (max-width: 2161px) {
-  #card3-tier {
+  .serving-card#card3-tier {
     min-width: 22.5%;
   }
 }
@@ -357,9 +407,21 @@
     flex-direction: column;
   }
 
-  #card1-tier,
-  #card2-tier {
+  .serving-card#card1-tier,
+  .serving-card#card2-tier {
     min-width: 32%;
+  }
+
+  .serving-card#card3-tier {
+    min-width: 23.7%;
+    height: 60dvh;
+  }
+
+  .serving-card#card4-tier {
+    min-width: 32%;
+  }
+  .serving-card#card5-tier {
+    min-width: 48%;
   }
 
   #img1-tier,
@@ -367,7 +429,7 @@
     max-height: 18rem;
   }
 
-  #card3-tier:nth-of-type(4) {
+  .serving-card#card3-tier:nth-of-type(4) {
     margin-right: 0;
   }
 }
@@ -425,10 +487,11 @@
   }
 
   .serving-cards-container {
-    min-width: 80%;
+    min-width: 85%;
   }
 
-  .serving-card#card1-tier {
+  .serving-card#card1-tier,
+  .serving-card#card2-tier {
     min-width: 30%;
   }
   .serving-card {
@@ -438,7 +501,7 @@
     max-height: 100%;
   }
 
-  #card3-tier {
+  .serving-card#card3-tier {
     min-width: 23%;
   }
   #img3-tier,
@@ -488,7 +551,8 @@
 }
 
 @media (max-width: 2160px) and (max-height: 530px) {
-  .serving-card#card1-tier {
+  .serving-card#card1-tier,
+  .serving-card#card2-tier {
     min-width: 18.5%;
   }
   #img3-tier,
@@ -499,11 +563,6 @@
 
   .serving-cards-container {
     min-width: 90%;
-    max-width: max-content;
-  }
-
-  .serving-cards-container.three-tier {
-    min-width: 91%;
   }
 }
 
@@ -515,48 +574,38 @@
   }
 }
 
-@media (max-width: 2060px) and (max-height: 480px) {
-  .serving-cards-container.three-tier {
-    min-width: 90%;
-    max-width: 90%;
-  }
-}
-
 @media (max-width: 2040px) and (max-height: 770px) {
-  .serving-cards-container.one-tier {
+  .serving-cards-container {
     min-width: 82%;
   }
 }
 
 @media (max-width: 2000px) and (max-height: 770px) {
-  .serving-cards-container.one-tier {
+  .serving-cards-container {
     min-width: 85%;
   }
 }
 @media (max-width: 2000px) and (max-height: 480px) {
-  .serving-cards-container,
-  .serving-cards-container.three-tier {
+  .serving-cards-container {
     min-width: 88%;
-    max-width: 88%;
   }
 }
 
 @media (max-width: 1920px) and (max-height: 770px) {
-  .serving-cards-container.one-tier {
+  .serving-cards-container {
     min-width: 86%;
   }
 }
 
 @media (max-width: 1895px) and (max-height: 620px) {
-  .serving-cards-container.one-tier {
+  .serving-cards-container {
     min-width: 82%;
   }
 }
 
 @media (max-width: 1895px) and (max-height: 560px) {
-  .serving-cards-container.one-tier {
+  .serving-cards-container {
     min-width: 78%;
-    overflow-y: scroll;
   }
 }
 
@@ -570,9 +619,16 @@
   }
 }
 
+@media (max-width: 1880px) {
+  .serving-card#card1-tier,
+  .serving-card#card2-tier,
+  .serving-card#card4-tier {
+    min-width: 31%;
+  }
+}
 @media (max-width: 1871px) {
-  #card1-tier,
-  #card2-tier {
+  .serving-card#card1-tier,
+  .serving-card#card2-tier {
     min-width: 30%;
   }
 
@@ -589,12 +645,14 @@
   }
 }
 
-@media (max-width: 1819px) and (max-height: 770px) {
-  .serving-cards-container.two-tier {
-    min-width: 83%;
-    max-width: 88.5%;
+@media (max-width: 1820px) {
+  .serving-card#card3-tier {
+    min-width: 20%;
   }
-  #card2-tier {
+}
+
+@media (max-width: 1819px) and (max-height: 770px) {
+  .serving-card#card2-tier {
     min-width: 31%;
   }
   #img-container2-tier {
@@ -602,16 +660,22 @@
   }
 }
 
-@media (max-width: 1800px) and (max-height: 770px) {
-  .serving-cards-container.one-tier {
-    min-width: 85%;
+@media (max-width: 1802px) {
+  .serving-card#card3-tier {
+    min-width: 23%;
+  }
+
+  .diameter-txt {
+    font-size: 3.1rem;
+  }
+  .serving-txt {
+    font-size: 3.9rem;
   }
 }
 
 @media (max-width: 1770px) and (max-height: 770px) {
-  .serving-cards-container.two-tier {
+  .serving-cards-container {
     min-width: 83%;
-    max-width: 87%;
   }
 }
 
@@ -621,16 +685,8 @@
   }
 }
 
-@media (max-width: 1759px) and (max-height: 770px) {
-  .serving-cards-container.two-tier {
-    min-width: 80%;
-  }
-}
-
 @media (max-width: 1737px) and (max-height: 560px) {
-  .serving-cards-container,
-  .serving-cards-container.two-tier,
-  .serving-cards-container.three-tier {
+  .serving-cards-container {
     min-width: 88%;
   }
 }
@@ -655,16 +711,11 @@
 }
 
 @media (max-width: 1700px) and (max-height: 770px) {
-  .serving-cards-container.two-tier {
-    min-width: 83%;
-    max-width: 86%;
-  }
-
-  #card3-tier {
+  .serving-card#card3-tier {
     min-width: 22%;
   }
 
-  #card4-tier {
+  .serving-card#card4-tier {
     min-width: 30%;
   }
   #img3-tier,
@@ -681,13 +732,10 @@
   }
 }
 
-@media (max-width: 1680px) and (max-height: 770px) {
-  .serving-cards-container.one-tier {
-    min-width: 84%;
-  }
-}
-
 @media (max-width: 1632px) {
+  .serving-card#card3-tier {
+    min-width: 23.5%;
+  }
   #img3-tier {
     max-height: 30rem;
   }
@@ -731,18 +779,26 @@
 }
 
 @media (max-width: 1620px) and (max-height: 480px) {
-  .serving-cards-container,
-  .serving-cards-container.three-tier {
+  .serving-cards-container {
     min-width: 87%;
   }
 }
 
+@media (max-width: 1617px) {
+  .diameter-txt {
+    font-size: 2.6rem;
+  }
+  .serving-txt {
+    font-size: 3.2rem;
+  }
+}
+
 @media (max-width: 1580px) and (max-height: 770px) {
-  .serving-cards-container.one-tier {
+  .serving-cards-container {
     min-width: 83%;
   }
 
-  #card1-tier {
+  .serving-card#card1-tier {
     min-width: 30%;
   }
   #img-container1-tier {
@@ -778,12 +834,6 @@
   }
 }
 
-@media (max-width: 1510px) and (max-height: 1130px) {
-  .serving-cards-container.two-tier {
-    overflow-y: scroll;
-  }
-}
-
 @media (max-width: 1510px) and (max-height: 770px) {
   #img3-tier {
     max-height: 20rem;
@@ -804,20 +854,14 @@
 }
 
 @media (max-width: 1490px) and (max-height: 770px) {
-  .serving-cards-container.one-tier {
+  .serving-cards-container {
     min-width: 82%;
-  }
-
-  .serving-cards-container.two-tier {
-    min-width: 80%;
   }
 }
 
 @media (max-width: 1480px) and (max-height: 480px) {
-  .serving-cards-container,
-  .serving-cards-container.three-tier {
+  .serving-cards-container {
     min-width: 86%;
-    max-width: 86%;
   }
 
   .serving-card#card3-tier {
@@ -848,32 +892,43 @@
 }
 
 @media (max-width: 1462px) and (max-height: 770px) {
-  #card4-tier {
+  .serving-card#card4-tier {
     min-width: 29%;
   }
 }
 
+@media (max-width: 1450px) {
+  .diameter-txt {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 1406px) {
+  .serving-txt {
+    font-size: 2.9rem;
+  }
+  .diameter-txt {
+    font-size: 2rem;
+  }
+}
+
 @media (max-width: 1405px) and (max-height: 770px) {
-  .serving-cards-container.one-tier {
+  .serving-cards-container {
     min-width: 81%;
   }
-  .serving-cards-container.three-tier {
-    min-width: 84%;
-  }
+
   #img-container3-tier {
     max-height: max-content;
   }
-  #card3-tier {
+  .serving-card#card3-tier {
     min-width: 47%;
     max-height: max-content;
   }
 }
 
 @media (max-width: 1400px) and (max-height: 480px) {
-  .serving-cards-container,
-  .serving-cards-container.three-tier {
+  .serving-cards-container {
     min-width: 83%;
-    max-width: 83%;
   }
 
   .serving-card#card3-tier {
@@ -882,15 +937,6 @@
 
   .serving-card#card5-tier {
     min-width: 47%;
-  }
-}
-
-@media (max-width: 1393px) {
-  .diameter-txt {
-    font-size: 2.4rem;
-  }
-  .serving-txt {
-    font-size: 2.9rem;
   }
 }
 
@@ -930,16 +976,18 @@
   }
 }
 
+@media (max-width: 1323px) {
+  .serving-card#card3-tier {
+    min-width: 23%;
+  }
+}
+
 @media (max-width: 1305px) and (max-height: 770px) {
-  .serving-cards-container.one-tier {
+  .serving-cards-container {
     min-width: 83%;
   }
   .serving-card#card1-tier {
     min-width: 45%;
-  }
-  .serving-cards-container.three-tier {
-    min-width: 80%;
-    max-width: 83%;
   }
 }
 
@@ -953,51 +1001,36 @@
 }
 
 @media (max-width: 1280px) and (max-height: 770px) {
-  .serving-cards-container.two-tier {
-    min-width: 82%;
-    max-width: 82%;
+  .serving-cards-container {
+    min-width: 80%;
   }
 }
 
-@media (max-width: 1270px) and (max-height: 770px) {
-  .serving-cards-container.one-tier {
-    min-width: 78%;
+@media (max-width: 1231px) {
+  .serving-card#card3-tier {
+    min-width: 46%;
+    height: max-content;
   }
-}
-
-@media (max-width: 1260px) {
   #img3-tier {
     max-height: 20rem;
   }
-  #img-container3-tier {
-    max-height: max-content;
-  }
-  #card3-tier {
-    min-width: 45%;
-    max-height: max-content;
-  }
-}
 
-@media (max-width: 1260px) and (max-height: 1200px) {
-  .serving-cards-container.three-tier {
-    overflow-y: scroll;
+  .serving-card#card5-tier {
+    min-width: 47%;
   }
 }
 
 @media (max-width: 1227px) {
-  #card5-tier {
+  .serving-card#card5-tier {
     min-width: 47%;
   }
 }
 @media (max-width: 1227px) and (max-height: 770px) {
-  #card5-tier {
+  .serving-card#card5-tier {
     min-width: 30%;
   }
 }
 @media (max-width: 1223px) and (max-height: 1150px) {
-  /* .serving-cards-container.one-tier {
-    min-height: max-content;
-  } */
   .serving-card#card1-tier {
     min-width: 30%;
     max-height: max-content;
@@ -1007,49 +1040,24 @@
   }
 }
 
-@media (max-width: 1223px) and (max-height: 1080px) {
-  .serving-cards-container.one-tier {
-    min-height: 80%;
-    overflow-y: scroll;
-  }
-}
-
 @media (max-width: 1200px) and (max-height: 770px) {
-  .serving-cards-container.three-tier {
-    min-width: 80%;
-    max-width: 82%;
+  .serving-cards-container {
+    min-width: 78%;
   }
 }
 
 @media (max-width: 1190px) and (max-height: 770px) {
-  .serving-cards-container.four-tier {
-    min-width: 81%;
-  }
-  #card4-tier {
+  .serving-card#card4-tier {
     min-width: 46%;
   }
 }
 
-@media (max-width: 1160px) and (max-height: 770px) {
-  .serving-cards-container.one-tier {
-    min-width: 77%;
-  }
-}
-
-@media (max-width: 1141px) and (max-height: 770px) {
-  .serving-cards-container.two-tier {
-    min-width: 80%;
-    max-width: 80%;
-  }
-}
-
 @media (max-width: 1141px) and (max-height: 480px) {
-  .serving-cards-container,
-  .serving-cards-container.three-tier {
-    min-width: 82%;
-    max-width: 82%;
+  .serving-cards-container {
+    min-width: 78%;
+    max-width: 83%;
   }
-  #card4-tier {
+  .serving-card#card4-tier {
     min-width: 46%;
   }
   #img4-tier {
@@ -1057,20 +1065,8 @@
   }
 }
 
-@media (max-width: 1135px) and (max-height: 770px) {
-  .serving-cards-container.three-tier {
-    min-width: 80%;
-    max-width: 80%;
-  }
-
-  .serving-cards-container.four-tier {
-    min-width: 80%;
-    max-width: 80%;
-  }
-}
-
 @media (max-width: 1110px) and (max-height: 770px) {
-  .serving-cards-container.one-tier {
+  .serving-cards-container {
     min-width: 76%;
   }
 }
@@ -1094,16 +1090,12 @@
 }
 
 @media (max-width: 1063px) {
-  #card1-tier,
-  #card2-tier {
+  .serving-card#card1-tier,
+  .serving-card#card2-tier {
     min-width: 46%;
   }
-  .serving-cards-container.one-tier,
-  .serving-cards-container.two-tier,
-  .serving-cards-container.four-tier {
-    overflow-y: scroll;
-  }
-  #card4-tier {
+
+  .serving-card#card4-tier {
     min-width: 46%;
     max-width: 46%;
     height: max-content;
@@ -1118,8 +1110,8 @@
 }
 
 @media (max-width: 1063px) and (max-height: 770px) {
-  .serving-cards-container.one-tier {
-    min-width: 75%;
+  .serving-cards-container {
+    min-width: 72%;
   }
 
   #img4-tier,
@@ -1128,11 +1120,16 @@
   }
 }
 
+@media (max-width: 1060px) {
+  .serving-card#card4-tier {
+    min-width: 46%;
+    max-height: max-content;
+  }
+}
+
 @media (max-width: 1060px) and (max-height: 480px) {
-  .serving-cards-container,
-  .serving-cards-container.three-tier {
-    min-width: 80%;
-    max-width: 80%;
+  .serving-cards-container {
+    max-width: 81%;
   }
   .serving-card#card3-tier,
   .serving-card#card4-tier,
@@ -1143,22 +1140,14 @@
 }
 
 @media (max-width: 1024px) and (max-height: 770px) {
-  .serving-cards-container.one-tier {
-    min-width: 74%;
+  .serving-cards-container {
+    max-width: 74%;
   }
-  .serving-cards-container.two-tier {
-    min-width: 78%;
-    max-width: 78%;
-  }
-  .serving-cards-container.three-tier,
-  .serving-cards-container.four-tier {
-    min-width: 78%;
-    max-width: 78%;
-  }
+
   .serving-cards-container.four-tier {
     justify-content: center;
   }
-  #card4-tier {
+  .serving-card#card4-tier {
     min-width: 75%;
     max-width: 75%;
   }
@@ -1176,7 +1165,7 @@
 }
 
 @media (max-width: 990px) and (max-height: 770px) {
-  .serving-cards-container.one-tier {
+  .serving-cards-container {
     min-width: 73%;
   }
   .serving-card#card1-tier {
@@ -1193,8 +1182,9 @@
 }
 
 @media (max-width: 943px) and (max-height: 770px) {
-  .serving-cards-container.one-tier {
-    min-width: 72%;
+  .serving-cards-container {
+    min-width: 70%;
+    max-width: 70%;
   }
 }
 
@@ -1205,44 +1195,28 @@
   }
 }
 
-@media (max-width: 940px) and (max-height: 770px) {
-  .serving-cards-container.two-tier {
-    min-width: 75%;
-    max-width: 75%;
-  }
-}
-
 @media (max-width: 930px) and (max-height: 770px) {
-  .serving-cards-container.one-tier {
-    min-width: 71%;
-  }
   .serving-card#card1-tier {
     min-width: 46%;
     max-width: 46%;
-  }
-  .serving-cards-container.three-tier,
-  .serving-cards-container.four-tier {
-    min-width: 76%;
-    max-width: 76%;
   }
 }
 @media (max-width: 880px) and (max-height: 770px) {
   .serving-cards-container {
     justify-content: center;
-  }
-  .serving-cards-container.one-tier {
-    min-width: 70%;
+    min-width: 68%;
+    max-width: 68%;
   }
   .serving-card#card1-tier {
     min-width: 85%;
   }
 }
 @media (max-width: 867px) and (max-height: 770px) {
-  .serving-cards-container.five-tier {
-    min-width: 74%;
-    max-width: 74%;
+  .serving-cards-container {
+    min-width: 67%;
+    max-width: 67%;
   }
-  #card5-tier {
+  .serving-card#card5-tier {
     min-width: 90%;
   }
 }
@@ -1251,25 +1225,15 @@
     min-width: 92%;
     max-width: 92%;
   }
-  .serving-cards-container.three-tier,
-  .serving-cards-container.four-tier {
-    min-width: 74%;
-    max-width: 74%;
-  }
-}
-@media (max-width: 851px) and (max-height: 770px) {
-  .serving-cards-container.one-tier {
-    min-width: 68%;
-  }
 }
 
 @media (max-width: 850px) and (max-height: 480px) {
-  .serving-cards-container.three-tier {
+  .serving-cards-container {
     min-width: 98%;
   }
-
-  .serving-cards-container.one-tier {
-    min-width: 98%;
+  .servings-content {
+    flex-direction: column;
+    padding-top: 12rem;
   }
 }
 
@@ -1280,13 +1244,13 @@
 }
 
 @media (max-width: 838px) {
-  #card4-tier {
+  .serving-card#card4-tier {
     min-width: 46%;
   }
 }
 
 @media (max-width: 838px) and (max-height: 770px) {
-  #card4-tier {
+  .serving-card#card4-tier {
     min-width: 80%;
   }
 }
@@ -1294,11 +1258,6 @@
 @media (max-width: 834px) and (max-height: 770px) {
   .servings-content.two-tier {
     flex-direction: column;
-  }
-
-  .serving-cards-container.two-tier {
-    min-width: 98%;
-    max-width: 98%;
   }
 
   .serving-card#card1-tier {
@@ -1313,62 +1272,34 @@
 }
 
 @media (max-width: 823px) {
-  #card5-tier {
+  .serving-card#card5-tier {
     min-width: 95%;
-    height: 93%;
-  }
-  .serving-cards-container.five-tier {
-    overflow-y: scroll;
+    height: max-content;
   }
 }
 
 @media (max-width: 823px) and (max-height: 1150px) {
-  .serving-cards-container.two-tier {
-    min-height: 80%;
-  }
-
   .serving-card#card2-tier {
     min-width: 45%;
   }
 }
 
 @media (max-width: 800px) and (max-height: 770px) {
-  .serving-cards-container.one-tier {
-    min-width: 66%;
-  }
-
-  .serving-cards-container.four-tier {
-    min-width: 72%;
-    max-width: 72%;
-    justify-content: flex-start;
-  }
-
-  .serving-cards-container.five-tier {
-    min-width: 95%;
-    max-width: 95%;
-  }
-
   .servings-content.five-tier {
     flex-direction: column;
   }
 
-  #card4-tier {
+  .serving-card#card4-tier {
     min-width: 90%;
   }
-  #card5-tier {
+  .serving-card#card5-tier {
     min-width: 90%;
   }
 }
 
 @media (max-width: 800px) and (max-height: 480px) {
-  .serving-cards-container.one-tier {
+  .serving-cards-container {
     min-width: 96%;
-  }
-}
-
-@media (max-width: 790px) {
-  #img3-tier {
-    max-height: 28rem;
   }
 }
 
@@ -1377,15 +1308,11 @@
     max-height: 20rem;
   }
 }
-@media (max-width: 790px) and (max-height: 770px) {
-  .serving-cards-container.three-tier {
-    min-width: 70%;
-    max-width: 70%;
-  }
-}
+
 @media (max-width: 766px) and (max-height: 770px) {
-  .serving-cards-container.one-tier {
-    min-width: 65%;
+  .serving-cards-container {
+    min-width: 50%;
+    max-width: 60%;
   }
   .serving-card#card1-tier {
     min-width: 85%;
@@ -1393,10 +1320,6 @@
 }
 
 @media (max-width: 751px) and (max-height: 1150px) {
-  .serving-cards-container.one-tier {
-    overflow-y: scroll;
-    min-height: 80%;
-  }
   .serving-card#card1-tier {
     min-width: 45%;
   }
@@ -1405,29 +1328,16 @@
   .serving-card#card1-tier {
     min-width: 95%;
   }
-  .serving-cards-container.one-tier {
-    justify-content: flex-start;
-  }
-}
-
-@media (max-width: 734px) and (max-height: 770px) {
-  .serving-cards-container.one-tier {
-    min-width: 63%;
-  }
-  .serving-cards-container.four-tier {
-    min-width: 70%;
-    max-width: 70%;
-  }
 }
 
 @media (max-width: 725px) {
-  #card4-tier {
+  .serving-card#card4-tier {
     min-width: 98%;
   }
 }
 
 @media (max-width: 725px) and (max-height: 770px) {
-  #card4-tier {
+  .serving-card#card4-tier {
     min-width: 90%;
   }
 }
@@ -1438,11 +1348,6 @@
     flex-direction: column;
   }
 
-  .serving-cards-container.four-tier {
-    min-width: 96%;
-    max-width: 96%;
-  }
-
   .serving-card#card4-tier {
     min-width: 45%;
   }
@@ -1451,11 +1356,6 @@
 @media (max-width: 694px) and (max-height: 770px) {
   .servings-content.three-tier {
     flex-direction: column;
-  }
-
-  .serving-cards-container.three-tier {
-    min-width: 95%;
-    max-width: 95%;
   }
 }
 
@@ -1480,7 +1380,7 @@
 }
 
 @media (max-width: 657px) and (max-height: 770px) {
-  .serving-cards-container.four-tier {
+  .serving-cards-container {
     min-width: 94%;
     max-width: 94%;
   }
@@ -1491,11 +1391,8 @@
 }
 
 @media (max-width: 655px) {
-  #card3-tier {
+  .serving-card#card3-tier {
     min-width: 95%;
-  }
-  .serving-cards-container.three-tier {
-    overflow-y: scroll;
   }
 }
 
@@ -1537,6 +1434,15 @@
     min-height: max-content;
   }
 }
+@media (max-width: 640px) {
+  .serving-card#card1-tier,
+  .serving-card#card2-tier,
+  .serving-card#card3-tier,
+  .serving-card#card4-tier,
+  .serving-card#card5-tier {
+    min-width: 100%;
+  }
+}
 
 @media (max-width: 631px) {
   .servings-content {
@@ -1549,14 +1455,6 @@
     min-height: max-content;
   }
 
-  #card1-tier,
-  #card2-tier,
-  #card3-tier,
-  #card4-tier,
-  #card5-tier {
-    min-width: 100%;
-  }
-
   #img1-tier,
   #img2-tier,
   #img3-tier {
@@ -1567,8 +1465,8 @@
     max-height: 25rem;
   }
 
-  #card3-tier,
-  #card4-tier {
+  .serving-card#card3-tier,
+  .serving-card#card4-tier {
     padding-bottom: 0rem;
   }
 
@@ -1578,9 +1476,6 @@
 }
 
 @media (max-width: 631px) and (max-height: 820px) {
-  .serving-cards-container {
-    min-height: 75%;
-  }
   #img5-tier {
     max-height: 20rem;
   }
@@ -1589,12 +1484,6 @@
 @media (max-width: 631px) and (max-height: 760px) {
   #img5-tier {
     max-height: 18rem;
-  }
-}
-
-@media (max-width: 631px) and (max-height: 730px) {
-  .serving-cards-container {
-    margin-top: 2.4rem;
   }
 }
 
@@ -1658,19 +1547,15 @@
 }
 
 @media (max-width: 400px) {
-  .serving-cards-container {
-    min-height: 90%;
-    padding-right: 1.2rem;
-  }
   .serving-card {
     margin: 0 1.2rem 2.4rem 0;
     min-height: max-content;
   }
-  #card1-tier,
-  #card2-tier,
-  #card3-tier,
-  #card4-tier,
-  #card5-tier {
+  .serving-card#card1-tier,
+  .serving-card#card2-tier,
+  .serving-card#card3-tier,
+  .serving-card#card4-tier,
+  .serving-card#card5-tier {
     min-width: 100%;
   }
   .img-container {
@@ -1689,17 +1574,7 @@
   }
 }
 
-@media (max-width: 400px) and (max-height: 1200px) {
-  .serving-cards-container {
-    min-height: 85%;
-  }
-}
-
 @media (max-width: 400px) and (max-height: 900px) {
-  .serving-cards-container {
-    min-height: 80%;
-  }
-
   #img5-tier {
     height: 25rem;
   }
@@ -1712,12 +1587,6 @@
   #img4-tier,
   #img5-tier {
     height: 20rem;
-  }
-}
-
-@media (max-width: 400px) and (max-height: 730px) {
-  .serving-cards-container {
-    margin-top: 2.4rem;
   }
 }
 
@@ -1752,16 +1621,10 @@
   .serving-img {
     margin: 1.2rem 0;
   }
-  .serving-cards-container {
-    margin-top: 1.2rem;
-  }
 }
 
 @media (max-height: 560px) {
   .serving-img {
     margin: 1.2rem 0;
-  }
-  .serving-cards-container {
-    margin-top: 0;
   }
 }
