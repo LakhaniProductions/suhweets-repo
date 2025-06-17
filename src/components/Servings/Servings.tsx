@@ -53,7 +53,8 @@ const Servings = (props: ServingsProps) => {
           layout={width <= 2160 && true}
         />
         {(width <= 670 && height <= 770) ||
-          (width <= 850 && height <= 480 && (
+          (width <= 850 && height <= 480) ||
+          (width <= 1010 && height <= 500 && (
             <h2 className="secondary-sub-head">serving sizes</h2>
           ))}
         <ServingCards />
