@@ -3,9 +3,7 @@ nav {
   display: flex;
   align-self: flex-end;
   left: 0;
-
   padding: 2.4rem 2.4rem 2.4rem 4.8rem;
-  /* min-height: 10.4rem; */
   z-index: 8;
   max-width: max-content;
 }
@@ -90,6 +88,20 @@ nav {
   }
 }
 
+@media (max-width: 2560px) and (max-height: 500px) {
+  nav {
+    padding: 1.2rem 1.2rem 1.2rem 4.8rem;
+  }
+  .navigation-item {
+    font-size: 2.3rem;
+    padding-right: 2rem;
+  }
+
+  .active-menu-item {
+    font-size: 2.9rem;
+  }
+}
+
 @media (max-width: 2280px) {
   .favorites,
   .flavors,
@@ -104,6 +116,11 @@ nav {
   }
 }
 
+@media (max-width: 2040px) and (max-height: 500px) {
+  nav {
+    padding: 1.2rem 1.2rem 1.2rem 2.4rem;
+  }
+}
 @media (max-width: 1861px) {
   .navigation-item {
     font-size: 3.6rem;
@@ -123,6 +140,20 @@ nav {
   .flavors.active-menu-item,
   .fillings.active-menu-item {
     font-size: 3.6rem;
+  }
+}
+
+@media (max-width: 1861px) and (max-height: 500px) {
+  nav {
+    padding: 1.2rem 1.2rem 1.2rem 2.4rem;
+  }
+  .navigation-item {
+    font-size: 2.3rem;
+    padding-right: 2rem;
+  }
+
+  .active-menu-item {
+    font-size: 2.9rem;
   }
 }
 
