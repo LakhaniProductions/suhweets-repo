@@ -1096,10 +1096,14 @@
   /* PAGE ACTION BUTTONS */
 
   .forward {
-    font-size: 3.9rem;
+    font-size: 3.6rem;
   }
   .back {
-    font-size: 2.9rem;
+    font-size: 2.6rem;
+  }
+
+  .page-button-container {
+    min-width: 73rem;
   }
 }
 
@@ -2170,7 +2174,7 @@
     padding: 2.4rem 2.4rem;
   }
   .page-button-container {
-    min-width: 62rem;
+    min-width: max-content;
   }
 
   .forward {
