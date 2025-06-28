@@ -127,6 +127,10 @@
   .flavors-txt p {
     font-size: 2.3rem;
   }
+
+  .servings {
+    max-width: 11%;
+  }
 }
 
 @media (max-width: 2560px) and (max-height: 1070px) {
@@ -174,6 +178,10 @@
   .servings h1 {
     font-size: 5.9rem;
   }
+
+  .servings {
+    max-width: 10%;
+  }
 }
 
 @media (max-width: 2560px) and (max-height: 560px) {
@@ -207,6 +215,10 @@
   }
   .flavors-txt p {
     display: none;
+  }
+  .servings {
+    max-width: max-content;
+    margin-right: 4.8rem;
   }
 }
 
@@ -276,6 +288,9 @@
   .txt-panel p {
     font-size: 2rem;
   }
+  .servings {
+    max-width: 11%;
+  }
 }
 
 @media (max-width: 2370px) and (max-height: 700px) {
@@ -295,6 +310,12 @@
 
   .txt-panel h1 {
     font-size: 4.6rem;
+  }
+}
+
+@media (max-width: 2370px) and (max-height: 530px) {
+  .servings {
+    max-width: max-content;
   }
 }
 
@@ -326,6 +347,12 @@
   }
   .gallery {
     width: 22%;
+  }
+}
+
+@media (max-width: 2222px) {
+  .servings {
+    max-width: 15%;
   }
 }
 
@@ -439,6 +466,12 @@
   }
 }
 
+@media (max-width: 2049px) {
+  .servings {
+    max-width: 14%;
+  }
+}
+
 @media (max-width: 2040px) {
   .contact.contact-txt {
     max-width: 30%;
@@ -462,10 +495,6 @@
 }
 
 @media (max-width: 2040px) and (max-height: 950px) {
-  /* .contact.contact-txt {
-    position: fixed;
-  } */
-
   .contact.contact-txt p {
     position: unset;
     width: unset;
@@ -600,6 +629,12 @@
   }
 }
 
+@media (max-width: 1816px) {
+  .servings {
+    max-width: 20%;
+  }
+}
+
 @media (max-width: 1800px) and (max-height: 1294px) {
   .flavors-txt {
     width: 48%;
@@ -682,6 +717,13 @@
     width: 50%;
   }
 }
+
+@media (max-width: 1684px) {
+  .servings {
+    max-width: 18%;
+  }
+}
+
 @media (max-width: 1680px) {
   .about {
     max-width: 40dvw;
@@ -753,6 +795,12 @@
     width: unset;
   }
 }
+
+@media (max-width: 1554px) {
+  .servings {
+    min-width: 19%;
+  }
+}
 @media (max-width: 1540px) and (max-height: 1060px) {
   .cake-flav .flavors-txt {
     width: 55%;
@@ -801,6 +849,13 @@
 @media (max-width: 1511px) and (max-height: 800px) {
   .fav .flavors-txt {
     display: none;
+  }
+}
+
+@media (max-width: 1511px) and (max-height: 930px) {
+  .servings {
+    min-width: 12%;
+    max-width: 16%;
   }
 }
 
