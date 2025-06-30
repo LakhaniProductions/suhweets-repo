@@ -793,7 +793,7 @@
   #img3-tier,
   #img4-tier,
   #img5-tier {
-    max-height: 25rem;
+    max-height: 35rem;
   }
   .serving-card#card3-tier,
   .serving-card#card4-tier {
@@ -1057,6 +1057,12 @@
   #img1-tier,
   #img2-tier {
     max-height: 17rem;
+  }
+
+  #img3-tier,
+  #img4-tier,
+  #img5-tier {
+    max-height: 22rem;
   }
 }
 
@@ -1334,9 +1340,6 @@
   .serving-cards-container {
     min-width: 80%;
   }
-  #img5-tier {
-    max-height: 40rem;
-  }
   .diameter-txt {
     font-size: 2.9rem;
   }
@@ -1414,12 +1417,6 @@
   }
 }
 
-@media (max-width: 1620px) {
-  .serving-card#card5-tier {
-    min-width: 47%;
-  }
-}
-
 @media (max-width: 1617px) and (max-height: 650px) {
   .diameter-txt {
     font-size: 2rem;
@@ -1472,7 +1469,8 @@
   .serving-card#card3-tier {
     min-width: 31%;
   }
-  .serving-card#card4-tier {
+  .serving-card#card4-tier,
+  .serving-card#card5-tier {
     min-width: 47.5%;
   }
 }
@@ -1538,7 +1536,7 @@
 
 @media (max-width: 1554px) {
   .serving-cards-container {
-    min-width: 73%;
+    min-width: 77%;
   }
 }
 
@@ -1581,9 +1579,6 @@
 }
 
 @media (max-width: 1510px) {
-  #img5-tier {
-    max-height: 35rem;
-  }
   .diameter-txt {
     font-size: 2.6rem;
   }
@@ -1917,10 +1912,17 @@
     min-width: 60%;
   }
 }
-
+@media (max-width: 1328px) {
+  .serving-cards-container {
+    min-width: 75%;
+  }
+  .serving-card#card5-tier {
+    min-width: 47%;
+  }
+}
 @media (max-width: 1323px) {
   .serving-cards-container {
-    min-width: 70%;
+    min-width: 74%;
     max-width: 74%;
   }
 }
@@ -2124,13 +2126,13 @@
 
 @media (max-width: 1206px) {
   .serving-cards-container {
-    max-width: 71%;
-    min-width: 65%;
+    min-width: 71%;
   }
 
   .serving-card#card1-tier,
-  .serving-card#card2-tier {
-    min-width: 45%;
+  .serving-card#card2-tier,
+  .serving-card#card5-tier {
+    min-width: 47%;
   }
 }
 
@@ -2189,7 +2191,8 @@
 }
 
 @media (max-width: 1161px) {
-  .serving-card#card4-tier {
+  .serving-card#card4-tier,
+  .serving-card#card5-tier {
     min-width: 46%;
   }
 }
@@ -2252,6 +2255,12 @@
   }
 }
 
+@media (max-width: 1112px) and (max-height: 530px) {
+  .serving-cards-container {
+    min-width: 82%;
+  }
+}
+
 @media (max-width: 1110px) and (max-height: 650px) {
   .serving-cards-container {
     min-width: 72%;
@@ -2264,10 +2273,16 @@
   }
 }
 
+@media (max-width: 1110px) and (max-height: 530px) {
+  .serving-cards-container {
+    min-width: 82%;
+  }
+}
+
 @media (max-width: 1100px) {
   .serving-cards-container {
     max-width: 68%;
-    min-width: 65%;
+    min-width: 68%;
   }
 
   .serving-card#card1-tier {
@@ -2324,6 +2339,12 @@
   }
 }
 
+@media (max-width: 1086px) and (max-height: 530px) {
+  .serving-cards-container {
+    min-width: 82%;
+  }
+}
+
 @media (max-width: 1080px) and (max-height: 500px) {
   .serving-card#card2-tier .img-container {
     min-width: 38%;
@@ -2349,7 +2370,7 @@
 
 @media (max-width: 1063px) {
   .serving-cards-container {
-    min-width: 60%;
+    min-width: 67%;
     max-width: 67%;
   }
   .serving-card#card1-tier,
@@ -2368,7 +2389,7 @@
   }
 
   .serving-card#card5-tier {
-    min-width: 46%;
+    min-width: 44%;
   }
 }
 
@@ -2431,6 +2452,12 @@
   }
 }
 
+@media (max-width: 1060px) and (max-height: 530px) {
+  .serving-cards-container {
+    min-width: 81%;
+  }
+}
+
 @media (max-width: 1060px) and (max-height: 500px) {
   .serving-card#card3-tier .img-container {
     min-width: 45%;
@@ -2449,15 +2476,6 @@
     max-width: 74%;
   }
 }
-
-/* @media (max-width: 1024px) and (max-height: 650px) {
-  .serving-cards-container.four-tier {
-    justify-content: unset;
-  }
-  .serving-card#card4-tier {
-    min-width: 45%;
-  }
-} */
 
 @media (max-width: 1024px) and (max-height: 530px) {
   .serving-card#card3-tier,
@@ -2496,9 +2514,21 @@
   }
 }
 
+@media (max-width: 1017px) {
+  .serving-card#card5-tier {
+    min-width: 95%;
+  }
+}
+
 @media (max-width: 1015px) and (max-height: 770px) {
   .serving-cards-container {
     min-width: 69%;
+  }
+}
+
+@media (max-width: 1015px) and (max-height: 530px) {
+  .serving-cards-container {
+    min-width: 81%;
   }
 }
 
@@ -2590,6 +2620,12 @@
 @media (max-width: 990px) and (max-height: 560px) {
   .serving-cards-container {
     min-width: 85%;
+  }
+}
+
+@media (max-width: 990px) and (max-height: 530px) {
+  .serving-cards-container {
+    min-width: 81%;
   }
 }
 
