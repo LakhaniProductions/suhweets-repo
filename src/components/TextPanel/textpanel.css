@@ -1090,6 +1090,12 @@
   }
 }
 
+@media (max-width: 1328px) and (max-height: 500px) {
+  .servings {
+    min-width: 5%;
+  }
+}
+
 @media (max-width: 1323px) and (max-height: 560px) {
   .servings {
     min-width: 8%;
@@ -1452,9 +1458,22 @@
   }
 }
 
+@media (max-width: 1063px) and (max-height: 500px) {
+  .servings {
+    min-width: 5%;
+    max-width: 6%;
+  }
+}
+
 @media (max-width: 1061px) and (max-height: 770px) {
   .servings {
     min-width: 22%;
+  }
+}
+
+@media (max-width: 1061px) and (max-height: 500px) {
+  .servings {
+    min-width: 8%;
   }
 }
 
