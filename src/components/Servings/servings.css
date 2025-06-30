@@ -646,6 +646,13 @@
   }
 }
 
+@media (max-width: 2160px) and (max-height: 940px) {
+  #img4-tier,
+  #img5-tier {
+    max-height: 30rem;
+  }
+}
+
 @media (max-width: 2160px) and (max-height: 1110px) {
   .diameter-txt {
     font-size: 2.8rem;
@@ -834,7 +841,7 @@
   }
 }
 
-@media (max-width: 2142px) and (max-height: 1150px) {
+/* @media (max-width: 2142px) and (max-height: 1150px) {
   #img3-tier,
   #img4-tier,
   #img5-tier {
@@ -848,7 +855,7 @@
   #img5-tier {
     max-height: 15rem;
   }
-}
+} */
 
 @media (max-width: 2142px) and (max-height: 720px) {
   .serving-card#card4-tier {
@@ -1059,11 +1066,11 @@
     max-height: 17rem;
   }
 
-  #img3-tier,
+  /* #img3-tier,
   #img4-tier,
   #img5-tier {
     max-height: 22rem;
-  }
+  } */
 }
 
 @media (max-width: 1871px) and (max-height: 1200px) {
@@ -1826,14 +1833,6 @@
   }
 }
 
-@media (max-width: 1425px) and (max-height: 960px) {
-  #img3-tier,
-  #img4-tier,
-  #img5-tier {
-    max-height: 13rem;
-  }
-}
-
 @media (max-width: 1425px) and (max-height: 500px) {
   .serving-card#card3-tier {
     min-width: 47%;
@@ -2145,12 +2144,6 @@
 @media (max-width: 1206px) and (max-height: 560px) {
   .serving-cards-container {
     min-width: 86%;
-  }
-}
-
-@media (max-width: 1200px) and (max-height: 770px) {
-  #img5-tier {
-    max-height: 12rem;
   }
 }
 
@@ -2604,7 +2597,7 @@
   }
 
   .serving-card#card5-tier {
-    min-width: 45%;
+    min-width: 95%;
   }
 }
 
