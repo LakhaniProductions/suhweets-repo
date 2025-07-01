@@ -270,9 +270,26 @@ const FlavorsContent = () => {
   const [hideFlavImg, setHideFlavImg] = useState(false);
   const [secTxtClass, setSecTxtClass] = useState("");
 
+  // const getImgSrc = useCallback(
+  //   (item: Record<string, any>) => {
+  //     if (width <= 1140 && width > 750) {
+  //       if (height <= 900) {
+  //         return item.img;
+  //       }
+  //       return item.lsImg;
+  //     } else if (width <= 750) {
+  //       return item.lsImg;
+  //     } else {
+  //       console.log(item.img);
+  //       return item.img;
+  //     }
+  //   },
+  //   [width, height]
+  // );
+
   const getImgSrc = useCallback(
     (item: Record<string, any>) => {
-      if (width <= 1140 && width > 750) {
+      if (width <= 848 && width > 750) {
         if (height <= 900) {
           return item.img;
         }
@@ -372,7 +389,7 @@ const FlavorsContent = () => {
       {showInLftCol && (
         <>
           {/* BAKER'S FAV */}
-          {htmlKey === "baker-favorites" && (
+          {/* {htmlKey === "baker-favorites" && (
             <div className="flavors-container fav">
               <div className="flavors-box--favs">
                 {flavorsContent
@@ -401,7 +418,8 @@ const FlavorsContent = () => {
                   ))}
               </div>
             </div>
-          )}
+          )} */}
+
           {/*CAKE FLAVORS */}
           {htmlKey === "cake-flavors" && (
             <div className="flavors-container cake-flavors">
@@ -616,7 +634,7 @@ const FlavorsContent = () => {
         <div className="flavors-two-col">
           <div className="gallery-mainImg-container flavors">
             {/* BAKER'S FAVS IMAGES */}
-            {htmlKey === "baker-favorites" &&
+            {/* {htmlKey === "baker-favorites" &&
               flavorsContent
                 .filter((cake) => cake.category === htmlKey)
                 .map((item) =>
@@ -631,6 +649,7 @@ const FlavorsContent = () => {
                       ></div>
                       <img
                         src={getImgSrc(item)}
+                        // src={item.img}
                         alt={item.flav}
                         key={item.flav}
                         onLoad={() => {
@@ -640,7 +659,7 @@ const FlavorsContent = () => {
                       />
                     </>
                   ) : null
-                )}
+                )} */}
 
             {/* CAKE FLAVORS IMAGE */}
             {htmlKey === "cake-flavors" && !hideFlavImg && (
@@ -658,7 +677,7 @@ const FlavorsContent = () => {
           {!showInLftCol && (
             <>
               {/* BAKER'S FAV */}
-              {htmlKey === "baker-favorites" && (
+              {/* {htmlKey === "baker-favorites" && (
                 <div className="flavors-container">
                   <div className="flavors-box--favs">
                     {flavorsContent
@@ -687,7 +706,7 @@ const FlavorsContent = () => {
                       ))}
                   </div>
                 </div>
-              )}
+              )} */}
               {/*CAKE FLAVORS */}
               {htmlKey === "cake-flavors" && (
                 <div className="flavors-container cake-flavors">

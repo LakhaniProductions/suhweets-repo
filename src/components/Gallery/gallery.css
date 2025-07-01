@@ -1,7 +1,7 @@
 .gallery-content,
 .flavors-content {
   display: flex;
-  padding: 18.1rem 0 10.4rem 2.4rem;
+  padding: 14.4rem 0 10.4rem 2.4rem;
   position: relative;
   min-width: 100%;
 }
@@ -1317,7 +1317,7 @@
 
 @media (max-width: 1615px) {
   .fav .gallery-mainImg-container.flavors {
-    margin-top: 18rem;
+    /* margin-top: 18rem; */
     height: 75%;
   }
   .fav .gallery-mainImg-container.flavors img {
@@ -2008,11 +2008,14 @@
 }
 
 @media (max-width: 1380px) and (max-height: 1294px) {
-  .fav .gallery-mainImg-container.flavors {
+  .fav .gallery-mainImg-container.flavors img {
+    height: 90%;
+  }
+  /* .fav .gallery-mainImg-container.flavors {
     max-width: 58rem;
     position: relative;
     margin-top: 0;
-  }
+  } */
 
   .cake-flav .gallery-mainImg-container.flavors {
     position: absolute;
@@ -2025,9 +2028,9 @@
     margin-top: 4.8rem;
   }
 
-  .flavors-container {
+  /* .flavors-container {
     margin-left: 3.6rem;
-  }
+  } */
 
   .flavors-container.cake-flavors,
   .flavors-container.fillings {
@@ -2551,7 +2554,7 @@
   }
 
   .fav .gallery-mainImg-container.flavors {
-    max-width: 60%;
+    max-width: 45%;
     height: auto;
     position: absolute;
   }
@@ -2865,7 +2868,7 @@
   }
 }
 
-@media (max-width: 973px) {
+@media (max-width: 973px) and (max-height: 1294px) {
   .gallery-content {
     padding: 13.6rem 0 10.4rem 0rem;
     max-width: 100%;
@@ -2876,9 +2879,9 @@
     position: relative;
     display: flex;
   }
-  .gallery-mainImg-container.flavors {
-    min-width: 50%;
-    max-width: 65%;
+  .fav .gallery-mainImg-container.flavors {
+    min-width: 35%;
+    max-width: 40%;
   }
 
   .cake-flav .gallery-mainImg-container.flavors {
@@ -3085,7 +3088,7 @@
     max-height: 95%;
   }
 }
-@media (max-width: 860px) {
+/* @media (max-width: 860px) {
   .fav .gallery-mainImg-container.flavors {
     position: relative;
     max-width: max-content;
@@ -3099,7 +3102,7 @@
     height: auto;
     margin-top: 0;
   }
-}
+} */
 
 @media (max-width: 860px) and (max-height: 900px) {
   .fav .gallery-mainImg-container.flavors {
@@ -3136,8 +3139,9 @@
 
 @media (max-width: 848px) {
   .gallery-content {
-    padding: 16rem 2.4rem 8.24rem 2.4rem;
+    padding: 9.4rem 2.4rem 8.24rem 2.4rem;
   }
+
   .gallery-mainImg-container {
     overflow-y: scroll;
     flex-direction: column;
@@ -3161,6 +3165,11 @@
   .gallery-mainImg-container::-webkit-scrollbar-thumb {
     background: #a6a6a6;
     border-radius: 1rem;
+  }
+
+  .fav .gallery-mainImg-container.flavors {
+    position: unset;
+    min-width: 100%;
   }
 
   .page-button-container {
