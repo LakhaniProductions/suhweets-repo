@@ -1,6 +1,6 @@
 import {
-  SyntheticEvent,
-  useCallback,
+  // SyntheticEvent,
+  // useCallback,
   useContext,
   useEffect,
   useState
@@ -16,8 +16,9 @@ const FlavorsContent = () => {
   if (!context) {
     return;
   }
-  const { selectedMenuItem, clickedFlavor } = useParams();
-  const navigate = useNavigate();
+  // const { selectedMenuItem, clickedFlavor } = useParams();
+  const { selectedMenuItem } = useParams();
+  // const navigate = useNavigate();
 
   const { width, height } = useWindowDimensions();
   const { setShowLoadingGif, showLoadingGif } = context;
@@ -287,47 +288,47 @@ const FlavorsContent = () => {
   //   [width, height]
   // );
 
-  const getImgSrc = useCallback(
-    (item: Record<string, any>) => {
-      if (width <= 848 && width > 750) {
-        if (height <= 900) {
-          return item.img;
-        }
-        return item.lsImg;
-      } else if (width <= 750) {
-        return item.lsImg;
-      } else {
-        console.log(item.img);
-        return item.img;
-      }
-    },
-    [width, height]
-  );
+  // const getImgSrc = useCallback(
+  //   (item: Record<string, any>) => {
+  //     if (width <= 848 && width > 750) {
+  //       if (height <= 900) {
+  //         return item.img;
+  //       }
+  //       return item.lsImg;
+  //     } else if (width <= 750) {
+  //       return item.lsImg;
+  //     } else {
+  //       console.log(item.img);
+  //       return item.img;
+  //     }
+  //   },
+  //   [width, height]
+  // );
 
-  const encodeClickedFlavor = (flavor: string): string => {
-    return encodeURIComponent(
-      flavor
-        .replace(/ /g, "-")
-        .replace(/\//g, "_slash_")
-        .replace(/\*/g, "_ast_")
-        .replace(/&/g, "_and_")
-    );
-  };
+  // const encodeClickedFlavor = (flavor: string): string => {
+  //   return encodeURIComponent(
+  //     flavor
+  //       .replace(/ /g, "-")
+  //       .replace(/\//g, "_slash_")
+  //       .replace(/\*/g, "_ast_")
+  //       .replace(/&/g, "_and_")
+  //   );
+  // };
 
-  const handleFlavorClick = (e: SyntheticEvent) => {
-    const target = e.target as HTMLDivElement;
-    clickedFlavor !== encodeClickedFlavor(target.id) && setImgLoaded(false);
-    navigate(`/flavors/${selectedMenuItem}/${encodeClickedFlavor(target.id)}`);
-  };
+  // const handleFlavorClick = (e: SyntheticEvent) => {
+  //   const target = e.target as HTMLDivElement;
+  //   clickedFlavor !== encodeClickedFlavor(target.id) && setImgLoaded(false);
+  //   navigate(`/flavors/${selectedMenuItem}/${encodeClickedFlavor(target.id)}`);
+  // };
 
-  const decodeClickedFlavor = (flavor: string): string => {
-    const decoded = decodeURIComponent(flavor);
-    return decoded
-      .replace(/_slash_/g, "/")
-      .replace(/_ast_/g, "*")
-      .replace(/_and_/g, "&")
-      .replace(/-/g, " ");
-  };
+  // const decodeClickedFlavor = (flavor: string): string => {
+  //   const decoded = decodeURIComponent(flavor);
+  //   return decoded
+  //     .replace(/_slash_/g, "/")
+  //     .replace(/_ast_/g, "*")
+  //     .replace(/_and_/g, "&")
+  //     .replace(/-/g, " ");
+  // };
 
   useEffect(() => {
     flavorsContent.filter((item) => {
@@ -386,40 +387,49 @@ const FlavorsContent = () => {
         layout={true}
       />
 
+      {/* BAKER'S FAV */}
+
+      {htmlKey === "baker-favorites" && (
+        <div className="flavors-container fav">
+          <div className="flavors-box--favs">
+            {flavorsContent
+              .filter((cake) => cake.category === htmlKey)
+              .sort((a, b) => {
+                if (a.flav < b.flav) {
+                  return -1;
+                }
+                if (a.flav > b.flav) {
+                  return 1;
+                }
+                return 0;
+              })
+              .map((item, i) => (
+                <div className="flavor-card">
+                  <img
+                    className={"fav-img"}
+                    src={item.lsImg}
+                    alt={`Image for ${item.flav}  `}
+                    key={htmlKey}
+                    onLoad={() => {
+                      setImgLoaded(true);
+                      // setShowLoadingGif(false);
+                    }}
+                  />
+                  <p
+                    className={`menu-options baker`}
+                    key={i.toString()}
+                    id={`${item.flav}`}
+                  >
+                    {item.flav}
+                  </p>
+                </div>
+              ))}
+          </div>
+        </div>
+      )}
+
       {showInLftCol && (
         <>
-          {/* BAKER'S FAV */}
-          {/* {htmlKey === "baker-favorites" && (
-            <div className="flavors-container fav">
-              <div className="flavors-box--favs">
-                {flavorsContent
-                  .filter((cake) => cake.category === htmlKey)
-                  .sort((a, b) => {
-                    if (a.flav < b.flav) {
-                      return -1;
-                    }
-                    if (a.flav > b.flav) {
-                      return 1;
-                    }
-                    return 0;
-                  })
-                  .map((item, i) => (
-                    <p
-                      className={`menu-options baker ${
-                        decodeClickedFlavor(clickedFlavor || "") ===
-                          item.flav && "active-flavor"
-                      }`}
-                      key={i.toString()}
-                      id={`${item.flav}`}
-                      onClick={(e) => handleFlavorClick(e)}
-                    >
-                      {item.flav}
-                    </p>
-                  ))}
-              </div>
-            </div>
-          )} */}
-
           {/*CAKE FLAVORS */}
           {htmlKey === "cake-flavors" && (
             <div className="flavors-container cake-flavors">
@@ -544,6 +554,7 @@ const FlavorsContent = () => {
           )}
         </>
       )}
+
       {/* FILLINGS*/}
       {!showInLftCol && htmlKey === "fillings" && (
         <div className="flavors-container fillings">
@@ -630,37 +641,9 @@ const FlavorsContent = () => {
       )}
       {/* IMAGES  CONTAINER*/}
 
-      {htmlKey !== "fillings" && (
+      {htmlKey === "cake-flavors" && (
         <div className="flavors-two-col">
           <div className="gallery-mainImg-container flavors">
-            {/* BAKER'S FAVS IMAGES */}
-            {/* {htmlKey === "baker-favorites" &&
-              flavorsContent
-                .filter((cake) => cake.category === htmlKey)
-                .map((item) =>
-                  decodeClickedFlavor(clickedFlavor || "") === item.flav ? (
-                    <>
-                      <div
-                        className={imgLoaded ? "" : "lazy-img"}
-                        style={{
-                          backgroundImage: `url(${item.bgimg})`
-                        }}
-                        content=""
-                      ></div>
-                      <img
-                        src={getImgSrc(item)}
-                        // src={item.img}
-                        alt={item.flav}
-                        key={item.flav}
-                        onLoad={() => {
-                          setImgLoaded(true);
-                          setShowLoadingGif(false);
-                        }}
-                      />
-                    </>
-                  ) : null
-                )} */}
-
             {/* CAKE FLAVORS IMAGE */}
             {htmlKey === "cake-flavors" && !hideFlavImg && (
               <img
