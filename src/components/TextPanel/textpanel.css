@@ -28,6 +28,7 @@
 .flavors-txt {
   width: 18%;
 }
+
 .signature-details {
   width: 12%;
 }
@@ -84,6 +85,10 @@
 
 .flavors-txt h2 {
   font-size: 4.1rem;
+}
+
+.flavors-txt p {
+  font-size: 2.3rem;
 }
 
 .contact.contact-txt {
@@ -210,6 +215,10 @@
   .gallery p,
   .servings p {
     display: none;
+  }
+
+  .fav .flavors-txt {
+    max-width: max-content;
   }
   .flavors-txt h2 {
     font-size: 2.9rem;
@@ -399,6 +408,9 @@
   .fav .flavors-txt {
     width: 18%;
   }
+  .cake-flav .flavors-txt {
+    width: 20%;
+  }
 
   #disclaimer {
     padding-top: 0;
@@ -455,6 +467,12 @@
   }
 }
 
+@media (max-width: 2200px) and (max-height: 530px) {
+  .fav .flavors-txt {
+    max-width: max-content;
+  }
+}
+
 @media (max-width: 2181px) {
   .gallery {
     flex-direction: row;
@@ -507,6 +525,12 @@
 @media (max-width: 2098px) and (max-height: 1110px) {
   .fav .flavors-txt {
     max-width: 15%;
+  }
+}
+
+@media (max-width: 2098px) and (max-height: 530px) {
+  .fav .flavors-txt {
+    max-width: max-content;
   }
 }
 
@@ -611,9 +635,7 @@
   .flavors-txt {
     width: 50%;
   }
-  .cake-flav .flavors-txt {
-    width: 30%;
-  }
+
   .flavors-txt h2 {
     width: max-content;
   }
@@ -628,6 +650,19 @@
 @media (max-width: 1963px) and (max-height: 1110px) {
   .fav .flavors-txt {
     min-width: 16%;
+  }
+}
+
+@media (max-width: 1963px) and (max-height: 530px) {
+  .fav .flavors-txt {
+    max-width: max-content;
+    min-width: max-content;
+  }
+}
+
+@media (max-width: 1958px) {
+  .cake-flav .flavors-txt {
+    width: 22%;
   }
 }
 
@@ -661,9 +696,21 @@
   }
 }
 
+@media (max-width: 1845px) and (max-height: 530px) {
+  .fav .flavors-txt {
+    min-width: max-content;
+  }
+}
+
 @media (max-width: 1834px) {
   .fav .flavors-txt {
     min-width: 20%;
+  }
+}
+
+@media (max-width: 1834px) and (max-height: 530px) {
+  .fav .flavors-txt {
+    min-width: max-content;
   }
 }
 
@@ -687,6 +734,22 @@
 
   #description {
     font-size: 2.6rem;
+  }
+}
+
+@media (max-width: 1800px) and (max-height: 530px) {
+  .flavors-txt h2 {
+    font-size: 2.6rem;
+  }
+
+  .flavors-txt h1 {
+    font-size: 3.6rem;
+  }
+}
+
+@media (max-width: 1787px) {
+  .cake-flav .flavors-txt {
+    width: 25%;
   }
 }
 
@@ -774,6 +837,12 @@
   .contact.contact-txt p {
     position: unset;
     width: unset;
+  }
+}
+
+@media (max-width: 1581px) {
+  .cake-flav .flavors-txt {
+    width: 28%;
   }
 }
 
@@ -867,6 +936,12 @@
   }
 }
 
+@media (max-width: 1490px) and (max-height: 530px) {
+  .fav .flavors-txt {
+    min-width: max-content;
+  }
+}
+
 @media (max-width: 1475px) {
   .gallery p {
     font-size: 1.8rem;
@@ -878,8 +953,8 @@
     font-size: 2.3rem;
   }
 
-  .cake-flav .flavors-txt {
-    width: 40%;
+  .cake-flav .flavors-txt.row p {
+    font-size: 2rem;
   }
 }
 
@@ -907,6 +982,12 @@
 @media (max-width: 1425px) and (max-height: 1060px) {
   .cake-flav .flavors-txt {
     width: 52%;
+  }
+}
+
+@media (max-width: 1490px) {
+  .cake-flav .flavors-txt {
+    width: 32%;
   }
 }
 
@@ -950,9 +1031,9 @@
     padding-left: 2.4rem;
   }
 
-  .cake-flav .flavors-txt.row {
+  /* .cake-flav .flavors-txt.row {
     width: 50%;
-  }
+  } */
 
   .flavors-txt h2 {
     font-size: 3.1rem;
@@ -966,13 +1047,13 @@
     padding-left: 4.8rem;
   }
 
-  .cake-flav .flavors-txt {
+  /* .cake-flav .flavors-txt {
     width: 60%;
     flex-direction: row;
-  }
-  .cake-flav .flavors-txt p {
+  } */
+  /* .cake-flav .flavors-txt p {
     align-self: flex-end;
-  }
+  } */
   .fillings .flavors-txt {
     width: 70%;
   }
@@ -986,6 +1067,13 @@
     max-width: 40%;
   }
 }
+
+@media (max-width: 1380px) and (max-height: 530px) {
+  .fav .flavors-txt {
+    display: none;
+  }
+}
+
 @media (max-width: 1328px) {
   .servings {
     min-width: 20%;
