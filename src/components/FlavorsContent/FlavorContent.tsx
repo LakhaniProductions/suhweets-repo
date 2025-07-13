@@ -9,7 +9,7 @@ import {
 import TextPanel from "../TextPanel/TextPanel";
 import { GalleryImgLoadContext } from "../../context/GalleryImgLoadContext";
 import useWindowDimensions from "../../hooks/useWindowDimensions";
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 const FlavorsContent = () => {
   const context = useContext(GalleryImgLoadContext);
@@ -20,7 +20,7 @@ const FlavorsContent = () => {
   const { selectedMenuItem } = useParams();
   // const navigate = useNavigate();
 
-  const { width, height } = useWindowDimensions();
+  const { width } = useWindowDimensions();
   const { setShowLoadingGif, showLoadingGif } = context;
   const flavorImages = Object.values(
     import.meta.glob("../../img/cakeflavors/*.{png,jpg,jpeg}", {
