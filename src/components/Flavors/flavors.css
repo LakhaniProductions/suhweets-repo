@@ -120,6 +120,10 @@
 }
 
 @media (max-width: 2560px) and (max-height: 860px) {
+  .flavors-content {
+    padding-left: 4.8rem;
+  }
+
   .cake-flav .flavors-container.cake-flavors {
     overflow-y: scroll;
     height: 100%;
@@ -211,6 +215,42 @@
   .fillings .cake-info-container .title {
     font-size: 3.9rem;
   }
+
+  /*flavors page*/
+
+  .flavors-content.cake-flav {
+    flex-direction: column;
+  }
+
+  .flavors-content.fillings {
+    flex-direction: row;
+  }
+
+  .flavors-container {
+    margin-bottom: 0;
+    margin-top: 3.6rem;
+  }
+
+  .flavors-container.fav {
+    margin-bottom: 0;
+    margin-top: 0rem;
+  }
+  .flavors-container.fillings {
+    margin-bottom: 0;
+    margin-top: 0rem;
+  }
+}
+
+@media (max-width: 2220px) and (max-height: 980px) {
+  .flavors-content.cake-flav {
+    flex-direction: row;
+  }
+  .flavors-container.cake-flavors {
+    margin-top: 0;
+  }
+}
+
+@media (max-width: 2220px) and (max-height: 680px) {
 }
 
 @media (max-width: 2200px) and (max-height: 1294px) {
