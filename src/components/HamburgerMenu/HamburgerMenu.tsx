@@ -107,7 +107,7 @@ const HamburgerMenu = (props: HamburgerMenuProps) => {
           >
             <li>cupcakes</li>
           </Link>
-          <Link
+          {/* <Link
             to="/serving-sizes/1-tier"
             onClick={() => {
               props.setMenuFade!({
@@ -118,8 +118,8 @@ const HamburgerMenu = (props: HamburgerMenuProps) => {
             }}
           >
             <li>serving sizes</li>
-          </Link>
-          <Link
+          </Link> */}
+          {/* <Link
             to="/flavors/baker-favorites/berries-&-cream"
             onClick={() => {
               props.setMenuFade!({
@@ -130,7 +130,7 @@ const HamburgerMenu = (props: HamburgerMenuProps) => {
             }}
           >
             <li>cake flavors</li>
-          </Link>
+          </Link> */}
           <Link
             to="/about-us"
             onClick={() => {

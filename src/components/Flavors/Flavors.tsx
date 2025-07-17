@@ -19,7 +19,8 @@ const Flavors = (props: FlavorsProps) => {
   const { showLoadingGif } = context;
   const { selectedMenuItem } = useParams();
 
-  const menu = ["baker's favorites", "cake flavors", "fillings"];
+  // const menu = ["baker's favorites", "cake flavors", "fillings"];
+  const menu = ["baker's favorites", "flavors & fillings"];
   const [secClass, setSecClass] = useState("");
 
   useEffect(() => {
@@ -31,9 +32,7 @@ const Flavors = (props: FlavorsProps) => {
   }, []);
 
   useEffect(() => {
-    if (selectedMenuItem === "cake-flavors") {
-      setSecClass("cake-flav");
-    } else if (selectedMenuItem === "fillings") {
+    if (selectedMenuItem === "fillings") {
       setSecClass("fillings");
     } else {
       setSecClass("fav");

@@ -39,7 +39,8 @@ const PageNav = (props: PageNavProps) => {
         `/flavors/${
           target.innerHTML.includes("'")
             ? "baker-favorites/berries-&-cream"
-            : target.innerHTML.replace(" ", "-")
+            : // : target.innerHTML.replace(" ", "-")
+              "fillings"
         }`
       );
     } else {
@@ -51,11 +52,7 @@ const PageNav = (props: PageNavProps) => {
     if (location.pathname.includes("serving-sizes")) {
       setActive(`${props.menu.indexOf(selectedMenuItem!.replace("-", " "))}`);
     } else if (location.pathname.includes("flavors")) {
-      selectedMenuItem!.includes("baker")
-        ? setActive("0")
-        : setActive(
-            `${props.menu.indexOf(selectedMenuItem!.replace("-", " "))}`
-          );
+      selectedMenuItem!.includes("baker") ? setActive("0") : setActive("1");
     } else {
       setActive(
         `${props.menu.indexOf(selectedMenuItem!.replace("-inch", '"'))}`
