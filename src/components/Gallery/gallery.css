@@ -2646,12 +2646,12 @@
 }
 
 @media (max-width: 1020px) {
-  .gallery-thumbnails-container {
-    max-width: 24dvw;
+  /* .gallery-thumbnails-container {
+    max-width: 26dvw;
     flex-direction: row;
     padding: 0;
     margin: 0;
-  }
+  } */
   .gallery-mainImg-container.flavors {
     max-width: 65%;
   }
