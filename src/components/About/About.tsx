@@ -152,9 +152,8 @@ const About = (props: AboutProps) => {
                   In 2014, with a desire for a new, immersive experience, Suhei
                   left her home country of Panama to pursue her dream of
                   learning English. Little did she know that what was meant to
-                  be a temporary visit to the U.S. would become a permanent stay
-                  and that the boy she was dating would turn out to be the love
-                  of her life and eventual business partner.
+                  be a temporary visit to the U.S. would become a permanent
+                  stay.
                   <br />
                   <br />
                   With no intention whatsoever, Suhei made her first cake for
