@@ -1,44 +1,44 @@
 import { Link } from "react-router-dom";
 import "./jumbotron.css";
-import { JumbotronProps } from "./Jumbotron.types";
-import { useEffect, useState } from "react";
+// import { JumbotronProps } from "./Jumbotron.types";
+// import { useEffect, useState } from "react";
 
-const Jumbotron = (props: JumbotronProps) => {
-  const [lineWidthClass, setLineWidthClass] = useState<string>("gallery");
-  const [linkText, setLinkText] = useState<string>("view our gallery");
-  let contentObj: Record<string, any>;
-  {
-    props.content.map((content) =>
-      Object.keys(content).filter((key) => {
-        if (key === "linkFor") {
-          if (content[key] === props.jumbotron) {
-            contentObj = content;
-            return contentObj;
-          }
-        }
-      })
-    );
-  }
+const Jumbotron = () => {
+  // const [lineWidthClass, setLineWidthClass] = useState<string>("gallery");
+  // const [linkText, setLinkText] = useState<string>("view our gallery");
+  // let contentObj: Record<string, any>;
+  // {
+  //   props.content.map((content) =>
+  //     Object.keys(content).filter((key) => {
+  //       if (key === "linkFor") {
+  //         if (content[key] === props.jumbotron) {
+  //           contentObj = content;
+  //           return contentObj;
+  //         }
+  //       }
+  //     })
+  //   );
+  // }
   // const getLinkText = () => {
   //   let linkText;
 
   //   return linkText;
   // };
 
-  useEffect(() => {
-    if (contentObj) {
-      if (props.jumbotron === "signature") {
-        setLinkText("view our cakes");
-        setLineWidthClass("cakes-line");
-      } else if (props.jumbotron === "cupcakes") {
-        setLinkText("view our cupcakes");
-        setLineWidthClass("cup-cakes-line");
-      } else {
-        setLinkText("view gallery");
-        setLineWidthClass("gallery-line");
-      }
-    }
-  }, [props.jumbotron]);
+  // useEffect(() => {
+  //   if (contentObj) {
+  //     if (props.jumbotron === "signature") {
+  //       setLinkText("view our cakes");
+  //       setLineWidthClass("cakes-line");
+  //     } else if (props.jumbotron === "cupcakes") {
+  //       setLinkText("view our cupcakes");
+  //       setLineWidthClass("cup-cakes-line");
+  //     } else {
+  //       setLinkText("view gallery");
+  //       setLineWidthClass("gallery-line");
+  //     }
+  //   }
+  // }, [props.jumbotron]);
 
   return (
     <div className="jumbotron">
@@ -61,7 +61,7 @@ const Jumbotron = (props: JumbotronProps) => {
         View Galleryzdg
       </Link>
 
-      <p className={`btn-home-line ${lineWidthClass}`}>&nbsp;</p>
+      <p className={`btn-home-line gallery-line`}>&nbsp;</p>
     </div>
   );
 };
