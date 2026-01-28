@@ -95,7 +95,7 @@ const Home = (props: HomeProps) => {
         <Jumbotron content={jumbotronContent} jumbotron={jumbotron} />
       </MenuContext.Provider>
 
-      <MainNav menu={homeMenu} setJumbotron={setJumbotron} />
+      {/* <MainNav menu={homeMenu} setJumbotron={setJumbotron} /> */}
 
       <div
         className="bg-img-container"
