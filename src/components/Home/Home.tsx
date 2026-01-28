@@ -1,5 +1,5 @@
 import { HomeProps } from "./Home.types";
-// import weddingBG from "../../img/home-backgrounds/wedding-1.jpg";
+import weddingBG from "../../img/home-backgrounds/wedding-1.jpg";
 // import customBG from "../../img/home-backgrounds/wedding.jpg";
 // import signature from "../../img/home-backgrounds/signature.jpg";
 
@@ -88,10 +88,12 @@ const Home = (props: HomeProps) => {
         <Jumbotron />
       </MenuContext.Provider>
 
-      {/* <div
+      <div
         className="bg-img-container"
-        style={{ backgroundImage: `${imgStyle}` }}
-      ></div> */}
+        style={{
+          backgroundImage: `linear-gradient(to right, rgba(255, 255, 255, 0.93), rgba(255, 255, 255, 0.3)), url(${weddingBG})`
+        }}
+      ></div>
     </section>
   );
 };
