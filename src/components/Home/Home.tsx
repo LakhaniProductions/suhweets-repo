@@ -1,4 +1,4 @@
-import MainNav from "../MainNav/MainNav";
+// import MainNav from "../MainNav/MainNav";
 import { HomeProps } from "./Home.types";
 import weddingBG from "../../img/home-backgrounds/wedding-1.jpg";
 import customBG from "../../img/home-backgrounds/wedding.jpg";
@@ -90,12 +90,12 @@ const Home = (props: HomeProps) => {
         }}
       >
         <Header setMenuFade={props.setMenuFade} />
-        {/* <HamburgerMenu /> */}
+        <HamburgerMenu />
 
         <Jumbotron content={jumbotronContent} jumbotron={jumbotron} />
       </MenuContext.Provider>
 
-      <MainNav menu={homeMenu} setJumbotron={setJumbotron} />
+      {/* <MainNav menu={homeMenu} setJumbotron={setJumbotron} /> */}
 
       <div
         className="bg-img-container"
