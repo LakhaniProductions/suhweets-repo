@@ -1,4 +1,3 @@
-// import MainNav from "../MainNav/MainNav";
 import { HomeProps } from "./Home.types";
 import weddingBG from "../../img/home-backgrounds/wedding-1.jpg";
 import customBG from "../../img/home-backgrounds/wedding.jpg";
@@ -63,11 +62,6 @@ const Home = (props: HomeProps) => {
 
   let imgStyle;
 
-  // useEffect(() => {
-  //   console.log(jumbotron);
-
-  // }, [jumbotron]);
-
   if (jumbotron === "wedding") {
     imgStyle = `linear-gradient(to right, rgba(255, 255, 255, 0.93), rgba(255, 255, 255, 0.3)), url(${weddingBG})`;
   } else if (jumbotron === "custom") {
@@ -91,12 +85,8 @@ const Home = (props: HomeProps) => {
       >
         <Header setMenuFade={props.setMenuFade} />
         <HamburgerMenu />
-
-        {/* <Jumbotron content={jumbotronContent} jumbotron={jumbotron} /> */}
         <Jumbotron />
       </MenuContext.Provider>
-
-      {/* <MainNav menu={homeMenu} setJumbotron={setJumbotron} /> */}
 
       <div
         className="bg-img-container"
