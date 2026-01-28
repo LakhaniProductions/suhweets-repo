@@ -1,4 +1,4 @@
 export interface JumbotronProps {
-  content: Record<string, string>[];
-  jumbotron: string;
+  // content: Record<string, string>[];
+  // jumbotron: string;
 }
