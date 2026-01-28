@@ -92,7 +92,8 @@ const Home = (props: HomeProps) => {
         <Header setMenuFade={props.setMenuFade} />
         <HamburgerMenu />
 
-        <Jumbotron content={jumbotronContent} jumbotron={jumbotron} />
+        {/* <Jumbotron content={jumbotronContent} jumbotron={jumbotron} /> */}
+        <Jumbotron />
       </MenuContext.Provider>
 
       {/* <MainNav menu={homeMenu} setJumbotron={setJumbotron} /> */}
