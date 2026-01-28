@@ -63,7 +63,7 @@ const About = (props: AboutProps) => {
             h2={"about"}
             h1={"suhweets"}
             p={
-              "We’re an award-winning, couple-owned cake shop that specializes in elegant and artistic cakes for all celebrations. In addition to crafting the most beautiful designs possible, we pride ourselves on producing delicious cakes that are made completely from scratch with the freshest ingredients. Founded and located in the historic town of Manassas, we’ve grown to serve the greater Virginia, D.C., and Maryland area. We’ve even made cakes internationally—in Costa Rica and Panama!"
+              "We’re an award-winning cake shop that specializes in elegant and artistic cakes for all celebrations. We pride ourselves in producing delicious cakes that are made completely from scratch with the freshest ingredients."
             }
             widthClass={"about"}
           />
