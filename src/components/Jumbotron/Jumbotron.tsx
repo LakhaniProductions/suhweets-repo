@@ -42,12 +42,23 @@ const Jumbotron = (props: JumbotronProps) => {
 
   return (
     <div className="jumbotron">
-      <h2 className="sub-heading-home">{contentObj!.subhead}</h2>
-      <h1 className="heading-home">{contentObj!.heading}</h1>
-      <p className="body-text-home">{contentObj!.bodytxt}</p>
+      {/* <h2 className="sub-heading-home">{contentObj!.subhead}</h2> */}
+      <h2 className="sub-heading-home">the wedding cake</h2>
+      {/* <h1 className="heading-home">{contentObj!.heading}</h1>*/}
+      <h1 className="heading-home">of your dreams</h1>
 
-      <Link className="home-pg-links" to={contentObj!.galleryLink}>
+      {/* <p className="body-text-home">{contentObj!.bodytxt}</p> */}
+      <p className="body-text-home">
+        Let us help you capture your vision. Browse our cakes and fall in love
+        again!
+      </p>
+
+      {/* <Link className="home-pg-links" to={contentObj!.galleryLink}>
         {linkText}
+      </Link> */}
+
+      <Link className="home-pg-links" to={"/wedding-cakes/wedding/0"}>
+        View Galleryzdg
       </Link>
 
       <p className={`btn-home-line ${lineWidthClass}`}>&nbsp;</p>
