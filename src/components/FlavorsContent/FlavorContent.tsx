@@ -19,7 +19,7 @@ const FlavorsContent = () => {
   const { selectedMenuItem } = useParams();
   const { setShowLoadingGif, showLoadingGif } = context;
   const flavorImages = Object.values(
-    import.meta.glob("../../img/cakeflavors/*.{png,jpg,jpeg}", {
+    import.meta.glob("../../img/cakeflavors/*.{png,jpg,jpeg,gif}", {
       eager: true,
       as: "url"
     })
