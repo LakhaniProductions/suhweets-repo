@@ -90,12 +90,12 @@ const Home = (props: HomeProps) => {
         }}
       >
         <Header setMenuFade={props.setMenuFade} />
-        <HamburgerMenu />
+        {/* <HamburgerMenu /> */}
 
         <Jumbotron content={jumbotronContent} jumbotron={jumbotron} />
       </MenuContext.Provider>
 
-      {/* <MainNav menu={homeMenu} setJumbotron={setJumbotron} /> */}
+      <MainNav menu={homeMenu} setJumbotron={setJumbotron} />
 
       <div
         className="bg-img-container"
