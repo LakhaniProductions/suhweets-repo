@@ -1,0 +1,105 @@
+.half-container {
+  width: 50%;
+  position: relative;
+}
+
+.hlf-lft {
+  margin-right: 2.4rem;
+}
+
+.half-container img {
+  background-position: center;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.half-container:first-of-type {
+  padding-right: 2.4rem;
+}
+
+.grad {
+  background-image: linear-gradient(
+    to top,
+    rgba(255, 255, 255, 1),
+    rgba(255, 255, 255, 0)
+  );
+  position: absolute;
+  height: 90%;
+  width: 100%;
+  bottom: 0;
+}
+
+.card-txt {
+  position: absolute;
+  font-weight: bold;
+  display: flex;
+  flex-direction: column;
+  top: 90%;
+  left: 0;
+  margin-left: 4.8rem;
+  transform: translateY(-90%);
+}
+
+.card-txt.card-txt-cntr {
+  align-self: center;
+  position: relative;
+  transform: unset;
+  top: unset;
+  margin-left: unset;
+  align-items: center;
+}
+
+.card-txt h4,
+.card-txt p {
+  font-family: "Raleway", sans-serif;
+  font-weight: 300;
+}
+.card-txt h4 {
+  font-size: 3.6rem;
+}
+
+.card-txt h4,
+.card-txt h3 {
+  text-transform: uppercase;
+  padding: 0;
+  margin: 0;
+}
+
+.card-txt h3 {
+  font-size: 4.6rem;
+  font-family: "fjalla one", sans-serif;
+}
+.card-txt p {
+  font-size: 2.3rem;
+  margin: 0;
+}
+
+.card-txt-p {
+  line-height: 2.5;
+}
+.link-box {
+  display: flex;
+  flex-direction: column;
+  max-width: max-content;
+}
+
+.hlf-col-btn {
+  text-decoration: none;
+  font-size: 2.6rem;
+  font-family: "Raleway", sans-serif;
+  text-transform: uppercase;
+  font-style: italic;
+  color: #2d5059;
+  font-weight: 300;
+  width: max-content;
+  margin-bottom: 0.6rem;
+  margin-top: 3.6rem;
+}
+
+.sm-btn-line {
+  background-color: #12d0ff;
+  max-height: 0.6rem;
+  color: #12d0ff;
+  max-height: 0.4rem;
+}

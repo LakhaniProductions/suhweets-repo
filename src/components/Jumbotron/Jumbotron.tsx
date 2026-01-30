@@ -4,9 +4,9 @@ import "./jumbotron.css";
 const Jumbotron = () => {
   return (
     <div className="jumbotron">
-      <h2 className="sub-heading-home">the wedding cake</h2>
+      {/* <h2 className="sub-heading-home">weddings</h2> */}
 
-      <h1 className="heading-home">of your dreams</h1>
+      <h1 className="heading-home">weddings</h1>
 
       <p className="body-text-home">
         Let us help you capture your vision. Browse our cakes and fall in love

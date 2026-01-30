@@ -1,81 +1,49 @@
 import { HomeProps } from "./Home.types";
-import weddingBG from "../../img/home-backgrounds/wedding-1.jpg";
-// import customBG from "../../img/home-backgrounds/wedding.jpg";
-// import signature from "../../img/home-backgrounds/signature.jpg";
+// import weddingBG from "../../img/home-backgrounds/wedding-1.jpg";
+import signature from "../../img/home-backgrounds/signature.jpg";
 
 import "./home.css";
 import Jumbotron from "../Jumbotron/Jumbotron";
 import MenuContext from "../../context/HamburgerMenuContext";
 import Header from "../Header/Header";
 import HamburgerMenu from "../HamburgerMenu/HamburgerMenu";
-// import { useState } from "react";
-// import { useLocation } from "react-router-dom";
+import HomeCard from "../HomeCard/HomeCard";
+import customBG from "../../img/home-backgrounds/custom-half.jpg";
+import cupcakes from "../../img/home-backgrounds/cupcakes.jpg";
+import HomeCardText from "../HomeCardText/HomeCardText";
 
 const Home = (props: HomeProps) => {
-  // const location = useLocation();
-  // const [homeMenu, setHomeMenu] = useState<string[]>([]);
-  // const [jumbotron, setJumbotron] = useState<string>("wedding");
-  // const jumbotronContent: Record<string, string>[] = [
-  //   {
-  //     subhead: "the wedding cake",
-  //     heading: " of your dreams",
-  //     bodytxt:
-  //       "Let us help you capture your vision. Browse our cakes and fall in love again!",
-  //     galleryLink: "/wedding-cakes/wedding/0",
-  //     linkFor: "wedding"
-  //   },
-  //   {
-  //     subhead: "one step closer",
-  //     heading: "to the first slice",
-  //     bodytxt:
-  //       "View an assortment of custom cakes inspired by brilliant ideas like yours!",
-  //     galleryLink: "/custom-cakes/all/0",
-  //     linkFor: "custom"
-  //   },
-  //   {
-  //     subhead: "baker's",
-  //     heading: "Choice",
-  //     bodytxt:
-  //       "A collection of signature cakes that are as delicious as they are stunning",
-  //     galleryLink: "/signature-cakes/6-inch",
-  //     linkFor: "signature"
-  //   },
-  //   {
-  //     subhead: "our best",
-  //     heading: "cupcakes",
-  //     bodytxt:
-  //       "View our assortment of custom cakes inspired by brilliant ideas of dreamers just like you!",
-  //     galleryLink: "/cupcakes",
-  //     linkFor: "cupcakes"
-  //   }
-  // ];
-
-  // /* CREATE HOME MENU OPTIONS */
-  // {
-  //   jumbotronContent.length !== homeMenu.length &&
-  //     jumbotronContent.map((card) =>
-  //       setHomeMenu((prevState: string[]) => {
-  //         return [...prevState, card.linkFor];
-  //       })
-  //     );
-  // }
-
-  // let imgStyle;
-
-  // if (jumbotron === "wedding") {
-  //   imgStyle = `linear-gradient(to right, rgba(255, 255, 255, 0.93), rgba(255, 255, 255, 0.3)), url(${weddingBG})`;
-  // } else if (jumbotron === "custom") {
-  //   imgStyle = `linear-gradient(to right, rgba(255, 255, 255, 0.93), rgba(255, 255, 255, 0.3)), url(${customBG})`;
-  // } else {
-  //   imgStyle = `linear-gradient(to right, rgba(255, 255, 255, 0.93), rgba(255, 255, 255, 0.3)), url(${signature})`;
-  // }
-
-  // useEffect(() => {
-  //   setJumbotron(homeMenu[0]);
-  // }, [location]);
+  const homeCardContent: Record<string, string>[] = [
+    {
+      subhead: "our",
+      heading: "creations",
+      bodytxt: "Custom cakes created with brilliant ideas like yours!",
+      galleryLink: "/custom-cakes/all/0",
+      linkText: "view gallery",
+      image: `${customBG}`
+    },
+    {
+      subhead: "baker's",
+      heading: "style",
+      bodytxt:
+        "A collection of signature cakes that are as delicious as they are stunning",
+      galleryLink: "/signature-cakes/6-inch",
+      linkText: "shop cakes",
+      image: `${signature}`
+    },
+    {
+      subhead: "",
+      heading: "cupcakes",
+      bodytxt: "",
+      galleryLink: "/cupcakes",
+      linkFor: "cupcakes",
+      linkText: "shop cupcakes",
+      image: `${customBG}`
+    }
+  ];
 
   return (
-    <section className="container">
+    <section className="home-container">
       <MenuContext.Provider
         value={{
           BGClass: props.menuFade.BGClass,
@@ -88,12 +56,18 @@ const Home = (props: HomeProps) => {
         <Jumbotron />
       </MenuContext.Provider>
 
-      <div
-        className="bg-img-container"
-        style={{
-          backgroundImage: `linear-gradient(to right, rgba(255, 255, 255, 0.93), rgba(255, 255, 255, 0.3)), url(${weddingBG})`
-        }}
-      ></div>
+      <div className="two-col-container">
+        <HomeCard cardContent={homeCardContent[0]} />
+        <HomeCard cardContent={homeCardContent[1]} />
+      </div>
+
+      <div className="hor-card">
+        <HomeCardText
+          cardContent={homeCardContent[2]}
+          altClass={"card-txt-cntr"}
+        />
+        <img src={cupcakes} style={{ position: "absolute" }} alt="" />
+      </div>
     </section>
   );
 };
