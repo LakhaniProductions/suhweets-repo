@@ -99,7 +99,33 @@
 
 .sm-btn-line {
   background-color: #12d0ff;
-  max-height: 0.6rem;
   color: #12d0ff;
   max-height: 0.4rem;
+}
+
+@media (max-width: 1720px) {
+  .card-txt h4 {
+    font-size: 2.9rem;
+  }
+  .card-txt h3 {
+    font-size: 3.6rem;
+  }
+  .card-txt p {
+    font-size: 2rem;
+    margin: 0;
+  }
+  .hlf-col-btn {
+    font-size: 2.3rem;
+    margin-top: 2.4rem;
+  }
+}
+
+@media (max-width: 1570px) {
+  .card-txt h3 {
+    margin-bottom: 1.2rem;
+  }
+  .card-txt p {
+    width: 75%;
+    line-height: 1.5;
+  }
 }
