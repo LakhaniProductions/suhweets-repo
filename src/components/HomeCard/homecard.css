@@ -43,11 +43,13 @@
 
 .card-txt.card-txt-cntr {
   align-self: center;
-  position: relative;
-  transform: unset;
+  position: absolute;
   top: unset;
   margin-left: unset;
   align-items: center;
+  transform: translate(-50%, -5%);
+  left: 50%;
+  top: 5%;
 }
 
 .card-txt h4,
@@ -96,6 +98,9 @@
   margin-bottom: 0.6rem;
   margin-top: 3.6rem;
 }
+.hlf-col-btn.cup {
+  margin-top: 1.2rem;
+}
 
 .sm-btn-line {
   background-color: #12d0ff;
@@ -121,11 +126,49 @@
 }
 
 @media (max-width: 1570px) {
+  .card-txt h4 {
+    font-size: 2.3rem;
+  }
   .card-txt h3 {
+    font-size: 2.9rem;
     margin-bottom: 1.2rem;
   }
+
   .card-txt p {
-    width: 75%;
+    font-size: 1.8rem;
     line-height: 1.5;
+    margin: 0;
+  }
+
+  .card-txt-p {
+    max-width: 75%;
+  }
+  .hlf-col-btn {
+    font-size: 2rem;
+  }
+  .hlf-col-btn.cup {
+    margin-top: 0;
+  }
+  .half-container:first-of-type {
+    padding-right: 1.2rem;
+  }
+}
+
+@media (max-width: 890px) {
+  .card-txt {
+    margin-left: 2.4rem;
+  }
+
+  .half-container:first-of-type {
+    margin-bottom: 1.2rem;
+  }
+}
+
+@media (max-width: 840px) {
+  .half-container {
+    width: 100%;
+  }
+  .half-container:first-of-type {
+    padding-right: 0;
   }
 }

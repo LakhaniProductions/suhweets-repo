@@ -128,6 +128,12 @@
   }
 }
 
+@media (max-width: 890px) {
+  .jumbo-txt-box {
+    margin-left: 2.4rem;
+  }
+}
+
 @media (max-width: 660px) {
   .jumbo-grad {
     background-image: linear-gradient(
@@ -143,7 +149,6 @@
     top: unset;
     transform: none;
     bottom: 15%;
-    margin-left: 2.4rem;
   }
 }
 

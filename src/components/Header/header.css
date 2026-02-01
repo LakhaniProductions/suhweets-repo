@@ -116,7 +116,8 @@
   height: 0.5rem;
   border: none;
 }
-@media (max-width: 660px) {
+
+@media (max-width: 890px) {
   .header {
     padding: 0 4.8rem 0 2.4rem;
   }

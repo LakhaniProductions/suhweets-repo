@@ -21,10 +21,56 @@
 }
 
 .hor-card {
-  width: 192rem;
-  height: auto;
+  max-width: 192rem;
+  width: 100%;
+
   display: flex;
   align-self: center;
   flex-direction: column;
-  margin-top: 9.6rem;
+  margin: 2.4rem 0;
+  position: relative;
+}
+
+.hor-img-box {
+  overflow-x: scroll;
+  overflow-y: hidden;
+}
+
+.hor-img-box::-webkit-scrollbar {
+  height: 0.8rem;
+}
+.hor-img-box::-webkit-scrollbar-track {
+  background: white;
+  margin: 2.4rem;
+}
+.hor-img-box::-webkit-scrollbar-thumb {
+  background: #a6a6a6;
+  border-radius: 1rem;
+}
+
+@media (max-width: 1720px) {
+  .home-cupcakes {
+    max-width: 180rem;
+  }
+}
+
+@media (max-width: 1570px) {
+  .two-col-container {
+    margin-top: 1.2rem;
+  }
+  .home-cupcakes {
+    max-width: 170rem;
+  }
+}
+
+@media (max-width: 900px) {
+  .home-cupcakes {
+    max-width: 130rem;
+  }
+}
+
+@media (max-width: 840px) {
+  .two-col-container {
+    flex-direction: column;
+  }
 }

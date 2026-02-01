@@ -1,5 +1,5 @@
 import { HomeProps } from "./Home.types";
-// import weddingBG from "../../img/home-backgrounds/wedding-1.jpg";
+// import weddingPort from "../../img/home-backgrounds/weddingport.jpg";
 import signature from "../../img/home-backgrounds/signature.jpg";
 
 import "./home.css";
@@ -9,6 +9,8 @@ import Header from "../Header/Header";
 import HamburgerMenu from "../HamburgerMenu/HamburgerMenu";
 import HomeCard from "../HomeCard/HomeCard";
 import customBG from "../../img/home-backgrounds/custom-half.jpg";
+import customLSBG from "../../img/home-backgrounds/custom-ls.jpg";
+import customSQ from "../../img/home-backgrounds/custom-square.jpg";
 import cupcakes from "../../img/home-backgrounds/cupcakes.jpg";
 import HomeCardText from "../HomeCardText/HomeCardText";
 
@@ -17,10 +19,12 @@ const Home = (props: HomeProps) => {
     {
       subhead: "our",
       heading: "creations",
-      bodytxt: "Custom cakes created with brilliant ideas like yours!",
+      bodytxt: "Custom cakes inspired by brilliant ideas like yours!",
       galleryLink: "/custom-cakes/all/0",
       linkText: "view gallery",
-      image: `${customBG}`
+      image: `${customBG}`,
+      secondaryImg: `${customLSBG}`,
+      tertiaryImg: `${customSQ}`
     },
     {
       subhead: "baker's",
@@ -29,7 +33,9 @@ const Home = (props: HomeProps) => {
         "A collection of signature cakes that are as delicious as they are stunning",
       galleryLink: "/signature-cakes/6-inch",
       linkText: "shop cakes",
-      image: `${signature}`
+      image: `${signature}`,
+      secondaryImg: `${customLSBG}`,
+      tertiaryImg: `${customSQ}`
     },
     {
       subhead: "",
@@ -66,7 +72,9 @@ const Home = (props: HomeProps) => {
           cardContent={homeCardContent[2]}
           altClass={"card-txt-cntr"}
         />
-        <img src={cupcakes} style={{ position: "absolute" }} alt="" />
+        <div className="hor-img-box">
+          <img className="home-cupcakes" src={cupcakes} alt="" />
+        </div>
       </div>
     </section>
   );
