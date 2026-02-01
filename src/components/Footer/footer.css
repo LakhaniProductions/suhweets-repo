@@ -1,0 +1,30 @@
+.footer {
+  display: flex;
+  /* justify-content: center; */
+  background: #fee5ee;
+
+  flex-direction: column;
+}
+
+.add-details,
+.footer-content {
+  display: flex;
+  max-width: 192rem;
+  align-self: center;
+  width: 100%;
+}
+.biz-details {
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.6rem;
+}
+.footer-content p {
+  font-size: 1.6rem;
+}
+
+.copyright {
+  text-align: center;
+  font-size: 2rem;
+  padding: 2.4rem 0;
+  color: #2d5059;
+}

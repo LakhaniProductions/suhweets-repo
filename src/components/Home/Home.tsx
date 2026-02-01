@@ -13,6 +13,7 @@ import customLSBG from "../../img/home-backgrounds/custom-ls.jpg";
 import customSQ from "../../img/home-backgrounds/custom-square.jpg";
 import cupcakes from "../../img/home-backgrounds/cupcakes.jpg";
 import HomeCardText from "../HomeCardText/HomeCardText";
+import Footer from "../Footer/Footer";
 
 const Home = (props: HomeProps) => {
   const homeCardContent: Record<string, string>[] = [
@@ -76,6 +77,7 @@ const Home = (props: HomeProps) => {
           <img className="home-cupcakes" src={cupcakes} alt="" />
         </div>
       </div>
+      <Footer />
     </section>
   );
 };
