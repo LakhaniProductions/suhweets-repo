@@ -1,0 +1,14 @@
+.home-btn {
+  text-decoration: none;
+
+  font-family: "Raleway", sans-serif;
+
+  background-color: #12d0ff;
+  color: #ffffff;
+  border-radius: 50px;
+  width: max-content;
+}
+.jumbo-btn {
+  font-size: 2.6rem;
+  padding: 1.2rem 3.6rem;
+}

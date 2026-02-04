@@ -5,6 +5,7 @@ import "./jumbotron.css";
 import wedding from "../../img/home-backgrounds/weddingnew.jpg";
 import weddingPort from "../../img/home-backgrounds/weddingport.jpg";
 import { useEffect, useState } from "react";
+import HomeBtn from "../HomeBtn/HomeBtn";
 
 const Jumbotron = () => {
   const { width, height } = useWindowDimensions();
@@ -27,13 +28,7 @@ const Jumbotron = () => {
           Let us help you capture your vision. <br></br> Browse our cakes and
           fall in love again!
         </p>
-        <div className="jumbo-link-box">
-          <Link className="home-pg-links" to={"/wedding-cakes/wedding/0"}>
-            View Gallery
-          </Link>
-
-          <p className={`btn-home-line gallery-line`}>&nbsp;</p>
-        </div>
+        <HomeBtn secClass={"jumbo-btn"} />
       </div>
       <div className="jumbo-grad"></div>
       <img src={imgSRC} alt="" />

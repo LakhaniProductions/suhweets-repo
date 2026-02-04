@@ -41,6 +41,7 @@
   font-family: "fjalla one";
   font-size: 7.4rem;
   padding-bottom: 2.6rem;
+  line-height: 1;
 }
 
 .sub-heading-home {
@@ -54,25 +55,7 @@
 .body-text-home {
   font-size: 2.9rem;
   line-height: 1.5;
-  padding-bottom: 0.9rem;
-}
-.jumbo-link-box {
-  margin-top: 2.4rem;
-  width: max-content;
-}
-
-.home-pg-links {
-  text-decoration: none;
-  font-size: 3.6rem;
-  font-family: "Raleway", sans-serif;
-  text-transform: uppercase;
-  font-style: italic;
-  color: #2d5059;
-}
-.btn-home-line {
-  background-color: #12d0ff;
-  max-height: 0.4rem;
-  color: #12d0ff;
+  padding-bottom: 3.6rem;
 }
 
 @media (max-width: 1500px) {
