@@ -192,7 +192,7 @@
   font-family: "fjalla one", sans-serif;
   text-transform: uppercase;
 }
-.icon-facebook,
+/* .icon-facebook,
 .icon-instagram,
 .icon-the-knot,
 .icon-weddingwire {
@@ -200,7 +200,7 @@
   color: #526166;
   cursor: pointer;
   margin-right: 4.8rem;
-}
+} */
 
 /* ANIMATIONS*/
 
@@ -676,7 +676,7 @@
   }
 }
 @media (max-width: 380px) {
-  .icon-facebook,
+  /* .icon-facebook,
   .icon-instagram,
   .icon-the-knot,
   .icon-weddingwire {
@@ -684,7 +684,7 @@
     color: #526166;
     cursor: pointer;
     margin-right: 2.4rem;
-  }
+  } */
 }
 
 @media (max-width: 320px) {

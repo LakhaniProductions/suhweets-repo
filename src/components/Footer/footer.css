@@ -4,6 +4,7 @@
   background: #fee5ee;
 
   flex-direction: column;
+  padding: 9.6rem 4.8rem;
 }
 
 .add-details,
@@ -13,18 +14,138 @@
   align-self: center;
   width: 100%;
 }
+.footer-content {
+  justify-content: space-between;
+}
+.add-details {
+  border-top: 1px solid #2d5059;
+  justify-content: space-between;
+}
 .biz-details {
   display: flex;
   flex-direction: column;
-  row-gap: 0.6rem;
+  row-gap: 1.2rem;
+  margin-bottom: 1.2rem;
+}
+.comp-row {
+  display: flex;
+  flex-direction: column;
+  row-gap: 1.2rem;
+  max-width: 29.4rem;
+  width: 100%;
+  list-style: none;
+}
+
+.footer-logo {
+  max-width: 15rem;
+  width: 100%;
+  margin-bottom: 1.2rem;
 }
 .footer-content p {
   font-size: 1.6rem;
+  color: #2d5059;
+}
+.footer-content .footer-label {
+  font-family: "fjalla one", sans-serif;
+  font-size: 2rem;
+  /* min-height: 4.3rem; */
+  justify-self: flex-end;
+  margin-top: 1.8rem;
+  margin-bottom: 1.2rem;
+}
+.footer-content a {
+  font-size: 1.6rem;
+  text-decoration: none;
+  color: #2d5059;
+}
+
+.footer-content a:visited {
+  color: #2d5059;
 }
 
 .copyright {
   text-align: center;
-  font-size: 2rem;
-  padding: 2.4rem 0;
+  font-size: 1.6rem;
   color: #2d5059;
+  border: 0.1, #2d5059;
+  padding-top: 1.2rem;
+}
+
+.socials {
+  margin-top: 1.2rem;
+  display: flex;
+  align-items: center;
+}
+.socials a {
+  text-decoration: none;
+}
+
+.icon-facebook,
+.icon-instagram,
+.icon-the_knot,
+.icon-weddingwire {
+  color: #526166;
+  cursor: pointer;
+  margin-right: 4.8rem;
+}
+.icon-facebook,
+.icon-instagram,
+.icon-the_knot,
+.icon-weddingwire {
+  font-size: 3rem;
+}
+
+.icon-the_knot {
+  font-size: 2.5rem;
+  margin-right: 0;
+}
+
+@media (max-width: 890px) {
+  .footer {
+    padding: 4.8rem 2.4rem;
+  }
+}
+
+@media (max-width: 700px) {
+  .comp-row {
+    align-items: flex-end;
+    padding-right: 1.2rem;
+  }
+  .add-details {
+    flex-direction: column-reverse;
+    row-gap: 1.2rem;
+  }
+  .socials {
+    justify-content: space-between;
+    width: 100%;
+  }
+}
+
+@media (max-width: 602px) {
+  .footer {
+    padding: 4.8rem 3.6rem 2.4rem 2.4rem;
+  }
+  .footer-content {
+    flex-direction: column;
+  }
+  .biz-details {
+    margin-bottom: 4.8rem;
+  }
+
+  .footer-content .footer-label {
+    margin: 0;
+  }
+
+  .footer-logo {
+    margin-bottom: 0;
+  }
+
+  .comp-row {
+    align-items: unset;
+    padding-right: 1.2rem;
+    margin-bottom: 2.4rem;
+  }
+  .socials {
+    margin-top: 2.4rem;
+  }
 }
