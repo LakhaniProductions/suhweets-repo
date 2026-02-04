@@ -22,7 +22,7 @@ const Home = (props: HomeProps) => {
       heading: "creations",
       bodytxt: "Custom cakes inspired by brilliant ideas like yours!",
       galleryLink: "/custom-cakes/all/0",
-      linkText: "view gallery",
+      linkText: "View gallery",
       image: `${customBG}`,
       secondaryImg: `${customLSBG}`,
       tertiaryImg: `${customSQ}`
@@ -33,7 +33,7 @@ const Home = (props: HomeProps) => {
       bodytxt:
         "A collection of signature cakes that are as delicious as they are stunning",
       galleryLink: "/signature-cakes/6-inch",
-      linkText: "shop cakes",
+      linkText: "Shop cakes",
       image: `${signature}`,
       secondaryImg: `${customLSBG}`,
       tertiaryImg: `${customSQ}`
@@ -44,7 +44,7 @@ const Home = (props: HomeProps) => {
       bodytxt: "",
       galleryLink: "/cupcakes",
       linkFor: "cupcakes",
-      linkText: "shop cupcakes",
+      linkText: "Shop cupcakes",
       image: `${customBG}`
     }
   ];
@@ -60,7 +60,10 @@ const Home = (props: HomeProps) => {
       >
         <Header setMenuFade={props.setMenuFade} />
         <HamburgerMenu />
-        <Jumbotron />
+        <Jumbotron
+          btnLink={"/wedding-cakes/wedding/0"}
+          btnTxt={"View gallery"}
+        />
       </MenuContext.Provider>
 
       <div className="two-col-container">

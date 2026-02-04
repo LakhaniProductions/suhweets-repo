@@ -5,8 +5,9 @@ import wedding from "../../img/home-backgrounds/weddingnew.jpg";
 import weddingPort from "../../img/home-backgrounds/weddingport.jpg";
 import { useEffect, useState } from "react";
 import HomeBtn from "../HomeBtn/HomeBtn";
+import { JumbotronProps } from "./Jumbotron.types";
 
-const Jumbotron = () => {
+const Jumbotron = (props: JumbotronProps) => {
   const { width, height } = useWindowDimensions();
   const [imgSRC, setImgSRC] = useState(wedding);
   useEffect(() => {
@@ -27,7 +28,11 @@ const Jumbotron = () => {
           Let us help you capture your vision. <br></br> Browse our cakes and
           fall in love again!
         </p>
-        <HomeBtn secClass={"jumbo-btn"} />
+        <HomeBtn
+          btnLink={props.btnLink}
+          btnTxt={props.btnTxt}
+          secClass={"jumbo-btn"}
+        />
       </div>
       <div className="jumbo-grad"></div>
       <img src={imgSRC} alt="" />

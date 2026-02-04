@@ -15,11 +15,11 @@
   width: 100%;
 }
 .footer-content {
-  justify-content: space-between;
+  column-gap: 24rem;
 }
 .add-details {
   border-top: 1px solid #2d5059;
-  justify-content: space-between;
+  column-gap: 24rem;
 }
 .biz-details {
   display: flex;
