@@ -9,10 +9,8 @@ const HamburgerMenu = (props: HamburgerMenuProps) => {
 
   return (
     <div className={`hamburger-menu-container ${menuContext.BGClass}`}>
-      <div className="test-bg">&nbsp;</div>
-
-      <div className={`right-menu-container ${menuContext.rightClass}`}>
-        <ul className="secondary-nav">
+      <ul className="secondary-nav">
+        <div className="link-box">
           <Link
             to="/wedding-cakes/wedding/0"
             onClick={() => {
@@ -23,8 +21,48 @@ const HamburgerMenu = (props: HamburgerMenuProps) => {
               });
             }}
           >
-            <li>wedding</li>
+            <li className="nav-heading">Wedding</li>
           </Link>
+          <div className="int-links-box">
+            <Link
+              to="/wedding-cakes/wedding/0"
+              onClick={() => {
+                props.setMenuFade!({
+                  BGClass: "",
+                  rightClass: "",
+                  leftClass: ""
+                });
+              }}
+            >
+              <li className="int-link">Servings sizes</li>
+            </Link>
+            <Link
+              to="/wedding-cakes/wedding/0"
+              onClick={() => {
+                props.setMenuFade!({
+                  BGClass: "",
+                  rightClass: "",
+                  leftClass: ""
+                });
+              }}
+            >
+              <li className="int-link">Flavors and fillings</li>
+            </Link>
+            <Link
+              to="/wedding-cakes/wedding/0"
+              onClick={() => {
+                props.setMenuFade!({
+                  BGClass: "",
+                  rightClass: "",
+                  leftClass: ""
+                });
+              }}
+            >
+              <li className="int-link">Request a quote</li>
+            </Link>
+          </div>
+        </div>
+        <div className="link-box">
           <Link
             to="/custom-cakes/all/0"
             onClick={() => {
@@ -35,8 +73,48 @@ const HamburgerMenu = (props: HamburgerMenuProps) => {
               });
             }}
           >
-            <li>custom</li>
+            <li className="nav-heading">Custom</li>
           </Link>
+          <div className="int-links-box">
+            <Link
+              to="/wedding-cakes/wedding/0"
+              onClick={() => {
+                props.setMenuFade!({
+                  BGClass: "",
+                  rightClass: "",
+                  leftClass: ""
+                });
+              }}
+            >
+              <li className="int-link">Servings sizes</li>
+            </Link>
+            <Link
+              to="/wedding-cakes/wedding/0"
+              onClick={() => {
+                props.setMenuFade!({
+                  BGClass: "",
+                  rightClass: "",
+                  leftClass: ""
+                });
+              }}
+            >
+              <li className="int-link">Flavors and fillings</li>
+            </Link>
+            <Link
+              to="/wedding-cakes/wedding/0"
+              onClick={() => {
+                props.setMenuFade!({
+                  BGClass: "",
+                  rightClass: "",
+                  leftClass: ""
+                });
+              }}
+            >
+              <li className="int-link">Request a quote</li>
+            </Link>
+          </div>
+        </div>
+        <div className="link-box">
           <Link
             to="/signature-cakes/6-inch"
             onClick={() => {
@@ -47,8 +125,10 @@ const HamburgerMenu = (props: HamburgerMenuProps) => {
               });
             }}
           >
-            <li>signature</li>
+            <li className="nav-heading">Signature</li>
           </Link>
+        </div>
+        <div className="link-box">
           <Link
             to="/cupcakes"
             onClick={() => {
@@ -59,58 +139,10 @@ const HamburgerMenu = (props: HamburgerMenuProps) => {
               });
             }}
           >
-            <li>cupcakes</li>
+            <li className="nav-heading">Cupcakes</li>
           </Link>
-          {/* <Link
-            to="/serving-sizes/1-tier"
-            onClick={() => {
-              props.setMenuFade!({
-                BGClass: "",
-                rightClass: "",
-                leftClass: ""
-              });
-            }}
-          >
-            <li>serving sizes</li>
-          </Link> */}
-          {/* <Link
-            to="/flavors/baker-favorites/berries-&-cream"
-            onClick={() => {
-              props.setMenuFade!({
-                BGClass: "",
-                rightClass: "",
-                leftClass: ""
-              });
-            }}
-          >
-            <li>cake flavors</li>
-          </Link> */}
-          <Link
-            to="/about-us"
-            onClick={() => {
-              props.setMenuFade!({
-                BGClass: "",
-                rightClass: "",
-                leftClass: ""
-              });
-            }}
-          >
-            <li>about us</li>
-          </Link>
-          <Link
-            to="/contact-us"
-            onClick={() => {
-              props.setMenuFade!({
-                BGClass: "",
-                rightClass: "",
-                leftClass: ""
-              });
-            }}
-          >
-            <li>contact us</li>
-          </Link>
-        </ul>
-      </div>
+        </div>
+      </ul>
     </div>
   );
 };
