@@ -1,26 +1,32 @@
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useRef } from "react";
 import MenuContext from "../../context/HamburgerMenuContext";
 import Header from "../Header/Header";
 import HamburgerMenu from "../HamburgerMenu/HamburgerMenu";
-import TextPanel from "../TextPanel/TextPanel";
-import PageButtons from "../PageButtons/PageButtons";
 import { ServingsProps } from "./ServingsProps.types";
 import "./servings.css";
 import ServingCards from "../ServingCards/ServingCards";
-import PageNav from "../PageNav/PageNav";
 import { GalleryImgLoadContext } from "../../context/GalleryImgLoadContext";
 import Loader from "../Loader/Loader";
-import useWindowDimensions from "../../hooks/useWindowDimensions";
+import Footer from "../Footer/Footer";
+import StickyDiv from "../StickyDiv/StickyDiv";
 
 const Servings = (props: ServingsProps) => {
   const context = useContext(GalleryImgLoadContext);
   if (!context) {
     return;
   }
-  const { width, height } = useWindowDimensions();
   const { showLoadingGif } = context;
 
-  const menu = ["1 tier", "2 tier", "3 tier", "4 tier", "5 tier"];
+  const menu = ["One tier", "Two tier", "Three tier", "Four tier", "Five tier"];
+  const bcrumbData = [
+    { url: "/custom-cakes/all/0", linkText: "Custom Cakes Gallery" },
+    { url: "", linkText: "Serving Sizes" }
+  ];
+  const txtPanelData = {
+    h2: "Serving",
+    h1: "sizes",
+    p: "A visual guide of all the cake sizes we offer."
+  };
 
   useEffect(() => {
     props.setMenuFade({
@@ -30,8 +36,10 @@ const Servings = (props: ServingsProps) => {
     });
   }, []);
 
+  const tiersRefs = useRef<(HTMLDivElement | null)[]>([]);
+
   return (
-    <section className="container">
+    <section className="home-container">
       <MenuContext.Provider
         value={{
           BGClass: props.menuFade.BGClass,
@@ -45,23 +53,17 @@ const Servings = (props: ServingsProps) => {
         <HamburgerMenu />
       </MenuContext.Provider>
       <div className={`servings-content ${showLoadingGif ? "no-opacity" : ""}`}>
-        <TextPanel
-          h2={"serving"}
-          h1={"sizes"}
-          p={"A visual guide of all the tier combinations we offer."}
-          widthClass={"servings"}
-          layout={width <= 2160 && true}
+        <StickyDiv
+          bcrumbData={bcrumbData}
+          txtPanelData={txtPanelData}
+          pageNavMenu={menu}
+          catRefs={tiersRefs}
         />
-        {(width <= 670 && height <= 770) ||
-          (width <= 850 && height <= 480) ||
-          (width <= 1010 && height <= 500 && (
-            <h2 className="secondary-sub-head">serving sizes</h2>
-          ))}
-        <ServingCards />
+
+        <ServingCards tiersRefs={tiersRefs} />
       </div>
 
-      <PageNav menu={menu} />
-      <PageButtons />
+      <Footer />
     </section>
   );
 };

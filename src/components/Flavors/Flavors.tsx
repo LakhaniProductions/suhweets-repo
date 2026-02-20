@@ -1,15 +1,15 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useRef } from "react";
 import { FlavorsProps } from "./FlavorsProps.type";
-import PageButtons from "../PageButtons/PageButtons";
 import MenuContext from "../../context/HamburgerMenuContext";
 import HamburgerMenu from "../HamburgerMenu/HamburgerMenu";
 import Header from "../Header/Header";
-import PageNav from "../PageNav/PageNav";
 import "./flavors.css";
 import FlavorsContent from "../FlavorsContent/FlavorContent";
 import { GalleryImgLoadContext } from "../../context/GalleryImgLoadContext";
-import { useParams } from "react-router-dom";
+
 import Loader from "../Loader/Loader";
+import Footer from "../Footer/Footer";
+import StickyDiv from "../StickyDiv/StickyDiv";
 
 const Flavors = (props: FlavorsProps) => {
   const context = useContext(GalleryImgLoadContext);
@@ -17,11 +17,22 @@ const Flavors = (props: FlavorsProps) => {
     return;
   }
   const { showLoadingGif } = context;
-  const { selectedMenuItem } = useParams();
 
-  // const menu = ["baker's favorites", "cake flavors", "fillings"];
-  const menu = ["baker's favorites", "flavors & fillings"];
-  const [secClass, setSecClass] = useState("");
+  const menu = ["classic flavors", "specialty flavors"];
+
+  const bcrumbData = [
+    { url: "/custom-cakes/all/0", linkText: "Custom cake gallery" },
+    { url: "/serving-sizes/one-tier", linkText: "Serving sizes" },
+    { url: "", linkText: "Cake flavors" }
+  ];
+
+  const txtPanelData = {
+    h2: "cake",
+    h1: "flavors",
+    p: "A specially crafted menu of our favorite flavor combinations."
+  };
+
+  const categoriesRefs = useRef<(HTMLDivElement | null)[]>([]);
 
   useEffect(() => {
     props.setMenuFade({
@@ -31,16 +42,8 @@ const Flavors = (props: FlavorsProps) => {
     });
   }, []);
 
-  useEffect(() => {
-    if (selectedMenuItem === "fillings") {
-      setSecClass("fillings");
-    } else {
-      setSecClass("fav");
-    }
-  }, [selectedMenuItem]);
-
   return (
-    <section className="container">
+    <section className="home-container">
       <MenuContext.Provider
         value={{
           BGClass: props.menuFade.BGClass,
@@ -53,17 +56,16 @@ const Flavors = (props: FlavorsProps) => {
         <Header setMenuFade={props.setMenuFade} />
         <HamburgerMenu />
       </MenuContext.Provider>
-      <div
-        className={`flavors-content ${
-          showLoadingGif ? "no-opacity" : ""
-        } ${secClass}`}
-
-        // className={`flavors-content ${secClass}`}
-      >
-        <FlavorsContent />
+      <div className={`flavors-content ${showLoadingGif ? "no-opacity" : ""}`}>
+        <StickyDiv
+          bcrumbData={bcrumbData}
+          txtPanelData={txtPanelData}
+          pageNavMenu={menu}
+          catRefs={categoriesRefs}
+        />
+        <FlavorsContent catRefs={categoriesRefs} />
       </div>
-      <PageNav menu={menu} />
-      <PageButtons />
+      <Footer />
     </section>
   );
 };

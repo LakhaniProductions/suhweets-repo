@@ -1,6 +1,5 @@
 import { useContext, useEffect } from "react";
 import { SignatureProps } from "./SignatureProps.type";
-import PageButtons from "../PageButtons/PageButtons";
 import MenuContext from "../../context/HamburgerMenuContext";
 import HamburgerMenu from "../HamburgerMenu/HamburgerMenu";
 import Header from "../Header/Header";
@@ -8,13 +7,25 @@ import Header from "../Header/Header";
 import "../SignatureCakes/signature.css";
 import SignatureContent from "../SignatureContent/SignatureContent";
 import { GalleryImgLoadContext } from "../../context/GalleryImgLoadContext";
+import Footer from "../Footer/Footer";
+import StickyDiv from "../StickyDiv/StickyDiv";
 
 const Cupcakes = (props: SignatureProps) => {
   const context = useContext(GalleryImgLoadContext);
   if (!context) {
     return;
   }
-  // const { showLoadingFlavorGif } = context;
+
+  const bcrumbData = [
+    { url: "/", linkText: "Home" },
+    { url: "", linkText: "Cupcakes" }
+  ];
+
+  const txtPanelData = {
+    p: "An assortment of delectable flavors to choose from ",
+    h1: "cupcakes",
+    h2: "our"
+  };
 
   useEffect(() => {
     props.setMenuFade({
@@ -24,10 +35,8 @@ const Cupcakes = (props: SignatureProps) => {
     });
   }, []);
 
-  // useEffect(() => {}, [showLoadingFlavorGif]);
-
   return (
-    <section className="container">
+    <section className="home-container">
       <MenuContext.Provider
         value={{
           BGClass: props.menuFade.BGClass,
@@ -41,9 +50,10 @@ const Cupcakes = (props: SignatureProps) => {
         <HamburgerMenu />
       </MenuContext.Provider>
       <div className={`signature-content`}>
+        <StickyDiv bcrumbData={bcrumbData} txtPanelData={txtPanelData} />
         <SignatureContent />
       </div>
-      <PageButtons />
+      <Footer />
     </section>
   );
 };

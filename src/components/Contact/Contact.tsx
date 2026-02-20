@@ -10,11 +10,9 @@ import phoneImg from "../../img/form/phone.jpg";
 import { stringToDate } from "../../shared/utility";
 import { PHONE_NUMBER } from "../../shared/constants/constants";
 import ThankYou from "../ThankYou/ThankYou";
-import useWindowDimensions from "../../hooks/useWindowDimensions";
+import Footer from "../Footer/Footer";
 
 const Contact = (props: ContactProps) => {
-  const { width } = useWindowDimensions();
-
   const dateRef: any = useRef(null);
   const servingsRef: any = useRef(null);
   const fullNameRef: any = useRef(null);
@@ -56,8 +54,6 @@ const Contact = (props: ContactProps) => {
       error?: string;
     }[]
   >([]);
-
-  const [showSocMenu, setShowSocMenu] = useState(true);
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const selectedFiles = Array.from(e.target.files || []);
@@ -193,7 +189,7 @@ const Contact = (props: ContactProps) => {
       }
     }
     return formData;
-  }; //testing image add
+  };
 
   const sendEmail = async () => {
     const imageFiles = uploadsDisplay
@@ -249,14 +245,10 @@ const Contact = (props: ContactProps) => {
     });
   }, []);
 
-  useEffect(() => {
-    width <= 1180 ? setShowSocMenu(false) : setShowSocMenu(true);
-  }, [width]);
-
   return (
     <>
       {showTY && <ThankYou />}
-      <section className="container contact-us">
+      <section className="home-container contact-us">
         <MenuContext.Provider
           value={{
             BGClass: props.menuFade.BGClass,
@@ -267,431 +259,279 @@ const Contact = (props: ContactProps) => {
           <Header setMenuFade={props.setMenuFade} />
           <HamburgerMenu />
         </MenuContext.Provider>
-        <div
-          className={
-            location.pathname.includes("quote-request")
-              ? "form-container quote"
-              : "form-container con"
-          }
-        >
+        <div className={"form-container"}>
           <div className="form-lft-col">
-            {!location.pathname.includes("contact-us") ? (
-              <TextPanel
-                h2={"say"}
-                h1={"hello"}
-                p={
-                  "We’d love to know more about your dream cake! Tell us about yourself and we’ll help you make it a reality."
-                }
-                widthClass={`contact contact-txt`}
-              />
-            ) : (
-              width > 1180 && (
-                <TextPanel
-                  h2={"contact"}
-                  h1={"details"}
-                  p={""}
-                  widthClass={`contact contact-txt`}
-                />
-              )
-            )}
-            {!location.pathname.includes("quote-request") && (
-              <>
-                {width <= 1180 && (
-                  <>
-                    <div
-                      className="social-toggle"
-                      onClick={() => setShowSocMenu(!showSocMenu)}
-                      title={`${showSocMenu ? "Collapse" : "Expand"}`}
-                    >
-                      <p>Find us &nbsp;</p>
-                      <span>@ &nbsp;</span>
-                      <span
-                        className={showSocMenu ? "social-up" : "social-down"}
-                      >
-                        &#8249;
-                      </span>
-                    </div>
-                    <hr />
-                  </>
-                )}
-                {showSocMenu && (
-                  <div className="social-menu">
-                    <div className="bottom-soc-menu">
-                      <div className="phone-container">
-                        <h3 className="phone-label">phone</h3>
-
-                        <a href={`tel:${PHONE_NUMBER}`}>{PHONE_NUMBER}</a>
+            <TextPanel
+              h2={"say"}
+              h1={"hello"}
+              p={
+                "We’d love to know more about your dream cake! Tell us about yourself and we’ll help you make it a reality."
+              }
+            />
+            <div className={"form-panel"}>
+              <form
+                action="#"
+                className="form-box"
+                encType="multipart/form-data"
+                autoComplete="off"
+              >
+                <div className="event-details">
+                  <div className="event-box">
+                    <input
+                      type="text"
+                      className={
+                        !eventDateErr
+                          ? "form-input form-input--date"
+                          : "form-input form-input--date err-border"
+                      }
+                      placeholder="Event Date* &nbsp;"
+                      ref={dateRef}
+                      onFocus={() => (dateRef.current.type = "date")}
+                      onBlur={() => {
+                        dateType();
+                      }}
+                      onChange={() => {
+                        setEventDateError(false);
+                        setEventDate(stringToDate(dateRef.current?.value));
+                      }}
+                      id="date"
+                      name="eventDate"
+                      required
+                    />
+                    {eventDateErr ? (
+                      <div className="error-group">
+                        <p className="msg">
+                          We require at least a 3 day notice for custom cakes.
+                        </p>
                       </div>
-                      <div className="mail-container">
-                        <h3 className="email-label">email</h3>
-                        <a href="mailto:baker@suhweetsbakery.com">
-                          baker@suhweetsbakery.com
-                        </a>
-                      </div>
-                      <div className="location-container">
-                        <h3 className="location-label">location</h3>
-                        <p>9119 Church St</p>
-                        <p>Historic Manssas, VA 20110</p>
-                      </div>
-
-                      <div className="location-container">
-                        <h3 className="location-label">Hours</h3>
-                        <p>Wednesday - Sunday</p>
-                        <p>11 AM - 7 PM</p>
-                      </div>
-                    </div>
-                    <div className="top-soc-menu">
-                      <a
-                        href="https://www.facebook.com/suhweetsbakery"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        <span className="icon-facebook"></span>
-                      </a>
-                      <a
-                        href="https://www.instagram.com/suhweets07"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        <span className="icon-instagram"></span>
-                      </a>
-                      <a
-                        href="https://www.weddingwire.com/biz/suhweets-bakery-llc/dd34f44df4c1656d.html"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        <span className="icon-weddingwire"></span>
-                      </a>
-                      <a
-                        href="https://www.theknot.com/marketplace/suhweets-bakery-llc-manassas-va-2057171"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        <span className="icon-the_knot"></span>
-                      </a>
-                    </div>
+                    ) : (
+                      <label htmlFor="date" className="form-label">
+                        Event Date*
+                      </label>
+                    )}
                   </div>
-                )}
-              </>
-            )}
-          </div>
+                  <div className="servings-details">
+                    <input
+                      type="text"
+                      className={
+                        !servingErr
+                          ? "form-input form-input--servings " + paddingClass
+                          : "form-input form-input--servings err-border " +
+                            paddingClass
+                      }
+                      placeholder="Servings Needed*"
+                      ref={servingsRef}
+                      id="serv"
+                      onChange={() => {
+                        setServingError(false);
+                        setServings(
+                          +servingsRef.current.value.replace(/[^0-9]/g, "")
+                        );
+                      }}
+                      required
+                    />
 
-          <div
-            className={
-              location.pathname.includes("contact")
-                ? "form-panel no-overflow"
-                : "form-panel"
-            }
-          >
-            {location.pathname.includes("contact") && width > 2040 && (
-              <img
-                src={phoneImg}
-                alt="Image of a rotary phone cake"
-                className="phone-img"
-              />
-            )}
-
-            {location.pathname.includes("quote") && (
-              <img
-                src={phoneImg}
-                alt="Image of a rotary phone cake"
-                className="phone-img"
-              />
-            )}
-            <form
-              action="#"
-              className="form-box"
-              encType="multipart/form-data"
-              autoComplete="off"
-            >
-              <div className="event-details">
-                <div className="event-box">
-                  <input
-                    type="text"
-                    className={
-                      !eventDateErr
-                        ? "form-input form-input--date"
-                        : "form-input form-input--date err-border"
-                    }
-                    placeholder="Event Date* &nbsp;"
-                    ref={dateRef}
-                    onFocus={() => (dateRef.current.type = "date")}
-                    onBlur={() => {
-                      dateType();
-                    }}
-                    onChange={() => {
-                      setEventDateError(false);
-                      setEventDate(stringToDate(dateRef.current?.value));
-                    }}
-                    id="date"
-                    name="eventDate"
-                    required
-                  />
-                  {eventDateErr ? (
-                    <div className="error-group">
+                    {servingErr ? (
+                      <div className="error-group">
+                        <p className="msg">Minimum Serving Size: 12</p>
+                      </div>
+                    ) : (
+                      <label htmlFor="serv" className="form-label">
+                        Servings Needed*
+                      </label>
+                    )}
+                  </div>
+                </div>
+                <input
+                  type="text"
+                  className={
+                    !allNameErrs
+                      ? "form-input form-input--name"
+                      : "form-input form-input--name err-border"
+                  }
+                  placeholder="Full Name*"
+                  ref={fullNameRef}
+                  id="name"
+                  onChange={() => {
+                    setAllNameErrors(false);
+                    setFullName(fullNameRef.current.value);
+                  }}
+                  required
+                />
+                {allNameErrs ? (
+                  <div className="error-group">
+                    {nameErr && (
+                      <p className="msg">Please enter your full name.</p>
+                    )}
+                    {nameNoSpaceErr && (
                       <p className="msg">
-                        We require at least a 3 day notice for custom cakes.
+                        Please seperate your first and last name with a space.
+                      </p>
+                    )}
+                  </div>
+                ) : (
+                  <label htmlFor="name" className="form-label">
+                    Full Name*
+                  </label>
+                )}
+                <input
+                  type="tel"
+                  className={
+                    !phoneNumErr
+                      ? "form-input form-input--tel"
+                      : "form-input form-input--tel err-border"
+                  }
+                  placeholder="Phone Number*"
+                  ref={phoneNumberRef}
+                  id="number"
+                  onChange={() => {
+                    setPhoneNumError(false);
+                    setInputPhoneNumber(
+                      phoneNumberRef.current.value.replace(/[^0-9]/g, "")
+                    );
+                  }}
+                  required
+                />
+                {phoneNumErr ? (
+                  <div className="error-group">
+                    <p className="msg phone-msg">
+                      Please enter a valid phone number.
+                    </p>
+                  </div>
+                ) : (
+                  <label htmlFor="number" className="form-label">
+                    Phone Number*
+                  </label>
+                )}
+                <input
+                  type="email"
+                  className={
+                    !emailErr
+                      ? "form-input form-input--email"
+                      : "form-input form-input--email err-border"
+                  }
+                  placeholder="Email Address*"
+                  ref={emailAddressRef}
+                  onChange={() => {
+                    setEmailError(false);
+                    setEmail(emailAddressRef.current.value);
+                  }}
+                  id="email"
+                  required
+                />
+                {emailErr ? (
+                  <div className="error-group">
+                    <p className="msg email-msg">
+                      Please enter a valid email address.
+                    </p>
+                  </div>
+                ) : (
+                  <label htmlFor="email" className="form-label">
+                    Email Address*
+                  </label>
+                )}
+
+                <input
+                  type="submit"
+                  className="form-btn"
+                  id="submit-form"
+                  formNoValidate
+                />
+                <div className="form-button-box">
+                  <div className="upload-group">
+                    <div className="file-field form-input">
+                      {" "}
+                      <p className="field-label">
+                        {uploadsDisplay.length < 3
+                          ? uploadsDisplay.filter((item) => item.file)
+                              .length === 0
+                            ? "Add Images"
+                            : `${
+                                uploadsDisplay.filter((item) => item.file)
+                                  .length
+                              } ${
+                                uploadsDisplay.filter((item) => item.file)
+                                  .length > 1
+                                  ? "Images Added"
+                                  : "Image Added"
+                              }`
+                          : "Upload limit reached (3 max)"}
                       </p>
                     </div>
-                  ) : (
-                    <label htmlFor="date" className="form-label">
-                      Event Date*
+                    <input
+                      type="file"
+                      id="img"
+                      name="img"
+                      className="form-button"
+                      multiple
+                      accept="image/*"
+                      // ref={fileRef}
+                      disabled={
+                        uploadsDisplay.filter((item) => item.file).length >= 3
+                      }
+                      onChange={handleFileChange}
+                    />
+                    <label
+                      tabIndex={0}
+                      htmlFor="img"
+                      className={
+                        uploadsDisplay.length < 3
+                          ? "form-label form-button-upload"
+                          : "form-label form-button-upload max-btn"
+                      }
+                    >
+                      Choose File(s)
                     </label>
-                  )}
-                </div>
-                <div className="servings-details">
-                  <input
-                    type="text"
-                    className={
-                      !servingErr
-                        ? "form-input form-input--servings " + paddingClass
-                        : "form-input form-input--servings err-border " +
-                          paddingClass
-                    }
-                    placeholder="Servings Needed*"
-                    ref={servingsRef}
-                    id="serv"
-                    onChange={() => {
-                      setServingError(false);
-                      setServings(
-                        +servingsRef.current.value.replace(/[^0-9]/g, "")
-                      );
-                    }}
-                    required
-                  />
-
-                  {servingErr ? (
-                    <div className="error-group">
-                      <p className="msg">Minimum Serving Size: 12</p>
-                    </div>
-                  ) : (
-                    <label htmlFor="serv" className="form-label">
-                      Servings Needed*
-                    </label>
-                  )}
-                </div>
-              </div>
-              <input
-                type="text"
-                className={
-                  !allNameErrs
-                    ? "form-input form-input--name"
-                    : "form-input form-input--name err-border"
-                }
-                placeholder="Full Name*"
-                ref={fullNameRef}
-                id="name"
-                onChange={() => {
-                  setAllNameErrors(false);
-                  setFullName(fullNameRef.current.value);
-                }}
-                required
-              />
-              {allNameErrs ? (
-                <div className="error-group">
-                  {nameErr && (
-                    <p className="msg">Please enter your full name.</p>
-                  )}
-                  {nameNoSpaceErr && (
-                    <p className="msg">
-                      Please seperate your first and last name with a space.
-                    </p>
-                  )}
-                </div>
-              ) : (
-                <label htmlFor="name" className="form-label">
-                  Full Name*
-                </label>
-              )}
-              <input
-                type="tel"
-                className={
-                  !phoneNumErr
-                    ? "form-input form-input--tel"
-                    : "form-input form-input--tel err-border"
-                }
-                placeholder="Phone Number*"
-                ref={phoneNumberRef}
-                id="number"
-                onChange={() => {
-                  setPhoneNumError(false);
-                  setInputPhoneNumber(
-                    phoneNumberRef.current.value.replace(/[^0-9]/g, "")
-                  );
-                }}
-                required
-              />
-              {phoneNumErr ? (
-                <div className="error-group">
-                  <p className="msg phone-msg">
-                    Please enter a valid phone number.
-                  </p>
-                </div>
-              ) : (
-                <label htmlFor="number" className="form-label">
-                  Phone Number*
-                </label>
-              )}
-              <input
-                type="email"
-                className={
-                  !emailErr
-                    ? "form-input form-input--email"
-                    : "form-input form-input--email err-border"
-                }
-                placeholder="Email Address*"
-                ref={emailAddressRef}
-                onChange={() => {
-                  setEmailError(false);
-                  setEmail(emailAddressRef.current.value);
-                }}
-                id="email"
-                required
-              />
-              {emailErr ? (
-                <div className="error-group">
-                  <p className="msg email-msg">
-                    Please enter a valid email address.
-                  </p>
-                </div>
-              ) : (
-                <label htmlFor="email" className="form-label">
-                  Email Address*
-                </label>
-              )}
-
-              <input
-                type="submit"
-                className="form-btn"
-                id="submit-form"
-                formNoValidate
-              />
-              <div className="form-button-box">
-                <div className="upload-group">
-                  <div className="file-field form-input">
-                    {" "}
-                    <p className="field-label">
-                      {uploadsDisplay.length < 3
-                        ? uploadsDisplay.filter((item) => item.file).length ===
-                          0
-                          ? "Add Images"
-                          : `${
-                              uploadsDisplay.filter((item) => item.file).length
-                            } ${
-                              uploadsDisplay.filter((item) => item.file)
-                                .length > 1
-                                ? "Images Added"
-                                : "Image Added"
-                            }`
-                        : "Upload limit reached (3 max)"}
-                    </p>
                   </div>
-                  <input
-                    type="file"
-                    id="img"
-                    name="img"
-                    className="form-button"
-                    multiple
-                    accept="image/*"
-                    // ref={fileRef}
-                    disabled={
-                      uploadsDisplay.filter((item) => item.file).length >= 3
-                    }
-                    onChange={handleFileChange}
-                  />
-                  <label
-                    tabIndex={0}
-                    htmlFor="img"
-                    className={
-                      uploadsDisplay.length < 3
-                        ? "form-label form-button-upload"
-                        : "form-label form-button-upload max-btn"
-                    }
-                  >
-                    Choose File(s)
-                  </label>
-                </div>
 
-                <div className="file-uploads-box">
-                  {uploadsDisplay.length > 0 ? (
-                    uploadsDisplay.map((item: any, i) => (
-                      <>
-                        <p
-                          key={i}
-                          className={
-                            item.error ? "file-name file-error" : "file-name "
-                          }
-                          title={item.file ? item.file.name : item.error}
-                        >
-                          {item.file ? (
-                            <>
-                              {item.file.name.length >= 20
-                                ? item.file.name.slice(0, 20) + "..."
-                                : item.file.name}
-                              <span
-                                title={`Delete File`}
-                                onClick={() => handleDeleteUpload(i)}
-                                className="icon-bin dlt-btn"
-                              ></span>
-                            </>
-                          ) : (
-                            <>
-                              {item.error}
+                  <div className="file-uploads-box">
+                    {uploadsDisplay.length > 0 ? (
+                      uploadsDisplay.map((item: any, i) => (
+                        <>
+                          <p
+                            key={i}
+                            className={
+                              item.error ? "file-name file-error" : "file-name "
+                            }
+                            title={item.file ? item.file.name : item.error}
+                          >
+                            {item.file ? (
+                              <>
+                                {item.file.name.length >= 20
+                                  ? item.file.name.slice(0, 20) + "..."
+                                  : item.file.name}
+                                <span
+                                  title={`Delete File`}
+                                  onClick={() => handleDeleteUpload(i)}
+                                  className="icon-bin dlt-btn"
+                                ></span>
+                              </>
+                            ) : (
+                              <>
+                                {item.error}
 
-                              <span
-                                title={`Delete File`}
-                                onClick={() => handleDeleteUpload(i)}
-                                className="icon-bin dlt-btn"
-                              ></span>
-                            </>
-                          )}
-                        </p>
-                      </>
-                    ))
-                  ) : (
-                    <p className="file-name">Upload up to 3 images.</p>
-                  )}
+                                <span
+                                  title={`Delete File`}
+                                  onClick={() => handleDeleteUpload(i)}
+                                  className="icon-bin dlt-btn"
+                                ></span>
+                              </>
+                            )}
+                          </p>
+                        </>
+                      ))
+                    ) : (
+                      <p className="file-name">Upload up to 3 images.</p>
+                    )}
+                  </div>
                 </div>
-              </div>
-              {eventDateErr && (
-                <div className="error-group">
-                  <p className="msg">To Inquire about rush orders</p>
-                  <p className="msg">Please call us at {PHONE_NUMBER}</p>
-                </div>
-              )}
-              {location.pathname.includes("contact-us") && width <= 1180 && (
-                <div className="col-sub-container">
-                  <label
-                    htmlFor="submit-form"
-                    onClick={(e) => {
-                      formValidation(e);
-                    }}
-                    className="form-submit-label"
-                  >
-                    Let's Talk Cake
-                  </label>
-                </div>
-              )}
-            </form>
-          </div>
-        </div>
-        {location.pathname.includes("quote-request") ? (
-          <div className="form-box-rt">
-            <div className="form-img-box"></div>
-            <label
-              htmlFor="submit-form"
-              onClick={(e) => {
-                formValidation(e);
-              }}
-              className="form-submit-label"
-            >
-              Let's Talk Cake
-            </label>
-          </div>
-        ) : (
-          width > 1180 && (
-            <div className="form-box-rt">
-              <div className="form-img-box"></div>
+                {eventDateErr && (
+                  <div className="error-group">
+                    <p className="msg">To Inquire about rush orders</p>
+                    <p className="msg">Please call us at {PHONE_NUMBER}</p>
+                  </div>
+                )}
+              </form>
               <label
                 htmlFor="submit-form"
                 onClick={(e) => {
@@ -699,12 +539,20 @@ const Contact = (props: ContactProps) => {
                 }}
                 className="form-submit-label"
               >
-                Let's Talk Cake
+                Let's talk cake
               </label>
             </div>
-          )
-        )}
+          </div>
+
+          <div className="form-box-rt">
+            <img
+              src={phoneImg}
+              alt="Image of a 3D cake in the shape of a rotary phone"
+            />
+          </div>
+        </div>
       </section>
+      <Footer />
     </>
   );
 };

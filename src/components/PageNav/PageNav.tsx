@@ -1,13 +1,7 @@
-import {
-  SyntheticEvent,
-  useCallback,
-  useContext,
-  useEffect,
-  useState
-} from "react";
+import { SyntheticEvent, useContext, useEffect, useState } from "react";
 import { PageNavProps } from "./PageNavProps.type";
 import { GalleryImgLoadContext } from "../../context/GalleryImgLoadContext";
-import useWindowDimensions from "../../hooks/useWindowDimensions";
+
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 
 const PageNav = (props: PageNavProps) => {
@@ -15,10 +9,10 @@ const PageNav = (props: PageNavProps) => {
   if (!context) {
     return;
   }
-  const { width } = useWindowDimensions();
+
   const location = useLocation();
   const { setAllGalleryImagesArr, setShowLoadingGif } = context;
-  const { selectedMenuItem } = useParams();
+  const { selectedMenuItem, size } = useParams();
 
   const [active, setActive] = useState("0");
   const navigate = useNavigate();
@@ -27,26 +21,50 @@ const PageNav = (props: PageNavProps) => {
     const target = e.target as HTMLElement;
     const clicked = target.closest(".navigation-item");
     if (!clicked) return;
+
+    const cleanParam = clicked.innerHTML.replace(
+      /<\/?(div|span)>|&nbsp;/gi,
+      ""
+    );
+
     if (props.menu[+active] !== target.innerHTML) {
       setAllGalleryImagesArr([]);
       // setShowLoadingGif(true);
     }
 
     if (location.pathname.includes("serving-sizes")) {
-      navigate(`/serving-sizes/${target.innerHTML.replace(" ", "-")}`);
-    } else if (location.pathname.includes("flavors")) {
-      navigate(
-        `/flavors/${
-          target.innerHTML.includes("'")
-            ? "baker-favorites/berries-&-cream"
-            : // : target.innerHTML.replace(" ", "-")
-              "fillings"
-        }`
-      );
+      if (
+        location.pathname
+          .toUpperCase()
+          .includes(cleanParam.replace(" ", "-").toUpperCase())
+      ) {
+        setShowLoadingGif(false);
+        return;
+      } else {
+        navigate(
+          `/serving-sizes/${cleanParam.replace(" ", "-").toLowerCase()}`
+        );
+      }
+    } else if (
+      location.pathname.includes("/flavors") &&
+      !location.pathname.includes("signature-cakes")
+    ) {
+      console.log(cleanParam);
+      navigate(`/flavors/${cleanParam.replace(" ", "-").toLowerCase()}`);
     } else {
-      navigate(`/signature-cakes/${target.innerHTML.replace('"', "-inch")}`);
+      navigate(
+        `/signature-cakes/${target.innerHTML.replace(" ", "-").toLowerCase()}/${size?.replace(`"`, "-inch")}`
+      );
     }
+    props.handleRefs!(e);
     target.innerHTML !== "fillings" && setShowLoadingGif(true);
+  };
+
+  const handleAltClick = (e: SyntheticEvent) => {
+    const target = e.target as HTMLDivElement;
+    navigate(
+      `/signature-cakes/${selectedMenuItem}/${target.innerHTML.replace(`"`, "-inch ")}`
+    );
   };
   useEffect(() => {
     if (location.pathname.includes("serving-sizes")) {
@@ -58,196 +76,48 @@ const PageNav = (props: PageNavProps) => {
         `${props.menu.indexOf(selectedMenuItem!.replace("-inch", '"'))}`
       );
     }
-  }, [selectedMenuItem]);
-  const getFilterItemsClassName = useCallback(
-    (item: string, i: number) => {
-      const editedName = item.includes(" ")
-        ? item.replace(" ", "-").split("-").slice(1).join("-")
-        : item;
+  }, [active, selectedMenuItem]);
 
-      if (location.pathname.includes("/serving")) {
-        if (i === +active) {
-          return `navigation-item ${editedName} active-menu-item`;
-        } else {
-          if (width <= 1019 && width > 500) {
-            if (i > 1 && +active === 0) {
-              return `d-none`;
-            } else if (+active === props.menu.length - 1 && i <= 2) {
-              return `d-none`;
-            } else if (+active !== 0 && +active !== props.menu.length) {
-              if (+active + 1 === i || +active - 1 === i) {
-                return `navigation-item ${editedName}`;
-              } else {
-                return `d-none`;
-              }
-            }
-          } else if (width <= 500) {
-            if (i !== +active) {
-              return `d-none`;
-            }
-          }
-          return `navigation-item ${editedName}`;
-        }
+  const getClassName = () => {
+    if (location.pathname.includes("signature-cakes")) {
+      if (props.secClass) {
+        return `navigation ${props.secClass}`;
       } else {
-        if (location.pathname.includes("/signature-cakes")) {
-          if (i === +active) {
-            return `navigation-item active-menu-item`;
-          }
-          if (width <= 464) {
-            if (+active === 0) {
-              if (i === +active) {
-                return `navigation-item ${editedName} active-menu-item`;
-              }
-              if (i === +active + 1) {
-                return `navigation-item ${editedName}`;
-              } else {
-                return "d-none";
-              }
-            } else if (+active === props.menu.length - 1) {
-              if (i === +active) {
-                return `navigation-item ${editedName} active-menu-item`;
-              }
-              if (i === +active - 1) {
-                return `navigation-item ${editedName}`;
-              } else {
-                return "d-none";
-              }
-            } else {
-              if (i === +active + 1 || i === +active - 1) {
-                return `navigation-item ${editedName}`;
-              } else {
-                return "d-none";
-              }
-            }
-          }
-          return `navigation-item`;
-        } else {
-          if (width <= 1720 && width > 1024) {
-            if (+active === 0) {
-              if (i === +active) {
-                return `navigation-item ${editedName} active-menu-item`;
-              }
-              if (i === +active + 1) {
-                return `navigation-item ${editedName}`;
-              } else {
-                return "d-none";
-              }
-            } else if (+active === props.menu.length - 1) {
-              if (i === +active) {
-                return `navigation-item ${editedName} active-menu-item`;
-              }
-              if (i === +active - 1) {
-                return `navigation-item ${editedName}`;
-              } else {
-                return "d-none";
-              }
-            } else {
-              if (i === +active + 1 || i === +active - 1) {
-                return `navigation-item ${editedName}`;
-              }
-              return `navigation-item ${editedName} active-menu-item`;
-            }
-          } else if (width < 1024) {
-            if (i !== +active) {
-              return "d-none";
-            } else {
-              return `navigation-item ${editedName} active-menu-item`;
-            }
-          } else {
-            if (i === +active) {
-              return `navigation-item ${editedName} active-menu-item`;
-            } else {
-              return `navigation-item ${editedName}`;
-            }
-          }
-        }
+        return `navigation sig-cake-nav`;
       }
-    },
-    [width, active, location]
-  );
+    } else if (
+      location.pathname.includes("serving-sizes") ||
+      (location.pathname.includes("flavors") &&
+        !location.pathname.includes("signature-cakes"))
+    ) {
+      return "navigation serv-nav";
+    } else {
+      return "navigation";
+    }
+  };
 
   return (
-    <nav className="navigation" onClick={(e) => handleClick(e)}>
+    <nav
+      className={getClassName()}
+      onClick={(e) => {
+        props.useAltHC ? handleAltClick(e) : handleClick(e);
+      }}
+    >
       {props.menu.map((item, i) => (
         <>
-          {location.pathname.includes("/serving") &&
-            i === +active - 1 &&
-            +active <= props.menu.length - 1 &&
-            width <= 500 && (
-              <button
-                onClick={() => {
-                  const currentTierNum = selectedMenuItem!.match(/\d+/)![0];
-                  navigate(`/serving-sizes/${+currentTierNum - 1}-tier`);
-                }}
-                className="less-btn"
-              >
-                <>&lt;</>
-              </button>
-            )}
+          <button className={`navigation-item`} id={`${i}`} key={i}>
+            <div>
+              {String(item).charAt(0).toUpperCase() + String(item).slice(1)}
+              {/* {item} */}
+              {selectedMenuItem!.replace("-", " ") === item.toLowerCase() && (
+                <span>&nbsp;</span>
+              )}
 
-          {location.pathname.includes("/flavors") &&
-            +active > 0 &&
-            i == +active - 1 &&
-            width < 1025 && (
-              <button
-                onClick={() => {
-                  props.menu[+active - 1].includes(" ")
-                    ? props.menu[+active - 1].includes("'")
-                      ? navigate("/flavors/baker-favorites/berries-_and_-cream")
-                      : navigate(
-                          `/flavors/${props.menu[+active - 1].replace(
-                            " ",
-                            "-"
-                          )}`
-                        )
-                    : navigate(`/flavors/${props.menu[+active - 1]}`);
-                }}
-                className="less-btn"
-              >
-                <>&lt;</>
-              </button>
-            )}
+              {/* if selected menu item's div is out of view */}
 
-          <button
-            className={getFilterItemsClassName(item, i)}
-            id={`${i}`}
-            key={i}
-          >
-            {item}
+              {size?.replace("-inch", `"`) === item && <span>&nbsp;</span>}
+            </div>
           </button>
-
-          {location.pathname.includes("/serving") &&
-            i === +active + 1 &&
-            +active >= 0 &&
-            width <= 500 && (
-              <button
-                onClick={() => {
-                  const currentTierNum = selectedMenuItem!.match(/\d+/)![0];
-                  navigate(`/serving-sizes/${+currentTierNum + 1}-tier`);
-                }}
-                className="greater-btn"
-              >
-                <>&gt;</>
-              </button>
-            )}
-
-          {location.pathname.includes("/flavors") &&
-            +active < props.menu.length - 1 &&
-            i == +active + 1 &&
-            width < 1025 && (
-              <button
-                onClick={() => {
-                  props.menu[+active + 1].includes(" ")
-                    ? navigate(
-                        `/flavors/${props.menu[+active + 1].replace(" ", "-")}`
-                      )
-                    : navigate(`/flavors/${props.menu[+active + 1]}`);
-                }}
-                className="greater-btn"
-              >
-                <>&gt;</>
-              </button>
-            )}
         </>
       ))}
     </nav>

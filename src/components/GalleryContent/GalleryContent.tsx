@@ -11,7 +11,8 @@ import TextPanel from "../TextPanel/TextPanel";
 import { GalleryContentProps } from "./GalleryContentProps.type.";
 import { GalleryImgLoadContext } from "../../context/GalleryImgLoadContext";
 import allCakesData from "../../data/allGalleryCakesData";
-import useWindowDimensions from "../../hooks/useWindowDimensions";
+import GalleryNav from "../GalleryNav/GalleryNav";
+import ForwardBtn from "../ForwardBtn/ForwardBtn";
 
 const GalleryContent = (props: GalleryContentProps) => {
   const navigate = useNavigate();
@@ -20,7 +21,7 @@ const GalleryContent = (props: GalleryContentProps) => {
     return;
   }
   const { selectedMenuItem } = useParams();
-  const { width, height } = useWindowDimensions();
+
   const { setShowLoadingGif, setAllGalleryImagesArr } = context;
   const location = useLocation();
   const [isGourmetPage, setIsGourmetPage] = useState<boolean>(false);
@@ -30,13 +31,13 @@ const GalleryContent = (props: GalleryContentProps) => {
   const [customGalleryContent, setCustomGalleryContent] = useState<
     Record<string, string | number>[]
   >([]);
-  const [twoColLayout, setTwoColLayout] = useState(false);
-  const [threeColLayout, setThreeColLayout] = useState(true);
+  // const [twoColLayout, setTwoColLayout] = useState(false);
+  // const [threeColLayout, setThreeColLayout] = useState(true);
 
-  const [oneColLayout, setOneColLayout] = useState(false);
-  const [mobileLrg, setMobileLrg] = useState(false);
-  const [horizontalMainImgGallery, setHorizontalMainImgGallery] =
-    useState(false);
+  // const [oneColLayout, setOneColLayout] = useState(false);
+  // const [mobileLrg, setMobileLrg] = useState(false);
+  // const [horizontalMainImgGallery, setHorizontalMainImgGallery] =
+  //   useState(false);
 
   const imgRefs = useRef<Array<HTMLImageElement | null>>([]);
 
@@ -163,112 +164,53 @@ const GalleryContent = (props: GalleryContentProps) => {
     setThumbImgsLoaded([]);
   }, [selectedMenuItem]);
 
-  useEffect(() => {
-    if (width <= 2562) {
-      if (height <= 860) {
-        setHorizontalMainImgGallery(true);
-      } else {
-        setHorizontalMainImgGallery(false);
-      }
-    }
-
-    if (width <= 2181 && width > 973) {
-      setTwoColLayout(true);
-      setThreeColLayout(false);
-
-      setOneColLayout(false);
-      setMobileLrg(false);
-    } else if (width <= 973 && width > 848) {
-      setTwoColLayout(false);
-      setThreeColLayout(false);
-
-      setOneColLayout(true);
-      setMobileLrg(false);
-    } else if (width <= 848) {
-      setTwoColLayout(false);
-      setThreeColLayout(false);
-
-      setOneColLayout(false);
-      setMobileLrg(true);
-    } else {
-      setTwoColLayout(false);
-      setThreeColLayout(false);
-
-      setOneColLayout(false);
-      setMobileLrg(false);
-    }
-  }, [width, height]);
-
   return (
     <>
-      {uniqueCategoryArr.length && width > 1511 && !oneColLayout && (
-        <TextPanel
-          h2={uniqueCategoryArr[props.activeThumbnail!].subhead}
-          h1={uniqueCategoryArr[props.activeThumbnail!].heading}
-          p={uniqueCategoryArr[props.activeThumbnail!].p}
-          widthClass={"gallery"}
-          layout={twoColLayout}
-        />
-      )}
-      {/* TWO COL LAYOUT PARAGRAPH */}
-      {uniqueCategoryArr.length &&
-        twoColLayout &&
-        width <= 1511 &&
-        !oneColLayout && (
-          <TextPanel
-            h2={""}
-            h1={""}
-            p={uniqueCategoryArr[props.activeThumbnail!].p}
-            widthClass={"gallery"}
-            layout={twoColLayout}
-          />
-        )}
+      <div className="navigation-container">
+        <GalleryNav />
+      </div>
 
-      {!oneColLayout && !mobileLrg && (
-        <div
-          className={
-            !isGourmetPage
-              ? "gallery-thumbnails-container one"
-              : "gallery-thumbnails-container flex-grow"
-          }
-          onClick={(e) => {
-            handleThumbnailClick(e);
-          }}
-        >
-          {uniqueCategoryArr.length &&
-            uniqueCategoryArr.map((item, i) => {
-              return (
-                <>
-                  <img
-                    onLoad={(e) => {
-                      handleImageLoading(e);
-                    }}
-                    onClick={() =>
-                      props.activeThumbnail !== i &&
-                      mainImgLoaded &&
-                      setMainImgLoaded(!mainImgLoaded)
-                    }
-                    src={item.thumbnail}
-                    key={i}
-                    id={`${item.thumbnailTitle}_${i}`}
-                    alt=""
-                    className={props.activeThumbnail === i ? "active" : ""}
-                    ref={(el) => {
-                      imgRefs.current[i] = el;
-                    }}
-                  />
-                </>
-              );
-            })}
-        </div>
-      )}
+      <div
+        className={
+          !isGourmetPage
+            ? "gallery-thumbnails-container one"
+            : "gallery-thumbnails-container flex-grow"
+        }
+        onClick={(e) => {
+          handleThumbnailClick(e);
+        }}
+      >
+        {uniqueCategoryArr.length &&
+          uniqueCategoryArr.map((item, i) => {
+            return (
+              <>
+                <img
+                  onLoad={(e) => {
+                    handleImageLoading(e);
+                  }}
+                  onClick={() =>
+                    props.activeThumbnail !== i &&
+                    mainImgLoaded &&
+                    setMainImgLoaded(!mainImgLoaded)
+                  }
+                  src={item.thumbnail}
+                  key={i}
+                  id={`${item.thumbnailTitle}_${i}`}
+                  alt=""
+                  className={props.activeThumbnail === i ? "active" : ""}
+                  ref={(el) => {
+                    imgRefs.current[i] = el;
+                  }}
+                />
+              </>
+            );
+          })}
+      </div>
 
       {/* CREATE MAIN IMAGE COMPONENT */}
-      {!isGourmetPage &&
-        !mobileLrg &&
-        !horizontalMainImgGallery &&
-        uniqueCategoryArr.length && (
-          <div className="gallery-mainImg-container">
+      {!isGourmetPage && uniqueCategoryArr.length && (
+        <div className="gallery-mainImg-container">
+          <div className="sticky-div gallery">
             <div
               className={mainImgLoaded ? "" : "lazy-img"}
               style={{
@@ -282,117 +224,23 @@ const GalleryContent = (props: GalleryContentProps) => {
                 onLoad={() => {
                   setMainImgLoaded(true);
                 }}
-                src={
-                  oneColLayout
-                    ? uniqueCategoryArr[props.activeThumbnail!].mobileImg
-                    : uniqueCategoryArr[props.activeThumbnail!].img
-                }
+                src={uniqueCategoryArr[props.activeThumbnail!].img}
                 alt=""
               />
             }
-
-            {/* TWO COL LAYOUT HEADING */}
-
-            {uniqueCategoryArr.length && twoColLayout && width <= 1511 && (
+            {uniqueCategoryArr.length && (
               <TextPanel
                 h2={uniqueCategoryArr[props.activeThumbnail!].subhead}
                 h1={uniqueCategoryArr[props.activeThumbnail!].heading}
-                p={""}
-                widthClass={"gallery"}
-                layout={twoColLayout}
+                p={uniqueCategoryArr[props.activeThumbnail!].p}
               />
             )}
+
+            <ForwardBtn
+              link={"/serving-sizes/1-tier"}
+              linkTxt=" Explore Serving Sizes"
+            />
           </div>
-        )}
-
-      {oneColLayout && !mobileLrg && (
-        <div
-          className={
-            !isGourmetPage
-              ? "gallery-thumbnails-container two"
-              : "gallery-thumbnails-container flex-grow"
-          }
-          onClick={(e) => {
-            handleThumbnailClick(e);
-          }}
-        >
-          {uniqueCategoryArr.length &&
-            uniqueCategoryArr.map((item, i) => {
-              return (
-                <>
-                  <img
-                    onLoad={(e) => {
-                      handleImageLoading(e);
-                    }}
-                    src={item.thumbnail}
-                    key={i}
-                    id={`${item.thumbnailTitle}_${i}`}
-                    alt=""
-                    className={props.activeThumbnail === i ? "active" : ""}
-                    ref={(el) => {
-                      imgRefs.current[i] = el;
-                    }}
-                  />
-                </>
-              );
-            })}
-        </div>
-      )}
-
-      {/* CREATE MAIN IMAGE COMPONENT FOR mobile */}
-      {horizontalMainImgGallery && (
-        <div className="gallery-mainImg-container mobile-one">
-          {uniqueCategoryArr.map((cakeObj: any) => {
-            return (
-              <>
-                <div
-                  className={mainImgLoaded ? "" : "lazy-img"}
-                  style={{
-                    backgroundImage: `url(${cakeObj.lazyImg})`
-                  }}
-                ></div>
-
-                <img
-                  onLoad={() => {
-                    setMainImgLoaded(true);
-                  }}
-                  src={cakeObj.img}
-                  alt=""
-                />
-              </>
-            );
-          })}
-        </div>
-      )}
-
-      {/* CREATE MAIN IMAGE COMPONENT FOR mobile */}
-      {mobileLrg && (!threeColLayout || !oneColLayout || !twoColLayout) && (
-        <div className="gallery-mainImg-container mobile-two">
-          {uniqueCategoryArr.map((cakeObj: any, i) => {
-            return (
-              <>
-                <div
-                  className={mainImgLoaded ? "" : "lazy-img"}
-                  style={{
-                    backgroundImage: `url(${cakeObj.lazyImg})`
-                  }}
-                ></div>
-
-                <img
-                  onLoad={(e) => {
-                    handleImageLoading(e);
-                    setMainImgLoaded(true);
-                  }}
-                  src={cakeObj.img}
-                  id={`${cakeObj.thumbnailTitle}_${i}`}
-                  alt=""
-                  ref={(el) => {
-                    imgRefs.current[i] = el;
-                  }}
-                />
-              </>
-            );
-          })}
         </div>
       )}
     </>

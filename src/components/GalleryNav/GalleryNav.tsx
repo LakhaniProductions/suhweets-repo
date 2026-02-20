@@ -1,9 +1,8 @@
-import React, { useCallback, useContext, useState } from "react";
+import React, { useContext, useState } from "react";
 // import { GalleryNavProps } from "./GalleryNav.types";
 import "../MainNav/mainnav.css";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { GalleryImgLoadContext } from "../../context/GalleryImgLoadContext";
-import useWindowDimensions from "../../hooks/useWindowDimensions";
 
 const GalleryNav = () => {
   const context = useContext(GalleryImgLoadContext);
@@ -12,8 +11,6 @@ const GalleryNav = () => {
   }
   const { selectedMenuItem: menuFromUrl } = useParams();
   const { setShowLoadingGif } = context;
-
-  const { width, height } = useWindowDimensions();
   const navigate = useNavigate();
 
   const menus = {
@@ -28,105 +25,34 @@ const GalleryNav = () => {
   const [selectedMenuItem, setSelectedMenuItem] = useState<string>(
     menuFromUrl ?? galleryMenu[0]
   );
-  const [activeIndex, setActiveIndex] = useState(
-    galleryMenu.indexOf(selectedMenuItem)
-  );
 
   const isWedding = location.pathname.includes("/wedding-cakes");
   const basePath = isWedding ? "wedding-cakes" : "custom-cakes";
 
-  const setActiveClick = (
-    e: React.MouseEvent<HTMLButtonElement>,
-    i: number
-  ) => {
+  const setActiveClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     const target = e.currentTarget as HTMLButtonElement;
     const newPath = `/${basePath}/${target.id}/0`;
 
     setSelectedMenuItem(target.id);
-    setActiveIndex(i);
     setShowLoadingGif(true);
     navigate(newPath);
   };
-
-  const getFilterItemsClassName = useCallback(
-    (item: string, i: number) => {
-      if (selectedMenuItem === item) {
-        return `navigation-item active-menu-item`;
-      } else {
-        if (width <= 1080 && width > 980) {
-          if (i <= 1 && activeIndex === 0) {
-            return `navigation-item `;
-          } else if (activeIndex > 0 && activeIndex < galleryMenu.length) {
-            if (
-              i === activeIndex - 1 ||
-              i === activeIndex ||
-              i === activeIndex + 1
-            ) {
-              return `navigation-item `;
-            } else {
-              return `d-none`;
-            }
-          } else if (activeIndex === galleryMenu.length - 1 && i >= 3) {
-            return `navigation-item `;
-          } else {
-            return "d-none";
-          }
-        } else if (width <= 980 || height <= 560) {
-          if (selectedMenuItem === item) {
-            return `navigation-item active-menu-item`;
-          } else {
-            return "d-none";
-          }
-        } else {
-          return `navigation-item `;
-        }
-      }
-    },
-    [activeIndex, width, selectedMenuItem, height]
-  );
 
   return (
     <nav className="navigation">
       {galleryMenu.map((item, i) => (
         <>
-          {i === activeIndex - 1 &&
-            activeIndex <= galleryMenu.length - 1 &&
-            (width <= 980 || height <= 560) && (
-              <button
-                onClick={() => {
-                  navigate(`/${basePath}/${galleryMenu[activeIndex - 1]}/0`);
-                  setSelectedMenuItem(galleryMenu[activeIndex - 1]);
-                  setActiveIndex(activeIndex - 1);
-                }}
-                className="less-btn"
-              >
-                <>&lt;</>
-              </button>
-            )}
-
           <button
-            onClick={(e) => setActiveClick(e, i)}
-            className={getFilterItemsClassName(item, i)}
+            onClick={(e) => setActiveClick(e)}
+            className={"navigation-item"}
             id={`${galleryMenu[i]}`}
             key={i}
           >
-            {item}
+            <div>
+              {String(item).charAt(0).toUpperCase() + String(item).slice(1)}
+              {selectedMenuItem === item && <span>&nbsp;</span>}
+            </div>
           </button>
-
-          {i === activeIndex + 1 &&
-            activeIndex >= 0 &&
-            (width <= 980 || height <= 560) && (
-              <button
-                onClick={() => {
-                  navigate(`/${basePath}/${galleryMenu[activeIndex + 1]}/0`);
-                  setSelectedMenuItem(galleryMenu[activeIndex + 1]);
-                  setActiveIndex(activeIndex + 1);
-                }}
-                className="greater-btn"
-              >
-                <>&gt;</>
-              </button>
-            )}
         </>
       ))}
     </nav>

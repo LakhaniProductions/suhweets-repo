@@ -41,7 +41,7 @@ function App() {
         }
       />
       <Route
-        path="/signature-cakes/:selectedMenuItem"
+        path="/signature-cakes/:selectedMenuItem/:size?"
         element={
           <GalleryImgLoadProvider>
             <Signature setMenuFade={setMenuFade} menuFade={menuFade} />

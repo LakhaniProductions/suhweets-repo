@@ -1,20 +1,20 @@
 .signature-content {
   display: flex;
-  padding: 20.5rem 0 10.4rem 2.4rem;
   position: relative;
-  min-width: 100%;
+  max-width: 192rem;
+  width: 100%;
+  align-self: center;
+  margin-top: 4.8rem;
 }
 
 .signature-cakes-container {
-  width: 100%;
+  width: 75%;
   display: flex;
   flex-direction: row;
-  height: 69dvh;
-  overflow-y: scroll;
   flex-wrap: wrap;
 }
 
-.signature-cakes-container::-webkit-scrollbar {
+/* .signature-cakes-container::-webkit-scrollbar {
   width: 0.8rem;
 }
 .signature-cakes-container::-webkit-scrollbar-track {
@@ -23,11 +23,11 @@
 .signature-cakes-container::-webkit-scrollbar-thumb {
   background: #a6a6a6;
   border-radius: 1rem;
-}
+} */
 
 .cake-detail-card {
   display: flex;
-  width: 31%;
+  width: 31.6%;
   margin: 0 3.6rem 2.4rem 0;
   flex-direction: column;
 }
@@ -49,251 +49,35 @@
   border-radius: 0 0 3rem 3rem;
   padding: 0 2.4rem;
 }
+.add-info {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2.4rem;
+}
+
+.cake-info-box .add-info h4 {
+  font-size: 2.3rem;
+  font-family: "fjalla one", sans-serif;
+}
+.cake-info-box .add-info p {
+  font-size: 2rem;
+  padding: 0;
+  width: max-content;
+}
 
 .cake-info-box h3 {
   font-family: "fjalla one", sans-serif;
   text-transform: uppercase;
   margin-top: 3.6rem;
-  font-size: 3.6rem;
+  font-size: 2.3rem;
   color: #526166;
 }
 
 .cake-info-box p {
-  font-size: 2.6rem;
+  font-size: 2.1rem;
   font-family: raleway;
-  padding: 2.4rem 0 4.8rem 0;
+  padding: 1.2rem 0 3.6rem 0;
   color: #526166;
-  width: 90%;
+  /* width: 90%; */
   line-height: 1.5;
-}
-
-.signature-details h2,
-.cupcake-details h2 {
-  white-space: nowrap;
-}
-
-.cupcake-details p {
-  font-size: 2.6rem;
-}
-
-.signature-details p {
-  text-transform: capitalize;
-  white-space: nowrap;
-  font-size: 3.2rem;
-}
-
-@media (max-width: 2560px) and (max-height: 1240px) {
-  .signature-cakes-container {
-    height: 95%;
-  }
-}
-
-@media (max-width: 2270px) {
-  .cake-info-box h3 {
-    font-size: 3.2rem;
-  }
-
-  .cake-info-box p {
-    font-size: 2.3rem;
-  }
-}
-
-@media (max-width: 2050px) {
-  .cake-info-box p {
-    font-size: 2rem;
-  }
-}
-
-@media (max-width: 1910px) {
-  .cake-detail-card {
-    width: 47%;
-  }
-
-  .cake-detail-card:nth-child(3n) {
-    margin-right: 3.6rem;
-  }
-
-  .cake-detail-card:nth-child(2n) {
-    margin-right: 0;
-  }
-}
-
-@media (max-width: 1700px) {
-  .signature-content {
-    padding: 14.4rem 0 10.4rem 2.4rem;
-  }
-
-  .signature-cakes-container {
-    height: 96%;
-  }
-}
-@media (max-width: 1550px) {
-  .cake-detail-card {
-    width: 46%;
-  }
-
-  .signature-cakes-container {
-    width: 100%;
-    justify-content: center;
-  }
-  .signature-details {
-    min-width: max-content;
-  }
-}
-
-@media (max-width: 1511px) and (max-height: 900px) {
-  .signature-cakes-container {
-    height: 95%;
-  }
-}
-
-@media (max-width: 1323px) {
-  .signature-details h2 {
-    font-size: 4.1rem;
-  }
-  .signature-details h1 {
-    font-size: 6.5rem;
-  }
-}
-
-@media (max-width: 1100px) {
-  .signature-details {
-    margin-right: 3.6rem;
-  }
-}
-
-@media (max-width: 1080px) {
-  .cake-detail-card {
-    width: 85%;
-    margin: 0 0 3.6rem 0;
-  }
-
-  .cake-detail-card:nth-child(3n) {
-    margin-right: 0;
-  }
-  .signature-details {
-    margin-right: 0;
-  }
-  .signature-cakes-container {
-    height: 100%;
-  }
-}
-
-@media (max-width: 1080px) and (max-height: 1000px) {
-  .signature-details h2 {
-    font-size: 3.6rem;
-  }
-
-  .signature-details h1 {
-    font-size: 5.1rem;
-  }
-
-  .signature-details p {
-    font-size: 2.9rem;
-  }
-}
-
-@media (max-width: 900px) {
-  .cake-detail-card {
-    width: 90%;
-  }
-}
-
-@media (max-width: 800px) {
-  .signature-content {
-    flex-direction: column;
-  }
-  .signature-cakes-container {
-    margin-top: 3.2rem;
-    padding-right: 2.4rem;
-  }
-  .cake-detail-card {
-    width: 95%;
-  }
-  /* .signature-details {
-    margin-right: 7.2rem;
-  } */
-  .signature-details {
-    flex-direction: row;
-    align-items: flex-end;
-    justify-content: space-between;
-    width: 95%;
-    flex-wrap: wrap;
-  }
-
-  .signature-details h2,
-  .signature-details h1,
-  .signature-details p {
-    padding-bottom: 0;
-  }
-  .signature-details h2 {
-    font-size: 3.6rem;
-  }
-  .signature-details h1 {
-    font-size: 5.8rem;
-  }
-}
-
-@media (max-width: 700px) and (max-height: 1100px) {
-  .signature-details h2 {
-    font-size: 2.9rem;
-  }
-
-  .signature-details h1 {
-    font-size: 4.9rem;
-  }
-
-  .signature-details p {
-    font-size: 2.6rem;
-  }
-
-  .signature-content {
-    padding: 15.6rem 0 10.4rem 2.4rem;
-  }
-}
-
-@media (max-width: 580px) {
-  .cake-info-box h3 {
-    font-size: 2.9rem;
-  }
-  .cake-info-box p {
-    font-size: 1.8rem;
-  }
-  .signature-details p {
-    flex-basis: 100%;
-    text-align: end;
-  }
-
-  .signature-cakes-container {
-    justify-content: unset;
-  }
-  .cake-detail-card {
-    width: 100%;
-  }
-}
-
-@media (max-width: 464px) {
-  /* .signature-content {
-    padding: 18rem 0 10.4rem 0;
-  } */
-  .signature-cakes-container {
-    padding: 0 1.2rem;
-  }
-  .signature-details {
-    width: 92%;
-    margin-left: 1.2rem;
-  }
-
-  .cake-info-box h3 {
-    font-size: 2.6rem;
-  }
-  .cake-info-box p {
-    font-size: 1.8rem;
-  }
-}
-
-@media (max-width: 410px) {
-  .signature-details {
-    min-width: 50%;
-  }
 }

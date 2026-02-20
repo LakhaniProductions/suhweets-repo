@@ -1,12 +1,13 @@
-.cake-info-container {
-  padding-right: 8.7rem;
+.flavors-content {
   display: flex;
-  flex-direction: column;
+  max-width: 192rem;
+  align-self: center;
+  display: flex;
+  position: relative;
+  margin-top: 4.8rem;
 }
-
-.flavors-container.fillings {
-  justify-content: space-between;
-  width: 100%;
+.flavors-container {
+  width: 75%;
 }
 
 .title {
@@ -21,9 +22,21 @@
   padding-top: 7.2rem;
 }
 
-.flavors-box--favs {
+.flavors-box {
   display: flex;
   flex-wrap: wrap;
+  row-gap: 4.8rem;
+  width: 100%;
+}
+
+.classic-flavors {
+  margin-bottom: 9.6rem;
+  scroll-margin-top: 40rem;
+}
+
+.specialty-flavors {
+  scroll-margin-top: 15rem;
+  margin-bottom: 9.6rem;
 }
 
 .flavor-card {
@@ -33,9 +46,8 @@
   flex-direction: column;
 }
 
-.flavors-box--flav {
-  display: flex;
-  flex-direction: column;
+.flavor-card:nth-child(3n) {
+  margin-right: 0;
 }
 
 .fav-img {
@@ -46,20 +58,17 @@
   cursor: default;
   font-family: fjalla one;
   text-transform: capitalize;
-  padding-bottom: 1.8rem;
-  font-size: 4.6rem;
-}
-
-.menu-options.baker {
+  padding: 2.4rem 0 1.2rem 1.2rem;
+  font-size: 2.9rem;
   color: #526166;
   width: max-content;
-  font-size: 3.2rem;
-  padding: 2.4rem 0 4.8rem 0;
+  text-align: center;
+  align-self: center;
 }
-
-.buttercream,
-.flavor {
-  padding-left: 1.8rem;
+.flavor-card p {
+  font-size: 1.8rem;
+  text-align: center;
+  padding: 0 2.4rem;
 }
 
 .lazy-img {
@@ -68,591 +77,4 @@
   width: 94.5%;
   height: 90%;
   position: absolute;
-}
-
-.flavors-fillings-container {
-  display: flex;
-  row-gap: 7.2rem;
-  flex-direction: column;
-  width: 100%;
-  overflow-y: scroll;
-  overflow-x: hidden;
-  margin-bottom: 4.8rem;
-}
-.cake-flavor-fillings {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-}
-
-.cake-flavor-fillings .cake-info-container {
-  width: 32%;
-}
-
-.flavors-container.fav {
-  overflow-y: scroll;
-  height: 95%;
-  width: 90%;
-  overflow-x: hidden;
-}
-
-.flavors-container.fillings {
-  flex-direction: row;
-  max-width: unset;
-  width: 100%;
-  justify-content: unset;
-  flex-wrap: wrap;
-}
-
-.flavors-container.fav::-webkit-scrollbar,
-.flavors-fillings-container::-webkit-scrollbar {
-  width: 0.8rem;
-}
-.flavors-container.fav::-webkit-scrollbar-track,
-.flavors-fillings-container::-webkit-scrollbar-track {
-  background: white;
-}
-.flavors-container.fav::-webkit-scrollbar-thumb,
-.flavors-fillings-container::-webkit-scrollbar-thumb {
-  background: #a6a6a6;
-  border-radius: 1rem;
-}
-.fillings .cake-info-container {
-  min-width: 32%;
-  padding-right: unset;
-}
-
-@media (max-width: 2560px) and (max-height: 940px) {
-  .flavor-card {
-    width: 23.75%;
-  }
-
-  .menu-options.baker {
-    font-size: 2.9rem;
-  }
-}
-
-@media (max-width: 2560px) and (max-height: 860px) {
-  .flavors-content {
-    padding-left: 4.8rem;
-  }
-}
-
-@media (max-width: 2560px) and (max-height: 530px) {
-  .flavors-container.fav {
-    width: 88%;
-  }
-}
-
-@media (max-width: 2390px) and (max-height: 940px) {
-  .flavor-card {
-    width: 23.5%;
-  }
-  .menu-options.baker {
-    font-size: 2.6rem;
-  }
-}
-
-@media (max-width: 2301px) {
-  .flavor-card {
-    width: 31.75%;
-  }
-}
-
-@media (max-width: 2220px) and (max-height: 1294px) {
-  .fillings .cake-info-container {
-    width: 50%;
-  }
-  .fillings .cake-info-container .title {
-    font-size: 3.9rem;
-  }
-
-  .flavors-content.fillings {
-    flex-direction: row;
-  }
-
-  .flavors-container {
-    margin-bottom: 0;
-    margin-top: 3.6rem;
-  }
-
-  .flavors-container.fav {
-    margin-bottom: 0;
-    margin-top: 0rem;
-  }
-  .flavors-container.fillings {
-    margin-bottom: 0;
-    margin-top: 0rem;
-  }
-}
-
-@media (max-width: 2200px) and (max-height: 1294px) {
-  .cake-info-container .title {
-    font-size: 3.7rem;
-  }
-}
-
-@media (max-width: 2200px) and (max-height: 530px) {
-  .flavors-container.fav {
-    width: 87.5%;
-  }
-}
-
-@media (max-width: 2180px) and (max-height: 940px) {
-  .menu-options.baker {
-    font-size: 2.3rem;
-  }
-}
-
-@media (max-width: 2100px) and (max-height: 530px) {
-  .flavors-container.fav {
-    width: 87%;
-  }
-}
-
-@media (max-width: 2080px) {
-  .flavors-container.fillings {
-    flex-wrap: wrap;
-    min-width: 60%;
-  }
-}
-
-@media (max-width: 2030px) {
-  .menu-options.baker {
-    font-size: 2.9rem;
-  }
-}
-
-@media (max-width: 2020px) and (max-height: 1294px) {
-  .flavors-container.fillings {
-    justify-content: flex-start;
-  }
-
-  .fillings .cake-info-container:last-of-type .title {
-    padding-top: 7.2rem;
-  }
-  .fillings .cake-flavor-fillings .cake-info-container:last-of-type .title {
-    padding-top: 0rem;
-  }
-}
-
-@media (max-width: 2100px) and (max-height: 530px) {
-  .flavors-container.fav {
-    width: 86.5%;
-  }
-}
-
-@media (max-width: 1963px) and (max-height: 860px) {
-  .flavors-container.fav {
-    max-width: 79.5%;
-  }
-}
-
-@media (max-width: 1963px) and (max-height: 530px) {
-  .flavors-container.fav {
-    width: 86%;
-  }
-}
-
-@media (max-width: 1960px) {
-  .flavor-card {
-    width: 31.5%;
-    margin-right: 2.4rem;
-  }
-}
-
-@media (max-width: 1890px) {
-  .menu-options.baker {
-    font-size: 2.6rem;
-  }
-}
-
-@media (max-width: 1890px) and (max-height: 940px) {
-  .menu-options.baker {
-    font-size: 2.3rem;
-  }
-}
-
-@media (max-width: 1963px) and (max-height: 860px) {
-  .flavors-container.fav {
-    max-width: 78.25%;
-  }
-}
-
-@media (max-width: 1845px) and (max-height: 530px) {
-  .flavors-container.fav {
-    width: 85.5%;
-  }
-}
-
-@media (max-width: 1835px) and (max-height: 860px) {
-  .flavors-container.fav {
-    max-width: 75%;
-  }
-}
-
-@media (max-width: 1800px) and (max-height: 530px) {
-  .flavors-container.fav {
-    width: 85.5%;
-  }
-}
-
-@media (max-width: 1776px) and (max-height: 1294px) {
-  .cake-info-container .title {
-    font-size: 3.2rem;
-  }
-}
-
-@media (max-width: 1793px) {
-  .flavor-card {
-    width: 31%;
-  }
-}
-
-@media (max-width: 1730px) {
-  .menu-options.baker {
-    font-size: 2.3rem;
-  }
-}
-
-@media (max-width: 1700px) and (max-height: 530px) {
-  .flavors-container.fav {
-    width: 85%;
-  }
-}
-
-@media (max-width: 1660px) and (max-height: 860px) {
-  .flavors-container.fav {
-    max-width: 74.5%;
-  }
-}
-
-@media (max-width: 1640px) and (max-height: 530px) {
-  .flavors-container.fav {
-    width: 84.5%;
-  }
-}
-
-@media (max-width: 1610px) and (max-height: 530px) {
-  .flavors-container.fav {
-    width: 84%;
-  }
-}
-
-@media (max-width: 1550px) and (max-height: 530px) {
-  .flavors-container.fav {
-    width: 83%;
-  }
-}
-
-@media (max-width: 1530px) and (max-height: 1294px) {
-  .flavors-content.fillings {
-    flex-direction: column;
-  }
-}
-
-@media (max-width: 1511px) and (max-height: 1002px) {
-  .flavors-container.fav {
-    width: 74%;
-  }
-}
-
-@media (max-width: 1511px) and (max-height: 530px) {
-  .flavors-container.fav {
-    width: 83%;
-  }
-}
-
-@media (max-width: 1510px) {
-  .menu-options.baker {
-    font-size: 2rem;
-  }
-}
-
-@media (max-width: 1490px) and (max-height: 1002px) {
-  .flavors-container.fav {
-    width: 72%;
-  }
-}
-
-@media (max-width: 1490px) and (max-height: 530px) {
-  .flavors-container.fav {
-    width: 83%;
-  }
-}
-
-@media (max-width: 1477px) {
-  .flavor-card {
-    width: 47%;
-  }
-  .menu-options.baker {
-    font-size: 2.6rem;
-  }
-}
-
-@media (max-width: 1460px) and (max-height: 530px) {
-  .flavors-container.fav {
-    width: 82.5%;
-  }
-}
-
-@media (max-width: 1460px) and (max-height: 530px) {
-  .flavors-container.fav {
-    width: 82%;
-  }
-}
-
-@media (max-width: 1380px) and (max-height: 1294px) {
-  .flavors-container.fav {
-    width: 100%;
-  }
-  .flavor-card {
-    width: 30.8%;
-  }
-
-  .menu-options.baker {
-    font-size: 2.3rem;
-  }
-
-  .fillings .cake-info-container:last-of-type .title {
-    padding-top: 7.2rem;
-  }
-}
-
-@media (max-width: 1380px) and (max-height: 1002px) {
-  .flavors-container.fav {
-    width: 98%;
-  }
-}
-
-@media (max-width: 1380px) and (max-height: 860px) {
-  .flavors-container.fav {
-    max-width: 98%;
-  }
-}
-
-@media (max-width: 1323px) {
-  .flavors-content {
-    padding-left: 2.4rem;
-  }
-  .flavors-container.fav {
-    width: 98%;
-  }
-
-  .flavor-card {
-    width: 47%;
-  }
-  .flavors-content.fillings {
-    padding-right: 2.4rem;
-  }
-}
-
-@media (max-width: 1120px) {
-  .fillings .cake-info-container .title {
-    font-size: 3.2rem;
-  }
-  .menu-options.flavor,
-  .menu-options.buttercream {
-    font-size: 2.9rem;
-  }
-}
-
-@media (max-width: 990px) and (max-height: 1294px) {
-  .fillings .cake-info-container {
-    padding-right: 4.8rem;
-  }
-}
-
-@media (max-width: 920px) and (max-height: 1294px) {
-  .fillings .cake-info-container .title {
-    font-size: 2.9rem;
-  }
-  .menu-options.flavor,
-  .menu-options.buttercream {
-    font-size: 2.6rem;
-  }
-}
-
-@media (max-width: 915px) and (max-height: 1294px) {
-  .cake-info-container .title {
-    font-size: 3.6rem;
-  }
-}
-
-@media (max-width: 870px) and (max-height: 1294px) {
-  .fillings .cake-info-container {
-    padding-right: 4.8rem;
-  }
-}
-
-@media (max-width: 860px) {
-  .cake-flavor-fillings .cake-info-container,
-  .flavors-container.fillings .cake-info-container {
-    width: 100%;
-  }
-  .cake-flavor-fillings .cake-info-container:first-of-type,
-  .flavors-container.fillings .cake-info-container:first-of-type {
-    margin-bottom: 7.2rem;
-  }
-
-  .fillings .cake-info-container .title {
-    font-size: 4.1rem;
-  }
-  .menu-options.flavor,
-  .menu-options.buttercream {
-    font-size: 3.6rem;
-  }
-}
-
-@media (max-width: 848px) {
-  .flavors-content {
-    padding-top: 9.6rem;
-  }
-  .flavor-card {
-    width: 46%;
-  }
-
-  .menu-options.baker {
-    font-size: 2rem;
-  }
-}
-
-@media (max-width: 740px) {
-  .flavor-card {
-    width: 100%;
-  }
-
-  .menu-options.baker {
-    font-size: 2.9rem;
-  }
-}
-@media (max-width: 680px) and (max-height: 480px) {
-  .flavors-box--favs {
-    justify-content: center;
-  }
-  .flavor-card {
-    flex-direction: column-reverse;
-    width: 75%;
-    align-items: center;
-    margin-bottom: 3.6rem;
-  }
-
-  .menu-options.baker {
-    padding-bottom: 2.4rem;
-  }
-}
-
-@media (max-width: 620px) {
-  .fillings .cake-info-container .title {
-    font-size: 3.6rem;
-  }
-  .menu-options.flavor,
-  .menu-options.buttercream {
-    font-size: 3.2rem;
-  }
-}
-@media (max-width: 580px) and (max-height: 1294px) {
-  .fillings .cake-info-container {
-    padding-right: 2.4rem;
-  }
-}
-
-@media (max-width: 560px) and (max-height: 480px) {
-  .flavors-box--favs {
-    justify-content: unset;
-  }
-  .flavor-card {
-    flex-direction: column-reverse;
-    width: 100%;
-    align-items: center;
-    margin-bottom: 3.6rem;
-  }
-
-  .menu-options.baker {
-    padding-bottom: 2.4rem;
-  }
-}
-
-@media (max-width: 620px) {
-  .fillings .cake-info-container .title {
-    font-size: 3.2rem;
-  }
-
-  .menu-options.flavor,
-  .menu-options.buttercream {
-    font-size: 2.9rem;
-  }
-}
-
-@media (max-width: 540px) {
-  .menu-options.baker {
-    font-size: 2.3rem;
-  }
-}
-
-@media (max-width: 520px) {
-  .title {
-    min-width: unset;
-  }
-}
-
-@media (max-width: 485px) {
-  .title {
-    min-width: unset;
-  }
-  .fillings .cake-info-container .title {
-    font-size: 2.9rem;
-  }
-
-  .menu-options.flavor,
-  .menu-options.buttercream {
-    font-size: 2.6rem;
-  }
-}
-
-@media (max-width: 450px) and (max-height: 1294px) {
-  .cake-info-container .title {
-    font-size: 2.9rem;
-    line-height: 1.4;
-  }
-}
-
-@media (max-width: 440px) and (max-height: 1294px) {
-  .menu-options.baker {
-    font-size: 2rem;
-  }
-}
-
-@media (max-width: 395px) and (max-height: 1294px) {
-  .cake-info-container .title {
-    font-size: 2.3rem;
-  }
-}
-
-@media (max-width: 390px) {
-  .menu-options.baker {
-    font-size: 1.8rem;
-  }
-}
-
-@media (max-width: 350px) {
-  .menu-options.baker {
-    font-size: 1.6rem;
-  }
-}
-@media (max-width: 320px) {
-  .fillings .cake-info-container .title {
-    font-size: 2.3rem;
-  }
-
-  .menu-options.flavor,
-  .menu-options.buttercream {
-    font-size: 2rem;
-  }
-}
-
-@media (max-width: 320px) and (max-height: 730px) {
-  .fillings .flavors-container {
-    margin-top: 0;
-  }
 }

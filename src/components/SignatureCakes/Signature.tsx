@@ -1,13 +1,14 @@
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useRef } from "react";
 import { SignatureProps } from "./SignatureProps.type";
-import PageButtons from "../PageButtons/PageButtons";
+
 import MenuContext from "../../context/HamburgerMenuContext";
 import HamburgerMenu from "../HamburgerMenu/HamburgerMenu";
 import Header from "../Header/Header";
-import PageNav from "../PageNav/PageNav";
 import "./signature.css";
 import SignatureContent from "../SignatureContent/SignatureContent";
 import { GalleryImgLoadContext } from "../../context/GalleryImgLoadContext";
+import Footer from "../Footer/Footer";
+import StickyDiv from "../StickyDiv/StickyDiv";
 
 const Signature = (props: SignatureProps) => {
   const context = useContext(GalleryImgLoadContext);
@@ -15,7 +16,21 @@ const Signature = (props: SignatureProps) => {
     return;
   }
   const { showLoadingFlavorGif } = context;
-  const menu = [`6"`, `8"`, `10"`];
+  //sticky div content
+  const bcrumbData = [
+    { url: "/", linkText: "Home" },
+    { url: "", linkText: "Signature cakes" }
+  ];
+
+  const txtPanelData = {
+    h2: "Signature",
+    h1: "cakes",
+    p: "write some cool description here. For now this stays"
+  };
+
+  const menu = [`classic flavors`, `specialty flavors`];
+  const secMenu = [`6"`, `8"`, `10"`];
+  const categoriesRefs = useRef<(HTMLDivElement | null)[]>([]);
 
   useEffect(() => {
     props.setMenuFade({
@@ -28,7 +43,7 @@ const Signature = (props: SignatureProps) => {
   useEffect(() => {}, [showLoadingFlavorGif]);
 
   return (
-    <section className="container">
+    <section className="home-container">
       <MenuContext.Provider
         value={{
           BGClass: props.menuFade.BGClass,
@@ -42,10 +57,17 @@ const Signature = (props: SignatureProps) => {
         <HamburgerMenu />
       </MenuContext.Provider>
       <div className={`signature-content`}>
-        <SignatureContent />
+        <StickyDiv
+          bcrumbData={bcrumbData}
+          txtPanelData={txtPanelData}
+          pageNavMenu={menu}
+          catRefs={categoriesRefs}
+          showSecMenu={true}
+          secMenu={secMenu}
+        />
+        <SignatureContent catRefs={categoriesRefs} />
       </div>
-      <PageNav menu={menu} />
-      <PageButtons />
+      <Footer />
     </section>
   );
 };

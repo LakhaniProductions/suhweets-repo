@@ -1,22 +1,16 @@
-import {
-  // SyntheticEvent,
-  // useCallback,
-  useContext,
-  useEffect,
-  useState
-} from "react";
-
-import TextPanel from "../TextPanel/TextPanel";
+import { useContext, useEffect, useState } from "react";
 import { GalleryImgLoadContext } from "../../context/GalleryImgLoadContext";
-import { useParams } from "react-router-dom";
 
-const FlavorsContent = () => {
+const FlavorsContent = ({
+  catRefs
+}: {
+  catRefs: React.RefObject<(HTMLDivElement | null)[]>;
+}) => {
   const context = useContext(GalleryImgLoadContext);
   if (!context) {
     return;
   }
 
-  const { selectedMenuItem } = useParams();
   const { setShowLoadingGif, showLoadingGif } = context;
   const flavorImages = Object.values(
     import.meta.glob("../../img/cakeflavors/*.{png,jpg,jpeg,gif}", {
@@ -26,223 +20,131 @@ const FlavorsContent = () => {
   );
   const flavorsContent = [
     {
-      flav: "red velvet w/ vanilla cream cheese",
+      flav: "Vanilla Dream",
+      p: "Moist vanilla cake paired with smooth vanilla buttercream.",
       img: flavorImages.find((img) => img.includes("chocolate-big")),
       lsImg: flavorImages.find((img) => img.includes("one-col")),
       bgimg: flavorImages.find((img) => img.includes("chocolate-small")),
-      category: "baker-favorites"
+      category: "classic"
     },
     {
-      flav: "spiced carrot w/ vanilla cream cheese*",
+      flav: "Red Velvet",
+      p: "Rich red velvet cake with a creamy vanilla cream cheese frosting.",
       img: flavorImages.find((img) => img.includes("chocolate-big")),
       lsImg: flavorImages.find((img) => img.includes("one-col")),
       bgimg: flavorImages.find((img) => img.includes("chocolate-small")),
-      category: "baker-favorites"
+      category: "classic"
     },
     {
-      flav: "chocolate w/ chocolate ganache",
+      flav: `Cookies & Cream`,
+      p: "Choice of chocolate or vanilla cake with cookies & cream buttercream.",
       img: flavorImages.find((img) => img.includes("chocolate-big")),
       lsImg: flavorImages.find((img) => img.includes("one-col")),
       bgimg: flavorImages.find((img) => img.includes("chocolate-small")),
-      category: "baker-favorites"
+      category: "classic"
     },
     {
-      flav: "berries & cream",
+      flav: "Chocolate & Vanilla",
+      p: "Decadent chocolate cake frosted with vanilla buttercream.",
       img: flavorImages.find((img) => img.includes("chocolate-big")),
       lsImg: flavorImages.find((img) => img.includes("one-col")),
       bgimg: flavorImages.find((img) => img.includes("chocolate-small")),
-      category: "baker-favorites"
+      category: "classic"
     },
     {
-      flav: "white almond w/ raspberry compote*",
+      flav: "Funfetti",
+      p: "Funfetti cake with your choice of vanilla or strawberry buttercream.",
       img: flavorImages.find((img) => img.includes("chocolate-big")),
       lsImg: flavorImages.find((img) => img.includes("one-col")),
       bgimg: flavorImages.find((img) => img.includes("chocolate-small")),
-      category: "baker-favorites"
+      category: "classic"
     },
     {
-      flav: "lemon w/ raspberry compote*",
+      flav: "Strawberry Delight",
+      p: "Strawberry cake layered with strawberry cream cheese frosting.",
       img: flavorImages.find((img) => img.includes("chocolate-big")),
       lsImg: flavorImages.find((img) => img.includes("one-col")),
       bgimg: flavorImages.find((img) => img.includes("chocolate-small")),
-      category: "baker-favorites"
+      category: "classic"
     },
     {
-      flav: "funfetti w/ strawberry buttercream",
+      flav: "Double Chocolate",
+      p: "Chocolate cake filled with rich chocolate buttercream.",
       img: flavorImages.find((img) => img.includes("chocolate-big")),
       lsImg: flavorImages.find((img) => img.includes("one-col")),
       bgimg: flavorImages.find((img) => img.includes("chocolate-small")),
-      category: "baker-favorites"
+      category: "classic"
     },
     {
-      flav: "chocolate w/ cookies & cream",
+      flav: "lemon raspberry",
+      p: "Lemon cake with raspberry compote and vanilla buttercream.",
       img: flavorImages.find((img) => img.includes("chocolate-big")),
       lsImg: flavorImages.find((img) => img.includes("one-col")),
       bgimg: flavorImages.find((img) => img.includes("chocolate-small")),
-      category: "baker-favorites"
+      category: "specialty"
     },
     {
-      flav: "chocolate",
-      category: "classic-flavors"
+      flav: "Spiced Carrot",
+      p: "Carrot cake with vanilla cream cheese frosting and a touch of dulce de leche.",
+      img: flavorImages.find((img) => img.includes("chocolate-big")),
+      lsImg: flavorImages.find((img) => img.includes("one-col")),
+      bgimg: flavorImages.find((img) => img.includes("chocolate-small")),
+      category: "specialty"
     },
     {
-      flav: "funfetti",
-      category: "classic-flavors"
+      flav: "Almond Raspberry",
+      p: "Almond cake with raspberry compote and almond butter cream",
+      img: flavorImages.find((img) => img.includes("chocolate-big")),
+      lsImg: flavorImages.find((img) => img.includes("one-col")),
+      bgimg: flavorImages.find((img) => img.includes("chocolate-small")),
+      category: "specialty"
     },
     {
-      flav: "vanilla",
-      category: "classic-flavors"
+      flav: "Cookie Butter",
+      p: "Cinnamon cake with Biscoff cream cheese frosting.",
+      img: flavorImages.find((img) => img.includes("chocolate-big")),
+      lsImg: flavorImages.find((img) => img.includes("one-col")),
+      bgimg: flavorImages.find((img) => img.includes("chocolate-small")),
+      category: "specialty"
     },
     {
-      flav: "white almond",
-      category: "classic-flavors"
+      flav: "Hazelnut Dream",
+      p: "Vanilla or chocolate cake filled with Nutella ganache and dulce de leche",
+      img: flavorImages.find((img) => img.includes("chocolate-big")),
+      lsImg: flavorImages.find((img) => img.includes("one-col")),
+      bgimg: flavorImages.find((img) => img.includes("chocolate-small")),
+      category: "specialty"
     },
     {
-      flav: "red velvet",
-      category: "classic-flavors"
+      flav: "Berries & Cream",
+      p: "Vanilla cake layered with a mixed berry compote and vanilla buttercream",
+      img: flavorImages.find((img) => img.includes("chocolate-big")),
+      lsImg: flavorImages.find((img) => img.includes("one-col")),
+      bgimg: flavorImages.find((img) => img.includes("chocolate-small")),
+      category: "specialty"
     },
     {
-      flav: "lemon",
-      category: "specialty-flavors"
+      flav: "Strawberry Shortcake",
+      p: "Vanilla cake with strawberry compote and vanilla buttercream",
+      img: flavorImages.find((img) => img.includes("chocolate-big")),
+      lsImg: flavorImages.find((img) => img.includes("one-col")),
+      bgimg: flavorImages.find((img) => img.includes("chocolate-small")),
+      category: "specialty"
     },
     {
-      flav: "spiced carrot*",
-      category: "specialty-flavors"
-    },
-    {
-      flav: "apple caramel*",
-      category: "specialty-flavors"
-    },
-    {
-      flav: "almond",
-      category: "buttercream-fillings"
-    },
-    {
-      flav: "chocolate",
-      img: flavorImages.find((img) => img.includes("carrot")),
-      category: "buttercream-fillings"
-    },
-    {
-      flav: "coconut",
-      category: "buttercream-fillings"
-    },
-    {
-      flav: "coffee",
-      category: "buttercream-fillings"
-    },
-    {
-      flav: "cookies & cream",
-      category: "buttercream-fillings"
-    },
-    {
-      flav: "lemon",
-      category: "buttercream-fillings"
-    },
-    {
-      flav: "peanut butter",
-      category: "buttercream-fillings"
-    },
-    {
-      flav: "raspberry",
-      category: "buttercream-fillings"
-    },
-    {
-      flav: "salted caramel",
-      category: "buttercream-fillings"
-    },
-    {
-      flav: "strawberry",
-      category: "buttercream-fillings"
-    },
-    {
-      flav: "vanilla",
-      category: "buttercream-fillings"
-    },
-    {
-      flav: "chocolate",
-      category: "cream-cheese-fillings"
-    },
-
-    {
-      flav: "coconut",
-      category: "cream-cheese-fillings"
-    },
-    {
-      flav: "lemon",
-      category: "cream-cheese-fillings"
-    },
-    {
-      flav: "vanilla",
-      category: "cream-cheese-fillings"
-    },
-    {
-      flav: "white chocolate",
-      img: flavorImages.find((img) => img.includes("carrot")),
-      category: "ganache-fillings"
-    },
-    {
-      flav: "semi-sweet chocolate",
-      category: "ganache-fillings"
-    },
-    {
-      flav: "blueberry*",
-      img: flavorImages.find((img) => img.includes("strawberry")),
-      category: "other-fillings"
-    },
-    {
-      flav: "dulce de leche*",
-      category: "other-fillings"
-    },
-    {
-      flav: "fresh fruits*",
-      category: "other-fillings"
-    },
-    {
-      flav: "mixed berries*",
-      category: "other-fillings"
-    },
-    {
-      flav: "raspberry",
-      category: "other-fillings"
-    },
-    {
-      flav: "strawberry*",
-      category: "other-fillings"
+      flav: "Chocolate Indulgence",
+      p: "Chocolate cake filled with chocolate ganache and chocolate buttercream",
+      img: flavorImages.find((img) => img.includes("chocolate-big")),
+      lsImg: flavorImages.find((img) => img.includes("one-col")),
+      bgimg: flavorImages.find((img) => img.includes("chocolate-small")),
+      category: "specialty"
     }
   ];
-  type objectKey = keyof typeof txtPanelContent;
-  const htmlKey = selectedMenuItem as objectKey;
 
-  const txtPanelContent = {
-    "baker-favorites": {
-      h2: "the baker's",
-      h1: "favorites",
-      p: "A specially crafted menu of our favorite flavor combinations."
-    },
-    fillings: {
-      h2: "cake flavors",
-      h1: "& fillings",
-      p: "Take your cake up a notch with our delectable combinations."
-    }
-  };
-
-  const [flavorCatsArr, setFlavorCatsArr] = useState<string[]>([]);
-  const [fillingCatsArr, setFillingCatsArr] = useState<string[]>([]);
   const [imgLoaded, setImgLoaded] = useState(false);
 
-  useEffect(() => {
-    flavorsContent.filter((item) => {
-      if (item.category.includes("flavors")) {
-        setFlavorCatsArr((prevState: string[]) => [
-          ...new Set([...prevState, item.category])
-        ]);
-      } else if (item.category.includes("fillings")) {
-        setFillingCatsArr((prevState: string[]) => [
-          ...new Set([...prevState, item.category])
-        ]);
-      }
-    });
-  }, []);
+  const allCategories = flavorsContent.map((item) => item.category);
+  const uniquteCatArr = [...new Set(allCategories)];
 
   useEffect(() => {
     if (imgLoaded) {
@@ -250,27 +152,18 @@ const FlavorsContent = () => {
     } else {
       setShowLoadingGif(true);
     }
-
-    location.pathname.includes("fillings") && setShowLoadingGif(false);
   }, [imgLoaded, showLoadingGif, location.pathname]);
 
   return (
     <>
-      <TextPanel
-        h2={txtPanelContent[htmlKey].h2}
-        h1={txtPanelContent[htmlKey].h1}
-        p={txtPanelContent[htmlKey].p}
-        widthClass={`flavors-txt`}
-        layout={true}
-      />
-
-      {/* BAKER'S FAV */}
-
-      {htmlKey === "baker-favorites" && (
-        <div className="flavors-container fav">
-          <div className="flavors-box--favs">
+      <div className="flavors-container">
+        {uniquteCatArr.map((category, i) => (
+          <div
+            className={`flavors-box ${category}-flavors`}
+            key={category}
+            ref={(el) => (catRefs.current![i] = el)}
+          >
             {flavorsContent
-              .filter((cake) => cake.category === htmlKey)
               .sort((a, b) => {
                 if (a.flav < b.flav) {
                   return -1;
@@ -280,156 +173,28 @@ const FlavorsContent = () => {
                 }
                 return 0;
               })
-              .map((item, i) => (
-                <div className="flavor-card">
-                  <img
-                    className={"fav-img"}
-                    src={item.lsImg}
-                    alt={`Image for ${item.flav}  `}
-                    key={htmlKey}
-                    onLoad={() => {
-                      setImgLoaded(true);
-                      // setShowLoadingGif(false);
-                    }}
-                  />
-                  <p
-                    className={`menu-options baker`}
-                    key={i.toString()}
-                    id={`${item.flav}`}
-                  >
-                    {item.flav}
-                  </p>
-                </div>
-              ))}
+              .map(
+                (item, i) =>
+                  item.category === category && (
+                    <div className="cake-detail-card" key={i}>
+                      <img
+                        src={item.lsImg}
+                        alt={`Image for ${item.flav}  `}
+                        onLoad={() => {
+                          setImgLoaded(true);
+                          // setShowLoadingGif(false);
+                        }}
+                      />
+                      <div className="cake-info-box">
+                        <h3>{item.flav}</h3>
+                        <p>{item.p}</p>
+                      </div>
+                    </div>
+                  )
+              )}
           </div>
-        </div>
-      )}
-
-      {/* FLAVORS & FILLINGS*/}
-      {htmlKey === "fillings" && (
-        <div className="flavors-fillings-container">
-          <div className="cake-flavor-fillings">
-            {flavorCatsArr.map((category: string) => (
-              <div className="cake-info-container">
-                <p className="title">
-                  {category.includes("specialty")
-                    ? category.replace("-", " cake ")
-                    : category.replace("classic", "cake").replace("-", " ")}
-                </p>
-                <div className="flavors-box--flav">
-                  {category.includes("classic") &&
-                    flavorsContent.map(
-                      (item, i) =>
-                        item.category === category && (
-                          <p
-                            className="menu-options flavor"
-                            key={i.toString()}
-                            id={`${item.flav}`}
-                          >
-                            {item.flav}
-                          </p>
-                        )
-                    )}
-                  {category.includes("specialty") &&
-                    flavorsContent.map(
-                      (item, i) =>
-                        item.category === category && (
-                          <p
-                            className="menu-options flavor"
-                            key={i.toString()}
-                            id={`${item.flav}`}
-                          >
-                            {item.flav}
-                          </p>
-                        )
-                    )}
-                </div>
-              </div>
-            ))}
-          </div>
-          <div className="flavors-container fillings">
-            {/* BUTTER CREAM LIST */}
-            {fillingCatsArr.map(
-              (category: string) =>
-                category === "buttercream-fillings" && (
-                  <div className="cake-info-container">
-                    <p className="title">{category.replace("-", " ")}</p>
-                    {flavorsContent.map(
-                      (item, i) =>
-                        item.category === category && (
-                          <p
-                            className="menu-options buttercream"
-                            key={i.toString()}
-                            id={`${item.flav}`}
-                          >
-                            {item.flav}
-                          </p>
-                        )
-                    )}
-                  </div>
-                )
-            )}
-
-            {/* CREAM CHEESE & GANACHE LIST */}
-
-            {
-              <div className="cake-info-container">
-                {fillingCatsArr.map(
-                  (category: string) =>
-                    (category === "cream-cheese-fillings" ||
-                      category === "ganache-fillings") && (
-                      <>
-                        <p
-                          className={
-                            category === "ganache-fillings"
-                              ? "title second"
-                              : "title"
-                          }
-                        >
-                          {category.replace("-", " ")}
-                        </p>
-                        {flavorsContent.map(
-                          (item, i) =>
-                            item.category === category && (
-                              <p
-                                className="menu-options buttercream"
-                                key={i.toString()}
-                                id={`${item.flav}`}
-                              >
-                                {item.flav}
-                              </p>
-                            )
-                        )}
-                      </>
-                    )
-                )}
-              </div>
-            }
-            {/* OTHER */}
-
-            {fillingCatsArr.map(
-              (category: string) =>
-                category === "other-fillings" && (
-                  <div className="cake-info-container">
-                    <p className="title">{category.replace("-", " ")}</p>
-                    {flavorsContent.map(
-                      (item, i) =>
-                        item.category === category && (
-                          <p
-                            className="menu-options buttercream"
-                            key={i.toString()}
-                            id={`${item.flav}`}
-                          >
-                            {item.flav}
-                          </p>
-                        )
-                    )}
-                  </div>
-                )
-            )}
-          </div>
-        </div>
-      )}
+        ))}
+      </div>
     </>
   );
 };

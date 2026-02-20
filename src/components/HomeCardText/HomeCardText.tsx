@@ -9,19 +9,7 @@ const HomeCardText = (props: HomeCardTextProps) => {
       <h4>{props.cardContent.subhead}</h4>
       <h3>{props.cardContent.heading}</h3>
       <p className="card-txt-p">{props.cardContent.bodytxt}</p>
-      {/* <div className="link-box">
-        <Link
-          className={
-            props.cardContent.galleryLink.includes("/cupcakes")
-              ? "hlf-col-btn cup"
-              : "hlf-col-btn"
-          }
-          to={`${props.cardContent.galleryLink}`}
-        >
-          {`${props.cardContent.linkText}`}
-        </Link>
-        <p className={`sm-btn-line`}>&nbsp;</p>
-      </div> */}
+
       <HomeBtn
         btnLink={props.cardContent.galleryLink}
         btnTxt={props.cardContent.linkText}

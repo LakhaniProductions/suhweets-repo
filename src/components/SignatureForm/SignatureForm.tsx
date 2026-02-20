@@ -483,7 +483,7 @@ const SignatureForm = (props: SignatureFormProps) => {
   return (
     <>
       {showTY && <ThankYou />}
-      <section className="container contact-us">
+      <section className="home-container contact-us">
         <MenuContext.Provider
           value={{
             BGClass: props.menuFade.BGClass,
@@ -505,7 +505,6 @@ const SignatureForm = (props: SignatureFormProps) => {
                   <br />
                 </React.Fragment>
               ))}
-              widthClass={`sig-txt`}
               layout={width <= 1180 && true}
               showIns={showIns}
               setShowIns={setShowIns}

@@ -46,7 +46,7 @@ const HamburgerMenu = (props: HamburgerMenuProps) => {
                 });
               }}
             >
-              <li className="int-link">Flavors and fillings</li>
+              <li className="int-link">Cake flavors</li>
             </Link>
             <Link
               to="/wedding-cakes/wedding/0"
@@ -77,7 +77,7 @@ const HamburgerMenu = (props: HamburgerMenuProps) => {
           </Link>
           <div className="int-links-box">
             <Link
-              to="/wedding-cakes/wedding/0"
+              to="/serving-sizes/one-tier"
               onClick={() => {
                 props.setMenuFade!({
                   BGClass: "",
@@ -89,7 +89,7 @@ const HamburgerMenu = (props: HamburgerMenuProps) => {
               <li className="int-link">Servings sizes</li>
             </Link>
             <Link
-              to="/wedding-cakes/wedding/0"
+              to="/flavors/classic-flavors"
               onClick={() => {
                 props.setMenuFade!({
                   BGClass: "",
@@ -98,10 +98,10 @@ const HamburgerMenu = (props: HamburgerMenuProps) => {
                 });
               }}
             >
-              <li className="int-link">Flavors and fillings</li>
+              <li className="int-link">Cake flavors</li>
             </Link>
             <Link
-              to="/wedding-cakes/wedding/0"
+              to="/quote-request"
               onClick={() => {
                 props.setMenuFade!({
                   BGClass: "",
@@ -116,7 +116,7 @@ const HamburgerMenu = (props: HamburgerMenuProps) => {
         </div>
         <div className="link-box">
           <Link
-            to="/signature-cakes/6-inch"
+            to="/signature-cakes/classic-flavors/6-inch"
             onClick={() => {
               props.setMenuFade!({
                 BGClass: "",
@@ -127,6 +127,57 @@ const HamburgerMenu = (props: HamburgerMenuProps) => {
           >
             <li className="nav-heading">Signature</li>
           </Link>
+          <div className="int-links-box">
+            <Link
+              to="/signature-cakes/classic-flavors/6-inch"
+              onClick={() => {
+                props.setMenuFade!({
+                  BGClass: "",
+                  rightClass: "",
+                  leftClass: ""
+                });
+              }}
+            >
+              <li className="int-link">6" Cakes</li>
+            </Link>
+            <Link
+              to="/signature-cakes/classic-flavors/8-inch"
+              onClick={() => {
+                props.setMenuFade!({
+                  BGClass: "",
+                  rightClass: "",
+                  leftClass: ""
+                });
+              }}
+            >
+              <li className="int-link">8" Cakes</li>
+            </Link>
+            <Link
+              to="/signature-cakes/classic-flavors/10-inch"
+              onClick={() => {
+                props.setMenuFade!({
+                  BGClass: "",
+                  rightClass: "",
+                  leftClass: ""
+                });
+              }}
+            >
+              <li className="int-link">10" Cakes</li>
+            </Link>
+
+            <Link
+              to="/signature-form"
+              onClick={() => {
+                props.setMenuFade!({
+                  BGClass: "",
+                  rightClass: "",
+                  leftClass: ""
+                });
+              }}
+            >
+              <li className="int-link">Order form</li>
+            </Link>
+          </div>
         </div>
         <div className="link-box">
           <Link
