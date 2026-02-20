@@ -65,7 +65,6 @@ const About = (props: AboutProps) => {
             p={
               "We’re an award-winning cake shop that specializes in elegant and artistic cakes for all celebrations. We pride ourselves in producing delicious cakes that are made completely from scratch with the freshest ingredients."
             }
-            widthClass={"about"}
           />
 
           <div className="about-img-container">
