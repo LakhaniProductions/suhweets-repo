@@ -13,7 +13,7 @@ const ServingCards = (props: {
 
   const { setShowLoadingGif } = context;
   const [loadedServImgs, setLoadedServImgs] = useState<any[]>([]);
-  const [categoryDivClass, setCategoryDivClass] = useState<string>("");
+  // const [categoryDivClass, setCategoryDivClass] = useState<string>("");
 
   const servingImages = Object.values(
     import.meta.glob("../../img/servingssizes/*.{png,jpg,jpeg}", {
@@ -186,11 +186,11 @@ const ServingCards = (props: {
     }
   }, [loadedServImgs, selectedMenuItem]);
 
-  useEffect(() => {
-    selectedMenuItem && +selectedMenuItem[0] >= 4
-      ? setCategoryDivClass("lg-min-height")
-      : setCategoryDivClass("");
-  }, [selectedMenuItem]);
+  // useEffect(() => {
+  //   selectedMenuItem && +selectedMenuItem[0] >= 4
+  //     ? setCategoryDivClass("lg-min-height")
+  //     : setCategoryDivClass("");
+  // }, [selectedMenuItem]);
 
   return (
     <div className={`serving-cards-container`}>
