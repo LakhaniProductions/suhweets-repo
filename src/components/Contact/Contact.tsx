@@ -239,9 +239,7 @@ const Contact = (props: ContactProps) => {
 
   useEffect(() => {
     props.setMenuFade({
-      BGClass: "",
-      rightClass: "",
-      leftClass: ""
+      BGClass: ""
     });
   }, []);
 
@@ -251,13 +249,11 @@ const Contact = (props: ContactProps) => {
       <section className="home-container contact-us">
         <MenuContext.Provider
           value={{
-            BGClass: props.menuFade.BGClass,
-            rightClass: props.menuFade.rightClass,
-            leftClass: props.menuFade.leftClass
+            BGClass: props.menuFade.BGClass
           }}
         >
           <Header setMenuFade={props.setMenuFade} />
-          <HamburgerMenu />
+          <HamburgerMenu setMenuFade={props.setMenuFade} />
         </MenuContext.Provider>
         <div className={"form-container"}>
           <div className="form-lft-col">

@@ -9,12 +9,15 @@ import SignatureContent from "../SignatureContent/SignatureContent";
 import { GalleryImgLoadContext } from "../../context/GalleryImgLoadContext";
 import Footer from "../Footer/Footer";
 import StickyDiv from "../StickyDiv/StickyDiv";
+import { useParams } from "react-router-dom";
 
 const Signature = (props: SignatureProps) => {
   const context = useContext(GalleryImgLoadContext);
   if (!context) {
     return;
   }
+
+  const { selectedMenuItem, size } = useParams();
   const { showLoadingFlavorGif } = context;
   //sticky div content
   const bcrumbData = [
@@ -34,11 +37,9 @@ const Signature = (props: SignatureProps) => {
 
   useEffect(() => {
     props.setMenuFade({
-      BGClass: "",
-      rightClass: "",
-      leftClass: ""
+      BGClass: ""
     });
-  }, []);
+  }, [location.pathname, selectedMenuItem, size]);
 
   useEffect(() => {}, [showLoadingFlavorGif]);
 
@@ -46,15 +47,13 @@ const Signature = (props: SignatureProps) => {
     <section className="home-container">
       <MenuContext.Provider
         value={{
-          BGClass: props.menuFade.BGClass,
-          rightClass: props.menuFade.rightClass,
-          leftClass: props.menuFade.leftClass
+          BGClass: props.menuFade.BGClass
         }}
       >
         {/* {showLoadingFlavorGif && <Loader />} */}
 
         <Header setMenuFade={props.setMenuFade} />
-        <HamburgerMenu />
+        <HamburgerMenu setMenuFade={props.setMenuFade} />
       </MenuContext.Provider>
       <div className={`signature-content`}>
         <StickyDiv

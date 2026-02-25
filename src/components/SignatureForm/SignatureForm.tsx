@@ -419,9 +419,7 @@ const SignatureForm = (props: SignatureFormProps) => {
 
   useEffect(() => {
     props.setMenuFade({
-      BGClass: "",
-      rightClass: "",
-      leftClass: ""
+      BGClass: ""
     });
   }, []);
 
@@ -486,13 +484,11 @@ const SignatureForm = (props: SignatureFormProps) => {
       <section className="home-container contact-us">
         <MenuContext.Provider
           value={{
-            BGClass: props.menuFade.BGClass,
-            rightClass: props.menuFade.rightClass,
-            leftClass: props.menuFade.leftClass
+            BGClass: props.menuFade.BGClass
           }}
         >
           <Header setMenuFade={props.setMenuFade} />
-          <HamburgerMenu />
+          <HamburgerMenu setMenuFade={props.setMenuFade} />
         </MenuContext.Provider>
         <div className="form-container signature-form">
           {
@@ -766,20 +762,18 @@ const SignatureForm = (props: SignatureFormProps) => {
                 formNoValidate
               />
             </form>
+            <label
+              htmlFor="submit-form"
+              onClick={(e) => {
+                formValidation(e);
+              }}
+              className="form-submit-label"
+            >
+              Place an order
+            </label>
           </div>
         </div>
-        <div className="form-box-rt sig-form">
-          <div className="form-img-box"></div>
-          <label
-            htmlFor="submit-form"
-            onClick={(e) => {
-              formValidation(e);
-            }}
-            className="form-submit-label"
-          >
-            Place an order
-          </label>
-        </div>
+        <div className="form-box-rt sig-form"></div>
       </section>
     </>
   );

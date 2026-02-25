@@ -48,14 +48,12 @@ const About = (props: AboutProps) => {
     <section className="container about-container">
       <MenuContext.Provider
         value={{
-          BGClass: props.menuFade.BGClass,
-          rightClass: props.menuFade.rightClass,
-          leftClass: props.menuFade.leftClass
+          BGClass: props.menuFade.BGClass
         }}
       >
         {/* {showLoadingGif && <Loader />} */}
         <Header setMenuFade={props.setMenuFade} />
-        <HamburgerMenu />
+        <HamburgerMenu setMenuFade={props.setMenuFade} />
       </MenuContext.Provider>
       <div className="about-scroll-container">
         <div className="about-content">

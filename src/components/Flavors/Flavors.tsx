@@ -21,7 +21,7 @@ const Flavors = (props: FlavorsProps) => {
   const menu = ["classic flavors", "specialty flavors"];
 
   const bcrumbData = [
-    { url: "/custom-cakes/all/0", linkText: "Custom cake gallery" },
+    { url: "/custom-cakes/birthday/0", linkText: "Custom cake gallery" },
     { url: "/serving-sizes/one-tier", linkText: "Serving sizes" },
     { url: "", linkText: "Cake flavors" }
   ];
@@ -36,9 +36,7 @@ const Flavors = (props: FlavorsProps) => {
 
   useEffect(() => {
     props.setMenuFade({
-      BGClass: "",
-      rightClass: "",
-      leftClass: ""
+      BGClass: ""
     });
   }, []);
 
@@ -46,15 +44,13 @@ const Flavors = (props: FlavorsProps) => {
     <section className="home-container">
       <MenuContext.Provider
         value={{
-          BGClass: props.menuFade.BGClass,
-          rightClass: props.menuFade.rightClass,
-          leftClass: props.menuFade.leftClass
+          BGClass: props.menuFade.BGClass
         }}
       >
         {showLoadingGif && <Loader />}
 
         <Header setMenuFade={props.setMenuFade} />
-        <HamburgerMenu />
+        <HamburgerMenu setMenuFade={props.setMenuFade} />
       </MenuContext.Provider>
       <div className={`flavors-content ${showLoadingGif ? "no-opacity" : ""}`}>
         <StickyDiv

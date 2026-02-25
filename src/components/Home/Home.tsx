@@ -14,14 +14,17 @@ import customSQ from "../../img/home-backgrounds/custom-square.jpg";
 import cupcakes from "../../img/home-backgrounds/cupcakes.jpg";
 import HomeCardText from "../HomeCardText/HomeCardText";
 import Footer from "../Footer/Footer";
+import { useContext, useEffect } from "react";
 
 const Home = (props: HomeProps) => {
+  const menuContext = useContext(MenuContext);
+
   const homeCardContent: Record<string, string>[] = [
     {
       subhead: "our",
       heading: "creations",
       bodytxt: "Custom cakes inspired by brilliant ideas like yours!",
-      galleryLink: "/custom-cakes/all/0",
+      galleryLink: "/custom-cakes/birthday/0",
       linkText: "View gallery",
       image: `${customBG}`,
       secondaryImg: `${customLSBG}`,
@@ -49,17 +52,23 @@ const Home = (props: HomeProps) => {
     }
   ];
 
+  useEffect(() => {
+    console.log(menuContext.BGClass);
+    props.setMenuFade({
+      BGClass: ""
+    });
+  }, [menuContext.BGClass]);
+
   return (
     <section className="home-container">
       <MenuContext.Provider
         value={{
-          BGClass: props.menuFade.BGClass,
-          rightClass: props.menuFade.rightClass,
-          leftClass: props.menuFade.leftClass
+          BGClass: props.menuFade.BGClass
         }}
       >
         <Header setMenuFade={props.setMenuFade} />
-        <HamburgerMenu />
+        <HamburgerMenu setMenuFade={props.setMenuFade} />
+
         <Jumbotron
           btnLink={"/wedding-cakes/wedding/0"}
           btnTxt={"View gallery"}

@@ -19,10 +19,18 @@ const StickyDiv = (props: StickyDivProps) => {
   const handleContentRefs = (e: SyntheticEvent) => {
     const target = e.target as HTMLDivElement;
     const selected = target.innerHTML.toLowerCase().replace(" ", "-");
+
     props.catRefs &&
       props.catRefs.current!.map((item: HTMLDivElement | null) => {
-        item!.classList.contains(selected) &&
-          item!.scrollIntoView({ behavior: "smooth", block: "start" });
+        if (location.pathname.includes("custom-cakes")) {
+          item!.classList.value
+            .replace(/[^a-zA-Z]/g, "")
+            .includes(`${selected}`) &&
+            item!.scrollIntoView({ behavior: "smooth", block: "start" });
+        } else {
+          item!.classList.contains(selected) &&
+            item!.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
       });
   };
 
@@ -39,8 +47,21 @@ const StickyDiv = (props: StickyDivProps) => {
       !location.pathname.includes("signature-cakes")
     ) {
       return <ForwardBtn link={"/quote-request"} linkTxt={"Request a quote"} />;
-    } else {
+    } else if (location.pathname.includes("custom-cakes")) {
       return (
+        <ForwardBtn
+          link={"/serving-sizes/one-tier"}
+          linkTxt={"Explore serving sizes"}
+        />
+      );
+    } else {
+      return location.pathname === "/cupcakes" ? (
+        <HomeBtn
+          btnLink={"/cupcake-form"}
+          btnTxt={"Order cupcakes"}
+          secClass={"card-btn cupc-Btn"}
+        />
+      ) : (
         <HomeBtn
           btnLink={"/signature-form"}
           btnTxt={"Order a cake"}
@@ -64,10 +85,18 @@ const StickyDiv = (props: StickyDivProps) => {
       props.catRefs &&
         props.catRefs.current &&
         props.catRefs.current.map((item: HTMLDivElement | null) => {
-          item!.classList.contains(selectedMenuItem!) &&
-            item!.scrollIntoView({ behavior: "smooth", block: "start" });
+          if (location.pathname.includes("custom-cakes")) {
+            item!.classList.value
+              .replace(/[^a-zA-Z]/g, "")
+              .includes(selectedMenuItem!) &&
+              item!.scrollIntoView({ behavior: "smooth", block: "start" });
+          } else {
+            item!.classList.contains(selectedMenuItem!) &&
+              item!.scrollIntoView({ behavior: "smooth", block: "start" });
+          }
         });
     };
+
     if (document.readyState === "complete") {
       handleLoad();
     } else {
@@ -89,6 +118,8 @@ const StickyDiv = (props: StickyDivProps) => {
         location.pathname.includes("flavors")
       ) {
         treshold = 0.5;
+      } else if (location.pathname.includes("custom-cakes")) {
+        treshold = 0.1;
       } else if (location.pathname.includes("serving-sizes")) {
         treshold = 1;
       }
@@ -109,6 +140,7 @@ const StickyDiv = (props: StickyDivProps) => {
         }
       });
     }, observerOptions);
+
     props.catRefs &&
       props.catRefs.current &&
       props.catRefs.current.forEach((ref) => {

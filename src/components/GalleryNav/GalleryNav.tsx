@@ -15,7 +15,7 @@ const GalleryNav = () => {
 
   const menus = {
     wedding: ["wedding"],
-    custom: ["all", "birthday", "characters", "fashion", "food"]
+    custom: ["birthday", "characters", "fashion", "food"]
   }; // derive options from allcakesdata, category
 
   const galleryLocation = useLocation();

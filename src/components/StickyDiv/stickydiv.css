@@ -1,7 +1,7 @@
 .sticky-div {
   display: flex;
   flex-direction: column;
-  margin-right: 9.6rem;
+  margin-right: 4.8rem;
   width: 25%;
   height: max-content;
   margin-bottom: 9.6rem;
@@ -28,7 +28,7 @@
 }
 
 .sticky-div .navigation.serv-nav {
-  margin: 0rem 0 9.6rem 0;
+  /* margin: 0rem 0 4.8rem 0; */
   /* align-items: flex-end; */
   width: max-content;
 }
@@ -47,10 +47,21 @@
   align-self: center;
 }
 
+.sticky-div .home-btn.cupc-Btn {
+  align-self: unset;
+  margin-top: 4.8rem;
+}
+
 .sticky-div.gallery {
   width: 100%;
   margin: 0;
   margin-top: 1.2rem;
+  height: max-content;
+}
+
+.sticky-div.gallery .txt-panel {
+  margin-top: 4.8rem;
+  margin-bottom: 0;
 }
 
 .sticky-div .txt-panel {

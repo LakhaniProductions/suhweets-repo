@@ -7,7 +7,7 @@ import Header from "../Header/Header";
 // import PageButtons from "../PageButtons/PageButtons";
 import HamburgerMenu from "../HamburgerMenu/HamburgerMenu";
 import "./gallery.css";
-import Loader from "../Loader/Loader";
+// import Loader from "../Loader/Loader";
 import { useNavigate, useParams } from "react-router-dom";
 import Footer from "../Footer/Footer";
 
@@ -16,12 +16,12 @@ const Gallery = (props: GalleryProps) => {
   if (!context) {
     return;
   }
-  const { showLoadingGif } = context;
+  // const { showLoadingGif } = context;
   const { selectedMenuItem, activeThumbnail } = useParams();
 
   const galleryOpt =
     selectedMenuItem ??
-    (location.pathname.includes("wedding-cakes") ? "wedding" : "all");
+    (location.pathname.includes("wedding-cakes") ? "wedding" : "birthday");
   const activeIndex = activeThumbnail ? parseInt(activeThumbnail) : 0;
   const navigate = useNavigate();
 
@@ -34,18 +34,22 @@ const Gallery = (props: GalleryProps) => {
     }
   }, [activeIndex, galleryOpt]);
 
+  useEffect(() => {
+    props.setMenuFade({
+      BGClass: ""
+    });
+  }, [location.pathname]);
+
   return (
     <div className="home-container">
       <MenuContext.Provider
         value={{
-          BGClass: props.menuFade.BGClass,
-          rightClass: props.menuFade.rightClass,
-          leftClass: props.menuFade.leftClass
+          BGClass: props.menuFade.BGClass
         }}
       >
-        {showLoadingGif && <Loader />}
+        {/* {showLoadingGif && <Loader />} */}
         <Header setMenuFade={props.setMenuFade} />
-        <HamburgerMenu />
+        <HamburgerMenu setMenuFade={props.setMenuFade} />
       </MenuContext.Provider>
 
       <section className={`gallery-container`}>

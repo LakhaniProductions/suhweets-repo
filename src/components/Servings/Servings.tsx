@@ -19,7 +19,7 @@ const Servings = (props: ServingsProps) => {
 
   const menu = ["One tier", "Two tier", "Three tier", "Four tier", "Five tier"];
   const bcrumbData = [
-    { url: "/custom-cakes/all/0", linkText: "Custom Cakes Gallery" },
+    { url: "/custom-cakes/birthday/0", linkText: "Custom Cakes Gallery" },
     { url: "", linkText: "Serving Sizes" }
   ];
   const txtPanelData = {
@@ -30,9 +30,7 @@ const Servings = (props: ServingsProps) => {
 
   useEffect(() => {
     props.setMenuFade({
-      BGClass: "",
-      rightClass: "",
-      leftClass: ""
+      BGClass: ""
     });
   }, []);
 
@@ -42,15 +40,13 @@ const Servings = (props: ServingsProps) => {
     <section className="home-container">
       <MenuContext.Provider
         value={{
-          BGClass: props.menuFade.BGClass,
-          rightClass: props.menuFade.rightClass,
-          leftClass: props.menuFade.leftClass
+          BGClass: props.menuFade.BGClass
         }}
       >
         {showLoadingGif && <Loader />}
 
         <Header setMenuFade={props.setMenuFade} />
-        <HamburgerMenu />
+        <HamburgerMenu setMenuFade={props.setMenuFade} />
       </MenuContext.Provider>
       <div className={`servings-content ${showLoadingGif ? "no-opacity" : ""}`}>
         <StickyDiv

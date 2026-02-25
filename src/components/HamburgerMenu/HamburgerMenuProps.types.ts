@@ -1,9 +1,7 @@
 export interface HamburgerMenuProps {
-  setMenuFade?: React.Dispatch<
+  setMenuFade: React.Dispatch<
     React.SetStateAction<{
-      BGClass?: string;
-      rightClass?: string;
-      leftClass?: string;
+      BGClass: string;
     }>
   >;
 }

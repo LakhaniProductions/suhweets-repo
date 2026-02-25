@@ -10,12 +10,11 @@ import Signature from "./components/SignatureCakes/Signature";
 import SignatureForm from "./components/SignatureForm/SignatureForm";
 import Cupcakes from "./components/Cupcakes/Cupcakes";
 import About from "./components/About/About";
+import "./css/icons.css";
 
 function App() {
   const [menuFade, setMenuFade] = useState({
-    BGClass: "",
-    rightClass: "",
-    leftClass: ""
+    BGClass: ""
   });
 
   return (

@@ -74,7 +74,7 @@
 .lazy-img {
   background-size: contain;
   right: 0rem;
-  width: 94.5%;
-  height: 90%;
+  width: 100%;
+  height: auto;
   position: absolute;
 }

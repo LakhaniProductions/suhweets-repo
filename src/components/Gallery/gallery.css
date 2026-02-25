@@ -31,28 +31,42 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  width: 65%;
-  height: max-content;
+  width: 45%;
+  /* height: max-content; */
+  margin-right: 4.8rem;
+}
+
+.gallery-thumbnails-container [class^="birthday\/"] {
+  scroll-margin-top: 110rem;
+}
+
+.gallery-thumbnails-container [class^="characters\/"] {
+  scroll-margin-top: 80rem;
+}
+
+.gallery-thumbnails-container [class^="fashion\/"] {
+  scroll-margin-top: 60rem;
+}
+
+.gallery-thumbnails-container [class^="food\/"] {
+  scroll-margin-top: 50rem;
 }
 
 .gallery-thumbnails-container img {
   margin: 1.2rem;
   opacity: 0.45;
   cursor: pointer;
-  width: 16.5%;
+  width: 21.6%;
 }
 .gallery-thumbnails-container .active {
   opacity: 1;
   outline: #12d0ff 1rem solid;
   outline-offset: 1.4rem;
-  width: 12.5%;
-  margin: 4.1rem 3.7rem 4.1rem 3.7rem;
+  width: 15.5%;
+  margin: 3.7rem;
 }
 
 /* GOURMET PAGE */
-.gallery-thumbnails-container.flex-grow {
-  flex-grow: 1;
-}
 
 .d-none {
   display: none;

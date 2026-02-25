@@ -11,6 +11,7 @@ import Footer from "../Footer/Footer";
 import StickyDiv from "../StickyDiv/StickyDiv";
 
 const Cupcakes = (props: SignatureProps) => {
+  scrollTo({ top: 0, behavior: "smooth" });
   const context = useContext(GalleryImgLoadContext);
   if (!context) {
     return;
@@ -29,9 +30,7 @@ const Cupcakes = (props: SignatureProps) => {
 
   useEffect(() => {
     props.setMenuFade({
-      BGClass: "",
-      rightClass: "",
-      leftClass: ""
+      BGClass: ""
     });
   }, []);
 
@@ -39,15 +38,13 @@ const Cupcakes = (props: SignatureProps) => {
     <section className="home-container">
       <MenuContext.Provider
         value={{
-          BGClass: props.menuFade.BGClass,
-          rightClass: props.menuFade.rightClass,
-          leftClass: props.menuFade.leftClass
+          BGClass: props.menuFade.BGClass
         }}
       >
         {/* {showLoadingFlavorGif && <Loader />} */}
 
         <Header setMenuFade={props.setMenuFade} />
-        <HamburgerMenu />
+        <HamburgerMenu setMenuFade={props.setMenuFade} />
       </MenuContext.Provider>
       <div className={`signature-content`}>
         <StickyDiv bcrumbData={bcrumbData} txtPanelData={txtPanelData} />

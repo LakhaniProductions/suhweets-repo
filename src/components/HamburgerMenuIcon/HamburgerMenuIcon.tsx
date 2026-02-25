@@ -7,14 +7,10 @@ const HamburgerMenuIcon = (props: HamburgerProps) => {
   const toggleClick = () => {
     menuContext.BGClass !== "fade-in"
       ? props.setMenuFade({
-          BGClass: "fade-in",
-          rightClass: "slide-up",
-          leftClass: "slide-down"
+          BGClass: "fade-in"
         })
       : props.setMenuFade({
-          BGClass: "",
-          rightClass: "",
-          leftClass: ""
+          BGClass: ""
         });
   };
 
@@ -30,13 +26,14 @@ const HamburgerMenuIcon = (props: HamburgerProps) => {
         type="checkbox"
         className="hamburger-menu-checkbox"
         id="sec-nav-toggle"
+        checked={menuContext.BGClass === "fade-in"}
       />
       <label
         htmlFor="sec-nav-toggle"
         className="hamburger-menu-btn-toggle"
-        onClick={() => {
-          toggleClick();
-        }}
+        // onClick={() => {
+        //   toggleClick();
+        // }}
       >
         <span className="hamburger-menu-icon"></span>
       </label>

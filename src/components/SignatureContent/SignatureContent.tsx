@@ -141,7 +141,6 @@ const SignatureContent = (props: SignatureContentProps) => {
       category: "specialty"
     }
   ];
-
   const allCategories = signatureContent.map((item) => item.category);
   const uniquteCatArr = [...new Set(allCategories)];
 
@@ -265,7 +264,7 @@ const SignatureContent = (props: SignatureContentProps) => {
         h2: "10 inch"
       }));
     }
-  }, [size]);
+  }, [selectedMenuItem, size]);
 
   return (
     <>
@@ -279,69 +278,67 @@ const SignatureContent = (props: SignatureContentProps) => {
                   <div className="cake-info-box">
                     <div className="cake-heading-box">
                       <h3>{item.flav}</h3>
-                      {location.pathname !== "/cupcakes" && (
-                        <h4 className="cake-price">{txtPanelContent?.h1}</h4>
-                      )}
                     </div>
                     <p>{item.p}</p>
                   </div>
                 </div>
               );
             })}
-          {uniquteCatArr.map((category, i) => (
-            <div
-              className={`flavors-box ${category}-flavors`}
-              key={category}
-              ref={(el) => {
-                props.catRefs && (props.catRefs.current![i] = el);
-              }}
-            >
-              {signatureContent
-                .sort((a, b) => {
-                  if (a.flav < b.flav) {
-                    return -1;
-                  }
-                  if (a.flav > b.flav) {
-                    return 1;
-                  }
-                  return 0;
-                })
-                .map(
-                  (item: Record<string, any>) =>
-                    item.category === category && (
-                      <div className="cake-detail-card">
-                        <img src={item.lsImg} alt="" />
-                        <div className="cake-info-box">
-                          <h3>{item.flav}</h3>
-                          <p>{item.p}</p>
-                          <div className="add-info">
-                            <p>{txtPanelContent?.p}</p>
+          {location.pathname !== "/cupcakes" &&
+            uniquteCatArr.map((category, i) => (
+              <div
+                className={`flavors-box ${category}-flavors`}
+                key={category}
+                ref={(el) => {
+                  props.catRefs && (props.catRefs.current![i] = el);
+                }}
+              >
+                {signatureContent
+                  .sort((a, b) => {
+                    if (a.flav < b.flav) {
+                      return -1;
+                    }
+                    if (a.flav > b.flav) {
+                      return 1;
+                    }
+                    return 0;
+                  })
+                  .map(
+                    (item: Record<string, any>) =>
+                      item.category === category && (
+                        <div className="cake-detail-card">
+                          <img src={item.lsImg} alt="" />
+                          <div className="cake-info-box">
+                            <h3>{item.flav}</h3>
+                            <p>{item.p}</p>
+                            <div className="add-info">
+                              <p>{txtPanelContent?.p}</p>
 
-                            {location.pathname !== "/cupcakes" && (
-                              <h4 className="cake-price">
-                                {selectedMenuItem === "classic-flavors"
-                                  ? item.category.includes(
-                                      selectedMenuItem.replace("-flavors", "")
-                                    )
-                                    ? txtPanelContent?.h1
-                                    : "$"
-                                  : item.category.includes(
-                                        selectedMenuItem!.replace(
-                                          "-flavors",
-                                          ""
-                                        )
+                              {location.pathname !== "/cupcakes" && (
+                                <h4 className="cake-price">
+                                  {selectedMenuItem === "classic-flavors"
+                                    ? item.category.includes(
+                                        selectedMenuItem.replace("-flavors", "")
                                       )
-                                    ? txtPanelContent?.h1Spec
-                                    : "$"}
-                              </h4>
-                            )}
+                                      ? txtPanelContent?.h1
+                                      : "$"
+                                    : item.category.includes(
+                                          selectedMenuItem!.replace(
+                                            "-flavors",
+                                            ""
+                                          )
+                                        )
+                                      ? txtPanelContent?.h1Spec
+                                      : "$"}
+                                </h4>
+                              )}
+                            </div>
                           </div>
                         </div>
-                      </div>
-                    )
-                )}
-            </div>
-          ))}
+                      )
+                  )}
+              </div>
+            ))}
         </div>
       }
     </>

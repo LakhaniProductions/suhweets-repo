@@ -49,8 +49,9 @@ const PageNav = (props: PageNavProps) => {
       location.pathname.includes("/flavors") &&
       !location.pathname.includes("signature-cakes")
     ) {
-      console.log(cleanParam);
       navigate(`/flavors/${cleanParam.replace(" ", "-").toLowerCase()}`);
+    } else if (location.pathname.includes("/custom-cakes")) {
+      navigate(`/custom-cakes/${cleanParam.toLowerCase()}`);
     } else {
       navigate(
         `/signature-cakes/${target.innerHTML.replace(" ", "-").toLowerCase()}/${size?.replace(`"`, "-inch")}`
@@ -95,7 +96,6 @@ const PageNav = (props: PageNavProps) => {
       return "navigation";
     }
   };
-
   return (
     <nav
       className={getClassName()}
