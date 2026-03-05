@@ -1,5 +1,4 @@
 export interface CakeDetailsGroupProps {
-  formCoords: Record<string, number>;
   cakeOrderCountArr: Array<number>;
   setCakeOrderCountArr: React.Dispatch<React.SetStateAction<Array<number>>>;
   errObj: Array<Record<string, boolean>>;
@@ -26,5 +25,4 @@ export interface CakeDetailsGroupProps {
   flavSelectRefs: React.MutableRefObject<Array<HTMLDivElement | null>>;
   sizeSelectRefs?: React.MutableRefObject<Array<HTMLDivElement | null>>;
   quantitySelectRefs?: React.MutableRefObject<Array<HTMLDivElement | null>>;
-  formPanelRef: React.MutableRefObject<HTMLDivElement | null>;
 }

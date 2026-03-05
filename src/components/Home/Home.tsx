@@ -14,10 +14,20 @@ import customSQ from "../../img/home-backgrounds/custom-square.jpg";
 import cupcakes from "../../img/home-backgrounds/cupcakes.jpg";
 import HomeCardText from "../HomeCardText/HomeCardText";
 import Footer from "../Footer/Footer";
-import { useContext, useEffect } from "react";
+import { Ref, useContext, useEffect } from "react";
+import { GlobalLoadingContext } from "../../context/GlobalLoadingContext";
 
 const Home = (props: HomeProps) => {
   const menuContext = useContext(MenuContext);
+  if (!menuContext) {
+    return;
+  }
+  const globalContext = useContext(GlobalLoadingContext);
+  if (!globalContext) {
+    return;
+  }
+
+  const homeRef: Ref<HTMLElement | any> = globalContext.containerRef;
 
   const homeCardContent: Record<string, string>[] = [
     {
@@ -53,14 +63,13 @@ const Home = (props: HomeProps) => {
   ];
 
   useEffect(() => {
-    console.log(menuContext.BGClass);
     props.setMenuFade({
       BGClass: ""
     });
   }, [menuContext.BGClass]);
 
   return (
-    <section className="home-container">
+    <section className="home-container" ref={homeRef}>
       <MenuContext.Provider
         value={{
           BGClass: props.menuFade.BGClass

@@ -1,38 +1,89 @@
-import { SyntheticEvent, useEffect, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import BreadcrumbMenu from "../BreadcrumbMenu/BreadcrumbMenu";
 import HomeBtn from "../HomeBtn/HomeBtn";
 import PageNav from "../PageNav/PageNav";
 import TextPanel from "../TextPanel/TextPanel";
 import { StickyDivProps } from "./StickyDivProps.types";
-import { useNavigate, useParams } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 import "./stickydiv.css";
 import ForwardBtn from "../ForwardBtn/ForwardBtn";
+import { GlobalLoadingContext } from "../../context/GlobalLoadingContext";
 
 const StickyDiv = (props: StickyDivProps) => {
   const { selectedMenuItem, size } = useParams();
 
   const navigate = useNavigate();
   const [activeSection, setActiveSection] = useState("");
+  const location = useLocation();
 
-  const notCupPg = !location.pathname.includes("cupcakes");
+  const notSigOrdForm = !location.pathname.includes("signature-form");
+  const notCcakeForm = !location.pathname.includes("cupcake-form");
 
-  const handleContentRefs = (e: SyntheticEvent) => {
-    const target = e.target as HTMLDivElement;
-    const selected = target.innerHTML.toLowerCase().replace(" ", "-");
+  const globalContext = useContext(GlobalLoadingContext);
+  if (!globalContext) {
+    return;
+  }
 
-    props.catRefs &&
-      props.catRefs.current!.map((item: HTMLDivElement | null) => {
-        if (location.pathname.includes("custom-cakes")) {
-          item!.classList.value
-            .replace(/[^a-zA-Z]/g, "")
-            .includes(`${selected}`) &&
-            item!.scrollIntoView({ behavior: "smooth", block: "start" });
-        } else {
-          item!.classList.contains(selected) &&
-            item!.scrollIntoView({ behavior: "smooth", block: "start" });
+  const isProgrammaticScroll = useRef(false);
+  useEffect(() => {
+    isProgrammaticScroll.current = true;
+    if (!props.catRefs?.current || !selectedMenuItem) {
+      return;
+    }
+
+    props.catRefs.current.map(
+      (item) =>
+        item?.classList.value.includes(selectedMenuItem) &&
+        globalContext.pageReady &&
+        item!.scrollIntoView({ behavior: "smooth", block: "start" })
+    );
+
+    // reset after animation finishes
+    setTimeout(() => {
+      isProgrammaticScroll.current = false;
+    }, 1000);
+  }, [selectedMenuItem, globalContext.pageReady]);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (isProgrammaticScroll.current) return;
+
+      let cleanActive;
+
+      if (location.pathname.includes("signature-cakes")) {
+        cleanActive = activeSection.replace("flavors-box ", "");
+        if (!location.pathname.includes(cleanActive)) {
+          navigate(
+            `/signature-cakes/${cleanActive}/${size?.replace(`"`, "-inch")}`
+          );
         }
-      });
-  };
+      } else if (location.pathname.includes("serving-sizes")) {
+        cleanActive = activeSection.replace("category-container ", "");
+        if (!location.pathname.includes(cleanActive)) {
+          navigate(`/serving-sizes/${cleanActive}`);
+        }
+      } else if (
+        location.pathname.includes("flavors") &&
+        !location.pathname.includes("signature-cakes")
+      ) {
+        cleanActive = activeSection.replace("flavors-box ", "");
+        cleanActive && navigate(`/flavors/${cleanActive}`);
+      } else if (location.pathname.includes("cupcakes")) {
+        cleanActive = activeSection.replace("flavors-box ", "");
+        if (!location.pathname.includes(cleanActive)) {
+          navigate(`/cupcakes/${cleanActive}`);
+        }
+      } else {
+        return;
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [activeSection]);
 
   const getNxtActionBtnLink = () => {
     if (location.pathname.includes("serving-sizes")) {
@@ -47,7 +98,10 @@ const StickyDiv = (props: StickyDivProps) => {
       !location.pathname.includes("signature-cakes")
     ) {
       return <ForwardBtn link={"/quote-request"} linkTxt={"Request a quote"} />;
-    } else if (location.pathname.includes("custom-cakes")) {
+    } else if (
+      location.pathname.includes("custom-cakes") ||
+      location.pathname.includes("wedding-cakes")
+    ) {
       return (
         <ForwardBtn
           link={"/serving-sizes/one-tier"}
@@ -55,7 +109,7 @@ const StickyDiv = (props: StickyDivProps) => {
         />
       );
     } else {
-      return location.pathname === "/cupcakes" ? (
+      return location.pathname.includes("/cupcakes") ? (
         <HomeBtn
           btnLink={"/cupcake-form"}
           btnTxt={"Order cupcakes"}
@@ -63,8 +117,8 @@ const StickyDiv = (props: StickyDivProps) => {
         />
       ) : (
         <HomeBtn
-          btnLink={"/signature-form"}
-          btnTxt={"Order a cake"}
+          btnLink={"/quote-request"}
+          btnTxt={"Request information"}
           secClass={"card-btn"}
         />
       );
@@ -79,39 +133,15 @@ const StickyDiv = (props: StickyDivProps) => {
     }
   };
 
-  //scroll to selected menu item's div on page load
-  useEffect(() => {
-    const handleLoad = () => {
-      props.catRefs &&
-        props.catRefs.current &&
-        props.catRefs.current.map((item: HTMLDivElement | null) => {
-          if (location.pathname.includes("custom-cakes")) {
-            item!.classList.value
-              .replace(/[^a-zA-Z]/g, "")
-              .includes(selectedMenuItem!) &&
-              item!.scrollIntoView({ behavior: "smooth", block: "start" });
-          } else {
-            item!.classList.contains(selectedMenuItem!) &&
-              item!.scrollIntoView({ behavior: "smooth", block: "start" });
-          }
-        });
-    };
-
-    if (document.readyState === "complete") {
-      handleLoad();
-    } else {
-      window.addEventListener("load", handleLoad);
-    }
-
-    return () => {
-      window.removeEventListener("load", handleLoad);
-    };
-  }, []);
+  //needed to update path when scrolling
 
   useEffect(() => {
     const getTreshold = () => {
       let treshold;
-      if (location.pathname.includes("signature-cakes")) {
+      if (
+        location.pathname.includes("signature-cakes") ||
+        location.pathname.includes("cupcakes")
+      ) {
         treshold = 0.5;
       } else if (
         !location.pathname.includes("signature-cakes") &&
@@ -152,33 +182,6 @@ const StickyDiv = (props: StickyDivProps) => {
     };
   }, []);
 
-  //update path when scrolling
-  useEffect(() => {
-    let cleanActive;
-
-    if (location.pathname.includes("signature-cakes")) {
-      cleanActive = activeSection.replace("flavors-box ", "");
-      if (!location.pathname.includes(cleanActive)) {
-        navigate(
-          `/signature-cakes/${cleanActive}/${size?.replace(`"`, "-inch")}`
-        );
-      }
-    } else if (location.pathname.includes("serving-sizes")) {
-      cleanActive = activeSection.replace("category-container ", "");
-      if (!location.pathname.includes(cleanActive)) {
-        navigate(`/serving-sizes/${cleanActive}`);
-      }
-    } else if (
-      location.pathname.includes("flavors") &&
-      !location.pathname.includes("signature-cakes")
-    ) {
-      cleanActive = activeSection.replace("flavors-box ", "");
-      cleanActive && navigate(`/flavors/${cleanActive}`);
-    } else {
-      return;
-    }
-  }, [activeSection]);
-
   return (
     <div className="sticky-div">
       <BreadcrumbMenu data={props.bcrumbData} />
@@ -188,11 +191,18 @@ const StickyDiv = (props: StickyDivProps) => {
         h1={props.txtPanelData.h1}
         p={props.txtPanelData.p}
       />
-
-      {notCupPg && <h4>{getFilterTitle()}</h4>}
-      {props.pageNavMenu && (
-        <PageNav menu={props.pageNavMenu} handleRefs={handleContentRefs} />
+      {!notSigOrdForm && (
+        <span className="sig-disc">
+          Please note: Our cakes are available for pickup only.
+        </span>
       )}
+      {!notCcakeForm && (
+        <span className="sig-disc">
+          Please note: Our cupcakes are available for pickup only.
+        </span>
+      )}
+      {notSigOrdForm && notCcakeForm && <h4>{getFilterTitle()}</h4>}
+      {props.pageNavMenu && <PageNav menu={props.pageNavMenu} />}
       {props.showSecMenu && props.secMenu && (
         <>
           <h4>Size</h4>
@@ -204,7 +214,7 @@ const StickyDiv = (props: StickyDivProps) => {
         </>
       )}
 
-      {getNxtActionBtnLink()}
+      {notSigOrdForm && notCcakeForm && getNxtActionBtnLink()}
     </div>
   );
 };

@@ -6,12 +6,6 @@ const FlavorsContent = ({
 }: {
   catRefs: React.RefObject<(HTMLDivElement | null)[]>;
 }) => {
-  const context = useContext(GalleryImgLoadContext);
-  if (!context) {
-    return;
-  }
-
-  const { setShowLoadingGif, showLoadingGif } = context;
   const flavorImages = Object.values(
     import.meta.glob("../../img/cakeflavors/*.{png,jpg,jpeg,gif}", {
       eager: true,
@@ -141,18 +135,8 @@ const FlavorsContent = ({
     }
   ];
 
-  const [imgLoaded, setImgLoaded] = useState(false);
-
   const allCategories = flavorsContent.map((item) => item.category);
   const uniquteCatArr = [...new Set(allCategories)];
-
-  useEffect(() => {
-    if (imgLoaded) {
-      setShowLoadingGif(false);
-    } else {
-      setShowLoadingGif(true);
-    }
-  }, [imgLoaded, showLoadingGif, location.pathname]);
 
   return (
     <>
@@ -177,14 +161,7 @@ const FlavorsContent = ({
                 (item, i) =>
                   item.category === category && (
                     <div className="cake-detail-card" key={i}>
-                      <img
-                        src={item.lsImg}
-                        alt={`Image for ${item.flav}  `}
-                        onLoad={() => {
-                          setImgLoaded(true);
-                          // setShowLoadingGif(false);
-                        }}
-                      />
+                      <img src={item.lsImg} alt={`Image for ${item.flav}  `} />
                       <div className="cake-info-box">
                         <h3>{item.flav}</h3>
                         <p>{item.p}</p>

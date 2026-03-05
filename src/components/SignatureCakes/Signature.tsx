@@ -1,4 +1,4 @@
-import { useContext, useEffect, useRef } from "react";
+import { Ref, useContext, useEffect, useRef } from "react";
 import { SignatureProps } from "./SignatureProps.type";
 
 import MenuContext from "../../context/HamburgerMenuContext";
@@ -6,19 +6,20 @@ import HamburgerMenu from "../HamburgerMenu/HamburgerMenu";
 import Header from "../Header/Header";
 import "./signature.css";
 import SignatureContent from "../SignatureContent/SignatureContent";
-import { GalleryImgLoadContext } from "../../context/GalleryImgLoadContext";
 import Footer from "../Footer/Footer";
 import StickyDiv from "../StickyDiv/StickyDiv";
 import { useParams } from "react-router-dom";
+import { GlobalLoadingContext } from "../../context/GlobalLoadingContext";
 
 const Signature = (props: SignatureProps) => {
-  const context = useContext(GalleryImgLoadContext);
-  if (!context) {
+  const globalContext = useContext(GlobalLoadingContext);
+  if (!globalContext) {
     return;
   }
 
+  const sigRef: Ref<HTMLElement | any> = globalContext.containerRef;
   const { selectedMenuItem, size } = useParams();
-  const { showLoadingFlavorGif } = context;
+
   //sticky div content
   const bcrumbData = [
     { url: "/", linkText: "Home" },
@@ -41,17 +42,13 @@ const Signature = (props: SignatureProps) => {
     });
   }, [location.pathname, selectedMenuItem, size]);
 
-  useEffect(() => {}, [showLoadingFlavorGif]);
-
   return (
-    <section className="home-container">
+    <section className="home-container" ref={sigRef}>
       <MenuContext.Provider
         value={{
           BGClass: props.menuFade.BGClass
         }}
       >
-        {/* {showLoadingFlavorGif && <Loader />} */}
-
         <Header setMenuFade={props.setMenuFade} />
         <HamburgerMenu setMenuFade={props.setMenuFade} />
       </MenuContext.Provider>

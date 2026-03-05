@@ -1,21 +1,16 @@
-import { SyntheticEvent, useContext, useEffect, useState } from "react";
+import { SyntheticEvent, useEffect, useState } from "react";
 import { PageNavProps } from "./PageNavProps.type";
-import { GalleryImgLoadContext } from "../../context/GalleryImgLoadContext";
 
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 
 const PageNav = (props: PageNavProps) => {
-  const context = useContext(GalleryImgLoadContext);
-  if (!context) {
-    return;
-  }
-
   const location = useLocation();
-  const { setAllGalleryImagesArr, setShowLoadingGif } = context;
+
   const { selectedMenuItem, size } = useParams();
 
-  const [active, setActive] = useState("0");
+  // const [active, setActive] = useState("0");
   const navigate = useNavigate();
+  const [isCupPg, setIsCupPg] = useState(false);
 
   const handleClick = (e: SyntheticEvent) => {
     const target = e.target as HTMLElement;
@@ -26,19 +21,12 @@ const PageNav = (props: PageNavProps) => {
       /<\/?(div|span)>|&nbsp;/gi,
       ""
     );
-
-    if (props.menu[+active] !== target.innerHTML) {
-      setAllGalleryImagesArr([]);
-      // setShowLoadingGif(true);
-    }
-
     if (location.pathname.includes("serving-sizes")) {
       if (
         location.pathname
           .toUpperCase()
           .includes(cleanParam.replace(" ", "-").toUpperCase())
       ) {
-        setShowLoadingGif(false);
         return;
       } else {
         navigate(
@@ -52,13 +40,15 @@ const PageNav = (props: PageNavProps) => {
       navigate(`/flavors/${cleanParam.replace(" ", "-").toLowerCase()}`);
     } else if (location.pathname.includes("/custom-cakes")) {
       navigate(`/custom-cakes/${cleanParam.toLowerCase()}`);
+    } else if (location.pathname.includes("cupcakes")) {
+      cleanParam.toLowerCase().includes("available")
+        ? navigate("/cupcakes/daily")
+        : navigate("/cupcakes/pre-order");
     } else {
       navigate(
         `/signature-cakes/${target.innerHTML.replace(" ", "-").toLowerCase()}/${size?.replace(`"`, "-inch")}`
       );
     }
-    props.handleRefs!(e);
-    target.innerHTML !== "fillings" && setShowLoadingGif(true);
   };
 
   const handleAltClick = (e: SyntheticEvent) => {
@@ -67,18 +57,6 @@ const PageNav = (props: PageNavProps) => {
       `/signature-cakes/${selectedMenuItem}/${target.innerHTML.replace(`"`, "-inch ")}`
     );
   };
-  useEffect(() => {
-    if (location.pathname.includes("serving-sizes")) {
-      setActive(`${props.menu.indexOf(selectedMenuItem!.replace("-", " "))}`);
-    } else if (location.pathname.includes("flavors")) {
-      selectedMenuItem!.includes("baker") ? setActive("0") : setActive("1");
-    } else {
-      setActive(
-        `${props.menu.indexOf(selectedMenuItem!.replace("-inch", '"'))}`
-      );
-    }
-  }, [active, selectedMenuItem]);
-
   const getClassName = () => {
     if (location.pathname.includes("signature-cakes")) {
       if (props.secClass) {
@@ -96,6 +74,18 @@ const PageNav = (props: PageNavProps) => {
       return "navigation";
     }
   };
+  const getActiveCupCat = (item: string) => {
+    if (item.toLowerCase().includes(selectedMenuItem!)) {
+      return <span>&nbsp;</span>;
+    } else if (item.replace("-", "").toLowerCase() === selectedMenuItem) {
+      return <span>&nbsp;</span>;
+    }
+  };
+
+  useEffect(() => {
+    location.pathname.includes("cupcakes") && setIsCupPg(true);
+  }, [location.pathname]);
+
   return (
     <nav
       className={getClassName()}
@@ -112,6 +102,8 @@ const PageNav = (props: PageNavProps) => {
               {selectedMenuItem!.replace("-", " ") === item.toLowerCase() && (
                 <span>&nbsp;</span>
               )}
+
+              {isCupPg && getActiveCupCat(item)}
 
               {/* if selected menu item's div is out of view */}
 

@@ -1,23 +1,22 @@
-import { useContext, useEffect, useRef } from "react";
+import { Ref, useContext, useEffect, useRef } from "react";
 import { FlavorsProps } from "./FlavorsProps.type";
 import MenuContext from "../../context/HamburgerMenuContext";
 import HamburgerMenu from "../HamburgerMenu/HamburgerMenu";
 import Header from "../Header/Header";
 import "./flavors.css";
 import FlavorsContent from "../FlavorsContent/FlavorContent";
-import { GalleryImgLoadContext } from "../../context/GalleryImgLoadContext";
 
-import Loader from "../Loader/Loader";
 import Footer from "../Footer/Footer";
 import StickyDiv from "../StickyDiv/StickyDiv";
+import { GlobalLoadingContext } from "../../context/GlobalLoadingContext";
 
 const Flavors = (props: FlavorsProps) => {
-  const context = useContext(GalleryImgLoadContext);
-  if (!context) {
+  const globalContext = useContext(GlobalLoadingContext);
+  if (!globalContext) {
     return;
   }
-  const { showLoadingGif } = context;
 
+  const flavRef: Ref<HTMLElement | any> = globalContext.containerRef;
   const menu = ["classic flavors", "specialty flavors"];
 
   const bcrumbData = [
@@ -41,18 +40,16 @@ const Flavors = (props: FlavorsProps) => {
   }, []);
 
   return (
-    <section className="home-container">
+    <section className="home-container" ref={flavRef}>
       <MenuContext.Provider
         value={{
           BGClass: props.menuFade.BGClass
         }}
       >
-        {showLoadingGif && <Loader />}
-
         <Header setMenuFade={props.setMenuFade} />
         <HamburgerMenu setMenuFade={props.setMenuFade} />
       </MenuContext.Provider>
-      <div className={`flavors-content ${showLoadingGif ? "no-opacity" : ""}`}>
+      <div className={`flavors-content `}>
         <StickyDiv
           bcrumbData={bcrumbData}
           txtPanelData={txtPanelData}

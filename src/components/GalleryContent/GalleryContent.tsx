@@ -1,29 +1,15 @@
-import {
-  SyntheticEvent,
-  useContext,
-  useEffect,
-  useMemo,
-  useRef,
-  useState
-} from "react";
-import { useNavigate, useLocation, useParams } from "react-router-dom";
+import { SyntheticEvent, useEffect, useMemo, useRef, useState } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 import TextPanel from "../TextPanel/TextPanel";
 import { GalleryContentProps } from "./GalleryContentProps.type.";
-import { GalleryImgLoadContext } from "../../context/GalleryImgLoadContext";
 import allCakesData from "../../data/allGalleryCakesData";
 import StickyDiv from "../StickyDiv/StickyDiv";
 import "../MainNav/mainnav.css";
 
 const GalleryContent = (props: GalleryContentProps) => {
   const navigate = useNavigate();
-  const context = useContext(GalleryImgLoadContext);
-  if (!context) {
-    return;
-  }
-  const { selectedMenuItem } = useParams();
-
-  const { setShowLoadingGif, setAllGalleryImagesArr } = context;
   const location = useLocation();
+
   const [isGourmetPage, setIsGourmetPage] = useState<boolean>(false);
   const [weddingGalleryContent, setWeddingGalleryContent] = useState<
     Record<string, string | number>[]
@@ -90,15 +76,6 @@ const GalleryContent = (props: GalleryContentProps) => {
     });
   }, [location.pathname]);
 
-  const handleImageLoading = (e: SyntheticEvent) => {
-    const target = e.target as HTMLImageElement;
-
-    setAllGalleryImagesArr((prevState: string[]) => {
-      const match = /[^/]*$/.exec(target.src);
-      return match ? [...prevState, match[0]] : prevState;
-    });
-  };
-
   useEffect(() => {
     location.pathname.includes("custom-cakes")
       ? setTxtPanelData({
@@ -146,41 +123,6 @@ const GalleryContent = (props: GalleryContentProps) => {
     setCustomGalleryContent(custom);
   }, []);
 
-  const [thumbImgsLoaded, setThumbImgsLoaded] = useState<
-    Array<string | number>
-  >([]);
-
-  useEffect(() => {
-    const loadedImgs = imgRefs.current.filter((img) => img && img.complete);
-
-    loadedImgs.forEach((img) =>
-      setThumbImgsLoaded((prev) => {
-        if (!prev.includes(img!.id.split("_")[0])) {
-          return [...prev, img!.id.split("_")[0]]; //removes "_"and everything after
-        }
-        return prev;
-      })
-    );
-  }, [allCakesOnPage]);
-
-  useEffect(() => {
-    const allThumbsLoaded =
-      allCakesOnPage &&
-      allCakesOnPage.every((cake) =>
-        thumbImgsLoaded.includes(cake.thumbnailTitle)
-      );
-
-    if (allThumbsLoaded && mainImgLoaded) {
-      setShowLoadingGif(false);
-    } else {
-      setShowLoadingGif(true);
-    }
-  }, [thumbImgsLoaded, allCakesOnPage, mainImgLoaded]);
-
-  useEffect(() => {
-    setThumbImgsLoaded([]);
-  }, [selectedMenuItem]);
-
   const menus = {
     wedding: ["wedding"],
     custom: ["birthday", "characters", "fashion", "food"]
@@ -221,9 +163,6 @@ const GalleryContent = (props: GalleryContentProps) => {
             return (
               <>
                 <img
-                  onLoad={(e) => {
-                    handleImageLoading(e);
-                  }}
                   onClick={() =>
                     props.activeThumbnail !== i &&
                     mainImgLoaded &&

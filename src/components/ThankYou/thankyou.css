@@ -1,42 +1,52 @@
-.ty-heading {
-  width: 100dvw;
-  height: auto;
-  z-index: 300;
-  position: absolute;
-  padding: 2.4rem;
-}
-
-.ty-msg {
-  position: absolute;
+.ty-container {
   width: 100%;
-  height: 100dvh;
   display: flex;
-  align-items: center;
+  height: 61.9dvh;
+  background-color: #12d0ff;
   justify-content: center;
-  z-index: 400;
+  align-items: center;
+}
+.ty-heading {
+  display: flex;
+  width: 100%;
+  position: relative;
 }
 
 .ty-bg {
-  background-color: rgba(107, 107, 113, 0.7);
-  padding: 4.8rem 9.6rem;
-  margin-top: 47rem;
+  width: max-content;
+  text-align: center;
+}
+
+.ty-bg h1,
+.ty-bg .outlined,
+.ty-bg .top-outlined {
+  font-size: 10.5rem;
+  text-transform: capitalize;
+  font-family: "fjalla one", sans-serif;
+  position: relative;
+  display: block;
+  transform: translateY(6.05rem);
+  text-transform: uppercase;
+}
+
+.ty-bg .outlined {
+  -webkit-text-stroke: 0.2rem yellow;
+  color: #12d0ff;
+  transform: translate(0.7rem, -6.05rem);
+}
+
+.ty-bg h1 {
+  z-index: 10000;
+  color: rgb(229, 198, 227);
 }
 
 .ty-bg p {
-  font-size: 3.6rem;
-  text-align: center;
-  text-transform: uppercase;
-  color: #fff;
-  line-height: 1.6;
-  font-weight: bold;
+  font-size: 2.6rem;
+  line-height: 1.25;
+  transform: translate(1.75rem, -6rem);
 }
 
-.ty-container header {
-  z-index: 600 !important;
-  padding: 4.8rem 2.4rem;
-  height: 15.7rem;
-}
-
-.ty-container {
-  pointer-events: none;
+.ty-bg .ty-reminder {
+  /* font-weight: 350; */
+  font-size: 2.3rem;
 }

@@ -20,13 +20,13 @@ const Jumbotron = (props: JumbotronProps) => {
   return (
     <div className="jumbotron">
       <div className="jumbo-txt-box">
-        <h2 className="sub-heading-home">a day you'll </h2>
+        <h2 className="sub-heading-home">fall in </h2>
 
-        <h1 className="heading-home">never forget</h1>
+        <h1 className="heading-home">love again</h1>
 
         <p className="body-text-home">
-          Let us help you capture your vision. <br></br> Browse our cakes and
-          fall in love again!
+          Let us help you capture your vision. <br></br> Browse our wedding
+          cakes
         </p>
         <HomeBtn
           btnLink={props.btnLink}

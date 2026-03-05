@@ -1,17 +1,11 @@
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { SignatureContentProps } from "./SignatureContentProps.type";
-import { GalleryImgLoadContext } from "../../context/GalleryImgLoadContext";
+
 import { useLocation, useParams } from "react-router-dom";
 
 const SignatureContent = (props: SignatureContentProps) => {
-  const context = useContext(GalleryImgLoadContext);
-  if (!context) {
-    return;
-  }
   const location = useLocation();
   const { selectedMenuItem, size } = useParams();
-
-  // const { setShowLoadingFlavorGif } = context;
 
   const flavorImages = Object.values(
     import.meta.glob("../../img/signaturecakes/*.{png,jpg,jpeg}", {
@@ -142,10 +136,11 @@ const SignatureContent = (props: SignatureContentProps) => {
     }
   ];
   const allCategories = signatureContent.map((item) => item.category);
-  const uniquteCatArr = [...new Set(allCategories)];
+  const uniqueCatArr = [...new Set(allCategories)];
 
   const cupcakeContent = [
     {
+      category: "daily",
       flav: "tres leches (three milks)",
       img: flavorImages.find((img) => img.includes("chocolate")),
       lsImg: flavorImages.find((img) => img.includes("one-col")),
@@ -153,6 +148,7 @@ const SignatureContent = (props: SignatureContentProps) => {
       p: "Vanilla cake soaked in sweetened condensed milk, evaporated milk, and whole milk."
     },
     {
+      category: "daily",
       flav: "hazelnut",
       img: flavorImages.find((img) => img.includes("strawberry")),
       lsImg: flavorImages.find((img) => img.includes("one-col")),
@@ -160,6 +156,7 @@ const SignatureContent = (props: SignatureContentProps) => {
       p: "your choice of rich vanilla or chocolate cake layers with hazelnut ganache"
     },
     {
+      category: "daily",
       flav: "vanilla dream",
       img: flavorImages.find((img) => img.includes("chocolate")),
       lsImg: flavorImages.find((img) => img.includes("one-col")),
@@ -167,6 +164,7 @@ const SignatureContent = (props: SignatureContentProps) => {
       p: "adf"
     },
     {
+      category: "daily",
       flav: "funfetti",
       img: flavorImages.find((img) => img.includes("chocolate")),
       lsImg: flavorImages.find((img) => img.includes("one-col")),
@@ -174,6 +172,7 @@ const SignatureContent = (props: SignatureContentProps) => {
       p: "adf"
     },
     {
+      category: "daily",
       flav: "spiced carrot",
       img: flavorImages.find((img) => img.includes("chocolate")),
       lsImg: flavorImages.find((img) => img.includes("one-col")),
@@ -181,12 +180,14 @@ const SignatureContent = (props: SignatureContentProps) => {
       p: "adf"
     },
     {
+      category: "daily",
       flav: "german chocolate",
       img: flavorImages.find((img) => img.includes("chocolate")),
       lsImg: flavorImages.find((img) => img.includes("one-col")),
       bgimg: flavorImages.find((img) => img.includes("chocolate-small"))
     },
     {
+      category: "pre-order",
       flav: "chocolate delight",
       img: flavorImages.find((img) => img.includes("chocolate")),
       lsImg: flavorImages.find((img) => img.includes("one-col")),
@@ -194,6 +195,7 @@ const SignatureContent = (props: SignatureContentProps) => {
       p: "adf"
     },
     {
+      category: "pre-order",
       flav: "Red Velvet",
       img: flavorImages.find((img) => img.includes("chocolate")),
       lsImg: flavorImages.find((img) => img.includes("one-col")),
@@ -201,6 +203,7 @@ const SignatureContent = (props: SignatureContentProps) => {
       p: "adf"
     },
     {
+      category: "pre-order",
       flav: "lemon raspberry",
       img: flavorImages.find((img) => img.includes("chocolate")),
       lsImg: flavorImages.find((img) => img.includes("one-col")),
@@ -208,6 +211,7 @@ const SignatureContent = (props: SignatureContentProps) => {
       p: "lemon raspberry cake with vanilla cream cheese"
     },
     {
+      category: "pre-order",
       flav: "strawberry shortcake",
       img: flavorImages.find((img) => img.includes("chocolate")),
       lsImg: flavorImages.find((img) => img.includes("one-col")),
@@ -215,6 +219,7 @@ const SignatureContent = (props: SignatureContentProps) => {
       p: "vanilla cake with whipped cream and fresh strawberries"
     },
     {
+      category: "pre-order",
       flav: "strawberry crunch",
       img: flavorImages.find((img) => img.includes("chocolate")),
       lsImg: flavorImages.find((img) => img.includes("one-col")),
@@ -222,6 +227,7 @@ const SignatureContent = (props: SignatureContentProps) => {
       p: "strawberry and vanilla cake layers with strawberry cream cheese and strawberry shortbread crunchies"
     },
     {
+      category: "pre-order",
       flav: "strawberry delight",
       img: flavorImages.find((img) => img.includes("chocolate")),
       lsImg: flavorImages.find((img) => img.includes("one-col")),
@@ -229,6 +235,8 @@ const SignatureContent = (props: SignatureContentProps) => {
       p: "strawberry and vanilla cake layers with strawberry cream cheese and strawberry shortbread crunchies"
     }
   ];
+  const allCupCategories = cupcakeContent.map((item) => item.category);
+  const uniqueCupCatArr = [...new Set(allCupCategories)];
 
   const [txtPanelContent, setTxtPanelContent] = useState<Record<string, any>>();
 
@@ -270,22 +278,47 @@ const SignatureContent = (props: SignatureContentProps) => {
     <>
       {
         <div className="signature-cakes-container">
-          {location.pathname === "/cupcakes" &&
-            cupcakeContent.map((item: Record<string, any>) => {
-              return (
-                <div className="cake-detail-card">
-                  <img src={item.lsImg} alt="" />
-                  <div className="cake-info-box">
-                    <div className="cake-heading-box">
-                      <h3>{item.flav}</h3>
-                    </div>
-                    <p>{item.p}</p>
-                  </div>
-                </div>
-              );
-            })}
-          {location.pathname !== "/cupcakes" &&
-            uniquteCatArr.map((category, i) => (
+          {location.pathname.includes("/cupcakes") &&
+            uniqueCupCatArr.map((category, i) => (
+              <div
+                className={`flavors-box ${category}`}
+                key={category}
+                ref={(el) => {
+                  props.catRefs && (props.catRefs!.current![i] = el);
+                }}
+              >
+                {cupcakeContent
+                  .sort((a, b) => {
+                    if (a.flav < b.flav) {
+                      return -1;
+                    }
+                    if (a.flav > b.flav) {
+                      return 1;
+                    }
+                    return 0;
+                  })
+                  .map((item: Record<string, any>) => {
+                    return (
+                      item.category === category && (
+                        <div className="cake-detail-card">
+                          <img src={item.lsImg} alt="" />
+                          <div className="cake-info-box">
+                            <div className="cake-heading-box">
+                              <h3>{item.flav}</h3>
+                            </div>
+                            <p>{item.p}</p>
+                            {item.category.replace("-", "") === "preorder" && (
+                              <p>Minimum: 1 Dozen</p>
+                            )}
+                          </div>
+                        </div>
+                      )
+                    );
+                  })}
+              </div>
+            ))}
+          {location.pathname.includes("/signature-cakes") &&
+            uniqueCatArr.map((category, i) => (
               <div
                 className={`flavors-box ${category}-flavors`}
                 key={category}

@@ -1,19 +1,11 @@
-import { RefObject, useContext, useEffect, useState } from "react";
-import { GalleryImgLoadContext } from "../../context/GalleryImgLoadContext";
+import { RefObject, useState } from "react";
 import { useParams } from "react-router-dom";
 
 const ServingCards = (props: {
   tiersRefs: RefObject<(HTMLDivElement | null)[]>;
 }) => {
-  const context = useContext(GalleryImgLoadContext);
-  if (!context) {
-    return;
-  }
   const { selectedMenuItem } = useParams();
-
-  const { setShowLoadingGif } = context;
   const [loadedServImgs, setLoadedServImgs] = useState<any[]>([]);
-  // const [categoryDivClass, setCategoryDivClass] = useState<string>("");
 
   const servingImages = Object.values(
     import.meta.glob("../../img/servingssizes/*.{png,jpg,jpeg}", {
@@ -171,20 +163,20 @@ const ServingCards = (props: {
     ...new Set(servingSizeContent.map((item) => item.category))
   ];
 
-  useEffect(() => {
-    const allOptionsOnPage = servingSizeContent.filter(
-      (obj) => obj.category === selectedMenuItem
-    );
+  // useEffect(() => {
+  //   const allOptionsOnPage = servingSizeContent.filter(
+  //     (obj) => obj.category === selectedMenuItem
+  //   );
 
-    const allLoaded = allOptionsOnPage.every((option) => {
-      const fileName = option.img?.split("/").pop();
-      return fileName && loadedServImgs.includes(fileName);
-    });
+  //   const allLoaded = allOptionsOnPage.every((option) => {
+  //     const fileName = option.img?.split("/").pop();
+  //     return fileName && loadedServImgs.includes(fileName);
+  //   });
 
-    if (allLoaded) {
-      setShowLoadingGif(false);
-    }
-  }, [loadedServImgs, selectedMenuItem]);
+  //   if (allLoaded) {
+  //     setShowLoadingGif(false);
+  //   }
+  // }, [loadedServImgs, selectedMenuItem]);
 
   // useEffect(() => {
   //   selectedMenuItem && +selectedMenuItem[0] >= 4

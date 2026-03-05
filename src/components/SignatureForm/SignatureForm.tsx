@@ -1,6 +1,8 @@
 import React, {
   ReactNode,
+  Ref,
   RefObject,
+  useContext,
   useEffect,
   useRef,
   useState
@@ -9,22 +11,26 @@ import { SignatureFormProps } from "./SignatureFormProps.type";
 import MenuContext from "../../context/HamburgerMenuContext";
 import Header from "../Header/Header";
 import HamburgerMenu from "../HamburgerMenu/HamburgerMenu";
-import TextPanel from "../TextPanel/TextPanel";
 import "./signatureform.css";
 import axios from "axios";
-import phoneImg from "../../img/form/phone.jpg";
 import Dropdown from "./Dropdown";
 import { stringToDate } from "../../shared/utility";
-import { PHONE_NUMBER, RUSH_CUTOFF } from "../../shared/constants/constants";
+import { PHONE_NUMBER } from "../../shared/constants/constants";
 import CakeDetailsGroup from "./CakeDetailsGroup";
-import useWindowDimensions from "../../hooks/useWindowDimensions";
 import CupcakeDetailsGroup from "../CupcakeForm/CupcakeDetailsGroup";
 import ThankYou from "../ThankYou/ThankYou";
+import StickyDiv from "../StickyDiv/StickyDiv";
+import Footer from "../Footer/Footer";
+import { GlobalLoadingContext } from "../../context/GlobalLoadingContext";
 
 const SignatureForm = (props: SignatureFormProps) => {
-  const { width } = useWindowDimensions();
+  const globalContext = useContext(GlobalLoadingContext);
+  if (!globalContext) {
+    return;
+  }
 
-  const formPanelRef: RefObject<HTMLDivElement> = useRef(null);
+  const formRef: Ref<HTMLElement | any> = globalContext.containerRef;
+
   const dateRef: any = useRef(null);
   const fullNameRef: any = useRef(null);
   const phoneNumberRef: any = useRef(null);
@@ -35,7 +41,6 @@ const SignatureForm = (props: SignatureFormProps) => {
   const quantitySelectRefs = useRef<Array<HTMLInputElement | null>>([]);
   const timeSelectRef: RefObject<any> = useRef(null);
   const timeDrpDwnRef: RefObject<any> = useRef(null);
-
   const [cakeOrderCountArr, setCakeOrderCountArr] = useState<Array<number>>([
     0
   ]);
@@ -74,7 +79,6 @@ const SignatureForm = (props: SignatureFormProps) => {
   const [phoneNumErr, setPhoneNumError] = useState<boolean>(false);
   const [emailErr, setEmailError] = useState<boolean>(false);
   const [emptyFlav, setEmptyFlav] = useState<boolean>(true);
-  const [showIns, setShowIns] = useState(true);
   const [emptySize, setEmptySize] = useState<boolean>(true);
   const [emptyCCFlav, setEmptyCCFlav] = useState<boolean>(true);
   const [emptyQuantity, setEmptyQuantity] = useState<boolean>(true);
@@ -89,12 +93,6 @@ const SignatureForm = (props: SignatureFormProps) => {
   const [inputPhoneNumber, setInputPhoneNumber] = useState<string>("");
   const [phoneNumber, setPhoneNumber] = useState<string>("");
   const [email, setEmail] = useState<string>("");
-  const [formPosY, setFormPosY] = useState<number | any>(0);
-  const [formCoords, setFormCoords] = useState<Record<string, number>>({
-    top: 0,
-    y: +`${formPosY}`
-  });
-  const [formPClass, setFormPClass] = useState<string>("");
 
   const [showTY, setShowTY] = useState<boolean>(false);
 
@@ -106,12 +104,25 @@ const SignatureForm = (props: SignatureFormProps) => {
     }
   };
 
-  const instructions =
-    "Instructions:\n" +
-    "1.) Fill out order form\n" +
-    "2.) Check email for order invoice\n" +
-    "3.) Order confirmed once invoiced is paid\n\n" +
-    "Please note: Orders are not complete until invoice is paid";
+  const bcrumbData = [
+    {
+      url: "/signature-cakes/classic-flavors/6-inch",
+      linkText: "Signature cakes"
+    },
+    { url: "", linkText: "Order form" }
+  ];
+  const instructions = [
+    "Instructions:",
+    "1.) Please fill out the order form.",
+    "2.) Check your email for the order invoice.",
+    "3.) Confirm your order by completing invoice."
+  ];
+
+  const txtPanelData = {
+    h2: "",
+    h1: "Order signature cake",
+    p: instructions
+  };
 
   const timeOpts = [
     "10:00 AM",
@@ -125,6 +136,22 @@ const SignatureForm = (props: SignatureFormProps) => {
     "6:00 PM",
     "7:00 PM"
   ];
+
+  const handleAddCake = (
+    e: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ) => {
+    e.preventDefault();
+    cakeDetailsCheck() &&
+      setCakeOrderCountArr((prevState) => [
+        ...prevState,
+        cakeOrderCountArr.length
+      ]);
+    setCakeDetails((prevState) => [
+      ...prevState,
+      { index: cakeOrderCountArr.length }
+    ]);
+    setEditIconIndex(+cakeDetails[cakeDetails.length - 1].index + 1);
+  };
 
   const cakeDetailsCheck = () => {
     if (location.pathname === "/signature-form") {
@@ -166,20 +193,15 @@ const SignatureForm = (props: SignatureFormProps) => {
       "/" +
       date.getFullYear();
 
-    const todayTime = date.getHours();
-
     if (selectedDate) {
       if (selectedDate < todayString) {
         setPastDateError(true);
+      } else if (selectedDate === todayString) {
+        setRushErr(true);
       } else {
         setPastDateError(false);
         setRushErr(false);
         getClosedError(selectedDate);
-
-        if (todayString === selectedDate) {
-          // setClosedError(false);
-          todayTime >= RUSH_CUTOFF ? setRushErr(true) : setRushErr(false);
-        }
       }
     }
   };
@@ -398,6 +420,10 @@ const SignatureForm = (props: SignatureFormProps) => {
     getDateErrMsg();
   }, [pickUpDateErr, rushErr, pastDateErr, closedErr]);
 
+  // useEffect(() => {
+  //   setShowTY(true);
+  // }, []);
+
   useEffect(() => {
     if (dateRef.current.type !== "date") {
       setPaddingClass("add-padding");
@@ -474,14 +500,9 @@ const SignatureForm = (props: SignatureFormProps) => {
     setErrObj(updatedItem);
   }, [cakeDetails, cupcakeDetails]);
 
-  useEffect(() => {
-    showIns ? setFormPClass("ins-expanded") : setFormPClass("");
-  }, [showIns]);
-
   return (
     <>
-      {showTY && <ThankYou />}
-      <section className="home-container contact-us">
+      <section className="home-container contact-us" ref={formRef}>
         <MenuContext.Provider
           value={{
             BGClass: props.menuFade.BGClass
@@ -490,291 +511,260 @@ const SignatureForm = (props: SignatureFormProps) => {
           <Header setMenuFade={props.setMenuFade} />
           <HamburgerMenu setMenuFade={props.setMenuFade} />
         </MenuContext.Provider>
-        <div className="form-container signature-form">
-          {
-            <TextPanel
-              h2={"order"}
-              h1={"form"}
-              p={instructions.split("\n").map((line, index) => (
-                <React.Fragment key={index}>
-                  {line}
-                  <br />
-                </React.Fragment>
-              ))}
-              layout={width <= 1180 && true}
-              showIns={showIns}
-              setShowIns={setShowIns}
-            />
-          }
+        {!showTY && (
+          <>
+            <div className="form-container signature-form">
+              <StickyDiv bcrumbData={bcrumbData} txtPanelData={txtPanelData} />
 
-          <div
-            className={`form-panel sig-form-panel ${formPClass}`}
-            ref={formPanelRef}
-            onScroll={() => {
-              setFormPosY(formPanelRef.current?.scrollTop);
+              <div className={"form-panel sig-form-panel"}>
+                <form
+                  action="#"
+                  className="form-box sig-form-box"
+                  encType="multipart/form-data"
+                  autoComplete="off"
+                >
+                  <h2 className="form-sec-head">Pickup Information</h2>
+                  <div className="signature-event-details">
+                    <div className="input-label-box sig-event-box">
+                      <input
+                        type="text"
+                        className={
+                          !pickUpDateErr &&
+                          !rushErr &&
+                          !closedErr &&
+                          !pastDateErr
+                            ? "form-input form-input--date"
+                            : "form-input form-input--date err-border"
+                        }
+                        placeholder="Pickup Date* &nbsp;"
+                        ref={dateRef}
+                        onFocus={() => (dateRef.current.type = "date")}
+                        onBlur={() => {
+                          dateType();
+                        }}
+                        onChange={() => {
+                          setPickupDateError(false);
+                          setPickupDate(stringToDate(dateRef.current?.value));
+                          getAllDateErrors(
+                            stringToDate(dateRef.current?.value)
+                          );
+                        }}
+                        id="date"
+                        name="eventDate"
+                        required
+                      />
 
-              setFormCoords((prevState: Record<string, number>) => ({
-                ...prevState,
-                top: formPanelRef.current!.getBoundingClientRect().top,
-                y: formPanelRef.current!.scrollTop
-              }));
-            }}
-          >
-            <img
-              src={phoneImg}
-              alt="Image of a rotary phone cake"
-              className="phone-img"
-            />
-            <form
-              action="#"
-              className="form-box sig-form-box"
-              encType="multipart/form-data"
-              autoComplete="off"
-            >
-              <div className="signature-event-details">
-                <div className="input-label-box sig-event-box">
+                      {dateLabelMsg}
+                    </div>
+
+                    <div className="time-box">
+                      <Dropdown
+                        menuOpts={timeOpts}
+                        defaultVal={"Pickup Time*"}
+                        selectRef={timeSelectRef}
+                        dDwnRef={timeDrpDwnRef}
+                        selectedOpt={selectedTime}
+                        setSelectedOption={setSelectedTime}
+                        isError={timeErr}
+                        errMsg={"Please select your pickup time"}
+                      />
+                    </div>
+                  </div>
+
+                  <h2 className="form-sec-head">Order Information</h2>
+
+                  {location.pathname === "/cupcake-form" ? (
+                    <CupcakeDetailsGroup
+                      cakeOrderCountArr={cakeOrderCountArr}
+                      setCakeOrderCountArr={setCakeOrderCountArr}
+                      errObj={errObj}
+                      cakeDetails={cupcakeDetails}
+                      setCakeDetails={setCupcakeDetails}
+                      editIconIndex={editIconIndex}
+                      setEditIconIndex={setEditIconIndex}
+                      flavSelectRefs={ccFlavSelectRefs}
+                      quantitySelectRefs={quantitySelectRefs}
+                    />
+                  ) : (
+                    <CakeDetailsGroup
+                      cakeOrderCountArr={cakeOrderCountArr}
+                      setCakeOrderCountArr={setCakeOrderCountArr}
+                      errObj={errObj}
+                      cakeDetails={cakeDetails}
+                      setCakeDetails={setCakeDetails}
+                      editIconIndex={editIconIndex}
+                      setEditIconIndex={setEditIconIndex}
+                      flavSelectRefs={flavSelectRefs}
+                      sizeSelectRefs={sizeSelectRefs}
+                    />
+                  )}
+                  {location.pathname === "/signature-form" ? (
+                    <button
+                      className={
+                        cakeDetailsCheck()
+                          ? "add-cake-btn"
+                          : "add-cake-btn-disabled"
+                      }
+                      onClick={(e) => {
+                        handleAddCake(e);
+                      }}
+                    >
+                      <span>&#x2b;</span>
+                      <span>Add a Cake</span>
+                    </button>
+                  ) : (
+                    <button
+                      className={
+                        cakeDetailsCheck()
+                          ? "add-cake-btn"
+                          : "add-cake-btn-disabled"
+                      }
+                      onClick={(e) => {
+                        e.preventDefault();
+                        cakeDetailsCheck() &&
+                          setCakeOrderCountArr((prevState) => [
+                            ...prevState,
+                            cakeOrderCountArr.length
+                          ]);
+                        setCupcakeDetails((prevState) => [
+                          ...prevState,
+                          { index: cakeOrderCountArr.length }
+                        ]);
+                        setEditIconIndex(
+                          +cupcakeDetails[cupcakeDetails.length - 1].index + 1
+                        );
+                      }}
+                    >
+                      <span>&#x2b;</span>
+                      <span>Add Cupcakes</span>
+                    </button>
+                  )}
+                  <h2 className="form-sec-head">Contact Information</h2>
+
+                  <div className="input-label-box">
+                    <input
+                      type="text"
+                      className={
+                        !allNameErrs
+                          ? "form-input form-input--name"
+                          : "form-input form-input--name err-border"
+                      }
+                      placeholder="Full Name*"
+                      ref={fullNameRef}
+                      id="name"
+                      onChange={() => {
+                        setAllNameErrors(false);
+                        setFullName(fullNameRef.current.value);
+                      }}
+                      required
+                    />
+
+                    {allNameErrs ? (
+                      <div className="error-group">
+                        {nameErr && (
+                          <p className="msg">Please enter your full name.</p>
+                        )}
+                        {nameNoSpaceErr && (
+                          <p className="msg">
+                            Please seperate your first and last name with a
+                            space.
+                          </p>
+                        )}
+                      </div>
+                    ) : (
+                      <label htmlFor="name" className="form-label">
+                        Full Name*
+                      </label>
+                    )}
+                  </div>
+                  <div className="input-label-box">
+                    <input
+                      type="tel"
+                      className={
+                        !phoneNumErr
+                          ? "form-input form-input--tel"
+                          : "form-input form-input--tel err-border"
+                      }
+                      placeholder="Phone Number*"
+                      ref={phoneNumberRef}
+                      id="number"
+                      onChange={() => {
+                        setPhoneNumError(false);
+                        setInputPhoneNumber(
+                          phoneNumberRef.current.value.replace(/[^0-9]/g, "")
+                        );
+                      }}
+                      required
+                    />
+
+                    {phoneNumErr ? (
+                      <div className="error-group">
+                        <p className="msg phone-msg">
+                          Please enter a valid phone number.
+                        </p>
+                      </div>
+                    ) : (
+                      <label htmlFor="number" className="form-label">
+                        Phone Number*
+                      </label>
+                    )}
+                  </div>
+                  <div className="input-label-box">
+                    <input
+                      type="email"
+                      className={
+                        !emailErr
+                          ? "form-input form-input--email"
+                          : "form-input form-input--email err-border"
+                      }
+                      placeholder="Email Address*"
+                      ref={emailAddressRef}
+                      onChange={() => {
+                        setEmailError(false);
+                        setEmail(emailAddressRef.current.value);
+                      }}
+                      id="email"
+                      required
+                    />
+
+                    {emailErr ? (
+                      <div className="error-group">
+                        <p className="msg email-msg">
+                          Please enter a valid email address.
+                        </p>
+                      </div>
+                    ) : (
+                      <label htmlFor="email" className="form-label">
+                        Email Address*
+                      </label>
+                    )}
+                  </div>
+
                   <input
-                    type="text"
-                    className={
-                      !pickUpDateErr && !rushErr && !closedErr && !pastDateErr
-                        ? "form-input form-input--date"
-                        : "form-input form-input--date err-border"
-                    }
-                    placeholder="Pickup Date* &nbsp;"
-                    ref={dateRef}
-                    onFocus={() => (dateRef.current.type = "date")}
-                    onBlur={() => {
-                      dateType();
-                    }}
-                    onChange={() => {
-                      setPickupDateError(false);
-                      setPickupDate(stringToDate(dateRef.current?.value));
-                      getAllDateErrors(stringToDate(dateRef.current?.value));
-                    }}
-                    id="date"
-                    name="eventDate"
-                    required
+                    type="submit"
+                    className="form-btn"
+                    id="submit-form"
+                    formNoValidate
                   />
-
-                  {dateLabelMsg}
-                </div>
-
-                <div className="time-box">
-                  <Dropdown
-                    menuOpts={timeOpts}
-                    defaultVal={"Pickup Time*"}
-                    selectRef={timeSelectRef}
-                    dDwnRef={timeDrpDwnRef}
-                    selectedOpt={selectedTime}
-                    setSelectedOption={setSelectedTime}
-                    isError={timeErr}
-                    errMsg={"Please select your pickup time"}
-                    formCoords={formCoords}
-                    ceilingRef={formPanelRef}
-                  />
-                </div>
-              </div>
-              {location.pathname === "/cupcake-form" ? (
-                <CupcakeDetailsGroup
-                  formCoords={formCoords}
-                  cakeOrderCountArr={cakeOrderCountArr}
-                  setCakeOrderCountArr={setCakeOrderCountArr}
-                  errObj={errObj}
-                  cakeDetails={cupcakeDetails}
-                  setCakeDetails={setCupcakeDetails}
-                  editIconIndex={editIconIndex}
-                  setEditIconIndex={setEditIconIndex}
-                  flavSelectRefs={ccFlavSelectRefs}
-                  quantitySelectRefs={quantitySelectRefs}
-                  formPanelRef={formPanelRef}
-                />
-              ) : (
-                <CakeDetailsGroup
-                  formCoords={formCoords}
-                  cakeOrderCountArr={cakeOrderCountArr}
-                  setCakeOrderCountArr={setCakeOrderCountArr}
-                  errObj={errObj}
-                  cakeDetails={cakeDetails}
-                  setCakeDetails={setCakeDetails}
-                  editIconIndex={editIconIndex}
-                  setEditIconIndex={setEditIconIndex}
-                  flavSelectRefs={flavSelectRefs}
-                  sizeSelectRefs={sizeSelectRefs}
-                  formPanelRef={formPanelRef}
-                />
-              )}
-              {location.pathname === "/signature-form" ? (
-                <button
-                  className={
-                    cakeDetailsCheck()
-                      ? "add-cake-btn"
-                      : "add-cake-btn-disabled"
-                  }
+                </form>
+                <label
+                  htmlFor="submit-form"
                   onClick={(e) => {
-                    e.preventDefault();
-                    cakeDetailsCheck() &&
-                      setCakeOrderCountArr((prevState) => [
-                        ...prevState,
-                        cakeOrderCountArr.length
-                      ]);
-                    setCakeDetails((prevState) => [
-                      ...prevState,
-                      { index: cakeOrderCountArr.length }
-                    ]);
-                    setEditIconIndex(
-                      +cakeDetails[cakeDetails.length - 1].index + 1
-                    );
+                    formValidation(e);
                   }}
+                  className="form-submit-label"
                 >
-                  <span>&#x2b;</span>
-                  <span>Add a Cake</span>
-                </button>
-              ) : (
-                <button
-                  className={
-                    cakeDetailsCheck()
-                      ? "add-cake-btn"
-                      : "add-cake-btn-disabled"
-                  }
-                  onClick={(e) => {
-                    e.preventDefault();
-                    cakeDetailsCheck() &&
-                      setCakeOrderCountArr((prevState) => [
-                        ...prevState,
-                        cakeOrderCountArr.length
-                      ]);
-                    setCupcakeDetails((prevState) => [
-                      ...prevState,
-                      { index: cakeOrderCountArr.length }
-                    ]);
-                    setEditIconIndex(
-                      +cupcakeDetails[cupcakeDetails.length - 1].index + 1
-                    );
-                  }}
-                >
-                  <span>&#x2b;</span>
-                  <span>Add Cupcakes</span>
-                </button>
-              )}
-
-              <div className="input-label-box">
-                <input
-                  type="text"
-                  className={
-                    !allNameErrs
-                      ? "form-input form-input--name"
-                      : "form-input form-input--name err-border"
-                  }
-                  placeholder="Full Name*"
-                  ref={fullNameRef}
-                  id="name"
-                  onChange={() => {
-                    setAllNameErrors(false);
-                    setFullName(fullNameRef.current.value);
-                  }}
-                  required
-                />
-
-                {allNameErrs ? (
-                  <div className="error-group">
-                    {nameErr && (
-                      <p className="msg">Please enter your full name.</p>
-                    )}
-                    {nameNoSpaceErr && (
-                      <p className="msg">
-                        Please seperate your first and last name with a space.
-                      </p>
-                    )}
-                  </div>
-                ) : (
-                  <label htmlFor="name" className="form-label">
-                    Full Name*
-                  </label>
-                )}
+                  Request an invoice
+                </label>
               </div>
-              <div className="input-label-box">
-                <input
-                  type="tel"
-                  className={
-                    !phoneNumErr
-                      ? "form-input form-input--tel"
-                      : "form-input form-input--tel err-border"
-                  }
-                  placeholder="Phone Number*"
-                  ref={phoneNumberRef}
-                  id="number"
-                  onChange={() => {
-                    setPhoneNumError(false);
-                    setInputPhoneNumber(
-                      phoneNumberRef.current.value.replace(/[^0-9]/g, "")
-                    );
-                  }}
-                  required
-                />
-
-                {phoneNumErr ? (
-                  <div className="error-group">
-                    <p className="msg phone-msg">
-                      Please enter a valid phone number.
-                    </p>
-                  </div>
-                ) : (
-                  <label htmlFor="number" className="form-label">
-                    Phone Number*
-                  </label>
-                )}
-              </div>
-              <div className="input-label-box">
-                <input
-                  type="email"
-                  className={
-                    !emailErr
-                      ? "form-input form-input--email"
-                      : "form-input form-input--email err-border"
-                  }
-                  placeholder="Email Address*"
-                  ref={emailAddressRef}
-                  onChange={() => {
-                    setEmailError(false);
-                    setEmail(emailAddressRef.current.value);
-                  }}
-                  id="email"
-                  required
-                />
-
-                {emailErr ? (
-                  <div className="error-group">
-                    <p className="msg email-msg">
-                      Please enter a valid email address.
-                    </p>
-                  </div>
-                ) : (
-                  <label htmlFor="email" className="form-label">
-                    Email Address*
-                  </label>
-                )}
-              </div>
-
-              <input
-                type="submit"
-                className="form-btn"
-                id="submit-form"
-                formNoValidate
-              />
-            </form>
-            <label
-              htmlFor="submit-form"
-              onClick={(e) => {
-                formValidation(e);
-              }}
-              className="form-submit-label"
-            >
-              Place an order
-            </label>
-          </div>
-        </div>
-        <div className="form-box-rt sig-form"></div>
+            </div>
+            <div className="form-box-rt sig-form"></div>
+          </>
+        )}
+        {showTY && <ThankYou />}
       </section>
+
+      {<Footer />}
     </>
   );
 };

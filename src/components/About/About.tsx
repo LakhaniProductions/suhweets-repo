@@ -20,11 +20,6 @@ import useWindowDimensions from "../../hooks/useWindowDimensions";
 
 const About = (props: AboutProps) => {
   const { width } = useWindowDimensions();
-  // const context = useContext(GalleryImgLoadContext);
-  // if (!context) {
-  //   return;
-  // }
-  // const { showLoadingGif } = context;
 
   const Arrow1 = (props: { className: string }) => {
     return (

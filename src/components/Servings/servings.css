@@ -31,15 +31,26 @@
   margin-bottom: 9.6rem;
   height: 100%;
 }
-
 .category-container.one-tier,
 .category-container.two-tier,
 .category-container.three-tier,
 .category-container.four-tier,
 .category-container.five-tier {
   scroll-margin-top: 10rem;
-  /* height: 73.7rem; */
 }
+/* 
+
+.category-container.two-tier {
+  scroll-margin-top: 65rem;
+}
+
+.category-container.four-tier {
+  scroll-margin-top: -75rem;
+}
+
+.category-container.five-tier {
+  scroll-margin-top: -400rem;
+} */
 
 .category-container:last-of-type {
   margin-bottom: 0;

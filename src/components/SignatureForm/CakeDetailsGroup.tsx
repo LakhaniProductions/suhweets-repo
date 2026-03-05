@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { CakeDetailsGroupProps } from "./CakeDetailsGroup.type";
 import SelectBtn from "./SelectBtn";
 import Dropdown1 from "./Dropdown1";
@@ -16,23 +16,102 @@ const CakeDetailsGroup = (props: CakeDetailsGroupProps) => {
   const [activeSizeIndex, setActiveSizeIndex] = useState({});
   const [showOrders, setShowOrders] = useState<boolean>(true);
 
-  const cakeFlavors = [
-    "German Chocolate Cake",
-    "Tres Leches (Three Milks)",
-    "Hazelnut",
-    "Vanilla Dream",
-    "Funfetti",
-    "Spiced Carrot",
-    "Chocolate Indulgence",
-    "Red Velvet",
-    "Lemon blueberry",
-    "Lemon raspberry",
-    "Strawberry Shortcake",
-    "Strawberry Crunch",
-    ""
+  const signatureContent = [
+    {
+      flav: "Vanilla Dream",
+      p: "Moist vanilla cake paired with smooth vanilla buttercream.",
+
+      category: "classic"
+    },
+    {
+      flav: "Red Velvet",
+      p: "Rich red velvet cake with a creamy vanilla cream cheese frosting.",
+
+      category: "classic"
+    },
+    {
+      flav: `Cookies & Cream`,
+      p: "Choice of chocolate or vanilla cake with cookies & cream buttercream.",
+
+      category: "classic"
+    },
+    {
+      flav: "Chocolate & Vanilla",
+      p: "Decadent chocolate cake frosted with vanilla buttercream.",
+
+      category: "classic"
+    },
+    {
+      flav: "Funfetti",
+      p: "Funfetti cake with your choice of vanilla or strawberry buttercream.",
+
+      category: "classic"
+    },
+    {
+      flav: "Strawberry Delight",
+      p: "Strawberry cake layered with strawberry cream cheese frosting.",
+
+      category: "classic"
+    },
+    {
+      flav: "Double Chocolate",
+      p: "Chocolate cake filled with rich chocolate buttercream.",
+
+      category: "classic"
+    },
+    {
+      flav: "Lemon Raspberry",
+      p: "Lemon cake with raspberry compote and vanilla buttercream.",
+
+      category: "specialty"
+    },
+    {
+      flav: "Spiced Carrot",
+      p: "Carrot cake with vanilla cream cheese frosting and a touch of dulce de leche.",
+
+      category: "specialty"
+    },
+    {
+      flav: "Almond Raspberry",
+      p: "Almond cake with raspberry compote and almond butter cream",
+
+      category: "specialty"
+    },
+    {
+      flav: "Cookie Butter",
+      p: "Cinnamon cake with Biscoff cream cheese frosting.",
+
+      category: "specialty"
+    },
+    {
+      flav: "Hazelnut Dream",
+      p: "Vanilla or chocolate cake filled with Nutella ganache and dulce de leche",
+
+      category: "specialty"
+    },
+    {
+      flav: "Berries & Cream",
+      p: "Vanilla cake layered with a mixed berry compote and vanilla buttercream",
+
+      category: "specialty"
+    },
+    {
+      flav: "Strawberry Shortcake",
+      p: "Vanilla cake with strawberry compote and vanilla buttercream",
+
+      category: "specialty"
+    },
+    {
+      flav: "Chocolate Indulgence",
+      p: "Chocolate cake filled with chocolate ganache and chocolate buttercream",
+
+      category: "specialty"
+    }
   ];
 
-  const sizeOptions = ["5 Inch", "6 Inch", "8 Inch", "10 Inch"];
+  const cakeFlavors = signatureContent.map((item) => item.flav);
+
+  const sizeOptions = ["6 Inch", "8 Inch", "10 Inch"];
 
   const removeCake = (i: number) => {
     if (
@@ -52,24 +131,33 @@ const CakeDetailsGroup = (props: CakeDetailsGroupProps) => {
     }
   };
 
-  const getCakePrice = (i: number) => {
-    if (props.cakeDetails[i]?.size === "5 Inch") {
-      return 35;
-    } else if (props.cakeDetails[i]?.size === "6 Inch") {
-      return 50;
-    } else if (props.cakeDetails[i]?.size === "8 Inch") {
-      return 100;
-    } else if (props.cakeDetails[i]?.size === "10 Inch") {
-      return 150;
-    } else {
-      return false;
-    }
+  const PRICE_LIST: Record<string, Record<string, number>> = {
+    classic: { "6 Inch": 60, "8 Inch": 90, "10 Inch": 110 },
+    specialty: { "6 Inch": 65, "8 Inch": 95, "10 Inch": 115 }
+  };
+
+  const getCakePrice = (i: number): number => {
+    const cake = props.cakeDetails[i];
+    if (!cake?.flavor || !cake?.size) return 0;
+
+    // Find the category from signatureContent
+    const flavorInfo = signatureContent.find(
+      (item) => item.flav === cake.flavor
+    );
+    const category: string = flavorInfo!.category;
+
+    // Look up the price based on category and size
+    return PRICE_LIST[category]?.[cake.size] ?? 0;
   };
   const getErrors = () => {
     const hasErrors = props.errObj.some((item) => item.flavErr || item.sizeErr);
 
     return hasErrors;
   };
+
+  useEffect(() => {
+    !showOrders && setShowOrders(!showOrders);
+  }, [props.cakeOrderCountArr]);
 
   return (
     <div className={showOrders ? "cake-orders mb-6" : "cake-orders mb-120"}>
@@ -98,7 +186,10 @@ const CakeDetailsGroup = (props: CakeDetailsGroupProps) => {
       )}
       {showOrders &&
         props.cakeOrderCountArr.map((_, i) => (
-          <React.Fragment key={props.cakeDetails[i]?.index || i}>
+          <div
+            className="cake-details-container"
+            key={props.cakeDetails[i]?.index || i}
+          >
             {(props.cakeDetails?.length &&
               props.cakeDetails[i]?.flavor &&
               props.cakeDetails[i]?.size) ||
@@ -127,18 +218,27 @@ const CakeDetailsGroup = (props: CakeDetailsGroupProps) => {
                     }}
                   >
                     <div className="price-box">
-                      {getCakePrice(i) && <span>{`$${getCakePrice(i)}`}</span>}
-                      {getCakePrice(i) && <span>+ tax</span>}
+                      {props.cakeDetails.length && (
+                        <span>{`$${getCakePrice(i)}`}</span>
+                      )}
+                      {props.cakeDetails.length && <span>+ tax</span>}
                     </div>
-                    <span title="Edit" className="icon-pencil edit-btn"></span>
-                    <span
-                      className={`cake-expand ${
-                        i === props.editIconIndex ? "rotate-up" : "rotate-down"
-                      }
+                    <div className="edit-group">
+                      <span
+                        title="Edit"
+                        className="icon-pencil edit-btn"
+                      ></span>
+                      <span
+                        className={`cake-expand ${
+                          i === props.editIconIndex
+                            ? "rotate-up"
+                            : "rotate-down"
+                        }
                     `}
-                    >
-                      &#8249;
-                    </span>
+                      >
+                        &#8249;
+                      </span>
+                    </div>
                     {props.cakeOrderCountArr.length > 1 && (
                       <span
                         title="Delete"
@@ -224,7 +324,6 @@ const CakeDetailsGroup = (props: CakeDetailsGroupProps) => {
                     {flavMenuToggle === i && (
                       <>
                         <Dropdown1
-                          formCoords={props.formCoords}
                           index={i}
                           selectRefs={props.flavSelectRefs}
                           ddRefs={flavDDRefs}
@@ -237,7 +336,6 @@ const CakeDetailsGroup = (props: CakeDetailsGroupProps) => {
                           ddClass={"sig-flavor"}
                           setCakeDetails={props.setCakeDetails}
                           cakeDetails={props.cakeDetails}
-                          formPanelRef={props.formPanelRef}
                         />
                       </>
                     )}
@@ -272,7 +370,6 @@ const CakeDetailsGroup = (props: CakeDetailsGroupProps) => {
                     {sizeMenuToggle === i && (
                       <>
                         <Dropdown1
-                          formCoords={props.formCoords}
                           index={i}
                           selectRefs={props.sizeSelectRefs}
                           ddRefs={sizeDDRefs}
@@ -285,7 +382,6 @@ const CakeDetailsGroup = (props: CakeDetailsGroupProps) => {
                           ddClass={"sig-size"}
                           setCakeDetails={props.setCakeDetails}
                           cakeDetails={props.cakeDetails}
-                          formPanelRef={props.formPanelRef}
                         />
                       </>
                     )}
@@ -330,7 +426,7 @@ const CakeDetailsGroup = (props: CakeDetailsGroupProps) => {
                 </div>
               </>
             )}
-          </React.Fragment>
+          </div>
         ))}
     </div>
   );

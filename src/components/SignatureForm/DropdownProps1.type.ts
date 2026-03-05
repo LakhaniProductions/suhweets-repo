@@ -1,5 +1,4 @@
 export interface DropdownProps1 {
-  formCoords: Record<string, number>;
   index: number;
   selectRefs?: React.MutableRefObject<Array<HTMLDivElement | null>>;
   ddRefs: React.MutableRefObject<Array<HTMLElement | null>>;
@@ -26,5 +25,4 @@ export interface DropdownProps1 {
     flavor?: string;
     size?: string;
   }>;
-  formPanelRef: React.MutableRefObject<HTMLDivElement | null>;
 }

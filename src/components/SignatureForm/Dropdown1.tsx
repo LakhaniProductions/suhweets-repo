@@ -1,132 +1,21 @@
-import { useCallback, useEffect, useState } from "react";
+import { useEffect } from "react";
 import { DropdownProps1 } from "./DropdownProps1.type";
-import useWindowDimensions from "../../hooks/useWindowDimensions";
+// import useWindowDimensions from "../../hooks/useWindowDimensions";
 
 const Dropdown1 = (props: DropdownProps1) => {
-  const { width, height } = useWindowDimensions();
-  const [ddHeight, setDdHeight] = useState(0);
-
-  const getDropdownTopValue = useCallback(
-    (i: number) => {
-      const flavSelectRef =
-        props.selectRefs &&
-        props.selectRefs.current[i]?.getBoundingClientRect();
-      if (!flavSelectRef) return 0;
-      let marginBuffer;
-      let formMargin;
-      let topValue;
-
-      if (width <= 2560 && width > 2040) {
-        formMargin = 181;
-        marginBuffer = 24;
-
-        if (height <= 860 && height > 700) {
-          marginBuffer = 0;
-        } else if (height < 700) {
-          formMargin = 120;
-          marginBuffer = 0;
-        }
-      } else if (width <= 2040 && width > 1700) {
-        formMargin = 181;
-        marginBuffer = 24;
-        if (height <= 950 && height > 860) {
-          marginBuffer = 24 - props.formCoords.y;
-        } else if (height <= 860 && height > 700) {
-          marginBuffer = 0 - props.formCoords.y;
-        } else if (height < 700) {
-          formMargin = 120;
-          marginBuffer = 0;
-        }
-      } else if (width <= 1700 && width > 1511) {
-        formMargin = 120;
-        marginBuffer = 24;
-        if (height <= 950 && height > 860) {
-          marginBuffer = 24 - props.formCoords.y;
-        } else if (height <= 860) {
-          marginBuffer = 0 - props.formCoords.y;
-        }
-      } else if (width <= 1511 && width > 1180) {
-        formMargin = 120;
-        marginBuffer = 24;
-        if (height <= 1002 && height > 950) {
-          marginBuffer = 0;
-        } else if (height <= 950) {
-          marginBuffer = 0 - props.formCoords.y;
-        }
-      } else if (width <= 1180 && width > 1052) {
-        formMargin = 120;
-        marginBuffer = 24;
-        if (height <= 1002 && height > 950) {
-          marginBuffer = 0;
-        } else if (height <= 950 && height > 860) {
-          marginBuffer = 227 - props.formCoords.y;
-        } else if (height <= 860 && height > 830) {
-          marginBuffer = 215 - props.formCoords.y;
-        } else if (height <= 830 && height > 760) {
-          marginBuffer = 191 - props.formCoords.y;
-        } else if (height <= 760 && height > 730) {
-          marginBuffer = 127 - props.formCoords.y;
-        } else if (height <= 730) {
-          marginBuffer = 88 - props.formCoords.y;
-        }
-      } else if (width <= 1052 && width > 900) {
-        formMargin = 120;
-        marginBuffer = 0;
-        if (height <= 1002 && height > 950) {
-          marginBuffer = 0;
-        } else if (height <= 950 && height > 860) {
-          marginBuffer = 227 - props.formCoords.y;
-        } else if (height <= 860 && height > 830) {
-          marginBuffer = 215 - props.formCoords.y;
-        } else if (height <= 830 && height > 760) {
-          marginBuffer = 191 - props.formCoords.y;
-        } else if (height <= 760 && height > 730) {
-          marginBuffer = 127 - props.formCoords.y;
-        } else if (height <= 730) {
-          marginBuffer = 88 - props.formCoords.y;
-        }
-      } else if (width <= 900 && width > 730) {
-        formMargin = 120;
-        marginBuffer = 0;
-        if (height <= 950 && height > 860) {
-          marginBuffer = 203 - props.formCoords.y;
-        } else if (height <= 860 && height > 850) {
-          marginBuffer = 191 - props.formCoords.y;
-        } else if (height <= 850) {
-          marginBuffer = 76 - props.formCoords.y;
-        }
-      } else if (width <= 730 && width > 500) {
-        formMargin = 120;
-        marginBuffer = 0;
-
-        if (height <= 950 && height > 860) {
-          marginBuffer = 197 - props.formCoords.y;
-        } else if (height <= 860 && height > 850) {
-          marginBuffer = 185 - props.formCoords.y;
-        } else if (height <= 850) {
-          marginBuffer = 70 - props.formCoords.y;
-        }
-      } else if (width <= 500) {
-        formMargin = 120;
-        marginBuffer = 0;
-
-        if (height <= 950 && height > 850) {
-          marginBuffer = 180 - props.formCoords.y;
-        } else if (height <= 850) {
-          marginBuffer = 82 - props.formCoords.y;
-        }
-      }
-      topValue = flavSelectRef.bottom - formMargin! - marginBuffer!;
-      return topValue;
-    },
-    [
-      props.selectRefs!.current[props.index],
-      props.formCoords.y,
-      props.index,
-      width,
-      height
-    ]
-  );
+  useEffect(() => {
+    const handleScroll = () => {
+      !props.menuToggle && props.setMenuToggle(!props.menuToggle);
+    };
+    document.addEventListener("scroll", handleScroll);
+    return () => {
+      document.removeEventListener("scroll", handleScroll);
+    };
+  }, [
+    props.menuToggle,
+    props.activeIndex,
+    props.ddRefs.current[props.menuToggle]
+  ]);
 
   const getAllCakeDetails = (option: string) => {
     if (!props.cakeDetails.length) {
@@ -226,51 +115,6 @@ const Dropdown1 = (props: DropdownProps1) => {
   };
 
   useEffect(() => {
-    type RectSide =
-      | "top"
-      | "bottom"
-      | "left"
-      | "right"
-      | "width"
-      | "height"
-      | "x"
-      | "y";
-
-    const closeDDFunc = (side: RectSide) => {
-      const formPanelSide: number =
-        props.formPanelRef.current!.getBoundingClientRect()[side];
-      const ddTop: number =
-        props.ddRefs.current[props.index]!.getBoundingClientRect().top;
-      if (side === "top") {
-        if (ddTop && formPanelSide && ddTop <= formPanelSide) {
-          props.setMenuToggle(null);
-        }
-      } else {
-        if (ddTop && formPanelSide && ddTop >= formPanelSide) {
-          props.setMenuToggle(null);
-        }
-      }
-    };
-    // close dropdown menu when out of top view
-    closeDDFunc("top");
-    // close dropdown when ddtop is out of bottom view
-    closeDDFunc("bottom");
-  }, [props.formCoords]);
-
-  useEffect(() => {
-    const handleResize = () => {
-      // props.setMenuToggle(null);
-      getDropdownTopValue(props.index);
-    };
-
-    window.addEventListener("resize", handleResize);
-
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
-
-  useEffect(() => {
     const dropdownRef = props.ddRefs.current[props.menuToggle];
     const activeOptionIndex = props.activeIndex[`cake${props.menuToggle}`];
 
@@ -299,7 +143,8 @@ const Dropdown1 = (props: DropdownProps1) => {
         }
       }
     }
-  }, [props.menuToggle, props.activeIndex, ddHeight]);
+    // }, [props.menuToggle, props.activeIndex, ddHeight]);
+  }, [props.menuToggle, props.activeIndex]);
 
   useEffect(() => {
     if (props.ddRefs.current.length) {
@@ -324,27 +169,27 @@ const Dropdown1 = (props: DropdownProps1) => {
     }
   }, [props.menuToggle, props.ddRefs]);
 
-  useEffect(() => {
-    const dDown = props.ddRefs.current[props.index]!.getBoundingClientRect();
-    const form = props.formPanelRef.current!.getBoundingClientRect();
-    const ddBottom = dDown.bottom;
-    const formBottom = form.bottom;
-    const isDropCutoff = ddBottom > formBottom;
-    const difference = ddBottom - formBottom;
-    if (isDropCutoff && dDown.height > difference) {
-      setDdHeight(dDown.height - difference);
-    }
-  }, [props.menuToggle, props.formPanelRef.current, props.formCoords]);
+  // useEffect(() => {
+  //   const dDown = props.ddRefs.current[props.index]!.getBoundingClientRect();
+  //   const form = props.formPanelRef.current!.getBoundingClientRect();
+  //   const ddBottom = dDown.bottom;
+  //   const formBottom = form.bottom;
+  //   const isDropCutoff = ddBottom > formBottom;
+  //   const difference = ddBottom - formBottom;
+  //   if (isDropCutoff && dDown.height > difference) {
+  //     setDdHeight(dDown.height - difference);
+  //   }
+  // }, [props.menuToggle, props.formPanelRef.current, props.formCoords]);
 
   return (
     <ul
       className={`dropdown ${props.ddClass}`}
       style={{
-        top: getDropdownTopValue(props.index),
+        // top: getDropdownTopValue(props.index),
         width: `${
           props.selectRefs!.current[props.index]?.getBoundingClientRect().width
-        }px`,
-        ...(ddHeight !== 0 && { height: `${ddHeight}px` })
+        }px`
+        // ...(ddHeight !== 0 && { height: `${ddHeight}px` })
       }}
       ref={(el) => {
         props.ddRefs.current[props.index] = el;

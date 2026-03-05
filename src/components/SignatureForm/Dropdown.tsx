@@ -1,127 +1,14 @@
-import { RefObject, useCallback, useEffect, useRef, useState } from "react";
+import { RefObject, useEffect, useRef, useState } from "react";
 import { DropdownProps } from "./DropdownProps.type";
-import useWindowDimensions from "../../hooks/useWindowDimensions";
+// import useWindowDimensions from "../../hooks/useWindowDimensions";
 
 const Dropdown = (props: DropdownProps) => {
-  const { width, height } = useWindowDimensions();
+  // const { width, height } = useWindowDimensions();
 
   const optionLiRefs = useRef<any>([]);
   const [toggleMenu, setToggleMenu] = useState<boolean>(false);
 
   const [ddClass, setDdClass] = useState<string>("");
-
-  const getDropdownTopValue = useCallback(() => {
-    const timeSelectRef = props.selectRef.current?.getBoundingClientRect();
-    // if (!props.formCoords.y) return 0;
-    if (!timeSelectRef) return 0;
-
-    let marginBuffer;
-    let formMargin;
-    let topValue;
-
-    if (width <= 2560 && width > 2040) {
-      formMargin = 181;
-      marginBuffer = 24;
-
-      if (height <= 860 && height > 700) {
-        marginBuffer = 0;
-      } else if (height < 700) {
-        formMargin = 120;
-        marginBuffer = 0;
-      }
-    } else if (width <= 2040 && width > 1700) {
-      formMargin = 181;
-      marginBuffer = 24;
-      if (height <= 950 && height > 860) {
-        marginBuffer = 24 - props.formCoords.y;
-      } else if (height <= 860 && height > 700) {
-        marginBuffer = 0 - props.formCoords.y;
-      } else if (height < 700) {
-        formMargin = 120;
-        marginBuffer = 0;
-      }
-    } else if (width <= 1700 && width > 1511) {
-      formMargin = 120;
-      marginBuffer = 24;
-      if (height <= 950 && height > 860) {
-        marginBuffer = 24 - props.formCoords.y;
-      } else if (height <= 860) {
-        marginBuffer = 0 - props.formCoords.y;
-      }
-    } else if (width <= 1511 && width > 1180) {
-      formMargin = 120;
-      marginBuffer = 24;
-      if (height <= 1002 && height > 950) {
-        marginBuffer = 0;
-      } else if (height <= 950) {
-        marginBuffer = 0 - props.formCoords.y;
-      }
-    } else if (width <= 1180 && width > 1052) {
-      formMargin = 120;
-      marginBuffer = 24;
-      if (height <= 1002 && height > 950) {
-        marginBuffer = 0;
-      } else if (height <= 950 && height > 860) {
-        marginBuffer = 227 - props.formCoords.y;
-      } else if (height <= 860 && height > 830) {
-        marginBuffer = 215 - props.formCoords.y;
-      } else if (height <= 830 && height > 760) {
-        marginBuffer = 191 - props.formCoords.y;
-      } else if (height <= 760 && height > 730) {
-        marginBuffer = 127 - props.formCoords.y;
-      } else if (height <= 730) {
-        marginBuffer = 88 - props.formCoords.y;
-      }
-    } else if (width <= 1052 && width > 900) {
-      formMargin = 120;
-      marginBuffer = 0;
-      if (height <= 1002 && height > 950) {
-        marginBuffer = 0;
-      } else if (height <= 950 && height > 860) {
-        marginBuffer = 227 - props.formCoords.y;
-      } else if (height <= 860 && height > 830) {
-        marginBuffer = 215 - props.formCoords.y;
-      } else if (height <= 830 && height > 760) {
-        marginBuffer = 191 - props.formCoords.y;
-      } else if (height <= 760 && height > 730) {
-        marginBuffer = 127 - props.formCoords.y;
-      } else if (height <= 730) {
-        marginBuffer = 88 - props.formCoords.y;
-      }
-    } else if (width <= 900 && width > 730) {
-      formMargin = 120;
-      marginBuffer = 0;
-      if (height <= 950 && height > 860) {
-        marginBuffer = 203 - props.formCoords.y;
-      } else if (height <= 860 && height > 850) {
-        marginBuffer = 191 - props.formCoords.y;
-      } else if (height <= 850) {
-        marginBuffer = 76 - props.formCoords.y;
-      }
-    } else if (width <= 730 && width > 500) {
-      formMargin = 120;
-      marginBuffer = 0;
-
-      if (height <= 950 && height > 860) {
-        marginBuffer = 197 - props.formCoords.y;
-      } else if (height <= 860 && height > 850) {
-        marginBuffer = 185 - props.formCoords.y;
-      } else if (height <= 850) {
-        marginBuffer = 70 - props.formCoords.y;
-      }
-    } else if (width <= 500) {
-      formMargin = 120;
-      marginBuffer = 0;
-
-      if (height <= 950 && height > 850) {
-        marginBuffer = 180 - props.formCoords.y;
-      } else if (height <= 850) {
-        marginBuffer = 82 - props.formCoords.y;
-      }
-    }
-    topValue = timeSelectRef.bottom - formMargin! - marginBuffer!;
-    return topValue;
-  }, [props.selectRef.current, props.formCoords.y, width, height]);
 
   const useOutsideClickDropDown = (ref: RefObject<Element>) => {
     useEffect(() => {
@@ -139,28 +26,16 @@ const Dropdown = (props: DropdownProps) => {
   };
 
   useEffect(() => {
-    const handleResize = () => {
-      // props.setMenuToggle(null);
-      getDropdownTopValue();
+    const handleScroll = () => {
+      toggleMenu && setToggleMenu(!toggleMenu);
     };
-
-    window.addEventListener("resize", handleResize);
-
+    document.addEventListener("scroll", handleScroll);
     return () => {
-      window.removeEventListener("resize", handleResize);
+      document.removeEventListener("scroll", handleScroll);
     };
-  }, []);
+  }, [toggleMenu]);
 
   useEffect(() => {}, [props.isError]);
-
-  useEffect(() => {
-    const ceilingTop = props.ceilingRef.current?.getBoundingClientRect().top;
-    const ddTop = props.dDwnRef.current?.getBoundingClientRect().top;
-
-    if (ceilingTop && ddTop <= ceilingTop) {
-      toggleMenu && setToggleMenu(!toggleMenu);
-    }
-  }, [props.formCoords.y]);
 
   useEffect(() => {
     //scroll to active
@@ -220,7 +95,7 @@ const Dropdown = (props: DropdownProps) => {
         <ul
           className={`dropdown ${ddClass}`}
           style={{
-            top: getDropdownTopValue(),
+            // top: getDropdownTopValue(),
             width: `${props.selectRef.current.getBoundingClientRect().width}px`,
             left: props.isRightSide
               ? `${props.selectRef.current.getBoundingClientRect().left - 50}px`

@@ -51,16 +51,20 @@ const CupcakeDetailsGroup = (props: CakeDetailsGroupProps) => {
   };
 
   const getCakePrice = (i: number) => {
-    if (props.cakeDetails[i]?.size === "5 Inch") {
-      return 35;
-    } else if (props.cakeDetails[i]?.size === "6 Inch") {
-      return 50;
-    } else if (props.cakeDetails[i]?.size === "8 Inch") {
-      return 100;
-    } else if (props.cakeDetails[i]?.size === "10 Inch") {
-      return 150;
+    const cupCakePrice = 4.5;
+    if (props.cakeDetails[i].quantity) {
+      if (props.cakeDetails[i].quantity < 6) {
+        return props.cakeDetails[i].quantity * cupCakePrice;
+      } else if (
+        props.cakeDetails[i].quantity >= 6 &&
+        props.cakeDetails[i].quantity < 12
+      ) {
+        return props.cakeDetails[i].quantity * cupCakePrice - 1.5;
+      } else {
+        return props.cakeDetails[i].quantity * cupCakePrice - 3;
+      }
     } else {
-      return false;
+      return;
     }
   };
   const getErrors = () => {
@@ -219,7 +223,6 @@ const CupcakeDetailsGroup = (props: CakeDetailsGroupProps) => {
                       {flavMenuToggle === i && (
                         <>
                           <Dropdown1
-                            formCoords={props.formCoords}
                             selectRefs={props.flavSelectRefs}
                             ddRefs={flavDDRefs}
                             menuToggle={flavMenuToggle}
@@ -231,7 +234,6 @@ const CupcakeDetailsGroup = (props: CakeDetailsGroupProps) => {
                             ddClass={"cc-flavor"}
                             setCakeDetails={props.setCakeDetails}
                             cakeDetails={props.cakeDetails}
-                            formPanelRef={props.formPanelRef}
                             index={i}
                           />
                         </>

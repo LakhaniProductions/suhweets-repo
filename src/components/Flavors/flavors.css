@@ -31,12 +31,21 @@
 
 .classic-flavors {
   margin-bottom: 9.6rem;
-  scroll-margin-top: 40rem;
+  scroll-margin-top: 200rem;
 }
 
 .specialty-flavors {
-  scroll-margin-top: 15rem;
+  /* scroll-margin-top: 15rem; */
+  scroll-margin-top: 320rem;
   margin-bottom: 9.6rem;
+}
+
+.daily {
+  scroll-margin-top: 10rem;
+}
+
+.pre-order {
+  scroll-margin-top: 10rem;
 }
 
 .flavor-card {

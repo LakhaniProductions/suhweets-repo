@@ -96,9 +96,17 @@ const HamburgerMenu = (props: HamburgerMenuProps) => {
           </div>
         </div>
         <div className="link-box">
-          <Link to="/cupcakes">
+          <Link to="/cupcakes/daily">
             <li className="nav-heading">Cupcakes</li>
           </Link>
+          <div className="int-links-box">
+            <Link to="/cupcakes/daily">
+              <li className="int-link">Available Daily</li>
+            </Link>
+            <Link to="/cupcakes/pre-order">
+              <li className="int-link">Pre-Order</li>
+            </Link>
+          </div>
         </div>
       </ul>
     </div>
