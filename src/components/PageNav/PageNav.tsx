@@ -5,10 +5,7 @@ import { useLocation, useNavigate, useParams } from "react-router-dom";
 
 const PageNav = (props: PageNavProps) => {
   const location = useLocation();
-
   const { selectedMenuItem, size } = useParams();
-
-  // const [active, setActive] = useState("0");
   const navigate = useNavigate();
   const [isCupPg, setIsCupPg] = useState(false);
 
@@ -104,8 +101,6 @@ const PageNav = (props: PageNavProps) => {
               )}
 
               {isCupPg && getActiveCupCat(item)}
-
-              {/* if selected menu item's div is out of view */}
 
               {size?.replace("-inch", `"`) === item && <span>&nbsp;</span>}
             </div>

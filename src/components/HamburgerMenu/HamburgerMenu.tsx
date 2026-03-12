@@ -48,8 +48,11 @@ const HamburgerMenu = (props: HamburgerMenuProps) => {
             <li className="nav-heading">Wedding</li>
           </Link>
           <div className="int-links-box">
-            <Link to="/serving-sizes/one-tier">
-              <li className="int-link">Servings sizes</li>
+            <Link
+              to="/serving-sizes/one-tier"
+              onClick={() => localStorage.setItem("clicked", "wedding")}
+            >
+              <li className="int-link">Serving sizes</li>
             </Link>
             <Link to="/flavors/classic-flavors">
               <li className="int-link">Cake flavors</li>
@@ -64,8 +67,11 @@ const HamburgerMenu = (props: HamburgerMenuProps) => {
             <li className="nav-heading">Custom</li>
           </Link>
           <div className="int-links-box">
-            <Link to="/serving-sizes/one-tier">
-              <li className="int-link">Servings sizes</li>
+            <Link
+              to="/serving-sizes/one-tier"
+              onClick={() => localStorage.setItem("clicked", "custom")}
+            >
+              <li className="int-link">Serving sizes</li>
             </Link>
             <Link to="/flavors/classic-flavors">
               <li className="int-link">Cake flavors</li>

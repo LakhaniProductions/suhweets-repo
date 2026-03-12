@@ -27,6 +27,54 @@ const StickyDiv = (props: StickyDivProps) => {
     return;
   }
 
+  const getNxtActionBtnLink = () => {
+    if (location.pathname.includes("serving-sizes")) {
+      return (
+        <ForwardBtn
+          link={"/flavors/classic-flavors"}
+          linkTxt={"Explore our flavors"}
+        />
+      );
+    } else if (
+      location.pathname.includes("flavors") &&
+      !location.pathname.includes("signature-cakes")
+    ) {
+      return <ForwardBtn link={"/quote-request"} linkTxt={"Request a quote"} />;
+    } else if (
+      location.pathname.includes("custom-cakes") ||
+      location.pathname.includes("wedding-cakes")
+    ) {
+      return (
+        <ForwardBtn
+          link={"/serving-sizes/one-tier"}
+          linkTxt={"Explore serving sizes"}
+        />
+      );
+    } else {
+      return location.pathname.includes("/cupcakes") ? (
+        <HomeBtn
+          btnLink={"/cupcake-form"}
+          btnTxt={"Order cupcakes"}
+          secClass={"card-btn cupc-Btn"}
+        />
+      ) : (
+        <HomeBtn
+          btnLink={"/quote-request"}
+          btnTxt={"Request information"}
+          secClass={"card-btn"}
+        />
+      );
+    }
+  };
+
+  const getFilterTitle = () => {
+    if (location.pathname.includes("serving-sizes")) {
+      return "Tiers needed";
+    } else {
+      return "Category";
+    }
+  };
+
   // on page load & click scroll to selectedmenuitem
   useEffect(() => {
     if (!props.catRefs?.current || !selectedMenuItem) {
@@ -117,54 +165,6 @@ const StickyDiv = (props: StickyDivProps) => {
       activeRoute &&
       navigate(activeRoute);
   }, [activeSection]);
-
-  const getNxtActionBtnLink = () => {
-    if (location.pathname.includes("serving-sizes")) {
-      return (
-        <ForwardBtn
-          link={"/flavors/classic-flavors"}
-          linkTxt={"Explore our flavors"}
-        />
-      );
-    } else if (
-      location.pathname.includes("flavors") &&
-      !location.pathname.includes("signature-cakes")
-    ) {
-      return <ForwardBtn link={"/quote-request"} linkTxt={"Request a quote"} />;
-    } else if (
-      location.pathname.includes("custom-cakes") ||
-      location.pathname.includes("wedding-cakes")
-    ) {
-      return (
-        <ForwardBtn
-          link={"/serving-sizes/one-tier"}
-          linkTxt={"Explore serving sizes"}
-        />
-      );
-    } else {
-      return location.pathname.includes("/cupcakes") ? (
-        <HomeBtn
-          btnLink={"/cupcake-form"}
-          btnTxt={"Order cupcakes"}
-          secClass={"card-btn cupc-Btn"}
-        />
-      ) : (
-        <HomeBtn
-          btnLink={"/quote-request"}
-          btnTxt={"Request information"}
-          secClass={"card-btn"}
-        />
-      );
-    }
-  };
-
-  const getFilterTitle = () => {
-    if (location.pathname.includes("serving-sizes")) {
-      return "Tiers needed";
-    } else {
-      return "Category";
-    }
-  };
 
   return (
     <div className="sticky-div">
