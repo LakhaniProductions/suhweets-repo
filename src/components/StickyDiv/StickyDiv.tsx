@@ -10,7 +10,7 @@ import ForwardBtn from "../ForwardBtn/ForwardBtn";
 import { GlobalLoadingContext } from "../../context/GlobalLoadingContext";
 
 const StickyDiv = (props: StickyDivProps) => {
-  const { selectedMenuItem, size } = useParams();
+  const { selectedMenuItem } = useParams();
 
   const navigate = useNavigate();
   const [activeSection, setActiveSection] = useState("");
@@ -19,70 +19,103 @@ const StickyDiv = (props: StickyDivProps) => {
   const notSigOrdForm = !location.pathname.includes("signature-form");
   const notCcakeForm = !location.pathname.includes("cupcake-form");
 
+  const isProgScrollingRef = useRef(false);
+  const targetSectionRef = useRef("");
+
   const globalContext = useContext(GlobalLoadingContext);
   if (!globalContext) {
     return;
   }
 
-  const isProgrammaticScroll = useRef(false);
+  // on page load & click scroll to selectedmenuitem
   useEffect(() => {
-    isProgrammaticScroll.current = true;
     if (!props.catRefs?.current || !selectedMenuItem) {
       return;
     }
-
-    props.catRefs.current.map(
-      (item) =>
-        item?.classList.value.includes(selectedMenuItem) &&
-        globalContext.pageReady &&
-        item!.scrollIntoView({ behavior: "smooth", block: "start" })
-    );
-
-    // reset after animation finishes
-    setTimeout(() => {
-      isProgrammaticScroll.current = false;
-    }, 1000);
-  }, [selectedMenuItem, globalContext.pageReady]);
+    props.catRefs.current.map((item) => {
+      if (item?.classList.value.includes(selectedMenuItem.trim())) {
+        isProgScrollingRef.current = true;
+        targetSectionRef.current = item.classList.value;
+        item!.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    });
+  }, [selectedMenuItem]);
 
   useEffect(() => {
-    const handleScroll = () => {
-      if (isProgrammaticScroll.current) return;
-
-      let cleanActive;
-
-      if (location.pathname.includes("signature-cakes")) {
-        cleanActive = activeSection.replace("flavors-box ", "");
-        if (!location.pathname.includes(cleanActive)) {
-          navigate(
-            `/signature-cakes/${cleanActive}/${size?.replace(`"`, "-inch")}`
-          );
-        }
-      } else if (location.pathname.includes("serving-sizes")) {
-        cleanActive = activeSection.replace("category-container ", "");
-        if (!location.pathname.includes(cleanActive)) {
-          navigate(`/serving-sizes/${cleanActive}`);
-        }
-      } else if (
-        location.pathname.includes("flavors") &&
-        !location.pathname.includes("signature-cakes")
+    const getTreshold = () => {
+      let treshold;
+      if (
+        location.pathname.includes("signature-cakes") ||
+        location.pathname.includes("cupcakes")
       ) {
-        cleanActive = activeSection.replace("flavors-box ", "");
-        cleanActive && navigate(`/flavors/${cleanActive}`);
-      } else if (location.pathname.includes("cupcakes")) {
-        cleanActive = activeSection.replace("flavors-box ", "");
-        if (!location.pathname.includes(cleanActive)) {
-          navigate(`/cupcakes/${cleanActive}`);
-        }
-      } else {
-        return;
+        treshold = 0.5;
+      } else if (
+        !location.pathname.includes("signature-cakes") &&
+        location.pathname.includes("flavors")
+      ) {
+        treshold = 0.65;
+      } else if (location.pathname.includes("custom-cakes")) {
+        treshold = 0.1;
+      } else if (location.pathname.includes("serving-sizes")) {
+        treshold = 0.95;
       }
+
+      return treshold;
+    };
+    const observerOptions = {
+      root: null, // observe against the viewport
+      rootMargin: "0px",
+      threshold: getTreshold() // trigger when 50% of the section is visible
     };
 
-    window.addEventListener("scroll", handleScroll);
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setActiveSection(entry.target.classList.value);
+        }
+      });
+    }, observerOptions);
+
+    props.catRefs &&
+      props.catRefs.current &&
+      props.catRefs.current.forEach((ref) => {
+        ref && observer.observe(ref);
+      });
 
     return () => {
-      window.removeEventListener("scroll", handleScroll);
+      observer.disconnect();
     };
+  }, []);
+
+  useEffect(() => {
+    if (activeSection === targetSectionRef.current) {
+      isProgScrollingRef.current = false;
+    }
+  }, [activeSection, targetSectionRef.current]);
+
+  //update path as user is scrolling
+  useEffect(() => {
+    let pageBase;
+    let activeRoute;
+    const cleanActiveSec = activeSection.replace(/^[^\s]+\s+/, "").trim();
+    const matches = location.pathname.match(new RegExp("/", "g"));
+
+    //check if route has 3 "/". create a different active route
+    if (matches!.length! > 2) {
+      pageBase = location.pathname;
+      const routeParts = pageBase.split("/");
+      const sizeFromRoute = routeParts[3];
+      activeRoute = `/${routeParts[1]}/${cleanActiveSec}/${sizeFromRoute}`;
+    } else {
+      pageBase = location.pathname.replace(/\/[^/]*$/, "");
+      activeRoute = `${pageBase}/${cleanActiveSec}`;
+    }
+
+    globalContext.pageReady &&
+      activeSection &&
+      !isProgScrollingRef.current &&
+      activeRoute &&
+      navigate(activeRoute);
   }, [activeSection]);
 
   const getNxtActionBtnLink = () => {
@@ -132,55 +165,6 @@ const StickyDiv = (props: StickyDivProps) => {
       return "Category";
     }
   };
-
-  //needed to update path when scrolling
-
-  useEffect(() => {
-    const getTreshold = () => {
-      let treshold;
-      if (
-        location.pathname.includes("signature-cakes") ||
-        location.pathname.includes("cupcakes")
-      ) {
-        treshold = 0.5;
-      } else if (
-        !location.pathname.includes("signature-cakes") &&
-        location.pathname.includes("flavors")
-      ) {
-        treshold = 0.5;
-      } else if (location.pathname.includes("custom-cakes")) {
-        treshold = 0.1;
-      } else if (location.pathname.includes("serving-sizes")) {
-        treshold = 1;
-      }
-
-      return treshold;
-    };
-    const observerOptions = {
-      root: null, // observe against the viewport
-      rootMargin: "0px",
-      // threshold: 0.5 // trigger when 50% of the section is visible
-      threshold: getTreshold() // trigger when 50% of the section is visible
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          setActiveSection(entry.target.classList.value);
-        }
-      });
-    }, observerOptions);
-
-    props.catRefs &&
-      props.catRefs.current &&
-      props.catRefs.current.forEach((ref) => {
-        ref && observer.observe(ref);
-      });
-
-    return () => {
-      observer.disconnect();
-    };
-  }, []);
 
   return (
     <div className="sticky-div">

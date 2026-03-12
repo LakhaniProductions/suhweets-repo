@@ -31,12 +31,12 @@
 
 .classic-flavors {
   margin-bottom: 9.6rem;
-  scroll-margin-top: 200rem;
+  scroll-margin-top: 10rem;
 }
 
 .specialty-flavors {
-  /* scroll-margin-top: 15rem; */
-  scroll-margin-top: 320rem;
+  scroll-margin-top: 15rem;
+  /* scroll-margin-top: 320rem; */
   margin-bottom: 9.6rem;
 }
 

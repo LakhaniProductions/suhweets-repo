@@ -87,8 +87,10 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  background-color: rgba(248, 248, 248, 0.9);
-  z-index: 20000;
+  background-color: rgba(248, 248, 248, 1);
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
 }
 
 .loading-container img {

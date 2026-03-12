@@ -1,6 +1,3 @@
-import { useContext, useEffect, useState } from "react";
-import { GalleryImgLoadContext } from "../../context/GalleryImgLoadContext";
-
 const FlavorsContent = ({
   catRefs
 }: {
@@ -136,12 +133,12 @@ const FlavorsContent = ({
   ];
 
   const allCategories = flavorsContent.map((item) => item.category);
-  const uniquteCatArr = [...new Set(allCategories)];
+  const uniqueCatArr = [...new Set(allCategories)];
 
   return (
     <>
       <div className="flavors-container">
-        {uniquteCatArr.map((category, i) => (
+        {uniqueCatArr.map((category, i) => (
           <div
             className={`flavors-box ${category}-flavors`}
             key={category}

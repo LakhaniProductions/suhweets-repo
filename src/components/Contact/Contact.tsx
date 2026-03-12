@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { Ref, useContext, useEffect, useRef, useState } from "react";
 import { ContactProps } from "./ContactProps.type";
 import MenuContext from "../../context/HamburgerMenuContext";
 import Header from "../Header/Header";
@@ -11,8 +11,15 @@ import { stringToDate } from "../../shared/utility";
 import { PHONE_NUMBER } from "../../shared/constants/constants";
 import ThankYou from "../ThankYou/ThankYou";
 import Footer from "../Footer/Footer";
+import { GlobalLoadingContext } from "../../context/GlobalLoadingContext";
 
 const Contact = (props: ContactProps) => {
+  const globalContext = useContext(GlobalLoadingContext);
+  if (!globalContext) {
+    return;
+  }
+
+  const contactRef: Ref<HTMLElement | any> = globalContext.containerRef;
   const dateRef: any = useRef(null);
   const servingsRef: any = useRef(null);
   const fullNameRef: any = useRef(null);
@@ -246,7 +253,7 @@ const Contact = (props: ContactProps) => {
   return (
     <>
       {showTY && <ThankYou />}
-      <section className="home-container contact-us">
+      <section className="home-container contact-us" ref={contactRef}>
         <MenuContext.Provider
           value={{
             BGClass: props.menuFade.BGClass

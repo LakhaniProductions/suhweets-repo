@@ -6,7 +6,7 @@ import HamburgerMenuIcon from "../HamburgerMenuIcon/HamburgerMenuIcon";
 
 const Header = (props: HeaderProps) => {
   return (
-    <header className="header">
+    <header className="header" id="header">
       <div className="header-content">
         <Link to="/" tabIndex={1}>
           <img src={`${logoMark}`} alt="" className={"logo logomark"} />
