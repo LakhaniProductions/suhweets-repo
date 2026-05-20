@@ -7,11 +7,6 @@ const ForwardBtn = (props: { link: To; linkTxt: string }) => {
       to={props.link}
       state={{ prevPath: location.pathname }}
       className="nxt-pg-btn"
-      onClick={() => {
-        location.pathname.includes("custom")
-          ? localStorage.setItem("clicked", "custom")
-          : localStorage.setItem("clicked", "wedding");
-      }}
     >
       {props.linkTxt} &rarr;
     </Link>

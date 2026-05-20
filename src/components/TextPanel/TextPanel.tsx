@@ -11,7 +11,7 @@ const TextPanel = (props: TextPanelProps) => {
           {Array.isArray(props.p) ? (
             props.p.map((item: string) => <p>{item}</p>)
           ) : (
-            <p>{props.p}</p>
+            <span>{props.p}</span>
           )}
         </>
       }

@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   margin-right: 4.8rem;
-  width: 25%;
+  width: 15%;
   height: max-content;
   margin-bottom: 9.6rem;
   position: sticky;
@@ -15,7 +15,6 @@
 
 .sticky-div .navigation.sig-cake-nav {
   margin: 0rem 0 9.6rem 0;
-  /* align-items: flex-end; */
   width: max-content;
 }
 
@@ -28,8 +27,6 @@
 }
 
 .sticky-div .navigation.serv-nav {
-  /* margin: 0rem 0 4.8rem 0; */
-  /* align-items: flex-end; */
   width: max-content;
 }
 
@@ -57,6 +54,7 @@
   margin: 0;
   margin-top: 1.2rem;
   height: max-content;
+  background: transparent;
 }
 
 .sticky-div.gallery .txt-panel {
@@ -66,4 +64,83 @@
 
 .sticky-div .txt-panel {
   margin-top: 1.2rem;
+}
+
+@media (max-width: 1660px) {
+  .sticky-div {
+    width: 100%;
+    /* flex-direction: row; */
+    background-color: white;
+    z-index: 1;
+    top: 9.8rem;
+    margin: 0;
+    flex-wrap: wrap;
+  }
+
+  .sticky-div.gallery {
+    display: unset;
+    z-index: 0;
+  }
+
+  .sticky-div nav {
+    flex-direction: row;
+    column-gap: 2.4rem;
+    margin-right: 0;
+  }
+
+  .sticky-div .txt-panel {
+    margin-bottom: 1.2rem;
+  }
+
+  .sticky-div .txt-panel h1 {
+    font-size: 3.2rem;
+    margin-bottom: 1.2rem;
+  }
+
+  .sticky-div h4 {
+    display: none;
+  }
+
+  .md-stky-head {
+    margin-bottom: 1.2rem;
+  }
+  .md-stky-nav-con {
+    margin-bottom: 3.6rem;
+  }
+}
+
+@media (max-width: 895px) {
+  .sticky-div.gallery {
+    display: flex;
+    margin: 0;
+    justify-content: center;
+  }
+  /* .md-stky-nav-con {
+    display: none;
+  } */
+
+  .sticky-div.gallery .txt-panel {
+    margin: 2.4rem 2.4rem;
+  }
+}
+
+@media (max-width: 740px) {
+  .sticky-div .txt-panel h1 {
+    font-size: 2.9rem;
+  }
+  .txt-panel p {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 655px) {
+  .txt-panel p {
+    font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 380px) {
+  .md-stky-nav-con {
+    display: none;
+  }
 }

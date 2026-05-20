@@ -168,13 +168,16 @@ const StickyDiv = (props: StickyDivProps) => {
 
   return (
     <div className="sticky-div">
-      <BreadcrumbMenu data={props.bcrumbData} />
+      <div className="md-stky-head">
+        <BreadcrumbMenu data={props.bcrumbData} />
 
-      <TextPanel
-        h2={props.txtPanelData.h2}
-        h1={props.txtPanelData.h1}
-        p={props.txtPanelData.p}
-      />
+        <TextPanel
+          h2={props.txtPanelData.h2}
+          h1={props.txtPanelData.h1}
+          p={props.txtPanelData.p}
+        />
+      </div>
+
       {!notSigOrdForm && (
         <span className="sig-disc">
           Please note: Our cakes are available for pickup only.
@@ -185,20 +188,23 @@ const StickyDiv = (props: StickyDivProps) => {
           Please note: Our cupcakes are available for pickup only.
         </span>
       )}
-      {notSigOrdForm && notCcakeForm && <h4>{getFilterTitle()}</h4>}
-      {props.pageNavMenu && <PageNav menu={props.pageNavMenu} />}
-      {props.showSecMenu && props.secMenu && (
-        <>
-          <h4>Size</h4>
-          <PageNav
-            menu={props.secMenu!}
-            useAltHC={props.showSecMenu}
-            secClass={"size-menu-filter"}
-          />
-        </>
-      )}
 
-      {notSigOrdForm && notCcakeForm && getNxtActionBtnLink()}
+      <div className="md-stky-nav-con">
+        {notSigOrdForm && notCcakeForm && <h4>{getFilterTitle()}</h4>}
+        {props.pageNavMenu && <PageNav menu={props.pageNavMenu} />}
+        {props.showSecMenu && props.secMenu && (
+          <>
+            <h4>Size</h4>
+            <PageNav
+              menu={props.secMenu!}
+              useAltHC={props.showSecMenu}
+              secClass={"size-menu-filter"}
+            />
+          </>
+        )}
+      </div>
+
+      {/* {notSigOrdForm && notCcakeForm && getNxtActionBtnLink()} */}
     </div>
   );
 };

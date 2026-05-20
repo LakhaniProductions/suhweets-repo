@@ -44,7 +44,10 @@ const HamburgerMenu = (props: HamburgerMenuProps) => {
     >
       <ul className="secondary-nav">
         <div className="link-box">
-          <Link to="/wedding-cakes/wedding/0">
+          <Link
+            to="/wedding-cakes/wedding/0"
+            onClick={() => localStorage.setItem("clicked", "wedding")}
+          >
             <li className="nav-heading">Wedding</li>
           </Link>
           <div className="int-links-box">
@@ -54,7 +57,10 @@ const HamburgerMenu = (props: HamburgerMenuProps) => {
             >
               <li className="int-link">Serving sizes</li>
             </Link>
-            <Link to="/flavors/classic-flavors">
+            <Link
+              to="/flavors/classic-flavors"
+              onClick={() => localStorage.setItem("clicked", "wedding")}
+            >
               <li className="int-link">Cake flavors</li>
             </Link>
             <Link to="/quote-request">
@@ -63,7 +69,10 @@ const HamburgerMenu = (props: HamburgerMenuProps) => {
           </div>
         </div>
         <div className="link-box">
-          <Link to="/custom-cakes/birthday/0">
+          <Link
+            to="/custom-cakes/birthday/0"
+            onClick={() => localStorage.setItem("clicked", "custom")}
+          >
             <li className="nav-heading">Custom</li>
           </Link>
           <div className="int-links-box">
@@ -73,7 +82,10 @@ const HamburgerMenu = (props: HamburgerMenuProps) => {
             >
               <li className="int-link">Serving sizes</li>
             </Link>
-            <Link to="/flavors/classic-flavors">
+            <Link
+              to="/flavors/classic-flavors"
+              onClick={() => localStorage.setItem("clicked", "custom")}
+            >
               <li className="int-link">Cake flavors</li>
             </Link>
             <Link to="/quote-request">

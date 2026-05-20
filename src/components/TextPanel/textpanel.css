@@ -32,6 +32,13 @@
   width: 35%;
 }
 
+.txt-panel h1 {
+  font-family: "fjalla one", sans-serif;
+  font-size: 4.1rem;
+  text-transform: uppercase;
+  margin-bottom: 2.4rem;
+}
+
 .txt-panel h2 {
   font-family: "Raleway", sans-serif;
   font-size: 2.3rem;
@@ -42,14 +49,17 @@
 .txt-panel {
   margin-bottom: 3.6rem;
 }
-.txt-panel h1 {
-  font-family: "fjalla one", sans-serif;
-  font-size: 4.1rem;
-  text-transform: uppercase;
-  margin-bottom: 2.4rem;
-}
+
 .txt-panel p {
   font-size: 2.3rem;
+  line-height: 1.4;
+  color: #333;
+  font-weight: 300;
+  margin-top: 1.2rem;
+}
+
+.txt-panel span {
+  font-size: 2.5rem;
   line-height: 1.4;
   color: #333;
   font-weight: 300;
@@ -107,4 +117,26 @@
 }
 .sig-txt p {
   font-size: 2.3rem;
+}
+
+@media (max-width: 2016px) {
+  .txt-panel p {
+    font-size: 2rem;
+  }
+
+  .txt-panel span {
+    font-size: 2.2rem;
+  }
+}
+
+@media (max-width: 740px) {
+  .txt-panel span {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 370px) {
+  .txt-panel span {
+    font-size: 1.8rem;
+  }
 }

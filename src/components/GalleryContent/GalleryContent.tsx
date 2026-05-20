@@ -6,11 +6,13 @@ import allCakesData from "../../data/allGalleryCakesData";
 import StickyDiv from "../StickyDiv/StickyDiv";
 import "../MainNav/mainnav.css";
 
+import useWindowDimensions from "../../hooks/useWindowDimensions";
+
 const GalleryContent = (props: GalleryContentProps) => {
   const navigate = useNavigate();
   const location = useLocation();
+  const { width } = useWindowDimensions();
 
-  const [isGourmetPage, setIsGourmetPage] = useState<boolean>(false);
   const [weddingGalleryContent, setWeddingGalleryContent] = useState<
     Record<string, string | number>[]
   >([]);
@@ -40,11 +42,14 @@ const GalleryContent = (props: GalleryContentProps) => {
 
   const [mainImgLoaded, setMainImgLoaded] = useState<boolean>(false);
 
+  const [showMain, setShowMain] = useState<boolean>(false);
+
   const handleThumbnailClick = (e: SyntheticEvent) => {
     const target = e.target as HTMLImageElement;
     if (target.className.includes("gallery-thumbnails-container")) return;
 
     // const clickedIndex = +target.id.replace(/^[^_]*_/, "");
+    setShowMain(!showMain);
 
     const isWedding = location.pathname.includes("/wedding-cakes");
     const basePath = isWedding ? "wedding-cakes" : "custom-cakes";
@@ -74,6 +79,12 @@ const GalleryContent = (props: GalleryContentProps) => {
         navigate(`${location.pathname.replace("/0", "")}/${item.id}`);
       }
     });
+
+    width <= 895 &&
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth" // Use "auto" for instant jump
+      });
   }, [location.pathname]);
 
   useEffect(() => {
@@ -89,12 +100,6 @@ const GalleryContent = (props: GalleryContentProps) => {
           p: ""
         });
   }, [location.pathname]);
-
-  useEffect(() => {
-    location.pathname.includes("gourmet-cakes")
-      ? setIsGourmetPage(true)
-      : setIsGourmetPage(false);
-  }, [location]);
 
   useEffect(() => {
     const imageMap = Object.fromEntries(
@@ -135,23 +140,29 @@ const GalleryContent = (props: GalleryContentProps) => {
       return menus.wedding;
     }
   };
+  const [mainImgClass, setMainImgClass] = useState<string>("");
+
+  useEffect(() => {
+    showMain ? setMainImgClass("showMain") : setMainImgClass("");
+  }, [showMain]);
 
   return (
     <>
+      {showMain && (
+        <div
+          className="main-overlay"
+          onClick={() => setShowMain(!showMain)}
+        ></div>
+      )}
       <StickyDiv
         bcrumbData={bcrumbData}
         txtPanelData={txtPanelData}
         pageNavMenu={getMenu()}
         catRefs={imgRefs}
-        // catRefs={customGalleryRefs}
       />
 
       <div
-        className={
-          !isGourmetPage
-            ? "gallery-thumbnails-container one"
-            : "gallery-thumbnails-container flex-grow"
-        }
+        className="gallery-thumbnails-container"
         onClick={(e) => {
           handleThumbnailClick(e);
         }}
@@ -185,11 +196,51 @@ const GalleryContent = (props: GalleryContentProps) => {
             );
           })}
       </div>
+      {showMain && (
+        <>
+          {/* <div
+            className="popClsBtn"
+            onClick={() => {
+              setShowMain(false);
+            }}
+          >
+            &times;
+          </div> */}
+        </>
+      )}
 
       {/* CREATE MAIN IMAGE COMPONENT */}
-      {!isGourmetPage && allCakesOnPage && allCakesOnPage.length && (
-        <div className="gallery-mainImg-container">
+      {allCakesOnPage && allCakesOnPage.length && (
+        <div className={`gallery-mainImg-container ${mainImgClass}`}>
           <div className="sticky-div gallery">
+            {showMain && (
+              <>
+                <div
+                  className="popRtBtn"
+                  onClick={() => {
+                    const basePath = location.pathname.match(/^(.*)\//)![1];
+                    const nextImg = +location.pathname.split("/").pop()! + 1;
+                    nextImg < allCakesOnPage!.length
+                      ? navigate(`${basePath}/${nextImg}`)
+                      : navigate(`${basePath}/0`);
+                  }}
+                >
+                  &rsaquo;
+                </div>
+                <div
+                  className="popLtBtn"
+                  onClick={() => {
+                    const basePath = location.pathname.match(/^(.*)\//)![1];
+                    const nextImg = +location.pathname.split("/").pop()! - 1;
+                    nextImg >= 0
+                      ? navigate(`${basePath}/${nextImg}`)
+                      : navigate(`${basePath}/${allCakesOnPage!.length - 1}`);
+                  }}
+                >
+                  &lsaquo;
+                </div>{" "}
+              </>
+            )}
             <div
               className={mainImgLoaded ? "" : "lazy-img"}
               style={{

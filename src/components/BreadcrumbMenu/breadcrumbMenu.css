@@ -15,3 +15,10 @@
   font-size: 1.4rem;
   font-weight: 400;
 }
+
+@media (max-width: 350px) {
+  .bread-crumb-container a,
+  .bread-crumb-container .active-crumb {
+    font-size: 1.1rem;
+  }
+}

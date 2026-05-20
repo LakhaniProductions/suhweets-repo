@@ -28,8 +28,9 @@
 
 .cake-detail-card {
   display: flex;
-  width: 31.6%;
-  margin: 0 3.6rem 2.4rem 0;
+  max-width: 31.6%;
+  width: 100%;
+  margin: 0 3.6rem 0rem 0;
   flex-direction: column;
 }
 
@@ -81,4 +82,118 @@
   color: #526166;
   /* width: 90%; */
   line-height: 1.5;
+}
+
+@media (max-width: 1940px) {
+  .cake-detail-card {
+    max-width: 31.5%;
+  }
+}
+
+@media (max-width: 1910px) {
+  .cake-info-box p {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 1840px) {
+  .cake-detail-card {
+    max-width: 31.3%;
+  }
+}
+
+@media (max-width: 1830px) {
+  .cake-info-box p {
+    font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 1668px) {
+  .cake-detail-card {
+    max-width: 31.2%;
+  }
+}
+
+@media (max-width: 1660px) {
+  .cake-detail-card {
+    max-width: 31.7%;
+  }
+  .cake-info-box p {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 1570px) {
+  .cake-detail-card {
+    max-width: 31.3%;
+  }
+}
+
+@media (max-width: 1390px) {
+  .cake-detail-card {
+    max-width: 32%;
+  }
+  .cake-detail-card {
+    margin: 0 2.4rem 0rem 0;
+  }
+}
+
+@media (max-width: 1360px) {
+  .cake-info-box p {
+    font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 1300px) {
+  .cake-detail-card {
+    max-width: 31.5%;
+  }
+}
+
+@media (max-width: 1260px) {
+  .cake-info-box p {
+    font-size: 2.3rem;
+  }
+  .cake-detail-card {
+    max-width: 48.7%;
+  }
+
+  .cake-detail-card:nth-child(2n) {
+    margin-right: 0;
+  }
+
+  .cake-detail-card:nth-child(3n) {
+    margin-right: 2.4rem;
+  }
+}
+
+@media (max-width: 1060px) {
+  .cake-info-box p {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 1018px) {
+  .cake-detail-card {
+    max-width: 48.5%;
+  }
+}
+
+/* @media (max-width: 990px) {
+  .cake-detail-card {
+    max-width: 47%;
+  }
+} */
+
+@media (max-width: 960px) {
+  .cake-info-box p {
+    font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 900px) {
+  .cake-detail-card {
+    max-width: 100%;
+    margin: 0;
+  }
 }

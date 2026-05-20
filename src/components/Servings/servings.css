@@ -2,7 +2,7 @@
   display: flex;
   position: relative;
   max-width: 192rem;
-  width: 100%;
+  width: calc(100% - 9.6rem);
   align-self: center;
   flex-direction: row;
   margin-bottom: 4.8rem;
@@ -16,7 +16,7 @@
   display: flex;
   flex-direction: column;
   row-gap: 2.4rem;
-  width: 75%;
+  width: 85%;
   padding-top: 4.8rem;
 }
 
@@ -60,7 +60,11 @@
   display: flex;
   flex-direction: column;
   margin: 0 2.4rem 0 0;
-  width: 31.55%;
+  width: 32.3%;
+}
+
+.serving-card:nth-child(3n) {
+  margin: 0;
 }
 
 .category-container.four-tier .serving-card,
@@ -108,4 +112,58 @@
   font-size: 2.3rem;
   text-transform: uppercase;
   margin-bottom: 2.4rem;
+}
+
+@media (max-width: 1963px) {
+  .serving-card {
+    width: 32.1%;
+  }
+}
+
+@media (max-width: 1669px) {
+  .serving-card {
+    width: 32%;
+  }
+}
+
+@media (max-width: 1660px) {
+  .servings-content {
+    flex-direction: column;
+  }
+
+  .serving-cards-container {
+    width: 100%;
+    padding-top: 0;
+  }
+}
+
+@media (max-width: 1295px) {
+  .serving-card {
+    width: 31.7%;
+  }
+}
+
+@media (max-width: 1074px) {
+  .serving-card {
+    width: 48.7%;
+  }
+  .serving-card:nth-child(2n) {
+    margin: 0;
+  }
+
+  .serving-card:nth-child(3n) {
+    margin-right: 2.4rem;
+  }
+}
+
+@media (max-width: 1018px) {
+  .serving-card {
+    width: 48.5%;
+  }
+}
+
+@media (max-width: 894px) {
+  .serving-card {
+    width: 48%;
+  }
 }
