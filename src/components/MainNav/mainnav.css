@@ -22,6 +22,9 @@ nav {
   cursor: pointer;
 
   text-align: unset;
+  /* min-height: 3rem;
+  display: flex;
+  align-items: flex-start; */
 }
 
 .navigation span {
@@ -47,4 +50,12 @@ nav {
 
 .less-btn {
   margin-right: 2rem;
+}
+
+@media (max-width: 1660px) {
+  .navigation-item {
+    min-height: 3rem;
+    display: flex;
+    align-items: flex-start;
+  }
 }

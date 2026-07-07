@@ -1,9 +1,8 @@
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./breadcrumbMenu.css";
 import { BreadcrumbMenuProps } from "./BreadcrumbMenuProps.types";
 
 const BreadcrumbMenu = (props: BreadcrumbMenuProps) => {
-  const location = useLocation();
   return (
     <div className="bread-crumb-container">
       {props.data.map((item: { url: string; linkText: string }, i) =>

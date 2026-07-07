@@ -3,9 +3,11 @@ import MenuContext from "../../context/HamburgerMenuContext";
 import { Link } from "react-router-dom";
 import { HamburgerMenuProps } from "./HamburgerMenuProps.types";
 import "./hamburgermenu.css";
+import useWindowDimensions from "../../hooks/useWindowDimensions";
 
 const HamburgerMenu = (props: HamburgerMenuProps) => {
   const menuContext = useContext(MenuContext);
+  const { width } = useWindowDimensions();
 
   const hamMenuRef = useRef<HTMLDivElement>(null);
   const handleOutsideClick = (e: SyntheticEvent) => {
@@ -20,7 +22,7 @@ const HamburgerMenu = (props: HamburgerMenuProps) => {
         });
   };
   useEffect(() => {
-    const listener = (e: SyntheticEvent) => {
+    const listener = (e: any) => {
       const target = e.target as HTMLDivElement;
       // Do nothing if clicking ref's element or descendent elements
       if (!hamMenuRef.current || hamMenuRef.current.contains(target)) {
@@ -36,6 +38,14 @@ const HamburgerMenu = (props: HamburgerMenuProps) => {
       document.removeEventListener("touchstart", listener);
     };
   }, [hamMenuRef, menuContext]);
+
+  useEffect(() => {
+    if (width <= 890) {
+      hamMenuRef.current!.style.top = `${document.body.getBoundingClientRect().top * -1 + 98}px`;
+    } else {
+      hamMenuRef.current!.style.top = `98px`;
+    }
+  }, [menuContext.BGClass]);
 
   return (
     <div
@@ -123,6 +133,9 @@ const HamburgerMenu = (props: HamburgerMenuProps) => {
             </Link>
             <Link to="/cupcakes/pre-order">
               <li className="int-link">Pre-Order</li>
+            </Link>
+            <Link to="/cupcake-form">
+              <li className="int-link">Order form</li>
             </Link>
           </div>
         </div>

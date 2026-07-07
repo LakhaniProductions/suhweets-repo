@@ -2,14 +2,13 @@
   display: flex;
   position: relative;
   max-width: 192rem;
-  width: 100%;
+  width: calc(100% - 9.6rem);
   align-self: center;
-  margin-top: 4.8rem;
-  margin-bottom: 9.6rem;
+  margin: 4.8rem 4.8rem 9.6rem 4.8rem;
 }
 
 .signature-cakes-container {
-  width: 75%;
+  width: 78%;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -115,6 +114,13 @@
 }
 
 @media (max-width: 1660px) {
+  .signature-content {
+    flex-direction: column;
+  }
+
+  .signature-cakes-container {
+    width: 100%;
+  }
   .cake-detail-card {
     max-width: 31.7%;
   }
@@ -195,5 +201,12 @@
   .cake-detail-card {
     max-width: 100%;
     margin: 0;
+  }
+}
+
+@media (max-width: 890px) {
+  .signature-content {
+    margin: 0 2.4rem 2.4rem 2.4rem;
+    width: calc(100% - 4.8rem);
   }
 }

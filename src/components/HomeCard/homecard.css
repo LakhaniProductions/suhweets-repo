@@ -162,6 +162,10 @@
   .half-container:first-of-type {
     margin-bottom: 1.2rem;
   }
+
+  .link-box {
+    min-width: 12rem;
+  }
 }
 
 @media (max-width: 840px) {

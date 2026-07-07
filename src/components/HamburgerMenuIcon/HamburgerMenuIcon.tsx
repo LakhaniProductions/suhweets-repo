@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import MenuContext from "../../context/HamburgerMenuContext";
 import { HamburgerProps } from "./HamburgerProps.types";
 
@@ -13,6 +13,15 @@ const HamburgerMenuIcon = (props: HamburgerProps) => {
           BGClass: ""
         });
   };
+
+  useEffect(() => {
+    menuContext &&
+      menuContext.BGClass === "fade-in" &&
+      document.body.classList.add("dis-scroll");
+
+    menuContext.BGClass !== "fade-in" &&
+      document.body.classList.remove("dis-scroll");
+  }, [menuContext.BGClass]);
 
   return (
     <div

@@ -190,17 +190,19 @@ const StickyDiv = (props: StickyDivProps) => {
       )}
 
       <div className="md-stky-nav-con">
-        {notSigOrdForm && notCcakeForm && <h4>{getFilterTitle()}</h4>}
-        {props.pageNavMenu && <PageNav menu={props.pageNavMenu} />}
+        <div className="frst-fil">
+          {notSigOrdForm && notCcakeForm && <h4>{getFilterTitle()}</h4>}
+          {props.pageNavMenu && <PageNav menu={props.pageNavMenu} />}
+        </div>
         {props.showSecMenu && props.secMenu && (
-          <>
+          <div>
             <h4>Size</h4>
             <PageNav
               menu={props.secMenu!}
               useAltHC={props.showSecMenu}
               secClass={"size-menu-filter"}
             />
-          </>
+          </div>
         )}
       </div>
 
