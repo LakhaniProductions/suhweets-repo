@@ -1,16 +1,17 @@
-import React, { useContext, useState } from "react";
+// import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 // import { GalleryNavProps } from "./GalleryNav.types";
 import "../MainNav/mainnav.css";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
-import { GalleryImgLoadContext } from "../../context/GalleryImgLoadContext";
+// import { GalleryImgLoadContext } from "../../context/GalleryImgLoadContext";
 
 const GalleryNav = () => {
-  const context = useContext(GalleryImgLoadContext);
-  if (!context) {
-    return;
-  }
+  // const context = useContext(GalleryImgLoadContext);
+  // if (!context) {
+  //   return;
+  // }
   const { selectedMenuItem: menuFromUrl } = useParams();
-  const { setShowLoadingGif } = context;
+  // const { setShowLoadingGif } = context;
   const navigate = useNavigate();
 
   const menus = {
@@ -34,7 +35,7 @@ const GalleryNav = () => {
     const newPath = `/${basePath}/${target.id}/0`;
 
     setSelectedMenuItem(target.id);
-    setShowLoadingGif(true);
+    // setShowLoadingGif(true);
     navigate(newPath);
   };
 
