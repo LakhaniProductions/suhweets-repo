@@ -1,4 +1,4 @@
-import { Ref, useContext, useEffect, useRef, useState } from "react";
+import { Ref, useContext, useEffect, useState } from "react";
 import { FlavorsProps } from "./FlavorsProps.type";
 import MenuContext from "../../context/HamburgerMenuContext";
 import HamburgerMenu from "../HamburgerMenu/HamburgerMenu";
@@ -18,7 +18,7 @@ const Flavors = (props: FlavorsProps) => {
   }
   const location = useLocation();
   const flavRef: Ref<HTMLElement | any> = globalContext.containerRef;
-  const menu = ["classic flavors", "specialty flavors"];
+  // const menu = ["classic flavors", "specialty flavors"];
 
   const [bcrumbData, setBcrumbData] = useState<
     { url: string; linkText: string }[]
@@ -36,7 +36,7 @@ const Flavors = (props: FlavorsProps) => {
     p: "A specially crafted menu of our favorite flavor combinations."
   };
 
-  const categoriesRefs = useRef<(HTMLDivElement | null)[]>([]);
+  // const categoriesRefs = useRef<(HTMLDivElement | null)[]>([]);
   const [comingFromPg, setComingFromPg] = useState<string | null>("");
 
   useEffect(() => {
@@ -54,14 +54,14 @@ const Flavors = (props: FlavorsProps) => {
   useEffect(() => {
     comingFromPg === "custom"
       ? setBcrumbData(() => [
-          { url: "/custom-cakes/birthday/0", linkText: "Custom cake gallery" },
           { url: "/serving-sizes/one-tier", linkText: "Serving sizes" },
-          { url: "", linkText: "Cake flavors" }
+          { url: "", linkText: "Cake flavors" },
+          { url: "/quote-request", linkText: "Request a Quote" }
         ])
       : setBcrumbData(() => [
-          { url: "/wedding-cakes/wedding/0", linkText: "Wedding Cake Gallery" },
           { url: "/serving-sizes/one-tier", linkText: "Serving sizes" },
-          { url: "", linkText: "Cake flavors" }
+          { url: "", linkText: "Cake flavors" },
+          { url: "/quote-request", linkText: "Request a Quote" }
         ]);
   }, [comingFromPg]);
 
@@ -79,10 +79,10 @@ const Flavors = (props: FlavorsProps) => {
         <StickyDiv
           bcrumbData={bcrumbData}
           txtPanelData={txtPanelData}
-          pageNavMenu={menu}
-          catRefs={categoriesRefs}
+          // pageNavMenu={menu}
+          // catRefs={categoriesRefs}
         />
-        <FlavorsContent catRefs={categoriesRefs} />
+        <FlavorsContent />
       </div>
       <Footer />
     </section>

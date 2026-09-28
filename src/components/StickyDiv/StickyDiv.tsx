@@ -1,12 +1,12 @@
 import { useContext, useEffect, useRef, useState } from "react";
 import BreadcrumbMenu from "../BreadcrumbMenu/BreadcrumbMenu";
-import HomeBtn from "../HomeBtn/HomeBtn";
+// import HomeBtn from "../HomeBtn/HomeBtn";
 import PageNav from "../PageNav/PageNav";
 import TextPanel from "../TextPanel/TextPanel";
 import { StickyDivProps } from "./StickyDivProps.types";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import "./stickydiv.css";
-import ForwardBtn from "../ForwardBtn/ForwardBtn";
+// import ForwardBtn from "../ForwardBtn/ForwardBtn";
 import { GlobalLoadingContext } from "../../context/GlobalLoadingContext";
 
 const StickyDiv = (props: StickyDivProps) => {
@@ -27,51 +27,51 @@ const StickyDiv = (props: StickyDivProps) => {
     return;
   }
 
-  const getNxtActionBtnLink = () => {
-    if (location.pathname.includes("serving-sizes")) {
-      return (
-        <ForwardBtn
-          link={"/flavors/classic-flavors"}
-          linkTxt={"Explore our flavors"}
-        />
-      );
-    } else if (
-      location.pathname.includes("flavors") &&
-      !location.pathname.includes("signature-cakes")
-    ) {
-      return <ForwardBtn link={"/quote-request"} linkTxt={"Request a quote"} />;
-    } else if (
-      location.pathname.includes("custom-cakes") ||
-      location.pathname.includes("wedding-cakes")
-    ) {
-      return (
-        <ForwardBtn
-          link={"/serving-sizes/one-tier"}
-          linkTxt={"Explore serving sizes"}
-        />
-      );
-    } else {
-      return location.pathname.includes("/cupcakes") ? (
-        <HomeBtn
-          btnLink={"/cupcake-form"}
-          btnTxt={"Order cupcakes"}
-          secClass={"card-btn cupc-Btn"}
-        />
-      ) : (
-        <HomeBtn
-          btnLink={"/quote-request"}
-          btnTxt={"Request information"}
-          secClass={"card-btn"}
-        />
-      );
-    }
-  };
+  // const getNxtActionBtnLink = () => {
+  //   if (location.pathname.includes("serving-sizes")) {
+  //     return (
+  //       <ForwardBtn
+  //         link={"/flavors/classic-flavors"}
+  //         linkTxt={"Explore our flavors"}
+  //       />
+  //     );
+  //   } else if (
+  //     location.pathname.includes("flavors") &&
+  //     !location.pathname.includes("signature-cakes")
+  //   ) {
+  //     return <ForwardBtn link={"/quote-request"} linkTxt={"Request a quote"} />;
+  //   } else if (
+  //     location.pathname.includes("custom-cakes") ||
+  //     location.pathname.includes("wedding-cakes")
+  //   ) {
+  //     return (
+  //       <ForwardBtn
+  //         link={"/serving-sizes/one-tier"}
+  //         linkTxt={"Explore serving sizes"}
+  //       />
+  //     );
+  //   } else {
+  //     return location.pathname.includes("/cupcakes") ? (
+  //       <HomeBtn
+  //         btnLink={"/cupcake-form"}
+  //         btnTxt={"Order cupcakes"}
+  //         secClass={"card-btn cupc-Btn"}
+  //       />
+  //     ) : (
+  //       <HomeBtn
+  //         btnLink={"/quote-request"}
+  //         btnTxt={"Request information"}
+  //         secClass={"card-btn"}
+  //       />
+  //     );
+  //   }
+  // };
 
   const getFilterTitle = () => {
     if (location.pathname.includes("serving-sizes")) {
       return "Tiers needed";
     } else {
-      return "Category";
+      return;
     }
   };
 
@@ -190,12 +190,16 @@ const StickyDiv = (props: StickyDivProps) => {
       )}
 
       <div className="md-stky-nav-con">
-        <div className="frst-fil">
-          {notSigOrdForm && notCcakeForm && <h4>{getFilterTitle()}</h4>}
-          {props.pageNavMenu && <PageNav menu={props.pageNavMenu} />}
-        </div>
+        {props.pageNavMenu && (
+          <div className="frst-fil">
+            {notSigOrdForm && notCcakeForm && getFilterTitle() && (
+              <h4>{getFilterTitle()}</h4>
+            )}
+            <PageNav menu={props.pageNavMenu} />
+          </div>
+        )}
         {props.showSecMenu && props.secMenu && (
-          <div>
+          <div className="sec-fil">
             <h4>Size</h4>
             <PageNav
               menu={props.secMenu!}

@@ -1,24 +1,26 @@
-// import { useContext, useEffect } from "react";
-// import { GalleryImgLoadContext } from "../../context/GalleryImgLoadContext";
+import { useContext } from "react";
+import { GlobalLoadingContext } from "../../context/GlobalLoadingContext";
 
 import MenuContext from "../../context/HamburgerMenuContext";
 import HamburgerMenu from "../HamburgerMenu/HamburgerMenu";
 import Header from "../Header/Header";
 import TextPanel from "../TextPanel/TextPanel";
-// import Loader from "../Loader/Loader";
 import { AboutProps } from "./About.type";
 import "./about.css";
 import Couple from "../../img/about/temp-couple-img.jpg";
-import Award1 from "../../img/about/award1.jpg";
-import Award2 from "../../img/about/award2.jpg";
-import Mission from "../../img/about/temp-mission.jpg";
 import Tres from "../../img/about/tres-temp.jpg";
 import Store from "../../img/about/temp-storefront.jpg";
 import Portrait from "../../img/about/portrait.jpg";
 import Portrait2 from "../../img/about/portrait-2.jpg";
 import useWindowDimensions from "../../hooks/useWindowDimensions";
+import Footer from "../Footer/Footer";
 
 const About = (props: AboutProps) => {
+  const globalContext = useContext(GlobalLoadingContext);
+  if (!globalContext) {
+    return;
+  }
+
   const { width } = useWindowDimensions();
 
   const Arrow1 = (props: { className: string }) => {
@@ -40,13 +42,12 @@ const About = (props: AboutProps) => {
   };
 
   return (
-    <section className="container about-container">
+    <section className="about-container">
       <MenuContext.Provider
         value={{
           BGClass: props.menuFade.BGClass
         }}
       >
-        {/* {showLoadingGif && <Loader />} */}
         <Header setMenuFade={props.setMenuFade} />
         <HamburgerMenu setMenuFade={props.setMenuFade} />
       </MenuContext.Provider>
@@ -59,25 +60,14 @@ const About = (props: AboutProps) => {
               "We’re an award-winning cake shop that specializes in elegant and artistic cakes for all celebrations. We pride ourselves in producing delicious cakes that are made completely from scratch with the freshest ingredients."
             }
           />
-
-          <div className="about-img-container">
-            <div className="founder-container">
-              <img
-                className="founders-img"
-                src={Couple}
-                alt="Founders Suhei and Adnan in front of their bakery"
-              />
-            </div>
-            {width > 1680 && (
-              <div className="awards">
-                <img className="award-1" src={Award1} alt="" />
-                <img className="award-2" src={Award2} alt="" />
-              </div>
-            )}
-          </div>
+          <img
+            className="founders-img"
+            src={Couple}
+            alt="Founders Suhei and Adnan in front of their bakery"
+          />
         </div>
         <div className="story-row">
-          <div className="os-container first-row">
+          {/* <div className="os-container first-row">
             <img src={Mission} alt="" />
             <div className="text-group tg-row-1">
               <h3>
@@ -93,7 +83,7 @@ const About = (props: AboutProps) => {
                 moment your custom creation arrives at the table.
               </p>
             </div>
-          </div>
+          </div> */}
 
           <div className="os-container second-row">
             <div className="text-group tg-row-2">
@@ -148,17 +138,16 @@ const About = (props: AboutProps) => {
                   stay.
                   <br />
                   <br />
-                  With no intention whatsoever, Suhei made her first cake for
-                  family and friends and was met with praise. Comments like “You
-                  should sell these!” began to emerge, and with a little
-                  encouragement from her husband, she began to pursue baking
-                  full-time. Since then, Suhei has embarked on a journey of
-                  self-teaching—first mastering the science of baking, then the
-                  art of cake decorating and design.
+                  Suhei made her first cake for family and friends and was met
+                  with praise. Comments like “You should sell these!” began to
+                  emerge, and with a little encouragement from her husband, she
+                  began to pursue baking full-time. Since then, Suhei has
+                  embarked on a journey of self-teaching—first mastering the
+                  science of baking, then the art of cake decorating and design.
                   <br />
                   <br />
                   Through sheer dedication and passion, Suhei grew what began in
-                  her home kitchen into a business that took her around the
+                  her home kitchen into a business that has taken her around the
                   globe making wedding cakes, and eventually led to opening her
                   first storefront. Who knows where she’ll go next!
                 </p>
@@ -184,6 +173,7 @@ const About = (props: AboutProps) => {
           </div>
         </div>
       </div>
+      <Footer />
     </section>
   );
 };

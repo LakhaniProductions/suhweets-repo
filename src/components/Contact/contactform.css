@@ -1,7 +1,7 @@
 .form-container {
   display: flex;
   max-width: 192rem;
-  width: 100%;
+  width: calc(100% - 9.6rem);
   align-self: center;
   margin: 4.8rem 0 9.6rem 0;
   column-gap: 12rem;
@@ -51,7 +51,7 @@
 
 .form-label {
   font-size: 2.6rem;
-  padding: 1.2rem 3.6rem 1.2rem 3.6rem;
+  padding: 1.2rem 2.4rem 1.2rem 2.4rem;
   transition: all 0.3s;
 }
 
@@ -198,7 +198,7 @@
   color: #ff0033;
   font-size: 2rem;
   /* margin-left: 1.2rem; */
-  padding: 0 3.6rem;
+  padding: 0 2.4rem;
   max-width: 48.9rem;
 }
 .phone-msg,
@@ -253,4 +253,146 @@
 } */
 .phone-img {
   display: none;
+}
+
+@media (max-width: 1920px) {
+  .form-lft-col {
+    width: 60%;
+  }
+  .form-box-rt {
+    width: 40%;
+  }
+}
+
+@media (max-width: 1680px) {
+  .form-lft-col {
+    width: 65%;
+  }
+  .form-box-rt {
+    width: 35%;
+  }
+}
+
+@media (max-width: 1490px) {
+  .form-container {
+    column-gap: 6rem;
+  }
+}
+
+@media (max-width: 1380px) {
+  .form-lft-col {
+    width: 100%;
+  }
+
+  .form-box-rt {
+    display: none;
+  }
+}
+
+@media (max-width: 890px) {
+  .form-container {
+    width: calc(100% - 4.8rem);
+  }
+}
+@media (max-width: 880px) {
+  .event-details {
+    flex-direction: column;
+  }
+  .event-box {
+    width: 100%;
+  }
+  /* .form-input--date {
+    width: 100%;
+  } */
+  .servings-details {
+    width: 100%;
+  }
+}
+
+@media (max-width: 825px) {
+  .form-input {
+    font-size: 2.8rem;
+    min-height: 6.55rem;
+  }
+}
+
+@media (max-width: 820px) {
+  .file-field {
+    width: 60%;
+  }
+  .form-button-upload {
+    width: 35%;
+  }
+}
+
+@media (max-width: 770px) {
+  .field-label {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 760px) {
+  .file-uploads-box {
+    column-gap: 4.6rem;
+  }
+}
+
+@media (max-width: 730px) {
+  .file-field {
+    width: 55%;
+  }
+  .form-button-upload {
+    width: 40%;
+  }
+}
+
+@media (max-width: 690px) {
+  .file-uploads-box {
+    flex-wrap: wrap;
+    row-gap: 2.4rem;
+  }
+}
+
+@media (max-width: 660px) {
+  .form-button-box {
+    flex-direction: column-reverse;
+    margin-top: 1.2rem;
+  }
+  .upload-group {
+    flex-direction: column;
+  }
+
+  .form-button-upload {
+    width: max-content;
+    margin: 2.4rem 0;
+    padding: 1.2rem 2.4rem;
+  }
+
+  .file-field {
+    width: 100%;
+  }
+
+  .file-uploads-box {
+    margin-top: 0;
+    margin-left: 2.4rem;
+    margin-bottom: 2.4rem;
+  }
+  .upload-group label {
+    margin-left: 2.4rem;
+  }
+  .form-input--date {
+    width: 100%;
+  }
+}
+
+@media (max-width: 400px) {
+  .msg {
+    font-size: 1.6rem;
+  }
+}
+
+@media (max-width: 350px) {
+  .form-input {
+    font-size: 2.6rem;
+  }
 }

@@ -105,24 +105,28 @@ const SignatureForm = (props: SignatureFormProps) => {
   };
 
   const bcrumbData = [
-    {
-      url: "/signature-cakes/classic-flavors/6-inch",
-      linkText: "Signature cakes"
-    },
-    { url: "", linkText: "Order form" }
+    // { url: "/", linkText: "Home" },
+    // {
+    //   url: "/signature-cakes/6-inch",
+    //   linkText: "Signature cakes"
+    // },
+    // { url: "", linkText: "Order form" }
   ];
   const instructions = [
-    "Instructions:",
+    "Instructions",
     "1.) Please fill out the order form.",
     "2.) Check your email for the order invoice.",
     "3.) Confirm your order by completing invoice."
   ];
 
-  const txtPanelData = {
-    h2: "",
-    h1: "Order signature cake",
-    p: instructions
-  };
+  const txtPanelData =
+    location.pathname === "/signature-form"
+      ? {
+          h2: "",
+          h1: "Order signature cakes",
+          p: instructions
+        }
+      : { h2: "", h1: "Order Cupcakes", p: instructions };
 
   const timeOpts = [
     "10:00 AM",
@@ -502,7 +506,7 @@ const SignatureForm = (props: SignatureFormProps) => {
 
   return (
     <>
-      <section className="home-container contact-us" ref={formRef}>
+      <section className="home-container" ref={formRef}>
         <MenuContext.Provider
           value={{
             BGClass: props.menuFade.BGClass
@@ -513,7 +517,7 @@ const SignatureForm = (props: SignatureFormProps) => {
         </MenuContext.Provider>
         {!showTY && (
           <>
-            <div className="form-container signature-form">
+            <div className={`form-container signature-form ins-col`}>
               <StickyDiv bcrumbData={bcrumbData} txtPanelData={txtPanelData} />
 
               <div className={"form-panel sig-form-panel"}>

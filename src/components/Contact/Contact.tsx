@@ -253,7 +253,7 @@ const Contact = (props: ContactProps) => {
   return (
     <>
       {showTY && <ThankYou />}
-      <section className="home-container contact-us" ref={contactRef}>
+      <section className="home-container" ref={contactRef}>
         <MenuContext.Provider
           value={{
             BGClass: props.menuFade.BGClass

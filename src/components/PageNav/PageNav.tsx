@@ -42,17 +42,13 @@ const PageNav = (props: PageNavProps) => {
         ? navigate("/cupcakes/daily")
         : navigate("/cupcakes/pre-order");
     } else {
-      navigate(
-        `/signature-cakes/${target.innerHTML.replace(" ", "-").toLowerCase()}/${size?.replace(`"`, "-inch")}`
-      );
+      navigate(`/signature-cakes/${size?.replace(`"`, "-inch")}`);
     }
   };
 
   const handleAltClick = (e: SyntheticEvent) => {
     const target = e.target as HTMLDivElement;
-    navigate(
-      `/signature-cakes/${selectedMenuItem}/${target.innerHTML.replace(`"`, "-inch ")}`
-    );
+    navigate(`/signature-cakes/${target.innerHTML.replace(`"`, "-inch ")}`);
   };
   const getClassName = () => {
     if (location.pathname.includes("signature-cakes")) {
@@ -96,9 +92,10 @@ const PageNav = (props: PageNavProps) => {
             <div>
               {String(item).charAt(0).toUpperCase() + String(item).slice(1)}
               {/* {item} */}
-              {selectedMenuItem!.replace("-", " ") === item.toLowerCase() && (
-                <span>&nbsp;</span>
-              )}
+              {selectedMenuItem &&
+                selectedMenuItem!.replace("-", " ") === item.toLowerCase() && (
+                  <span>&nbsp;</span>
+                )}
 
               {isCupPg && getActiveCupCat(item)}
 

@@ -47,11 +47,13 @@ const Servings = (props: ServingsProps) => {
     comingFromPg === "custom"
       ? setBcrumbData(() => [
           { url: "/custom-cakes/birthday/0", linkText: "Custom Cake Gallery" },
-          { url: "", linkText: "Serving Sizes" }
+          { url: "", linkText: "Serving Sizes" },
+          { url: "/flavors", linkText: "Cake flavors" }
         ])
       : setBcrumbData(() => [
           { url: "/wedding-cakes/wedding/0", linkText: "Wedding Cake Gallery" },
-          { url: "", linkText: "Serving Sizes" }
+          { url: "", linkText: "Serving Sizes" },
+          { url: "/flavors", linkText: "Cake flavors" }
         ]);
   }, [comingFromPg]);
 

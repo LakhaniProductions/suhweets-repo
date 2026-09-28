@@ -47,7 +47,7 @@ const GlobalLoadingProvider = ({ children }: { children: ReactNode }) => {
       const el = containerRef.current;
       if (!el) {
         // // If the page forgot to attach the ref, don’t block forever
-        // setAllImgsLoaded(true);
+        setAllImgsLoaded(true);
         return;
       }
 

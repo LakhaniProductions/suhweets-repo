@@ -104,17 +104,17 @@ const HamburgerMenu = (props: HamburgerMenuProps) => {
           </div>
         </div>
         <div className="link-box">
-          <Link to="/signature-cakes/classic-flavors/6-inch">
+          <Link to="/signature-cakes/6-inch">
             <li className="nav-heading">Signature</li>
           </Link>
           <div className="int-links-box">
-            <Link to="/signature-cakes/classic-flavors/6-inch">
+            <Link to="/signature-cakes/6-inch">
               <li className="int-link">6" Cakes</li>
             </Link>
-            <Link to="/signature-cakes/classic-flavors/8-inch">
+            <Link to="/signature-cakes/8-inch">
               <li className="int-link">8" Cakes</li>
             </Link>
-            <Link to="/signature-cakes/classic-flavors/10-inch">
+            <Link to="/signature-cakes/10-inch">
               <li className="int-link">10" Cakes</li>
             </Link>
 

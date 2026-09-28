@@ -34,7 +34,8 @@ const GalleryContent = (props: GalleryContentProps) => {
     { url: "/", linkText: "Home" },
     location.pathname.includes("wedding-cakes")
       ? { url: "", linkText: "Wedding cakes" }
-      : { url: "", linkText: "Custom cakes" }
+      : { url: "", linkText: "Custom cakes" },
+    { url: "/serving-sizes/one-tier", linkText: "Serving Size" }
   ];
   const [txtPanelData, setTxtPanelData] = useState({ h2: "", h1: "", p: "" });
 

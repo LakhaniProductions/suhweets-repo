@@ -18,12 +18,13 @@ const Signature = (props: SignatureProps) => {
   }
 
   const sigRef: Ref<HTMLElement | any> = globalContext.containerRef;
-  const { selectedMenuItem, size } = useParams();
+  const { size } = useParams();
 
   //sticky div content
   const bcrumbData = [
     { url: "/", linkText: "Home" },
-    { url: "", linkText: "Signature cakes" }
+    { url: "", linkText: "Signature cakes" },
+    { url: "/signature-form", linkText: "Order form" }
   ];
 
   const txtPanelData = {
@@ -32,7 +33,7 @@ const Signature = (props: SignatureProps) => {
     p: "write some cool description here. For now this stays"
   };
 
-  const menu = [`classic flavors`, `specialty flavors`];
+  // const menu = [`classic flavors`, `specialty flavors`];
   const secMenu = [`6"`, `8"`, `10"`];
   const categoriesRefs = useRef<(HTMLDivElement | null)[]>([]);
 
@@ -40,7 +41,7 @@ const Signature = (props: SignatureProps) => {
     props.setMenuFade({
       BGClass: ""
     });
-  }, [location.pathname, selectedMenuItem, size]);
+  }, [location.pathname, size]);
 
   return (
     <section className="home-container" ref={sigRef}>
@@ -56,8 +57,8 @@ const Signature = (props: SignatureProps) => {
         <StickyDiv
           bcrumbData={bcrumbData}
           txtPanelData={txtPanelData}
-          pageNavMenu={menu}
-          catRefs={categoriesRefs}
+          // pageNavMenu={menu}
+          // catRefs={categoriesRefs}
           showSecMenu={true}
           secMenu={secMenu}
         />

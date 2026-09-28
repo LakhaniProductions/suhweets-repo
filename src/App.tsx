@@ -43,7 +43,8 @@ function App() {
           element={<Gallery setMenuFade={setMenuFade} menuFade={menuFade} />}
         />
         <Route
-          path="/signature-cakes/:selectedMenuItem/:size?"
+          // path="/signature-cakes/:selectedMenuItem/:size?"
+          path="/signature-cakes/:size?"
           element={<Signature setMenuFade={setMenuFade} menuFade={menuFade} />}
         />
 
@@ -57,7 +58,7 @@ function App() {
           element={<Servings setMenuFade={setMenuFade} menuFade={menuFade} />}
         />
         <Route
-          path="/flavors/:selectedMenuItem/:clickedFlavor?"
+          path="/flavors"
           element={<Flavors setMenuFade={setMenuFade} menuFade={menuFade} />}
         />
         <Route

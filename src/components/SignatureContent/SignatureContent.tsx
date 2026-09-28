@@ -5,7 +5,7 @@ import { useLocation, useParams } from "react-router-dom";
 
 const SignatureContent = (props: SignatureContentProps) => {
   const location = useLocation();
-  const { selectedMenuItem, size } = useParams();
+  const { size } = useParams();
 
   const flavorImages = Object.values(
     import.meta.glob("../../img/signaturecakes/*.{png,jpg,jpeg}", {
@@ -19,124 +19,93 @@ const SignatureContent = (props: SignatureContentProps) => {
       p: "Moist vanilla cake paired with smooth vanilla buttercream.",
       img: flavorImages.find((img) => img.includes("chocolate-big")),
       lsImg: flavorImages.find((img) => img.includes("one-col")),
-      bgimg: flavorImages.find((img) => img.includes("chocolate-small")),
-      category: "classic"
+      bgimg: flavorImages.find((img) => img.includes("chocolate-small"))
     },
     {
       flav: "Red Velvet",
       p: "Rich red velvet cake with a creamy vanilla cream cheese frosting.",
       img: flavorImages.find((img) => img.includes("chocolate-big")),
       lsImg: flavorImages.find((img) => img.includes("one-col")),
-      bgimg: flavorImages.find((img) => img.includes("chocolate-small")),
-      category: "classic"
+      bgimg: flavorImages.find((img) => img.includes("chocolate-small"))
     },
     {
       flav: `Cookies & Cream`,
       p: "Choice of chocolate or vanilla cake with cookies & cream buttercream.",
       img: flavorImages.find((img) => img.includes("chocolate-big")),
       lsImg: flavorImages.find((img) => img.includes("one-col")),
-      bgimg: flavorImages.find((img) => img.includes("chocolate-small")),
-      category: "classic"
-    },
-    {
-      flav: "Chocolate & Vanilla",
-      p: "Decadent chocolate cake frosted with vanilla buttercream.",
-      img: flavorImages.find((img) => img.includes("chocolate-big")),
-      lsImg: flavorImages.find((img) => img.includes("one-col")),
-      bgimg: flavorImages.find((img) => img.includes("chocolate-small")),
-      category: "classic"
+      bgimg: flavorImages.find((img) => img.includes("chocolate-small"))
     },
     {
       flav: "Funfetti",
       p: "Funfetti cake with your choice of vanilla or strawberry buttercream.",
       img: flavorImages.find((img) => img.includes("chocolate-big")),
       lsImg: flavorImages.find((img) => img.includes("one-col")),
-      bgimg: flavorImages.find((img) => img.includes("chocolate-small")),
-      category: "classic"
+      bgimg: flavorImages.find((img) => img.includes("chocolate-small"))
     },
     {
       flav: "Strawberry Delight",
       p: "Strawberry cake layered with strawberry cream cheese frosting.",
       img: flavorImages.find((img) => img.includes("chocolate-big")),
       lsImg: flavorImages.find((img) => img.includes("one-col")),
-      bgimg: flavorImages.find((img) => img.includes("chocolate-small")),
-      category: "classic"
+      bgimg: flavorImages.find((img) => img.includes("chocolate-small"))
     },
     {
       flav: "Double Chocolate",
       p: "Chocolate cake filled with rich chocolate buttercream.",
       img: flavorImages.find((img) => img.includes("chocolate-big")),
       lsImg: flavorImages.find((img) => img.includes("one-col")),
-      bgimg: flavorImages.find((img) => img.includes("chocolate-small")),
-      category: "classic"
+      bgimg: flavorImages.find((img) => img.includes("chocolate-small"))
     },
     {
       flav: "lemon raspberry",
       p: "Lemon cake with raspberry compote and vanilla buttercream.",
       img: flavorImages.find((img) => img.includes("chocolate-big")),
       lsImg: flavorImages.find((img) => img.includes("one-col")),
-      bgimg: flavorImages.find((img) => img.includes("chocolate-small")),
-      category: "specialty"
+      bgimg: flavorImages.find((img) => img.includes("chocolate-small"))
     },
     {
       flav: "Spiced Carrot",
       p: "Carrot cake with vanilla cream cheese frosting and a touch of dulce de leche.",
       img: flavorImages.find((img) => img.includes("chocolate-big")),
       lsImg: flavorImages.find((img) => img.includes("one-col")),
-      bgimg: flavorImages.find((img) => img.includes("chocolate-small")),
-      category: "specialty"
+      bgimg: flavorImages.find((img) => img.includes("chocolate-small"))
     },
     {
       flav: "Almond Raspberry",
       p: "Almond cake with raspberry compote and almond butter cream",
       img: flavorImages.find((img) => img.includes("chocolate-big")),
       lsImg: flavorImages.find((img) => img.includes("one-col")),
-      bgimg: flavorImages.find((img) => img.includes("chocolate-small")),
-      category: "specialty"
+      bgimg: flavorImages.find((img) => img.includes("chocolate-small"))
     },
     {
       flav: "Cookie Butter",
       p: "Cinnamon cake with Biscoff cream cheese frosting.",
       img: flavorImages.find((img) => img.includes("chocolate-big")),
       lsImg: flavorImages.find((img) => img.includes("one-col")),
-      bgimg: flavorImages.find((img) => img.includes("chocolate-small")),
-      category: "specialty"
+      bgimg: flavorImages.find((img) => img.includes("chocolate-small"))
     },
     {
       flav: "Hazelnut Dream",
       p: "Vanilla or chocolate cake filled with Nutella ganache and dulce de leche",
       img: flavorImages.find((img) => img.includes("chocolate-big")),
       lsImg: flavorImages.find((img) => img.includes("one-col")),
-      bgimg: flavorImages.find((img) => img.includes("chocolate-small")),
-      category: "specialty"
-    },
-    {
-      flav: "Berries & Cream",
-      p: "Vanilla cake layered with a mixed berry compote and vanilla buttercream",
-      img: flavorImages.find((img) => img.includes("chocolate-big")),
-      lsImg: flavorImages.find((img) => img.includes("one-col")),
-      bgimg: flavorImages.find((img) => img.includes("chocolate-small")),
-      category: "specialty"
+      bgimg: flavorImages.find((img) => img.includes("chocolate-small"))
     },
     {
       flav: "Strawberry Shortcake",
       p: "Vanilla cake with strawberry compote and vanilla buttercream",
       img: flavorImages.find((img) => img.includes("chocolate-big")),
       lsImg: flavorImages.find((img) => img.includes("one-col")),
-      bgimg: flavorImages.find((img) => img.includes("chocolate-small")),
-      category: "specialty"
+      bgimg: flavorImages.find((img) => img.includes("chocolate-small"))
     },
     {
       flav: "Chocolate Indulgence",
       p: "Chocolate cake filled with chocolate ganache and chocolate buttercream",
       img: flavorImages.find((img) => img.includes("chocolate-big")),
       lsImg: flavorImages.find((img) => img.includes("one-col")),
-      bgimg: flavorImages.find((img) => img.includes("chocolate-small")),
-      category: "specialty"
+      bgimg: flavorImages.find((img) => img.includes("chocolate-small"))
     }
   ];
-  const allCategories = signatureContent.map((item) => item.category);
-  const uniqueCatArr = [...new Set(allCategories)];
 
   const cupcakeContent = [
     {
@@ -272,7 +241,7 @@ const SignatureContent = (props: SignatureContentProps) => {
         h2: "10 inch"
       }));
     }
-  }, [selectedMenuItem, size]);
+  }, [size]);
 
   return (
     <>
@@ -317,61 +286,34 @@ const SignatureContent = (props: SignatureContentProps) => {
                   })}
               </div>
             ))}
-          {location.pathname.includes("/signature-cakes") &&
-            uniqueCatArr.map((category, i) => (
-              <div
-                className={`flavors-box ${category}-flavors`}
-                key={category}
-                ref={(el) => {
-                  props.catRefs && (props.catRefs.current![i] = el);
-                }}
-              >
-                {signatureContent
-                  .sort((a, b) => {
-                    if (a.flav < b.flav) {
-                      return -1;
-                    }
-                    if (a.flav > b.flav) {
-                      return 1;
-                    }
-                    return 0;
-                  })
-                  .map(
-                    (item: Record<string, any>) =>
-                      item.category === category && (
-                        <div className="cake-detail-card">
-                          <img src={item.lsImg} alt="" />
-                          <div className="cake-info-box">
-                            <h3>{item.flav}</h3>
-                            <p>{item.p}</p>
-                            <div className="add-info">
-                              <p>{txtPanelContent?.p}</p>
+          {location.pathname.includes("/signature-cakes") && (
+            <div className="flavors-box">
+              {signatureContent
+                .sort((a, b) => {
+                  if (a.flav < b.flav) {
+                    return -1;
+                  }
+                  if (a.flav > b.flav) {
+                    return 1;
+                  }
+                  return 0;
+                })
+                .map((item: Record<string, any>) => (
+                  <div className="cake-detail-card">
+                    <img src={item.lsImg} alt="" />
+                    <div className="cake-info-box">
+                      <h3>{item.flav}</h3>
+                      <p>{item.p}</p>
+                      <div className="add-info">
+                        <p>{txtPanelContent?.p}</p>
 
-                              {location.pathname !== "/cupcakes" && (
-                                <h4 className="cake-price">
-                                  {selectedMenuItem === "classic-flavors"
-                                    ? item.category.includes(
-                                        selectedMenuItem.replace("-flavors", "")
-                                      )
-                                      ? txtPanelContent?.h1
-                                      : "$"
-                                    : item.category.includes(
-                                          selectedMenuItem!.replace(
-                                            "-flavors",
-                                            ""
-                                          )
-                                        )
-                                      ? txtPanelContent?.h1Spec
-                                      : "$"}
-                                </h4>
-                              )}
-                            </div>
-                          </div>
-                        </div>
-                      )
-                  )}
-              </div>
-            ))}
+                        {<h4 className="cake-price">{txtPanelContent?.h1}</h4>}
+                      </div>
+                    </div>
+                  </div>
+                ))}
+            </div>
+          )}
         </div>
       }
     </>
