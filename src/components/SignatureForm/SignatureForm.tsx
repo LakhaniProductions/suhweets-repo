@@ -104,7 +104,7 @@ const SignatureForm = (props: SignatureFormProps) => {
     }
   };
 
-  const bcrumbData = [
+  const bcrumbData: any = [
     // { url: "/", linkText: "Home" },
     // {
     //   url: "/signature-cakes/6-inch",
