@@ -98,34 +98,32 @@ const About = (props: AboutProps) => {
                 home kitchen led to the opening of our first storefront in 2025.
               </p>
             </div>
-            <div className="os-img-group">
-              <div>
-                <p className="tres-label">The 1st Cake</p>
-                <span>{<Arrow1 className={"arr-1"} />}</span>
-                <img src={Tres} alt="" />
-              </div>
+            {width > 1400 && (
+              <div className="os-img-group">
+                <div>
+                  <p className="tres-label">The 1st Cake</p>
+                  <span>{<Arrow1 className={"arr-1"} />}</span>
+                  <img src={Tres} alt="" />
+                </div>
 
-              <div>
-                <img className="store-img" src={Store} alt="" />
-                <span>{<Arrow1 className={"arr-2"} />}</span>
-                <p className="store-label">The Storefront</p>
-              </div>
-            </div>
-          </div>
-
-          <div className="os-container third-row">
-            {width > 1650 && <img src={Portrait} alt="" />}
-            {width <= 1650 && width > 1100 && (
-              <div className="res-img-row">
-                <img src={Portrait} alt="" />
-                <img src={Portrait2} alt="" className="coFounder" />
+                <div>
+                  <img className="store-img" src={Store} alt="" />
+                  <span>{<Arrow1 className={"arr-2"} />}</span>
+                  <p className="store-label">The Storefront</p>
+                </div>
               </div>
             )}
 
-            <div className="text-group tg-row-3">
-              <div>
-                {width <= 1100 && <img src={Portrait} alt="" />}
+            {width <= 1400 && <img className="store-img" src={Store} alt="" />}
+          </div>
 
+          <div className="os-container third-row">
+            <div className="bio-col">
+              {width >= 1500 && <img src={Portrait} alt="" />}
+              {width < 1500 && width > 1090 && <img src={Portrait2} alt="" />}
+              {width <= 1090 && <img src={Portrait} alt="" />}
+
+              <div>
                 <h3>
                   <span>Suh</span>ei Lakhani
                 </h3>
@@ -152,24 +150,7 @@ const About = (props: AboutProps) => {
                   first storefront. Who knows where she’ll go next!
                 </p>
               </div>
-              <div>
-                {width <= 1100 && (
-                  <img src={Portrait2} alt="" className="coFounder" />
-                )}
-
-                <h3>Adnan Lakhani</h3>
-                <h4>Cake Taster & Co-founder </h4>
-                <p>
-                  Beyond eating all the cake—what he likes to call "quality
-                  assurance"—and providing moral support to his amazing wife,
-                  Adnan is also responsible for all things digital, like graphic
-                  design, web development, and SEO.
-                </p>
-              </div>
             </div>
-            {width > 1650 && (
-              <img src={Portrait2} alt="" className="coFounder" />
-            )}
           </div>
         </div>
       </div>
