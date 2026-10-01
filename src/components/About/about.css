@@ -411,7 +411,7 @@
   .story-row {
     row-gap: 4.8rem;
   }
-
+  .bio-col div,
   .tg-row-2 {
     width: 80%;
   }
@@ -492,12 +492,12 @@
 
   .about-content .txt-panel {
     max-width: 100%;
-    padding: 4.8rem 2.4rem 4.8rem 2.4rem;
+    padding: 4.8rem 2.4rem;
   }
-
+  .bio-col div,
   .tg-row-2 {
     width: 100%;
-    padding: 4.8rem 2.4rem 4.8rem 2.4rem;
+    padding: 4.8rem 2.4rem;
   }
 }
 
