@@ -34,6 +34,10 @@
   margin: 0;
 }
 
+.about-content .txt-panel span {
+  margin: 0;
+}
+
 .founders-img {
   width: 65%;
 }
@@ -59,8 +63,6 @@
 
 .second-row {
   display: flex;
-  padding-bottom: 0;
-  padding-bottom: 2.4rem;
   column-gap: 9.6rem;
   flex-direction: row-reverse;
 }
@@ -77,11 +79,6 @@
   max-width: 40dvw;
   border-radius: 100px;
 }
-
-/* .third-row img {
-  max-width: 30%;
-  height: 100%;
-} */
 
 .coFounder {
   align-self: flex-end;
@@ -106,6 +103,7 @@
     sans-serif;
   font-size: 3.6rem;
   margin-bottom: 2.4rem;
+  text-transform: uppercase;
 }
 
 .os-container p {
@@ -185,7 +183,7 @@
 .bio-col h3 {
   font-family: raleway, sans-serif;
   font-weight: 300;
-  font-size: 2.6rem;
+  font-size: 3.6rem;
   margin-bottom: 0.6rem;
 }
 
@@ -198,7 +196,7 @@
     fjalla one,
     san-serif;
   text-transform: uppercase;
-  font-size: 2.9rem;
+  font-size: 2.8rem;
   margin-bottom: 2.4rem;
 }
 
@@ -221,6 +219,21 @@
 
   .about-content .txt-panel h1 {
     font-size: 3.2rem;
+    margin-bottom: 1.2rem;
+  }
+
+  .os-container h3 {
+    font-size: 2.8rem;
+    margin-bottom: 1.2rem;
+  }
+  .bio-col h3 {
+    margin-bottom: 0.6rem;
+  }
+
+  .bio-col h4 {
+    font-size: 2.3rem;
+
+    margin-bottom: 1.2rem;
   }
 }
 
@@ -332,6 +345,15 @@
 }
 
 @media (max-width: 1400px) {
+  .about-content,
+  .story-row {
+    margin-bottom: 7.2rem;
+  }
+
+  .story-row {
+    row-gap: 7.2rem;
+  }
+
   .about-content .txt-panel {
     max-width: 40%;
   }
@@ -400,7 +422,7 @@
   }
 
   .about-content .txt-panel {
-    max-width: 80%;
+    max-width: 50%;
     padding: 4.8rem 0 0 0;
   }
 
@@ -408,9 +430,6 @@
     width: 100%;
   }
 
-  .story-row {
-    row-gap: 4.8rem;
-  }
   .bio-col div,
   .tg-row-2 {
     width: 80%;
@@ -462,6 +481,10 @@
     margin-bottom: 4.8rem;
   }
 
+  .story-row {
+    row-gap: 4.8rem;
+  }
+
   .tg-row-1 {
     max-width: 100dvw;
     padding: 0;
@@ -492,12 +515,15 @@
 
   .about-content .txt-panel {
     max-width: 100%;
-    padding: 4.8rem 2.4rem;
+    padding: 4.8rem 2.4rem 0 2.4rem;
   }
   .bio-col div,
   .tg-row-2 {
     width: 100%;
-    padding: 4.8rem 2.4rem;
+    padding: 4.8rem 2.4rem 0 2.4rem;
+  }
+  .bio-col img {
+    margin-bottom: 0;
   }
 }
 
@@ -505,13 +531,26 @@
   .tg-row-2 p {
     margin: 0 0 0 0;
   }
+
+  .about-content .txt-panel h1 {
+    font-size: 2.8rem;
+  }
+
+  .os-container h3 {
+    margin-bottom: 1.2rem;
+  }
+
+  .bio-col h4 {
+    margin-bottom: 1.2rem;
+  }
 }
 
 @media (max-width: 420px) {
   .about-content .txt-panel {
-    padding: 2.4rem 1.2rem 2.4rem 1.2rem;
+    padding: 2.4rem 1.2rem 0 1.2rem;
   }
+  .bio-col div,
   .tg-row-2 {
-    padding: 2.4rem 1.2rem 2.4rem 1.2rem;
+    padding: 2.4rem 1.2rem 0 1.2rem;
   }
 }
