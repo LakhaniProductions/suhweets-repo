@@ -282,137 +282,153 @@
     flex-wrap: wrap;
   }
   .gallery-mainImg-container {
-    width: 40%;
+    width: 38%;
   }
 
   .gallery-thumbnails-container {
     width: 56%;
+    margin-right: 0;
+    padding-right: 2.4rem;
   }
   .gallery-thumbnails-container img {
-    max-width: 21.9%;
+    max-width: 22.2%;
+  }
+  .gallery-thumbnails-container .active {
+    max-width: 16.9%;
+  }
+  .scroll-thumb-con {
+    display: flex;
+    flex-direction: column;
+    width: 62%;
+  }
+
+  .scroll-head-gal {
+    width: max-content;
+  }
+  .scroll-head-gal .txt-panel {
+    margin-bottom: 0;
+  }
+  .scroll-head-gal .txt-panel h1 {
+    margin-bottom: 0;
+  }
+  .scroll-head-gal .txt-panel .ins-box {
+    display: none;
+  }
+
+  .scroll-thumb-con .gallery-thumbnails-container {
+    width: 100%;
+  }
+
+  .scroll-thumb-con .navigation {
+    flex-direction: row;
+    position: sticky;
+    top: 98px;
+    background-color: white;
+    width: 100%;
+    height: auto;
+    z-index: 1000;
+    padding: 1.2rem 0;
+    column-gap: 1.2rem;
+  }
+}
+
+@media (max-width: 1561px) {
+  .gallery-thumbnails-container img {
+    max-width: 22%;
+  }
+  .gallery-thumbnails-container .active {
+    max-width: 16.3%;
+  }
+}
+
+@media (max-width: 1465px) {
+  .scroll-thumb-con {
+    width: 63%;
+  }
+  .gallery-mainImg-container {
+    width: 37%;
+  }
+
+  .gallery-thumbnails-container img {
+    max-width: 22%;
   }
   .gallery-thumbnails-container .active {
     max-width: 16%;
   }
 }
 
-@media (max-width: 1560px) {
+@media (max-width: 1421px) {
+  .scroll-thumb-con {
+    width: 63%;
+  }
+
   .gallery-thumbnails-container img {
-    max-width: 21.5%;
+    max-width: 21.7%;
   }
   .gallery-thumbnails-container .active {
-    max-width: 15.5%;
+    max-width: 15.6%;
   }
 }
 
-@media (max-width: 1460px) {
+@media (max-width: 1366px) {
+  .gallery-thumbnails-container img {
+    max-width: 30%;
+  }
+  .gallery-thumbnails-container .active {
+    max-width: 23.6%;
+  }
+}
+
+@media (max-width: 1314px) {
+  .gallery-thumbnails-container img {
+    max-width: 29.3%;
+  }
+  .gallery-thumbnails-container .active {
+    max-width: 22.5%;
+  }
+}
+
+@media (max-width: 1280px) {
+  .gallery-thumbnails-container img {
+    max-width: 29.1%;
+  }
+  .gallery-thumbnails-container .active {
+    max-width: 22%;
+  }
+}
+
+@media (max-width: 1210px) {
+  .scroll-thumb-con {
+    width: 60%;
+  }
   .gallery-mainImg-container {
-    width: 48%;
-  }
-
-  .gallery-thumbnails-container {
-    width: 48%;
-  }
-  .gallery-thumbnails-container img {
-    max-width: 21%;
-  }
-  .gallery-thumbnails-container .active {
-    max-width: 13.5%;
-  }
-}
-
-@media (max-width: 1390px) {
-  .gallery-thumbnails-container img {
-    max-width: 20.5%;
-  }
-  .gallery-thumbnails-container .active {
-    max-width: 12.5%;
-  }
-}
-
-@media (max-width: 1300px) {
-  .gallery-mainImg-container {
-    width: 49%;
-  }
-
-  .gallery-thumbnails-container {
-    width: 46%;
-  }
-
-  .gallery-thumbnails-container img {
-    max-width: 28%;
-  }
-  .gallery-thumbnails-container .active {
-    max-width: 19%;
-  }
-}
-
-@media (max-width: 1190px) {
-  .gallery-container {
-    padding-top: 0;
-  }
-
-  .nxt-pg-btn {
-    margin-top: 2.4rem;
-  }
-
-  .gallery-mainImg-container {
-    width: 55%;
-  }
-
-  .gallery-thumbnails-container {
     width: 40%;
   }
 
   .gallery-thumbnails-container img {
-    max-width: 42%;
+    max-width: 28.5%;
   }
   .gallery-thumbnails-container .active {
-    max-width: 30%;
+    max-width: 20.5%;
   }
 }
 
-@media (max-width: 1060px) {
-  .gallery-mainImg-container {
-    width: 59%;
-  }
-
-  .gallery-thumbnails-container {
-    width: 35%;
-  }
-
-  .gallery-thumbnails-container .active {
-    max-width: 27.5%;
-  }
-}
-
-@media (max-width: 1029px) {
-  .gallery-thumbnails-container .active {
-    max-width: 26.5%;
-  }
-}
-
-@media (max-width: 984px) {
-  .gallery-mainImg-container {
-    max-width: 70%;
-    width: 100%;
-  }
-
-  .gallery-thumbnails-container {
-    max-width: 24%;
-    width: 100%;
-  }
-
+@media (max-width: 1160px) {
   .gallery-thumbnails-container img {
-    max-width: 90%;
+    max-width: 28%;
   }
-
   .gallery-thumbnails-container .active {
-    max-width: 65%;
+    max-width: 19.5%;
   }
 }
 
-@media (max-width: 895px) {
+@media (max-width: 1100px) {
+  .scroll-thumb-con {
+    width: 100%;
+  }
+  .scroll-thumb-con .navigation {
+    display: none;
+  }
   .main-overlay {
     width: 100dvw;
     height: 100%;
@@ -421,6 +437,10 @@
     z-index: 2;
     cursor: pointer;
   }
+
+  .scroll-head-gal .txt-panel h1 {
+    margin-bottom: 2.4rem;
+  }
   .gallery-thumbnails-container {
     max-width: 100%;
     margin: 0;
@@ -428,7 +448,7 @@
 
   .gallery-thumbnails-container .active,
   .gallery-thumbnails-container img {
-    max-width: 21%;
+    max-width: 30.5%;
     outline: none;
     margin: 1.2rem;
     opacity: 1;
@@ -439,11 +459,11 @@
     position: absolute;
     background-color: #fee5ee;
     top: 2.4rem;
-    /* padding: 4.8rem 4.8rem 2.4rem 4.8rem; */
     border-radius: 2rem;
     margin: 0;
     display: none;
     z-index: 3;
+    width: 60%;
   }
 
   .gallery-mainImg-container img {
@@ -461,36 +481,52 @@
   }
 }
 
+@media (max-width: 966px) {
+  .gallery-thumbnails-container .active,
+  .gallery-thumbnails-container img {
+    max-width: 30%;
+    outline: none;
+    margin: 1.2rem;
+    opacity: 1;
+  }
+}
+
 @media (max-width: 890px) {
   .gallery-container {
     margin: 0 2.4rem;
   }
 }
 
-@media (max-width: 695px) {
+@media (max-width: 791px) {
   .gallery-thumbnails-container .active,
   .gallery-thumbnails-container img {
-    max-width: 29%;
+    max-width: 29.5%;
   }
 }
 
-@media (max-width: 649px) {
+@media (max-width: 697px) {
+  .gallery-mainImg-container {
+    width: 90%;
+  }
   .gallery-thumbnails-container .active,
   .gallery-thumbnails-container img {
-    max-width: 28%;
+    max-width: 28.8%;
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 601px) {
   .gallery-container {
     margin: 0;
   }
   .gallery-thumbnails-container {
     margin: 0 1.2rem;
   }
+  .scroll-head-gal {
+    padding: 0 2.4rem;
+  }
 }
 
-@media (max-width: 545px) {
+@media (max-width: 553px) {
   .gallery-thumbnails-container .active,
   .gallery-thumbnails-container img {
     max-width: 43%;

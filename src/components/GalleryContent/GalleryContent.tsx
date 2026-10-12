@@ -7,6 +7,8 @@ import StickyDiv from "../StickyDiv/StickyDiv";
 import "../MainNav/mainnav.css";
 
 import useWindowDimensions from "../../hooks/useWindowDimensions";
+import BreadcrumbMenu from "../BreadcrumbMenu/BreadcrumbMenu";
+import PageNav from "../PageNav/PageNav";
 
 const GalleryContent = (props: GalleryContentProps) => {
   const navigate = useNavigate();
@@ -81,7 +83,7 @@ const GalleryContent = (props: GalleryContentProps) => {
       }
     });
 
-    width <= 895 &&
+    width <= 1100 &&
       window.scrollTo({
         top: 0,
         behavior: "smooth" // Use "auto" for instant jump
@@ -155,48 +157,101 @@ const GalleryContent = (props: GalleryContentProps) => {
           onClick={() => setShowMain(!showMain)}
         ></div>
       )}
-      <StickyDiv
-        bcrumbData={bcrumbData}
-        txtPanelData={txtPanelData}
-        pageNavMenu={getMenu()}
-        catRefs={imgRefs}
-      />
+      {width > 1660 && (
+        <StickyDiv
+          bcrumbData={bcrumbData}
+          txtPanelData={txtPanelData}
+          pageNavMenu={getMenu()}
+          catRefs={imgRefs}
+        />
+      )}
 
-      <div
-        className="gallery-thumbnails-container"
-        onClick={(e) => {
-          handleThumbnailClick(e);
-        }}
-      >
-        {allCakesOnPage &&
-          allCakesOnPage.length &&
-          allCakesOnPage &&
-          allCakesOnPage.map((item, i) => {
-            return (
-              <>
-                <img
-                  onClick={() =>
-                    props.activeThumbnail !== i &&
-                    mainImgLoaded &&
-                    setMainImgLoaded(!mainImgLoaded)
-                  }
-                  src={`${item.thumbnail}`}
-                  key={i}
-                  id={`${item.thumbnailTitle}_${i}`}
-                  alt=""
-                  className={
-                    props.activeThumbnail === i
-                      ? `active ${item.category}/${i}`
-                      : `${item.category}/${i}`
-                  }
-                  ref={(el) => {
-                    imgRefs.current[i] = el;
-                  }}
-                />
-              </>
-            );
-          })}
-      </div>
+      {width > 1660 && (
+        <div
+          className="gallery-thumbnails-container"
+          onClick={(e) => {
+            handleThumbnailClick(e);
+          }}
+        >
+          {allCakesOnPage &&
+            allCakesOnPage.length &&
+            allCakesOnPage &&
+            allCakesOnPage.map((item, i) => {
+              return (
+                <>
+                  <img
+                    onClick={() =>
+                      props.activeThumbnail !== i &&
+                      mainImgLoaded &&
+                      setMainImgLoaded(!mainImgLoaded)
+                    }
+                    src={`${item.thumbnail}`}
+                    key={i}
+                    id={`${item.thumbnailTitle}_${i}`}
+                    alt=""
+                    className={
+                      props.activeThumbnail === i
+                        ? `active ${item.category}/${i}`
+                        : `${item.category}/${i}`
+                    }
+                    ref={(el) => {
+                      imgRefs.current[i] = el;
+                    }}
+                  />
+                </>
+              );
+            })}
+        </div>
+      )}
+
+      {width <= 1660 && (
+        <div className="scroll-thumb-con">
+          <div className="scroll-head-gal">
+            <BreadcrumbMenu data={bcrumbData} />
+            <TextPanel
+              h2={txtPanelData.h2}
+              h1={txtPanelData.h1}
+              p={txtPanelData.p}
+            />
+          </div>
+          <PageNav menu={getMenu()} />
+          <div
+            className="gallery-thumbnails-container"
+            onClick={(e) => {
+              handleThumbnailClick(e);
+            }}
+          >
+            {allCakesOnPage &&
+              allCakesOnPage.length &&
+              allCakesOnPage &&
+              allCakesOnPage.map((item, i) => {
+                return (
+                  <>
+                    <img
+                      onClick={() =>
+                        props.activeThumbnail !== i &&
+                        mainImgLoaded &&
+                        setMainImgLoaded(!mainImgLoaded)
+                      }
+                      src={`${item.thumbnail}`}
+                      key={i}
+                      id={`${item.thumbnailTitle}_${i}`}
+                      alt=""
+                      className={
+                        props.activeThumbnail === i
+                          ? `active ${item.category}/${i}`
+                          : `${item.category}/${i}`
+                      }
+                      ref={(el) => {
+                        imgRefs.current[i] = el;
+                      }}
+                    />
+                  </>
+                );
+              })}
+          </div>
+        </div>
+      )}
       {showMain && (
         <>
           {/* <div
