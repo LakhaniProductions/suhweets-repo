@@ -46,6 +46,7 @@ const GalleryContent = (props: GalleryContentProps) => {
   const [mainImgLoaded, setMainImgLoaded] = useState<boolean>(false);
 
   const [showMain, setShowMain] = useState<boolean>(false);
+  const [willScrl, setWillScrl] = useState<boolean>(true);
 
   const handleThumbnailClick = (e: SyntheticEvent) => {
     const target = e.target as HTMLImageElement;
@@ -84,11 +85,12 @@ const GalleryContent = (props: GalleryContentProps) => {
     });
 
     width <= 1100 &&
+      willScrl &&
       window.scrollTo({
         top: 0,
         behavior: "smooth" // Use "auto" for instant jump
       });
-  }, [location.pathname]);
+  }, [location.pathname, willScrl]);
 
   useEffect(() => {
     location.pathname.includes("custom-cakes")
@@ -154,7 +156,10 @@ const GalleryContent = (props: GalleryContentProps) => {
       {showMain && (
         <div
           className="main-overlay"
-          onClick={() => setShowMain(!showMain)}
+          onClick={() => {
+            setShowMain(!showMain);
+            setWillScrl(true);
+          }}
         ></div>
       )}
       {width > 1660 && (
@@ -274,6 +279,7 @@ const GalleryContent = (props: GalleryContentProps) => {
                 <div
                   className="popRtBtn"
                   onClick={() => {
+                    setWillScrl(false);
                     const basePath = location.pathname.match(/^(.*)\//)![1];
                     const nextImg = +location.pathname.split("/").pop()! + 1;
                     nextImg < allCakesOnPage!.length
@@ -286,6 +292,7 @@ const GalleryContent = (props: GalleryContentProps) => {
                 <div
                   className="popLtBtn"
                   onClick={() => {
+                    setWillScrl(false);
                     const basePath = location.pathname.match(/^(.*)\//)![1];
                     const nextImg = +location.pathname.split("/").pop()! - 1;
                     nextImg >= 0
