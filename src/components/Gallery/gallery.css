@@ -310,6 +310,7 @@
   }
   .scroll-head-gal .txt-panel h1 {
     margin-bottom: 0;
+    font-size: 3.2rem;
   }
   .scroll-head-gal .txt-panel .ins-box {
     display: none;
@@ -509,6 +510,12 @@
   .gallery-thumbnails-container .active,
   .gallery-thumbnails-container img {
     max-width: 29.5%;
+  }
+}
+
+@media (max-width: 740px) {
+  .scroll-head-gal .txt-panel h1 {
+    font-size: 2.9rem;
   }
 }
 
