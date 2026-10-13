@@ -439,7 +439,7 @@
   }
 
   .scroll-head-gal .txt-panel h1 {
-    margin-bottom: 2.4rem;
+    margin-bottom: 1.2rem;
   }
   .gallery-thumbnails-container {
     max-width: 100%;
@@ -538,6 +538,9 @@
   .gallery-thumbnails-container .active,
   .gallery-thumbnails-container img {
     max-width: 43%;
+  }
+  .scroll-head-gal .txt-panel h1 {
+    margin-bottom: 0;
   }
 }
 
