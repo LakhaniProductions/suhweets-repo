@@ -532,6 +532,9 @@
 }
 
 @media (max-width: 553px) {
+  .gallery-mainImg-container {
+    width: 90%;
+  }
   .gallery-thumbnails-container .active,
   .gallery-thumbnails-container img {
     max-width: 43%;
