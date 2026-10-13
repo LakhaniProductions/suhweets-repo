@@ -14,17 +14,6 @@
   flex-wrap: wrap;
 }
 
-/* .signature-cakes-container::-webkit-scrollbar {
-  width: 0.8rem;
-}
-.signature-cakes-container::-webkit-scrollbar-track {
-  background: white;
-}
-.signature-cakes-container::-webkit-scrollbar-thumb {
-  background: #a6a6a6;
-  border-radius: 1rem;
-} */
-
 .cake-detail-card {
   display: flex;
   max-width: 31.6%;
@@ -116,6 +105,7 @@
 @media (max-width: 1660px) {
   .signature-content {
     flex-direction: column;
+    margin: 1.2rem 4.8rem 7.2rem 4.8rem;
   }
 
   .signature-cakes-container {

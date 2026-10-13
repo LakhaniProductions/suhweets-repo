@@ -76,7 +76,8 @@
     /* flex-direction: row; */
     background-color: white;
     z-index: 1;
-    top: 9.8rem;
+    top: 0;
+    position: relative;
     margin: 0;
     flex-wrap: wrap;
   }
