@@ -458,7 +458,7 @@
     max-width: 100%;
     position: absolute;
     background-color: #fee5ee;
-    top: 2.4rem;
+    top: 0;
     border-radius: 2rem;
     margin: 0;
     display: none;
@@ -478,6 +478,10 @@
   .popLtBtn,
   .popRtBtn {
     display: block;
+  }
+  .popRtBtn,
+  .popLtBtn {
+    top: 40%;
   }
 }
 

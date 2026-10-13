@@ -154,7 +154,6 @@
   .sticky-div.gallery {
     display: flex;
     margin: 0;
-    justify-content: center;
   }
 
   .sticky-div.gallery .txt-panel {
