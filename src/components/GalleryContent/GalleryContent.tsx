@@ -90,7 +90,7 @@ const GalleryContent = (props: GalleryContentProps) => {
         top: 0,
         behavior: "smooth" // Use "auto" for instant jump
       });
-  }, [location.pathname, willScrl]);
+  }, [location.pathname]);
 
   useEffect(() => {
     location.pathname.includes("custom-cakes")
