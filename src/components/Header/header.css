@@ -2,7 +2,7 @@
   position: sticky;
   top: 0;
   z-index: 300;
-  background-color: rgba(255, 255, 255, 0.95);
+  background-color: white;
   padding: 0 4.8rem;
 }
 .header-content {
