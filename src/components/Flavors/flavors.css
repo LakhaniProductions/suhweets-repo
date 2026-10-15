@@ -32,8 +32,9 @@
 .flavors-box {
   display: flex;
   flex-wrap: wrap;
-  row-gap: 3.6rem;
+  row-gap: 2.4rem;
   width: 100%;
+  column-gap: 2.4rem;
 }
 
 .classic-flavors {
@@ -116,15 +117,16 @@
   }
 }
 
-@media (max-width: 1390px) {
-  .flavors-box {
-    row-gap: 2.4rem;
-  }
-}
-
 @media (max-width: 890px) {
   .flavors-content {
     width: calc(100% - 4.8rem);
     margin: 0 2.4rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .flavors-box {
+    row-gap: 1.2rem;
+    column-gap: 1.2rem;
   }
 }

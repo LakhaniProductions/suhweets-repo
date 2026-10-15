@@ -16,14 +16,9 @@
 
 .cake-detail-card {
   display: flex;
-  max-width: 31.6%;
+  max-width: 32%;
   width: 100%;
-  margin: 0 3.6rem 0rem 0;
   flex-direction: column;
-}
-
-.cake-detail-card:nth-child(3n) {
-  margin-right: 0rem;
 }
 
 .cake-detail-card img {
@@ -72,11 +67,11 @@
   line-height: 1.5;
 }
 
-@media (max-width: 1940px) {
+/* @media (max-width: 1940px) {
   .cake-detail-card {
     max-width: 31.5%;
   }
-}
+} */
 
 @media (max-width: 1910px) {
   .cake-info-box p {
@@ -84,11 +79,11 @@
   }
 }
 
-@media (max-width: 1840px) {
+/* @media (max-width: 1840px) {
   .cake-detail-card {
     max-width: 31.3%;
   }
-}
+} */
 
 @media (max-width: 1830px) {
   .cake-info-box p {
@@ -96,11 +91,11 @@
   }
 }
 
-@media (max-width: 1668px) {
+/* @media (max-width: 1668px) {
   .cake-detail-card {
     max-width: 31.2%;
   }
-}
+} */
 
 @media (max-width: 1660px) {
   .signature-content {
@@ -111,26 +106,23 @@
   .signature-cakes-container {
     width: 100%;
   }
-  .cake-detail-card {
+  /* .cake-detail-card {
     max-width: 31.7%;
-  }
+  } */
   .cake-info-box p {
     font-size: 2rem;
   }
 }
 
-@media (max-width: 1570px) {
+/* @media (max-width: 1570px) {
   .cake-detail-card {
     max-width: 31.3%;
   }
-}
+} */
 
 @media (max-width: 1390px) {
   .cake-detail-card {
     max-width: 32%;
-  }
-  .cake-detail-card {
-    margin: 0 2.4rem 0rem 0;
   }
 }
 
@@ -153,14 +145,6 @@
   .cake-detail-card {
     max-width: 48.7%;
   }
-
-  .cake-detail-card:nth-child(2n) {
-    margin-right: 0;
-  }
-
-  .cake-detail-card:nth-child(3n) {
-    margin-right: 2.4rem;
-  }
 }
 
 @media (max-width: 1060px) {
@@ -171,15 +155,9 @@
 
 @media (max-width: 1018px) {
   .cake-detail-card {
-    max-width: 48.5%;
+    max-width: 48%;
   }
 }
-
-/* @media (max-width: 990px) {
-  .cake-detail-card {
-    max-width: 47%;
-  }
-} */
 
 @media (max-width: 960px) {
   .cake-info-box p {
@@ -194,9 +172,8 @@
   }
 }
 
-@media (max-width: 846px) {
+@media (max-width: 600px) {
   .cake-detail-card {
-    max-width: 47.8%;
-    margin: 0 2.4rem 0 0;
+    max-width: 100%;
   }
 }
