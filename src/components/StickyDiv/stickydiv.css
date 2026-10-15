@@ -193,6 +193,15 @@
   }
 }
 
+@media (max-width: 480px) {
+  .sticky-div {
+    top: 8rem;
+  }
+  .sticky-div .md-stky-head .txt-panel {
+    display: none;
+  }
+}
+
 @media (max-width: 420px) {
   .sticky-div h4 {
     display: none;
