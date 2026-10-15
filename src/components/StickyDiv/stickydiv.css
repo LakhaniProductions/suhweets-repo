@@ -135,14 +135,15 @@
     margin-bottom: 1.2rem;
   }
 
-  .md-stky-nav-con div {
+  /* .md-stky-nav-con div {
     width: 50%;
-  }
+  } */
 
   .md-stky-nav-con div h4 {
-    width: max-content;
+    /* width: max-content;
     margin-bottom: 0;
-    padding-bottom: 0;
+    padding-bottom: 0; */
+    display: none;
   }
   .frst-fil,
   .sec-fil {
@@ -163,9 +164,9 @@
 }
 
 @media (max-width: 768px) {
-  .frst-fil {
+  /* .frst-fil {
     display: none;
-  }
+  } */
 
   .md-stky-nav-con div h4 {
     font-size: 1.6rem;
