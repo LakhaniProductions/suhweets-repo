@@ -163,11 +163,12 @@
   }
 }
 
+@media (max-width: 890px) {
+  .sticky-div {
+    top: 0rem;
+  }
+}
 @media (max-width: 768px) {
-  /* .frst-fil {
-    display: none;
-  } */
-
   .md-stky-nav-con div h4 {
     font-size: 1.6rem;
   }
@@ -196,10 +197,13 @@
 
 @media (max-width: 480px) {
   .sticky-div {
-    top: 8rem;
+    top: 4rem;
   }
   .sticky-div .md-stky-head .txt-panel {
     display: none;
+  }
+  .sticky-div .navigation.size-menu-filter {
+    margin-bottom: 0.6rem;
   }
 }
 
