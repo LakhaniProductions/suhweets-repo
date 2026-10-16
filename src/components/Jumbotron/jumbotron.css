@@ -20,11 +20,14 @@
   position: absolute;
   display: flex;
   flex-direction: column;
-  margin-left: 4.8rem;
   top: 50%;
   transform: translateY(-50%);
   z-index: 1;
+  max-width: 192rem;
+  width: 100%;
+  align-self: center;
 }
+
 .jumbotron img {
   background-position: center;
   background-size: cover;

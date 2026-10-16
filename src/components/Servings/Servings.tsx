@@ -46,14 +46,14 @@ const Servings = (props: ServingsProps) => {
   useEffect(() => {
     comingFromPg === "custom"
       ? setBcrumbData(() => [
-          { url: "/custom-cakes/birthday/0", linkText: "Custom Cake Gallery" },
+          { url: "/custom-cakes/birthday/0", linkText: "Custom Gallery" },
           { url: "", linkText: "Serving Sizes" },
-          { url: "/flavors", linkText: "Cake flavors" }
+          { url: "/flavors", linkText: "Flavors" }
         ])
       : setBcrumbData(() => [
-          { url: "/wedding-cakes/wedding/0", linkText: "Wedding Cake Gallery" },
+          { url: "/wedding-cakes/wedding/0", linkText: "Wedding Gallery" },
           { url: "", linkText: "Serving Sizes" },
-          { url: "/flavors", linkText: "Cake flavors" }
+          { url: "/flavors", linkText: "Flavors" }
         ]);
   }, [comingFromPg]);
 

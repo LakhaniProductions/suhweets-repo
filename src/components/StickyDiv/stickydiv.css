@@ -13,6 +13,10 @@
   width: 20%;
 }
 
+.servings-content .sticky-div {
+  width: 20%;
+}
+
 .sticky-div .navigation {
   width: max-content;
 }
@@ -80,6 +84,11 @@
     position: sticky;
     margin: 0;
     flex-wrap: wrap;
+  }
+
+  .signature-content .sticky-div,
+  .servings-content .sticky-div {
+    width: 100%;
   }
 
   .sticky-div .navigation.size-menu-filter {
