@@ -24,7 +24,7 @@
   transform: translateY(-50%);
   z-index: 1;
   max-width: 192rem;
-  width: 100%;
+  width: calc(100% - 9.6rem);
   align-self: center;
 }
 
@@ -115,7 +115,7 @@
 
 @media (max-width: 890px) {
   .jumbo-txt-box {
-    margin-left: 2.4rem;
+    width: calc(100% - 7.2rem);
   }
 }
 
@@ -134,6 +134,12 @@
     top: unset;
     transform: none;
     bottom: 15%;
+  }
+}
+
+@media (max-width: 600px) {
+  .jumbo-txt-box {
+    width: calc(100% - 4.8rem);
   }
 }
 
