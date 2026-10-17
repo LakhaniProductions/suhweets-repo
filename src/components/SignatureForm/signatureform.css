@@ -40,10 +40,6 @@
   display: none;
 }
 
-.signature-form .sticky-div {
-  width: 25%;
-}
-
 .form-panel.sig-form-panel {
   width: 75%;
 }
@@ -349,9 +345,26 @@ span.active-opt {
   display: none;
 }
 
+input[type="date"] {
+  position: relative;
+}
+
+/* Forces the clickable browser icon area to stretch over the entire field */
+input[type="date"]::-webkit-calendar-picker-indicator {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: auto;
+  height: auto;
+  cursor: pointer;
+  background: transparent;
+}
+
 @media (max-width: 1890px) {
   .signature-form .sticky-div {
-    width: 30%;
+    width: 28%;
   }
 
   .form-panel.sig-form-panel {
@@ -392,7 +405,7 @@ span.active-opt {
     width: 100%;
   }
   .ins-col {
-    margin-top: 21rem;
+    margin-top: 16.5rem;
   }
 
   .ins-exp {

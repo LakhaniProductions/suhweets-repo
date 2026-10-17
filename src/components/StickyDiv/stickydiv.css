@@ -16,6 +16,9 @@
 .servings-content .sticky-div {
   width: 20%;
 }
+.signature-form .sticky-div {
+  width: 25%;
+}
 
 .sticky-div .navigation {
   width: max-content;
@@ -99,11 +102,19 @@
     width: 100%;
   }
 
+  .signature-form .sticky-div {
+    width: 25%;
+    top: 9.6rem;
+  }
+
   .sticky-div.gallery {
     display: unset;
     z-index: 0;
   }
 
+  .signature-form .sticky-div .md-stky-head .ins-box {
+    display: flex;
+  }
   .sticky-div .md-stky-head .ins-box {
     display: none;
   }
@@ -207,6 +218,9 @@
 @media (max-width: 480px) {
   .sticky-div {
     top: 4rem;
+  }
+  .signature-form .sticky-div .md-stky-head .txt-panel {
+    display: unset;
   }
   .sticky-div .md-stky-head .txt-panel {
     display: none;

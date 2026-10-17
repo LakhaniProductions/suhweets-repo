@@ -25,8 +25,9 @@ const Jumbotron = (props: JumbotronProps) => {
         <h1 className="heading-home">love again</h1>
 
         <p className="body-text-home">
-          Let us help you capture your vision. <br></br> Browse our wedding
-          cakes
+          Let us help you capture your vision.{" "}
+          {/* <br></br> Browse our wedding
+          cakes */}
         </p>
         <HomeBtn
           btnLink={props.btnLink}

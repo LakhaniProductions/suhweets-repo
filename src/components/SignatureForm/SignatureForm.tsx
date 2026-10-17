@@ -123,10 +123,10 @@ const SignatureForm = (props: SignatureFormProps) => {
     location.pathname === "/signature-form"
       ? {
           h2: "",
-          h1: "Order signature cakes",
+          h1: "Signature cakes",
           p: instructions
         }
-      : { h2: "", h1: "Order Cupcakes", p: instructions };
+      : { h2: "", h1: "Cupcakes", p: instructions };
 
   const timeOpts = [
     "10:00 AM",
@@ -531,7 +531,7 @@ const SignatureForm = (props: SignatureFormProps) => {
                   <div className="signature-event-details">
                     <div className="input-label-box sig-event-box">
                       <input
-                        type="text"
+                        type="date"
                         className={
                           !pickUpDateErr &&
                           !rushErr &&
@@ -542,10 +542,10 @@ const SignatureForm = (props: SignatureFormProps) => {
                         }
                         placeholder="Pickup Date* &nbsp;"
                         ref={dateRef}
-                        onFocus={() => (dateRef.current.type = "date")}
-                        onBlur={() => {
-                          dateType();
-                        }}
+                        // onFocus={() => (dateRef.current.type = "date")}
+                        // onBlur={() => {
+                        //   dateType();
+                        // }}
                         onChange={() => {
                           setPickupDateError(false);
                           setPickupDate(stringToDate(dateRef.current?.value));
