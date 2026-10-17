@@ -96,13 +96,13 @@ const SignatureForm = (props: SignatureFormProps) => {
 
   const [showTY, setShowTY] = useState<boolean>(false);
 
-  const dateType = () => {
-    if (dateRef.current.value === "" || dateRef.current.value === null) {
-      dateRef.current.type = "text";
-    } else {
-      dateRef.current.type = "date";
-    }
-  };
+  // const dateType = () => {
+  //   if (dateRef.current.value === "" || dateRef.current.value === null) {
+  //     dateRef.current.type = "text";
+  //   } else {
+  //     dateRef.current.type = "date";
+  //   }
+  // };
 
   const bcrumbData: any = [
     // { url: "/", linkText: "Home" },
