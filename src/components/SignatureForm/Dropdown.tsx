@@ -75,7 +75,13 @@ const Dropdown = (props: DropdownProps) => {
         <span className={props.selectedOpt ? "active-opt" : ""}>
           {props.selectedOpt ? props.selectedOpt : props.defaultVal}
         </span>
-        <span>&#8249;</span>
+        <span
+          style={{
+            transform: toggleMenu ? "rotate(90deg) translateY(-6px)" : ""
+          }}
+        >
+          &#8249;
+        </span>
       </div>
       {props.isError && !props.selectedOpt.length ? (
         <div className="error-group">

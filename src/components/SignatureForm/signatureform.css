@@ -323,14 +323,21 @@ span.active-opt {
 }
 
 .rotate-up {
-  transform: translateY(4px) translateX(6px) rotate(90deg);
+  transform: translateY(10px) translateX(6px) rotate(90deg);
   display: inline-block;
 }
 
-.rotate-down {
-  transform: translateY(4px) rotate(-90deg);
+.cake-expand.rotate-up {
+  transform: translateY(4px) translateX(1px) rotate(90deg);
+}
 
+.rotate-down {
+  transform: translateY(10px) translateX(6px) rotate(-90deg);
   display: inline-block;
+}
+
+.cake-expand.rotate-down {
+  transform: translateY(4px) translateX(1px) rotate(-90deg);
 }
 
 .dlt-btn {
@@ -554,8 +561,14 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     width: 95%;
   }
   .cake-details-container {
-    margin-bottom: 4.8rem;
+    margin-top: 4.8rem;
+    margin-bottom: 0;
   }
+
+  .cake-details-container:first-of-type {
+    margin-top: 0;
+  }
+
   .cake-details {
     margin-bottom: 0;
     margin-top: 2.4rem;
@@ -576,6 +589,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     padding: 0.4rem 3.6rem;
     align-self: center;
     margin-bottom: 4.8rem;
+    margin-top: 2.4rem;
   }
 
   .add-cake-btn span:first-of-type,
