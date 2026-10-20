@@ -55,10 +55,15 @@ const TextPanel = (props: TextPanelProps) => {
             {Array.isArray(props.p) ? (
               props.p.map((item: string, i: number) =>
                 i === 0 ? (
-                  <p onClick={() => clickIns()}>
-                    {item}
-                    {<span className={`ins-exp-btn ${rotateClass}`}>‹</span>}
-                  </p>
+                  <>
+                    <p onClick={() => clickIns()}>
+                      {item}
+                      {<span className={`ins-exp-btn ${rotateClass}`}>‹</span>}
+                    </p>
+                    <div
+                      className={insClass === "show" ? "form-ins-overlay" : ""}
+                    ></div>
+                  </>
                 ) : (
                   <p className={insClass}>{item}</p>
                 )

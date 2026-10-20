@@ -163,7 +163,7 @@ const CakeDetailsGroup = (props: CakeDetailsGroupProps) => {
     <div className={showOrders ? "cake-orders mb-6" : "cake-orders mb-120"}>
       {props.cakeOrderCountArr.length > 1 && (
         <div className={getErrors() ? "heading-box errs" : "heading-box"}>
-          <h3>Cake Order</h3>
+          {/* <h3>Cake Order</h3> */}
           <div className="order-summary">
             <p>
               Your order has{" "}
