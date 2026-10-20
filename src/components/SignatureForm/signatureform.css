@@ -334,6 +334,10 @@ span.active-opt {
   transform: translateY(4px) translateX(1px) rotate(90deg);
 }
 
+.ins-exp-btn.rotate-up {
+  transform: translateY(5px) translateX(1px) rotate(90deg);
+}
+
 .rotate-down {
   transform: translateY(10px) translateX(6px) rotate(-90deg);
   display: inline-block;
@@ -341,6 +345,10 @@ span.active-opt {
 
 .cake-expand.rotate-down {
   transform: translateY(4px) translateX(1px) rotate(-90deg);
+}
+
+.ins-exp-btn.rotate-down {
+  transform: translateY(5px) translateX(-3px) rotate(-90deg);
 }
 
 .dlt-btn {
@@ -493,11 +501,11 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   }
 
   .cake-orders h3 {
-    font-size: 2rem;
+    font-size: 1.8rem;
   }
   .order-summary p {
-    font-size: 1.8rem;
-    margin-right: 2rem;
+    font-size: 1.6rem;
+    margin-right: 1.2rem;
   }
 
   .order-summary p span {
@@ -507,7 +515,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   .heading-box {
     display: flex;
     justify-content: unset;
-    column-gap: 3.6rem;
+    column-gap: 2.4rem;
   }
   /* 
   .ord-exp.rotate-up {
@@ -519,6 +527,10 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   }
 }
 @media (max-width: 480px) {
+  .ins-box .ins-exp-btn {
+    font-size: 2.8rem;
+  }
+
   .input-label-box,
   .sig-event-box,
   .time-box,
@@ -619,6 +631,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 @media (max-width: 425px) {
   .heading-box {
     flex-direction: column;
+    align-items: start;
   }
 }
 
