@@ -46,6 +46,7 @@
 
 .order-summary {
   display: flex;
+  align-items: flex-end;
 }
 .order-summary p {
   font-size: 2rem;
@@ -90,9 +91,9 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  height: 13.7rem;
 }
 
+.input-label-box,
 .sig-event-box,
 .time-box,
 .size-box,
@@ -111,7 +112,6 @@
   display: flex;
   width: 100%;
   margin-bottom: 4.8rem;
-  /* margin-top: 9.7rem; */
 }
 
 .sig-event-box {
@@ -129,7 +129,7 @@
   font-size: 3.2rem;
   font-weight: 300;
   font-family: raleway;
-  padding: 1.2rem 0 1.2rem 3.6rem;
+  padding: 1.2rem 0 1.2rem 2.4rem;
   background: transparent;
   display: flex;
   justify-content: space-between;
@@ -137,7 +137,7 @@
 
 .dd-btn span {
   color: #2d5059;
-  opacity: 0.7;
+  /* opacity: 0.7; */
   white-space: nowrap;
   overflow: hidden;
 }
@@ -161,8 +161,8 @@ span.active-opt {
   cursor: pointer;
 }
 .dd-label {
-  font-size: 2.9rem;
-  padding: 1.2rem 3.6rem 1.2rem 3.6rem;
+  font-size: 2.6rem;
+  padding: 1.2rem 2.4rem 1.2rem 2.4rem;
 }
 .dd-label-hidden {
   visibility: hidden;
@@ -230,6 +230,9 @@ span.active-opt {
 .cake-orders.mb-120 {
   margin-bottom: 4.8rem;
 }
+.cake-orders.mb-6 {
+  margin-bottom: 2.4rem;
+}
 .heading-box {
   display: flex;
   justify-content: space-between;
@@ -237,6 +240,7 @@ span.active-opt {
   padding: 0 1.2rem 1.2rem 0rem;
   margin-bottom: 4.8rem;
   width: 100%;
+  align-items: flex-end;
 }
 
 .cake-orders h3 {
@@ -249,6 +253,7 @@ span.active-opt {
   font-size: 3.6rem;
   cursor: pointer;
 }
+
 .cake-heading {
   display: flex;
   align-items: flex-end;
@@ -380,6 +385,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     position: absolute;
     width: 95%;
     /* display: none; */
+    top: 9.6rem;
   }
 
   .signature-form .sticky-div .txt-panel p:not(:first-of-type) {
@@ -444,7 +450,6 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
 @media (max-width: 660px) {
   .signature-event-details {
-    display: flex;
     flex-direction: column;
   }
   .sig-event-box {
@@ -494,13 +499,90 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     justify-content: unset;
     column-gap: 3.6rem;
   }
-
+  /* 
   .ord-exp.rotate-up {
     transform: translateY(-4px) translateX(6px) rotate(90deg);
-  }
+  } */
 
   .details-box p {
     font-size: 2rem;
+  }
+}
+@media (max-width: 480px) {
+  .input-label-box,
+  .sig-event-box,
+  .time-box,
+  .size-box,
+  .flav-box {
+    height: 11.3rem;
+    margin-bottom: 2.4rem;
+  }
+
+  .input-label-box.inscription-label {
+    margin-bottom: 0;
+  }
+  .signature-form .sticky-div {
+    width: 87%;
+    top: 7.2rem;
+  }
+
+  .ins-col {
+    margin-top: 11rem;
+  }
+
+  .signature-event-details {
+    margin-bottom: 2.4rem;
+  }
+
+  .form-sec-head {
+    font-size: 2rem;
+    margin-bottom: 2.4rem;
+  }
+  .dd-btn {
+    font-size: 2.3rem;
+  }
+
+  .dd-label {
+    font-size: 2rem;
+  }
+
+  .dropdown li {
+    font-size: 2.3rem;
+  }
+
+  .form-panel.sig-form-panel {
+    width: 95%;
+  }
+  .cake-details-container {
+    margin-bottom: 4.8rem;
+  }
+  .cake-details {
+    margin-bottom: 0;
+    margin-top: 2.4rem;
+  }
+
+  .cake-heading {
+    margin-bottom: 1.2rem;
+
+    padding: 0 1.2rem 1.2rem 1.2rem;
+  }
+  .cake-summary {
+    margin: 0;
+  }
+
+  .add-cake-btn,
+  .add-cake-btn-disabled {
+    font-size: 1.6rem;
+    padding: 0.4rem 3.6rem;
+    align-self: center;
+    margin-bottom: 4.8rem;
+  }
+
+  .add-cake-btn span:first-of-type,
+  .add-cake-btn-disabled span:first-of-type {
+    padding-right: 1.2rem;
+    font-size: 3rem;
+    font-weight: 300;
   }
 }
 

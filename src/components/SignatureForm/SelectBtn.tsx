@@ -50,7 +50,16 @@ const SelectBtn = (props: SelectBtnProps) => {
       key={`flavbtn-${props.index}`}
     >
       <span>{getDisplayValue()}</span>
-      <span>&#8249;</span>
+      <span
+        style={{
+          transform:
+            props.index === props.menuToggle
+              ? "rotate(90deg) translateY(-6px)"
+              : ""
+        }}
+      >
+        &#8249;
+      </span>
     </div>
   );
 };

@@ -102,11 +102,6 @@
     width: 100%;
   }
 
-  .signature-form .sticky-div {
-    width: 25%;
-    top: 9.6rem;
-  }
-
   .sticky-div.gallery {
     display: unset;
     z-index: 0;
@@ -219,8 +214,18 @@
   .sticky-div {
     top: 4rem;
   }
+  .signature-form .sticky-div {
+    top: 7.2rem;
+    width: 90%;
+  }
+  .signature-form .sticky-div .md-stky-head .bread-crumb-container {
+    display: none;
+  }
   .signature-form .sticky-div .md-stky-head .txt-panel {
     display: unset;
+  }
+  .signature-form .sticky-div .md-stky-head .txt-panel h1 {
+    display: none;
   }
   .sticky-div .md-stky-head .txt-panel {
     display: none;
