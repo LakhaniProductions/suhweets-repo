@@ -175,6 +175,7 @@ const StickyDiv = (props: StickyDivProps) => {
           h2={props.txtPanelData.h2}
           h1={props.txtPanelData.h1}
           p={props.txtPanelData.p}
+          setShowIns={props.txtPanelData.setshowIns}
         />
       </div>
 

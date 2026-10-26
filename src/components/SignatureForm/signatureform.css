@@ -7,23 +7,20 @@
 }
 
 .form-ins-overlay {
-  position: absolute;
-  min-width: 100dvw;
+  position: fixed;
   width: 100%;
-  min-height: 103.8dvh;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.256);
-  z-index: 100;
-  top: 24rem;
+  z-index: 2;
+  overflow: hidden;
+}
+
+.ins-bg {
+  width: 100dvw;
+  min-height: 35.4rem;
+  background-color: white;
   left: 0;
-  right: 0;
-  bottom: 0;
-  overflow: hidden;
-  margin-left: -4.8rem;
-  /* margin-bottom: 50rem; */
-  z-index: 500;
-  overflow: hidden;
-  overscroll-behavior: contain;
+  z-index: 3;
 }
 
 .add-btn-group {
@@ -424,6 +421,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     width: 95%;
     /* display: none; */
     top: 9.6rem;
+    z-index: 3;
   }
 
   .signature-form .sticky-div .txt-panel p:not(:first-of-type) {

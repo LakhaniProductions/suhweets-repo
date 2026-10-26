@@ -2,7 +2,12 @@ import { RefObject } from "react";
 
 export interface StickyDivProps {
   bcrumbData: { url: string; linkText: string }[];
-  txtPanelData: { h2: string; h1: string; p: string | string[] };
+  txtPanelData: {
+    h2: string;
+    h1: string;
+    p: string | string[];
+    setshowIns?: any;
+  };
   pageNavMenu?: string[];
   catRefs?: RefObject<(HTMLDivElement | null)[]>;
   showSecMenu?: boolean;

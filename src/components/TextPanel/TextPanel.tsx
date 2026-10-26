@@ -10,9 +10,11 @@ const TextPanel = (props: TextPanelProps) => {
     if (insClass === "") {
       setInsClass("show");
       setRotateClass("rotate-up");
+      props.setShowIns && props.setShowIns(true);
     } else {
       setInsClass("");
       setRotateClass("rotate-down");
+      props.setShowIns && props.setShowIns(false);
     }
   };
 
@@ -55,15 +57,10 @@ const TextPanel = (props: TextPanelProps) => {
             {Array.isArray(props.p) ? (
               props.p.map((item: string, i: number) =>
                 i === 0 ? (
-                  <>
-                    <p onClick={() => clickIns()}>
-                      {item}
-                      {<span className={`ins-exp-btn ${rotateClass}`}>‹</span>}
-                    </p>
-                    <div
-                      className={insClass === "show" ? "form-ins-overlay" : ""}
-                    ></div>
-                  </>
+                  <p onClick={() => clickIns()}>
+                    {item}
+                    {<span className={`ins-exp-btn ${rotateClass}`}>‹</span>}
+                  </p>
                 ) : (
                   <p className={insClass}>{item}</p>
                 )

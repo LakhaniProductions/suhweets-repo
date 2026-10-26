@@ -119,12 +119,15 @@ const SignatureForm = (props: SignatureFormProps) => {
     "3.) Confirm your order by completing invoice."
   ];
 
+  const [isInsVis, setIsInsVis] = useState<boolean>(false);
+
   const txtPanelData =
     location.pathname === "/signature-form"
       ? {
           h2: "",
           h1: "Signature cakes",
-          p: instructions
+          p: instructions,
+          setshowIns: setIsInsVis
         }
       : { h2: "", h1: "Cupcakes", p: instructions };
 
@@ -504,6 +507,10 @@ const SignatureForm = (props: SignatureFormProps) => {
     setErrObj(updatedItem);
   }, [cakeDetails, cupcakeDetails]);
 
+  useEffect(() => {
+    console.log(isInsVis);
+  }, [isInsVis]);
+
   return (
     <>
       <section className="home-container" ref={formRef}>
@@ -517,6 +524,17 @@ const SignatureForm = (props: SignatureFormProps) => {
         </MenuContext.Provider>
         {!showTY && (
           <>
+            {isInsVis && (
+              <div
+                className="form-ins-overlay"
+                onClick={() => {
+                  setIsInsVis(!isInsVis);
+                }}
+              >
+                <div className="ins-bg"></div>
+              </div>
+            )}
+
             <div className={`form-container signature-form ins-col`}>
               <StickyDiv bcrumbData={bcrumbData} txtPanelData={txtPanelData} />
 

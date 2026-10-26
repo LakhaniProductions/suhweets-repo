@@ -4,5 +4,5 @@ export interface TextPanelProps {
   p: string | string[];
   // layout?: boolean;
   // showIns?: boolean;
-  // setShowIns?: React.Dispatch<React.SetStateAction<boolean>>;
+  setShowIns?: React.Dispatch<React.SetStateAction<boolean>>;
 }
