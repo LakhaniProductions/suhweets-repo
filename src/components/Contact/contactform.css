@@ -161,7 +161,7 @@
   /* text-transform: uppercase; */
   color: #fff;
   text-align: center;
-  z-index: 100;
+  /* z-index: 100; */
   cursor: pointer;
   border-radius: 50px;
   font-family: "Raleway", sans-serif;

@@ -524,15 +524,15 @@ const SignatureForm = (props: SignatureFormProps) => {
         </MenuContext.Provider>
         {!showTY && (
           <>
+            {isInsVis && <div className="ins-bg"></div>}
+
             {isInsVis && (
               <div
                 className="form-ins-overlay"
                 onClick={() => {
                   setIsInsVis(!isInsVis);
                 }}
-              >
-                <div className="ins-bg"></div>
-              </div>
+              ></div>
             )}
 
             <div className={`form-container signature-form ins-col`}>
