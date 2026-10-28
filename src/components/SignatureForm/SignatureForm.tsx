@@ -531,6 +531,7 @@ const SignatureForm = (props: SignatureFormProps) => {
                 className="form-ins-overlay"
                 onClick={() => {
                   setIsInsVis(!isInsVis);
+                  document.body.classList.remove("dis-scroll");
                 }}
               ></div>
             )}

@@ -1,4 +1,4 @@
-import { SyntheticEvent, useContext, useEffect, useRef } from "react";
+import { SyntheticEvent, useContext, useEffect, useRef, useState } from "react";
 import MenuContext from "../../context/HamburgerMenuContext";
 import { Link } from "react-router-dom";
 import { HamburgerMenuProps } from "./HamburgerMenuProps.types";
@@ -8,7 +8,7 @@ import useWindowDimensions from "../../hooks/useWindowDimensions";
 const HamburgerMenu = (props: HamburgerMenuProps) => {
   const menuContext = useContext(MenuContext);
   const { width } = useWindowDimensions();
-
+  const [olClass, setOlClass] = useState<string>("full");
   const hamMenuRef = useRef<HTMLDivElement>(null);
   const handleOutsideClick = (e: SyntheticEvent) => {
     const target = e.target as HTMLDivElement;
@@ -41,106 +41,113 @@ const HamburgerMenu = (props: HamburgerMenuProps) => {
 
   useEffect(() => {
     if (width <= 890) {
-      hamMenuRef.current!.style.top = `${document.body.getBoundingClientRect().top * -1 + 98}px`;
+      hamMenuRef.current!.style.top = `${document.body.getBoundingClientRect().top * -1 + 74}px`;
+      setOlClass("twothird");
     } else {
       hamMenuRef.current!.style.top = `98px`;
+      setOlClass("full");
     }
-  }, [menuContext.BGClass]);
+  }, [menuContext.BGClass, width]);
 
   return (
-    <div
-      className={`hamburger-menu-container ${menuContext.BGClass}`}
-      ref={hamMenuRef}
-    >
-      <ul className="secondary-nav">
-        <div className="link-box">
-          <Link
-            to="/wedding-cakes/wedding/0"
-            onClick={() => localStorage.setItem("clicked", "wedding")}
-          >
-            <li className="nav-heading">Wedding</li>
-          </Link>
-          <div className="int-links-box">
+    <>
+      <div
+        className={`hamburger-menu-container ${menuContext.BGClass}`}
+        ref={hamMenuRef}
+      >
+        <ul className="secondary-nav">
+          <div className="link-box">
             <Link
-              to="/serving-sizes/one-tier"
+              to="/wedding-cakes/wedding/0"
               onClick={() => localStorage.setItem("clicked", "wedding")}
             >
-              <li className="int-link">Serving sizes</li>
+              <li className="nav-heading">Wedding</li>
             </Link>
-            <Link
-              to="/flavors"
-              onClick={() => localStorage.setItem("clicked", "wedding")}
-            >
-              <li className="int-link">Cake flavors</li>
-            </Link>
-            <Link to="/quote-request">
-              <li className="int-link">Request a quote</li>
-            </Link>
+            <div className="int-links-box">
+              <Link
+                to="/serving-sizes/one-tier"
+                onClick={() => localStorage.setItem("clicked", "wedding")}
+              >
+                <li className="int-link">Serving sizes</li>
+              </Link>
+              <Link
+                to="/flavors"
+                onClick={() => localStorage.setItem("clicked", "wedding")}
+              >
+                <li className="int-link">Cake flavors</li>
+              </Link>
+              <Link to="/quote-request">
+                <li className="int-link">Request a quote</li>
+              </Link>
+            </div>
           </div>
-        </div>
-        <div className="link-box">
-          <Link
-            to="/custom-cakes/birthday/0"
-            onClick={() => localStorage.setItem("clicked", "custom")}
-          >
-            <li className="nav-heading">Custom</li>
-          </Link>
-          <div className="int-links-box">
+          <div className="link-box">
             <Link
-              to="/serving-sizes/one-tier"
+              to="/custom-cakes/birthday/0"
               onClick={() => localStorage.setItem("clicked", "custom")}
             >
-              <li className="int-link">Serving sizes</li>
+              <li className="nav-heading">Custom</li>
             </Link>
-            <Link
-              to="/flavors"
-              onClick={() => localStorage.setItem("clicked", "custom")}
-            >
-              <li className="int-link">Cake flavors</li>
-            </Link>
-            <Link to="/quote-request">
-              <li className="int-link">Request a quote</li>
-            </Link>
+            <div className="int-links-box">
+              <Link
+                to="/serving-sizes/one-tier"
+                onClick={() => localStorage.setItem("clicked", "custom")}
+              >
+                <li className="int-link">Serving sizes</li>
+              </Link>
+              <Link
+                to="/flavors"
+                onClick={() => localStorage.setItem("clicked", "custom")}
+              >
+                <li className="int-link">Cake flavors</li>
+              </Link>
+              <Link to="/quote-request">
+                <li className="int-link">Request a quote</li>
+              </Link>
+            </div>
           </div>
-        </div>
-        <div className="link-box">
-          <Link to="/signature-cakes/6-inch">
-            <li className="nav-heading">Signature</li>
-          </Link>
-          <div className="int-links-box">
+          <div className="link-box">
             <Link to="/signature-cakes/6-inch">
-              <li className="int-link">6" Cakes</li>
+              <li className="nav-heading">Signature</li>
             </Link>
-            <Link to="/signature-cakes/8-inch">
-              <li className="int-link">8" Cakes</li>
-            </Link>
-            <Link to="/signature-cakes/10-inch">
-              <li className="int-link">10" Cakes</li>
-            </Link>
+            <div className="int-links-box">
+              <Link to="/signature-cakes/6-inch">
+                <li className="int-link">6" Cakes</li>
+              </Link>
+              <Link to="/signature-cakes/8-inch">
+                <li className="int-link">8" Cakes</li>
+              </Link>
+              <Link to="/signature-cakes/10-inch">
+                <li className="int-link">10" Cakes</li>
+              </Link>
 
-            <Link to="/signature-form">
-              <li className="int-link">Order form</li>
-            </Link>
+              <Link to="/signature-form">
+                <li className="int-link">Order form</li>
+              </Link>
+            </div>
           </div>
-        </div>
-        <div className="link-box">
-          <Link to="/cupcakes/daily">
-            <li className="nav-heading">Cupcakes</li>
-          </Link>
-          <div className="int-links-box">
+          <div className="link-box">
             <Link to="/cupcakes/daily">
-              <li className="int-link">Available Daily</li>
+              <li className="nav-heading">Cupcakes</li>
             </Link>
-            <Link to="/cupcakes/pre-order">
-              <li className="int-link">Pre-Order</li>
-            </Link>
-            <Link to="/cupcake-form">
-              <li className="int-link">Order form</li>
-            </Link>
+            <div className="int-links-box">
+              <Link to="/cupcakes/daily">
+                <li className="int-link">Available Daily</li>
+              </Link>
+              <Link to="/cupcakes/pre-order">
+                <li className="int-link">Pre-Order</li>
+              </Link>
+              <Link to="/cupcake-form">
+                <li className="int-link">Order form</li>
+              </Link>
+            </div>
           </div>
-        </div>
-      </ul>
-    </div>
+        </ul>
+      </div>
+      <div
+        className={`secondary-nav-overlay ${menuContext.BGClass} ${olClass}`}
+      ></div>
+    </>
   );
 };
 export default HamburgerMenu;

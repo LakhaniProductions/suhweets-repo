@@ -11,10 +11,12 @@ const TextPanel = (props: TextPanelProps) => {
       setInsClass("show");
       setRotateClass("rotate-up");
       props.setShowIns && props.setShowIns(true);
+      document.body.classList.add("dis-scroll");
     } else {
       setInsClass("");
       setRotateClass("rotate-down");
       props.setShowIns && props.setShowIns(false);
+      document.body.classList.remove("dis-scroll");
     }
   };
 

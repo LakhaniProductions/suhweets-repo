@@ -43,6 +43,23 @@
   cursor: pointer;
 }
 
+.secondary-nav-overlay {
+  width: 66.6%;
+  background-color: red;
+  left: 0;
+  right: 100%;
+  /* z-index: 10; */
+  position: absolute;
+  height: 100%;
+  display: none;
+  background-color: rgba(0, 0, 0, 0.256);
+}
+
+.full {
+  width: 100%;
+  top: 29rem;
+}
+
 .int-links-box {
   display: flex;
   row-gap: 1.2rem;
@@ -111,12 +128,16 @@
   z-index: 2000;
 } */
 
+.dis-scroll {
+  overflow: hidden;
+}
+
 @media (max-width: 890px) {
   .hamburger-menu-container {
     padding: 0 2.4rem;
     width: 33.3%;
     right: 0;
-    height: calc(100dvh - 9.6rem);
+    height: calc(100dvh - 7.4rem);
     position: absolute;
     overflow-y: scroll;
   }
@@ -127,14 +148,15 @@
     /* align-items: center; */
     justify-content: unset;
   }
-  .dis-scroll {
-    overflow: hidden;
-  }
 }
 
 @media (max-width: 540px) {
   .hamburger-menu-container {
     width: 45%;
+  }
+
+  .secondary-nav-overlay {
+    width: 55%;
   }
 }
 
