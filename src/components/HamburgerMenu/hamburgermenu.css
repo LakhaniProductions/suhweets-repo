@@ -52,12 +52,13 @@
   position: absolute;
   height: 100%;
   display: none;
-  background-color: rgba(0, 0, 0, 0.256);
+  background-color: rgba(255, 255, 255, 0.9);
 }
 
 .full {
   width: 100%;
   top: 29rem;
+  z-index: 100;
 }
 
 .int-links-box {
@@ -76,7 +77,7 @@
 .fade-in {
   opacity: 1;
   transition: opacity 0.3s ease;
-  z-index: 10;
+  /* z-index: 10; */
   display: flex;
 }
 
@@ -117,10 +118,6 @@
 #fade-in-img {
   opacity: 1;
   transition: opacity 3.5s ease;
-}
-
-.fade-in {
-  z-index: 150;
 }
 
 /* this is impacting tabindex order*/

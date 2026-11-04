@@ -25,7 +25,7 @@ const Jumbotron = (props: JumbotronProps) => {
         <h1 className="heading-home">love again</h1>
 
         <p className="body-text-home">
-          Let us help you capture your vision.{" "}
+          Let us help capture your vision for your big day.{" "}
           {/* <br></br> Browse our wedding
           cakes */}
         </p>
