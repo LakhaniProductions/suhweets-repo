@@ -8,7 +8,7 @@ const HomeCard = (props: HomeCardProps) => {
   const { width } = useWindowDimensions();
   const [imgSRC, setImgSRC] = useState(props.cardContent.image);
   useEffect(() => {
-    if (width <= 840 && width > 660) {
+    if (width <= 1280 && width > 660) {
       setImgSRC(props.cardContent.secondaryImg);
     } else if (width <= 660) {
       setImgSRC(props.cardContent.tertiaryImg);
@@ -21,7 +21,7 @@ const HomeCard = (props: HomeCardProps) => {
     <div className="half-container">
       <div className="grad"></div>
       <img src={imgSRC} alt="" />
-      <HomeCardText cardContent={props.cardContent} />
+      {width <= 1280 && <HomeCardText cardContent={props.cardContent} />}
     </div>
   );
 };

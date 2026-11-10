@@ -5,7 +5,7 @@ import HomeBtn from "../HomeBtn/HomeBtn";
 
 const HomeCardText = (props: HomeCardTextProps) => {
   return (
-    <div className={`card-txt ${props.altClass}`}>
+    <div className="card-txt">
       <h4>{props.cardContent.subhead}</h4>
       <h3>{props.cardContent.heading}</h3>
       <p className="card-txt-p">{props.cardContent.bodytxt}</p>

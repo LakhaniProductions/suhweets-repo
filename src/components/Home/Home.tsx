@@ -16,6 +16,7 @@ import HomeCardText from "../HomeCardText/HomeCardText";
 import Footer from "../Footer/Footer";
 import { Ref, useContext, useEffect } from "react";
 import { GlobalLoadingContext } from "../../context/GlobalLoadingContext";
+import useWindowDimensions from "../../hooks/useWindowDimensions";
 
 const Home = (props: HomeProps) => {
   const menuContext = useContext(MenuContext);
@@ -31,9 +32,9 @@ const Home = (props: HomeProps) => {
 
   const homeCardContent: Record<string, string>[] = [
     {
-      subhead: "our",
-      heading: "creations",
-      bodytxt: "Custom cakes inspired by brilliant ideas like yours!",
+      subhead: "",
+      heading: "custom cakes",
+      bodytxt: "Our creations inspired by brilliant ideas like yours!",
       galleryLink: "/custom-cakes/birthday/0",
       linkText: "View gallery",
       image: `${customBG}`,
@@ -41,8 +42,8 @@ const Home = (props: HomeProps) => {
       tertiaryImg: `${customSQ}`
     },
     {
-      subhead: "baker's",
-      heading: "style",
+      subhead: "",
+      heading: "signature cakes",
       bodytxt:
         "A collection of signature cakes that are as delicious as they are stunning",
       galleryLink: "/signature-cakes/6-inch",
@@ -62,11 +63,15 @@ const Home = (props: HomeProps) => {
     }
   ];
 
+  const { width } = useWindowDimensions();
+
   useEffect(() => {
     props.setMenuFade({
       BGClass: ""
     });
   }, [menuContext.BGClass]);
+
+  useEffect(() => {}, [width]);
 
   return (
     <section className="home-container" ref={homeRef}>
@@ -85,6 +90,12 @@ const Home = (props: HomeProps) => {
       </MenuContext.Provider>
 
       <div className="two-col-container">
+        {width > 1280 && (
+          <div className="wd-192">
+            <HomeCardText cardContent={homeCardContent[0]} />
+            <HomeCardText cardContent={homeCardContent[1]} />
+          </div>
+        )}
         <HomeCard cardContent={homeCardContent[0]} />
         <HomeCard cardContent={homeCardContent[1]} />
       </div>
