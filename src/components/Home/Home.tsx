@@ -55,7 +55,7 @@ const Home = (props: HomeProps) => {
     {
       subhead: "",
       heading: "cupcakes",
-      bodytxt: "",
+      bodytxt: "A collection of beautiful cupcakes",
       galleryLink: "/cupcakes/daily",
       linkFor: "cupcakes",
       linkText: "Shop cupcakes",

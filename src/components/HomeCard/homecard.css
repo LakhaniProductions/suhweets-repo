@@ -38,6 +38,17 @@
   color: #526166;
 }
 
+.hor-card .card-txt {
+  width: max-content;
+  align-self: center;
+  align-items: center;
+  margin-top: 4.8rem;
+}
+
+.hor-card .card-txt p {
+  width: 100%;
+}
+
 .wd-192 .card-txt:not(:first-of-type) {
   margin-left: 9.6rem;
 }
@@ -146,6 +157,9 @@
   .half-container {
     width: 100%;
   }
+  .half-container:first-of-type {
+    padding-right: 0;
+  }
 
   .grad {
     background-image: linear-gradient(
@@ -164,6 +178,12 @@
     transform: translateY(-50%);
     margin-left: 4.8rem;
   }
+
+  .hor-card .card-txt {
+    top: 0;
+    transform: unset;
+    position: relative;
+  }
 }
 
 @media (max-width: 1240px) {
@@ -178,62 +198,20 @@
     font-size: 1.8rem;
   }
 }
-/* @media (max-width: 1720px) {
-  .card-txt h4 {
-    font-size: 2.9rem;
-  }
+@media (max-width: 900px) {
   .card-txt h3 {
     font-size: 3.6rem;
   }
   .card-txt p {
-    font-size: 2rem;
-    margin: 0;
+    font-size: 1.6rem;
+    width: 70%;
   }
-  .hlf-col-btn {
-    font-size: 2.3rem;
-    margin-top: 2.4rem;
-  }
-} */
-
-/* @media (max-width: 1570px) {
-  .card-txt h4 {
-    font-size: 2.3rem;
-  }
-  .card-txt h3 {
-    font-size: 2.9rem;
-    margin-bottom: 1.2rem;
-  }
-
+}
+@media (max-width: 760px) {
   .card-txt p {
-    font-size: 1.8rem;
-    line-height: 1.5;
-    margin: 0;
+    width: 100%;
   }
-
-  .card-txt-p {
-    max-width: 75%;
-  }
-  .hlf-col-btn {
-    font-size: 2rem;
-  }
-  .hlf-col-btn.cup {
-    margin-top: 0;
-  }
-  .half-container:first-of-type {
-    padding-right: 1.2rem;
-  }
-} */
-
-/* @media (max-width: 890px) {
-  .card-txt {
-    margin-left: 2.4rem;
-  }
-
-  .link-box {
-    min-width: 12rem;
-  }
-} */
-
+}
 @media (max-width: 660px) {
   .grad {
     background-image: linear-gradient(
@@ -246,10 +224,34 @@
   }
   .card-txt {
     position: absolute;
-    bottom: 10%;
+    bottom: 5%;
     top: unset;
     transform: unset;
     margin-left: 3.6rem;
-    width: 100%;
+    width: 70%;
+  }
+
+  .hor-card .card-txt {
+    top: 0;
+    transform: unset;
+    bottom: unset;
+    margin-left: 0;
+  }
+
+  .card-txt h3 {
+    font-size: 3.1rem;
+  }
+
+  .card-txt p {
+    margin: 1.2rem 0 2.4rem 0;
+  }
+}
+
+@media (max-width: 420px) {
+  .card-txt p {
+    display: none;
+  }
+  .card-txt h3 {
+    margin-bottom: 1.2rem;
   }
 }
