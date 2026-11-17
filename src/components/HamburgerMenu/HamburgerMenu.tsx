@@ -40,11 +40,13 @@ const HamburgerMenu = (props: HamburgerMenuProps) => {
   }, [hamMenuRef, menuContext]);
 
   useEffect(() => {
-    if (width <= 890) {
-      hamMenuRef.current!.style.top = `${document.body.getBoundingClientRect().top * -1 + 74}px`;
+    if (width > 480 && width <= 890) {
+      hamMenuRef.current!.style.top = `${document.body.getBoundingClientRect().top * -1 + 77}px`;
       setOlClass("twothird");
+    } else if (width <= 480) {
+      hamMenuRef.current!.style.top = `${document.body.getBoundingClientRect().top * -1 + 67}px`;
     } else {
-      hamMenuRef.current!.style.top = `98px`;
+      hamMenuRef.current!.style.top = `101px`;
       setOlClass("full");
     }
   }, [menuContext.BGClass, width]);
