@@ -1,8 +1,7 @@
 export const PHONE_NUMBER = "(703) 334-6259";
 export const RUSH_CUTOFF = 14;
 const designImages = Object.values(
-  // import.meta.glob("../../img/signaturecakes/design/*.{png,jpg,jpeg}", {
-  import.meta.glob("../../../public/design/*.{png,jpg,jpeg}", {
+  import.meta.glob("../../img/signaturecakes/design/*.{png,jpg,jpeg}", {
     eager: true,
     as: "url"
   })
