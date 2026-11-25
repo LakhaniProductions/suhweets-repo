@@ -126,14 +126,12 @@ const CakeDetailsGroup = (props: CakeDetailsGroupProps) => {
   //   "Option D",
   //   "Option E"
   // ];
-
-  const designOptions = designContent.map(
-    (item) =>
-      item.flav
-        .split("-")
-        .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-        .join(" ")
-        .split("-")[0]
+  console.log(designContent);
+  const designOptions = designContent.map((item) =>
+    item.flav
+      .split(" ")
+      .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+      .join(" ")
   );
 
   const { selectedOpt } = useParams();
@@ -191,11 +189,9 @@ const CakeDetailsGroup = (props: CakeDetailsGroupProps) => {
     if (props.cakeDetails[i] && props.cakeDetails[i].design) {
       return designImages.find((img) =>
         img.includes(
-          props.cakeDetails[i]!.design.replace(" ", "-").toLowerCase()
+          props.cakeDetails[i]!.design.replace(" ", "_").toLowerCase()
         )
       );
-    } else {
-      return designImages.find((img) => img.includes("the-diva"));
     }
   };
 

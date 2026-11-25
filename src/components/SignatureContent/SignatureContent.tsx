@@ -186,9 +186,7 @@ const SignatureContent = (props: SignatureContentProps) => {
                   return 0;
                 })
                 .map((item: Record<string, any>) => (
-                  <Link
-                    to={`/signature-form/${item.flav.toLowerCase().split("-")[0]}`}
-                  >
+                  <Link to={`/signature-form/${item.flav.replace(" ", "-")}`}>
                     <div className="cake-detail-card">
                       <img src={item.lsImg} alt="" />
                       <div className="cake-info-box">

@@ -8,7 +8,10 @@ const designImages = Object.values(
 );
 const desc = designImages.map((item) => {
   const imgTitle = item.split("/").pop();
-  return { flav: imgTitle!.split(".")[0], lsImg: item };
+  const designTitle = imgTitle!
+    .replace(/_[^_]*$/, "") // Removes the last "_" and everything after it
+    .replace(/_/g, " "); // Replaces all remaining "_" with a space
+  return { flav: designTitle, lsImg: item };
 });
 
 // export const DESIGN_CONT = [
