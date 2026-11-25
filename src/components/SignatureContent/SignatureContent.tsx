@@ -192,7 +192,7 @@ const SignatureContent = (props: SignatureContentProps) => {
                     <div className="cake-detail-card">
                       <img src={item.lsImg} alt="" />
                       <div className="cake-info-box">
-                        <h3>{item.flav.replace("-", " ")}</h3>
+                        <h3>{item.flav.replace("-", " ").split("-")[0]}</h3>
                         {/* <p>{item.p}</p> */}
                         <div className="add-info">
                           <p>{txtPanelContent?.p}</p>
