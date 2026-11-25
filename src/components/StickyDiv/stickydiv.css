@@ -149,10 +149,9 @@
   .md-stky-head {
     margin-bottom: 1.2rem;
   }
-
-  /* .md-stky-nav-con div {
-    width: 50%;
-  } */
+  .md-stky-nav-con {
+    margin: 1.8rem 0 2.4rem 0;
+  }
 
   .md-stky-nav-con div h4 {
     /* width: max-content;

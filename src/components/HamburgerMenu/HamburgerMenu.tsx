@@ -109,10 +109,10 @@ const HamburgerMenu = (props: HamburgerMenuProps) => {
             </div>
           </div>
           <div className="link-box">
-            <Link to="/signature-cakes/6-inch">
+            <Link to="/signature-cakes">
               <li className="nav-heading">Signature</li>
             </Link>
-            <div className="int-links-box">
+            {/* <div className="int-links-box">
               <Link to="/signature-cakes/6-inch">
                 <li className="int-link">6" Cakes</li>
               </Link>
@@ -126,7 +126,7 @@ const HamburgerMenu = (props: HamburgerMenuProps) => {
               <Link to="/signature-form">
                 <li className="int-link">Order form</li>
               </Link>
-            </div>
+            </div> */}
           </div>
           <div className="link-box">
             <Link to="/cupcakes/daily">

@@ -46,7 +46,7 @@ const Home = (props: HomeProps) => {
       heading: "signature cakes",
       bodytxt:
         "A collection of signature cakes that are as delicious as they are stunning",
-      galleryLink: "/signature-cakes/6-inch",
+      galleryLink: "/signature-cakes",
       linkText: "Shop cakes",
       image: `${signature}`,
       secondaryImg: `${customLSBG}`,

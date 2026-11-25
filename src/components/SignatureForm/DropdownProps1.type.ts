@@ -16,6 +16,7 @@ export interface DropdownProps1 {
         index: number;
         flavor?: string;
         size?: string;
+        design?: string;
       }>
     >
   >;
@@ -24,5 +25,6 @@ export interface DropdownProps1 {
     index: number;
     flavor?: string;
     size?: string;
+    design?: string;
   }>;
 }

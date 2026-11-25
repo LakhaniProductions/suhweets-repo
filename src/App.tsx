@@ -44,7 +44,7 @@ function App() {
         />
         <Route
           // path="/signature-cakes/:selectedMenuItem/:size?"
-          path="/signature-cakes/:size?"
+          path="/signature-cakes/"
           element={<Signature setMenuFade={setMenuFade} menuFade={menuFade} />}
         />
 
@@ -77,7 +77,7 @@ function App() {
         />
 
         <Route
-          path="/signature-form"
+          path="/signature-form/:selectedOpt?"
           element={
             <SignatureForm setMenuFade={setMenuFade} menuFade={menuFade} />
           }

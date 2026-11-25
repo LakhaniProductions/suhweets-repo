@@ -8,7 +8,6 @@ import "./signature.css";
 import SignatureContent from "../SignatureContent/SignatureContent";
 import Footer from "../Footer/Footer";
 import StickyDiv from "../StickyDiv/StickyDiv";
-import { useParams } from "react-router-dom";
 import { GlobalLoadingContext } from "../../context/GlobalLoadingContext";
 
 const Signature = (props: SignatureProps) => {
@@ -18,7 +17,6 @@ const Signature = (props: SignatureProps) => {
   }
 
   const sigRef: Ref<HTMLElement | any> = globalContext.containerRef;
-  const { size } = useParams();
 
   //sticky div content
   const bcrumbData = [
@@ -30,18 +28,18 @@ const Signature = (props: SignatureProps) => {
   const txtPanelData = {
     h2: "Signature",
     h1: "cakes",
-    p: "write some cool description here. For now this stays"
+    p: "A collection of our pre-designed cakes available in many flavors and sizes."
   };
 
   // const menu = [`classic flavors`, `specialty flavors`];
-  const secMenu = [`6"`, `8"`, `10"`];
+  // const secMenu = [`6"`, `8"`, `10"`];
   const categoriesRefs = useRef<(HTMLDivElement | null)[]>([]);
 
   useEffect(() => {
     props.setMenuFade({
       BGClass: ""
     });
-  }, [location.pathname, size]);
+  }, [location.pathname]);
 
   return (
     <section className="home-container" ref={sigRef}>
@@ -59,8 +57,8 @@ const Signature = (props: SignatureProps) => {
           txtPanelData={txtPanelData}
           // pageNavMenu={menu}
           // catRefs={categoriesRefs}
-          showSecMenu={true}
-          secMenu={secMenu}
+          // showSecMenu={true}
+          // secMenu={secMenu}
         />
         <SignatureContent catRefs={categoriesRefs} />
       </div>

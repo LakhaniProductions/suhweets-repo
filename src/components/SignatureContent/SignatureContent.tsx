@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import { SignatureContentProps } from "./SignatureContentProps.type";
 
-import { useLocation, useParams } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
+import { DESIGN_CONT } from "../../shared/constants/constants";
 
 const SignatureContent = (props: SignatureContentProps) => {
   const location = useLocation();
-  const { size } = useParams();
 
   const flavorImages = Object.values(
     import.meta.glob("../../img/signaturecakes/*.{png,jpg,jpeg}", {
@@ -13,100 +13,8 @@ const SignatureContent = (props: SignatureContentProps) => {
       as: "url"
     })
   );
-  const signatureContent = [
-    {
-      flav: "Vanilla Dream",
-      p: "Moist vanilla cake paired with smooth vanilla buttercream.",
-      img: flavorImages.find((img) => img.includes("chocolate-big")),
-      lsImg: flavorImages.find((img) => img.includes("one-col")),
-      bgimg: flavorImages.find((img) => img.includes("chocolate-small"))
-    },
-    {
-      flav: "Red Velvet",
-      p: "Rich red velvet cake with a creamy vanilla cream cheese frosting.",
-      img: flavorImages.find((img) => img.includes("chocolate-big")),
-      lsImg: flavorImages.find((img) => img.includes("one-col")),
-      bgimg: flavorImages.find((img) => img.includes("chocolate-small"))
-    },
-    {
-      flav: `Cookies & Cream`,
-      p: "Choice of chocolate or vanilla cake with cookies & cream buttercream.",
-      img: flavorImages.find((img) => img.includes("chocolate-big")),
-      lsImg: flavorImages.find((img) => img.includes("one-col")),
-      bgimg: flavorImages.find((img) => img.includes("chocolate-small"))
-    },
-    {
-      flav: "Funfetti",
-      p: "Funfetti cake with your choice of vanilla or strawberry buttercream.",
-      img: flavorImages.find((img) => img.includes("chocolate-big")),
-      lsImg: flavorImages.find((img) => img.includes("one-col")),
-      bgimg: flavorImages.find((img) => img.includes("chocolate-small"))
-    },
-    {
-      flav: "Strawberry Delight",
-      p: "Strawberry cake layered with strawberry cream cheese frosting.",
-      img: flavorImages.find((img) => img.includes("chocolate-big")),
-      lsImg: flavorImages.find((img) => img.includes("one-col")),
-      bgimg: flavorImages.find((img) => img.includes("chocolate-small"))
-    },
-    {
-      flav: "Double Chocolate",
-      p: "Chocolate cake filled with rich chocolate buttercream.",
-      img: flavorImages.find((img) => img.includes("chocolate-big")),
-      lsImg: flavorImages.find((img) => img.includes("one-col")),
-      bgimg: flavorImages.find((img) => img.includes("chocolate-small"))
-    },
-    {
-      flav: "lemon raspberry",
-      p: "Lemon cake with raspberry compote and vanilla buttercream.",
-      img: flavorImages.find((img) => img.includes("chocolate-big")),
-      lsImg: flavorImages.find((img) => img.includes("one-col")),
-      bgimg: flavorImages.find((img) => img.includes("chocolate-small"))
-    },
-    {
-      flav: "Spiced Carrot",
-      p: "Carrot cake with vanilla cream cheese frosting and a touch of dulce de leche.",
-      img: flavorImages.find((img) => img.includes("chocolate-big")),
-      lsImg: flavorImages.find((img) => img.includes("one-col")),
-      bgimg: flavorImages.find((img) => img.includes("chocolate-small"))
-    },
-    {
-      flav: "Almond Raspberry",
-      p: "Almond cake with raspberry compote and almond butter cream",
-      img: flavorImages.find((img) => img.includes("chocolate-big")),
-      lsImg: flavorImages.find((img) => img.includes("one-col")),
-      bgimg: flavorImages.find((img) => img.includes("chocolate-small"))
-    },
-    {
-      flav: "Cookie Butter",
-      p: "Cinnamon cake with Biscoff cream cheese frosting.",
-      img: flavorImages.find((img) => img.includes("chocolate-big")),
-      lsImg: flavorImages.find((img) => img.includes("one-col")),
-      bgimg: flavorImages.find((img) => img.includes("chocolate-small"))
-    },
-    {
-      flav: "Hazelnut Dream",
-      p: "Vanilla or chocolate cake filled with Nutella ganache and dulce de leche",
-      img: flavorImages.find((img) => img.includes("chocolate-big")),
-      lsImg: flavorImages.find((img) => img.includes("one-col")),
-      bgimg: flavorImages.find((img) => img.includes("chocolate-small"))
-    },
-    {
-      flav: "Strawberry Shortcake",
-      p: "Vanilla cake with strawberry compote and vanilla buttercream",
-      img: flavorImages.find((img) => img.includes("chocolate-big")),
-      lsImg: flavorImages.find((img) => img.includes("one-col")),
-      bgimg: flavorImages.find((img) => img.includes("chocolate-small"))
-    },
-    {
-      flav: "Chocolate Indulgence",
-      p: "Chocolate cake filled with chocolate ganache and chocolate buttercream",
-      img: flavorImages.find((img) => img.includes("chocolate-big")),
-      lsImg: flavorImages.find((img) => img.includes("one-col")),
-      bgimg: flavorImages.find((img) => img.includes("chocolate-small"))
-    }
-  ];
-
+  // console.log(flavorImages);
+  const signatureContent = DESIGN_CONT;
   const cupcakeContent = [
     {
       category: "daily",
@@ -210,38 +118,17 @@ const SignatureContent = (props: SignatureContentProps) => {
   const [txtPanelContent, setTxtPanelContent] = useState<Record<string, any>>();
 
   useEffect(() => {
-    location.pathname === "/cupcakes" &&
-      setTxtPanelContent({
-        p: "An assorment of delectable flavors to choose from ",
-        h1: "cupcakes",
-        h2: "our"
-      });
+    location.pathname === "/cupcakes"
+      ? setTxtPanelContent({
+          p: "An assorment of delectable flavors to choose from ",
+          h1: "cupcakes",
+          h2: "our"
+        })
+      : setTxtPanelContent({
+          p: "from ",
+          h1: "$100"
+        });
   }, [location]);
-
-  useEffect(() => {
-    if (size === "6-inch") {
-      setTxtPanelContent(() => ({
-        p: "Serves 4-8",
-        h1: "$60",
-        h1Spec: "$65",
-        h2: "6 inch"
-      }));
-    } else if (size === "8-inch") {
-      setTxtPanelContent(() => ({
-        p: "Serves 10-12",
-        h1: "$90",
-        h1Spec: "$95",
-        h2: "8 inch"
-      }));
-    } else if (size === "10-inch") {
-      setTxtPanelContent(() => ({
-        p: "Serves 12-20",
-        h1: "$110",
-        h1Spec: "$115",
-        h2: "10 inch"
-      }));
-    }
-  }, [size]);
 
   return (
     <>
@@ -299,18 +186,24 @@ const SignatureContent = (props: SignatureContentProps) => {
                   return 0;
                 })
                 .map((item: Record<string, any>) => (
-                  <div className="cake-detail-card">
-                    <img src={item.lsImg} alt="" />
-                    <div className="cake-info-box">
-                      <h3>{item.flav}</h3>
-                      <p>{item.p}</p>
-                      <div className="add-info">
-                        <p>{txtPanelContent?.p}</p>
+                  <Link to={`/signature-form/${item.flav.toLowerCase()}`}>
+                    <div className="cake-detail-card">
+                      <img src={item.lsImg} alt="" />
+                      <div className="cake-info-box">
+                        <h3>{item.flav.replace("-", " ")}</h3>
+                        {/* <p>{item.p}</p> */}
+                        <div className="add-info">
+                          <p>{txtPanelContent?.p}</p>
 
-                        {<h4 className="cake-price">{txtPanelContent?.h1}</h4>}
+                          {
+                            <h4 className="cake-price">
+                              {txtPanelContent?.h1}
+                            </h4>
+                          }
+                        </div>
                       </div>
                     </div>
-                  </div>
+                  </Link>
                 ))}
             </div>
           )}

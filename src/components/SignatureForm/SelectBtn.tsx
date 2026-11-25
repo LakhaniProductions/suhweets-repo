@@ -16,6 +16,8 @@ const SelectBtn = (props: SelectBtnProps) => {
       return props.cakeDetails[props.index]?.size || props.defaultVal;
     } else if (props.defaultVal.toLowerCase().includes("quantity")) {
       return props.cakeDetails[props.index]?.quantity || props.defaultVal;
+    } else if (props.defaultVal.toLowerCase().includes("design")) {
+      return props.cakeDetails[props.index]?.design || props.defaultVal;
     }
 
     return props.defaultVal; // Fallback to defaultVal if nothing else applies

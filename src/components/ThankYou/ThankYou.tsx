@@ -7,7 +7,7 @@ const ThankYou = () => {
   useEffect(() => {
     if (
       location.pathname === "/cupcake-form" ||
-      location.pathname === "/signature-form"
+      location.pathname.includes("/signature-form")
     ) {
       setMsg("Please keep an eye on your email for an order invoice.");
     } else {

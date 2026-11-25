@@ -13,10 +13,20 @@
   flex-direction: row;
   flex-wrap: wrap;
 }
+.flavors-box a,
+.flavors-box a:link {
+  max-width: 32%;
+  width: 100%;
+  text-decoration: none;
+  color: #526166;
+}
 
+.flavors-box a:visited {
+  color: #526166;
+}
 .cake-detail-card {
   display: flex;
-  max-width: 32%;
+  /* max-width: 32%; */
   width: 100%;
   flex-direction: column;
 }
@@ -27,22 +37,23 @@
 
 .cake-info-box {
   display: flex;
-  flex-direction: column;
+  /* flex-direction: column; */
   width: 100%;
   border-top: 0.8rem solid #526166;
   background-color: rgba(171, 238, 255, 0.35);
   border-radius: 0 0 3rem 3rem;
-  padding: 0 2.4rem;
+  padding: 2.4rem;
+  justify-content: space-between;
 }
 .add-info {
   display: flex;
-  justify-content: space-between;
-  margin-bottom: 2.4rem;
+  justify-content: flex-end;
 }
 
 .cake-info-box .add-info h4 {
   font-size: 2.3rem;
   font-family: "fjalla one", sans-serif;
+  margin-left: 1.2rem;
 }
 .cake-info-box .add-info p {
   font-size: 2rem;
@@ -53,7 +64,7 @@
 .cake-info-box h3 {
   font-family: "fjalla one", sans-serif;
   text-transform: uppercase;
-  margin-top: 3.6rem;
+  /* margin-top: 3.6rem; */
   font-size: 2.3rem;
   color: #526166;
 }
@@ -120,11 +131,11 @@
   }
 } */
 
-@media (max-width: 1390px) {
+/* @media (max-width: 1390px) {
   .cake-detail-card {
     max-width: 32%;
   }
-}
+} */
 
 @media (max-width: 1360px) {
   .cake-info-box p {
@@ -133,7 +144,8 @@
 }
 
 @media (max-width: 1300px) {
-  .cake-detail-card {
+  .flavors-box a,
+  .flavors-box a:link {
     max-width: 31.5%;
   }
 }
@@ -142,7 +154,8 @@
   .cake-info-box p {
     font-size: 2.3rem;
   }
-  .cake-detail-card {
+  .flavors-box a,
+  .flavors-box a:link {
     max-width: 48.7%;
   }
 }
@@ -154,7 +167,8 @@
 }
 
 @media (max-width: 1018px) {
-  .cake-detail-card {
+  .flavors-box a,
+  .flavors-box a:link {
     max-width: 48%;
   }
 }
@@ -180,7 +194,8 @@
 }
 
 @media (max-width: 600px) {
-  .cake-detail-card {
+  .flavors-box a,
+  .flavors-box a:link {
     max-width: 100%;
   }
 }

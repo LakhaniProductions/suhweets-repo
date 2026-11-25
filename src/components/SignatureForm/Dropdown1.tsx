@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { DropdownProps1 } from "./DropdownProps1.type";
+
 // import useWindowDimensions from "../../hooks/useWindowDimensions";
 
 const Dropdown1 = (props: DropdownProps1) => {
@@ -27,6 +28,7 @@ const Dropdown1 = (props: DropdownProps1) => {
             index: number;
             flavor?: string | Array<string> | undefined | any;
             size?: string | undefined | any;
+            design?: string | undefined | any;
             quantity?: string | undefined | any;
           }>
         ) => [
@@ -37,7 +39,30 @@ const Dropdown1 = (props: DropdownProps1) => {
         ]
       );
     } else {
-      if (props.ddClass === "sig-flavor" || props.ddClass === "cc-flavor") {
+      if (props.ddClass === "sig-design") {
+        // For "sig-design", update or add a new design
+        props.setCakeDetails((prevState) => {
+          const updatedDetails = prevState.map((item, i) => {
+            if (i === props.index) {
+              // Update the existing item
+              return { ...item, design: option };
+            } else {
+              // Return item as is
+              return item;
+            }
+          });
+
+          // Add a new item if it doesn't exist
+          if (!updatedDetails.find((item) => item.index === props.index)) {
+            updatedDetails.push({ index: props.index, design: option });
+          }
+
+          return updatedDetails;
+        });
+      } else if (
+        props.ddClass === "sig-flavor" ||
+        props.ddClass === "cc-flavor"
+      ) {
         // For "sig-flavor", update or add a new flavor
         props.setCakeDetails((prevState) => {
           const updatedDetails = prevState.map((item, i) => {
@@ -102,7 +127,11 @@ const Dropdown1 = (props: DropdownProps1) => {
   };
 
   const getActiveOption = (option: string | undefined) => {
-    if (props.ddClass.includes("flavor")) {
+    if (props.ddClass.includes("design")) {
+      return props.cakeDetails[props.index]?.design === option
+        ? `size-opt act-${props.ddClass}`
+        : "size-opt";
+    } else if (props.ddClass.includes("flavor")) {
       return props.cakeDetails[props.index]?.flavor === option
         ? `size-opt act-${props.ddClass}`
         : "size-opt";

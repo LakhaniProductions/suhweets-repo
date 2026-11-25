@@ -10,6 +10,11 @@
   border-bottom: 3px solid rgba(216, 13, 92, 0.6);
 }
 
+.header.scr-header {
+  border-bottom: 3px solid rgba(216, 13, 92, 0.6);
+  box-shadow: 0 4px 12px 0 rgba(216, 13, 92, 0.1);
+}
+
 .header-content {
   display: flex;
   max-height: max-content;

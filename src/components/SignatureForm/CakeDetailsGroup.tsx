@@ -2,21 +2,27 @@ import { useEffect, useRef, useState } from "react";
 import { CakeDetailsGroupProps } from "./CakeDetailsGroup.type";
 import SelectBtn from "./SelectBtn";
 import Dropdown1 from "./Dropdown1";
+import { useParams } from "react-router-dom";
+import { DESIGN_CONT } from "../../shared/constants/constants";
 
 const CakeDetailsGroup = (props: CakeDetailsGroupProps) => {
   const flavDDRefs = useRef<Array<HTMLElement | null>>([]);
   const sizeDDRefs = useRef<Array<HTMLElement | null>>([]);
+  const designDDRefs = useRef<Array<HTMLElement | null>>([]);
   const flavOptionRefs = useRef<Array<HTMLElement | null>>([]);
   const sizeOptionRefs = useRef<Array<HTMLElement | null>>([]);
+  const designOptionRefs = useRef<Array<HTMLElement | null>>([]);
   const [flavMenuToggle, setFlavMenuToggle] = useState<null | number>(null);
   const [sizeMenuToggle, setSizeMenuToggle] = useState<null | number>(null);
+  const [designMenuToggle, setDesignMenuToggle] = useState<null | number>(null);
   const [activeFlavIndex, setActiveFlavIndex] = useState<
     Record<string, number>
   >({});
   const [activeSizeIndex, setActiveSizeIndex] = useState({});
+  const [activeDesignIndex, setActiveDesignIndex] = useState({});
   const [showOrders, setShowOrders] = useState<boolean>(true);
 
-  const signatureContent = [
+  const flavorDetails = [
     {
       flav: "Vanilla Dream",
       p: "Moist vanilla cake paired with smooth vanilla buttercream.",
@@ -109,9 +115,36 @@ const CakeDetailsGroup = (props: CakeDetailsGroupProps) => {
     }
   ];
 
-  const cakeFlavors = signatureContent.map((item) => item.flav);
+  const cakeFlavors = flavorDetails.map((item) => item.flav);
 
   const sizeOptions = ["6 Inch", "8 Inch", "10 Inch"];
+  const designContent = DESIGN_CONT;
+  // const designOptions = [
+  //   "Option A",
+  //   "Option B",
+  //   "Option C",
+  //   "Option D",
+  //   "Option E"
+  // ];
+
+  const designOptions = designContent.map((item) =>
+    item.flav
+      .split("-")
+      .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+      .join(" ")
+  );
+
+  const { selectedOpt } = useParams();
+  const dfltDesignOpt = designOptions.findIndex(
+    (item) => item.toLowerCase() === selectedOpt
+  );
+
+  const designImages = Object.values(
+    import.meta.glob("../../img/signaturecakes/design/*.{png,jpg,jpeg}", {
+      eager: true,
+      as: "url"
+    })
+  );
 
   const removeCake = (i: number) => {
     if (
@@ -141,9 +174,7 @@ const CakeDetailsGroup = (props: CakeDetailsGroupProps) => {
     if (!cake?.flavor || !cake?.size) return 0;
 
     // Find the category from signatureContent
-    const flavorInfo = signatureContent.find(
-      (item) => item.flav === cake.flavor
-    );
+    const flavorInfo = flavorDetails.find((item) => item.flav === cake.flavor);
     const category: string = flavorInfo!.category;
 
     // Look up the price based on category and size
@@ -154,6 +185,39 @@ const CakeDetailsGroup = (props: CakeDetailsGroupProps) => {
 
     return hasErrors;
   };
+  const getCardImg = (i: number) => {
+    if (props.cakeDetails[i] && props.cakeDetails[i].design) {
+      return designImages.find((img) =>
+        img.includes(
+          props.cakeDetails[i]!.design.replace(" ", "-").toLowerCase()
+        )
+      );
+    } else {
+      return designImages.find((img) => img.includes("the-diva"));
+    }
+  };
+
+  useEffect(() => {
+    const slctdDesString = selectedOpt!
+      .split("-")
+      .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+      .join(" ");
+    props.setCakeDetails((prevState) => {
+      if (prevState.length > 0) {
+        return prevState;
+      }
+
+      return [...prevState, { index: 0, design: slctdDesString }];
+    });
+  }, []);
+
+  useEffect(() => {
+    console.log(props.cakeDetails);
+  }, [props.cakeDetails]);
+
+  useEffect(() => {
+    setActiveDesignIndex(dfltDesignOpt);
+  }, []);
 
   useEffect(() => {
     !showOrders && setShowOrders(!showOrders);
@@ -191,6 +255,7 @@ const CakeDetailsGroup = (props: CakeDetailsGroupProps) => {
             key={props.cakeDetails[i]?.index || i}
           >
             {(props.cakeDetails?.length &&
+              props.cakeDetails[i]?.design &&
               props.cakeDetails[i]?.flavor &&
               props.cakeDetails[i]?.size) ||
             props.cakeOrderCountArr?.length > 1 ? (
@@ -253,6 +318,16 @@ const CakeDetailsGroup = (props: CakeDetailsGroupProps) => {
                 {!(i === props.editIconIndex) && (
                   <div className="cake-summary">
                     <div className="details-box">
+                      {props.cakeDetails[i]?.design ? (
+                        <p>
+                          <span>
+                            <strong>Design:</strong>{" "}
+                          </span>
+                          {`${props.cakeDetails[i]?.design}`}
+                        </p>
+                      ) : (
+                        ""
+                      )}
                       {props.cakeDetails[i]?.flavor ? (
                         <p>
                           <span>
@@ -290,8 +365,49 @@ const CakeDetailsGroup = (props: CakeDetailsGroupProps) => {
             )}
 
             {i === props.editIconIndex && (
-              <>
+              <div className="order-card">
+                <img src={getCardImg(i)}></img>
                 <div className="cake-details" key={`details-${i}`}>
+                  <div className="design-box">
+                    <SelectBtn
+                      err={props.errObj}
+                      cakeDetails={props.cakeDetails}
+                      refs={props.designSelectRefs}
+                      index={i}
+                      menuToggle={designMenuToggle}
+                      setMenuToggle={setDesignMenuToggle}
+                      defaultVal={"Cake Design*"}
+                    />
+                    {
+                      <p
+                        className={
+                          props.cakeDetails[i]?.design
+                            ? "dd-label"
+                            : " dd-label dd-label-hidden"
+                        }
+                      >
+                        {"Cake Design*"}
+                      </p>
+                    }
+                    {designMenuToggle === i && (
+                      <>
+                        <Dropdown1
+                          index={i}
+                          selectRefs={props.designSelectRefs}
+                          ddRefs={designDDRefs}
+                          menuToggle={designMenuToggle}
+                          setMenuToggle={setDesignMenuToggle}
+                          menuOptions={designOptions}
+                          activeIndex={activeDesignIndex}
+                          setActiveIndex={setActiveDesignIndex}
+                          optionRefs={designOptionRefs}
+                          ddClass={"sig-design"}
+                          setCakeDetails={props.setCakeDetails}
+                          cakeDetails={props.cakeDetails}
+                        />
+                      </>
+                    )}
+                  </div>
                   <div className="flav-box" key={`flavbox-${i}`}>
                     <SelectBtn
                       err={props.errObj}
@@ -386,45 +502,49 @@ const CakeDetailsGroup = (props: CakeDetailsGroupProps) => {
                       </>
                     )}
                   </div>
-                </div>
-                <div className="input-label-box inscription-label">
-                  <input
-                    type="text"
-                    className={"form-input form-input--inscription"}
-                    placeholder={"Cake Inscription"}
-                    value={props.cakeDetails[i]?.inscription}
-                    id="inscription"
-                    onChange={(e) => {
-                      props.setCakeDetails((prevState) => {
-                        const updatedDetails = prevState.map((item, index) => {
-                          if (index === i) {
-                            // Update the existing item
-                            return { ...item, inscription: e.target.value };
-                          } else {
-                            // Return item as is
-                            return item;
+                  <div className="input-label-box inscription-label">
+                    <input
+                      type="text"
+                      className={"form-input form-input--inscription"}
+                      placeholder={"Cake Inscription"}
+                      value={props.cakeDetails[i]?.inscription}
+                      id="inscription"
+                      onChange={(e) => {
+                        props.setCakeDetails((prevState) => {
+                          const updatedDetails = prevState.map(
+                            (item, index) => {
+                              if (index === i) {
+                                // Update the existing item
+                                return { ...item, inscription: e.target.value };
+                              } else {
+                                // Return item as is
+                                return item;
+                              }
+                            }
+                          );
+
+                          // Add a new item if it doesn't exist
+                          if (
+                            !updatedDetails.find((item) => item.index === i)
+                          ) {
+                            updatedDetails.push({
+                              index: i,
+                              inscription: e.target.value
+                            });
                           }
+
+                          return updatedDetails;
                         });
+                      }}
+                      required
+                    />
 
-                        // Add a new item if it doesn't exist
-                        if (!updatedDetails.find((item) => item.index === i)) {
-                          updatedDetails.push({
-                            index: i,
-                            inscription: e.target.value
-                          });
-                        }
-
-                        return updatedDetails;
-                      });
-                    }}
-                    required
-                  />
-
-                  <label htmlFor="inscription" className="form-label">
-                    Cake Inscription
-                  </label>
+                    <label htmlFor="inscription" className="form-label">
+                      Cake Inscription
+                    </label>
+                  </div>
                 </div>
-              </>
+              </div>
             )}
           </div>
         ))}

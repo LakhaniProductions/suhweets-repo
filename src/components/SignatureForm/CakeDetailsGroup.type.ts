@@ -7,6 +7,7 @@ export interface CakeDetailsGroupProps {
     index: number;
     flavor?: string | Array<string> | undefined | any;
     size?: string | undefined | any;
+    design?: string | undefined | any;
     quantity?: string | undefined | any;
   }>;
   setCakeDetails: React.Dispatch<
@@ -16,6 +17,7 @@ export interface CakeDetailsGroupProps {
         index: number;
         flavor?: string | Array<string> | undefined | any;
         size?: string | undefined | any;
+        design?: string | undefined | any;
         quantity?: string | undefined | any;
       }>
     >
@@ -24,5 +26,6 @@ export interface CakeDetailsGroupProps {
   setEditIconIndex: React.Dispatch<React.SetStateAction<null | number>>;
   flavSelectRefs: React.MutableRefObject<Array<HTMLDivElement | null>>;
   sizeSelectRefs?: React.MutableRefObject<Array<HTMLDivElement | null>>;
+  designSelectRefs?: React.MutableRefObject<Array<HTMLDivElement | null>>;
   quantitySelectRefs?: React.MutableRefObject<Array<HTMLDivElement | null>>;
 }

@@ -73,19 +73,27 @@
 .order-summary p span {
   font-size: 2.9rem;
 }
-.size-box {
-  width: 40%;
-}
 
-.flav-box {
-  width: 53%;
-  margin-right: 7.2rem;
+.sig-details-box {
+  display: flex;
 }
 .cake-details,
 .cc-cake-details {
   display: flex;
   width: 100%;
   margin-bottom: 2.4rem;
+  flex-wrap: wrap;
+}
+
+.order-card {
+  display: flex;
+  column-gap: 7.2rem;
+}
+
+.design-box,
+.size-box,
+.flav-box {
+  width: 100%;
 }
 
 .cc-flav-box,
@@ -117,7 +125,8 @@
 .sig-event-box,
 .time-box,
 .size-box,
-.flav-box {
+.flav-box,
+.design-box {
   height: 13.7rem;
 }
 
@@ -239,6 +248,7 @@ span.active-opt {
 .act-sig-flavor,
 .act-cc-flavor,
 .act-sig-size,
+.act-sig-design,
 .act-time {
   background-color: #ff0055;
   color: white;

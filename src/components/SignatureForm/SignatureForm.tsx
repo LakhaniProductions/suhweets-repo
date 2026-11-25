@@ -23,6 +23,8 @@ import StickyDiv from "../StickyDiv/StickyDiv";
 import Footer from "../Footer/Footer";
 import { GlobalLoadingContext } from "../../context/GlobalLoadingContext";
 
+import { DESIGN_CONT } from "../../shared/constants/constants";
+
 const SignatureForm = (props: SignatureFormProps) => {
   const globalContext = useContext(GlobalLoadingContext);
   if (!globalContext) {
@@ -37,6 +39,7 @@ const SignatureForm = (props: SignatureFormProps) => {
   const emailAddressRef: any = useRef(null);
   const flavSelectRefs = useRef<Array<HTMLDivElement | null>>([]);
   const sizeSelectRefs = useRef<Array<HTMLDivElement | null>>([]);
+  const designSelectRefs = useRef<Array<HTMLDivElement | null>>([]);
   const ccFlavSelectRefs = useRef<Array<HTMLDivElement | null>>([]);
   const quantitySelectRefs = useRef<Array<HTMLInputElement | null>>([]);
   const timeSelectRef: RefObject<any> = useRef(null);
@@ -58,6 +61,7 @@ const SignatureForm = (props: SignatureFormProps) => {
       index: number;
       flavor?: string;
       size?: string;
+      design?: string;
       quantity?: number;
     }>
   >([]);
@@ -121,15 +125,14 @@ const SignatureForm = (props: SignatureFormProps) => {
 
   const [isInsVis, setIsInsVis] = useState<boolean>(false);
 
-  const txtPanelData =
-    location.pathname === "/signature-form"
-      ? {
-          h2: "",
-          h1: "Signature cakes",
-          p: instructions,
-          setshowIns: setIsInsVis
-        }
-      : { h2: "", h1: "Cupcakes", p: instructions };
+  const txtPanelData = location.pathname.includes("/signature-form")
+    ? {
+        h2: "",
+        h1: "Signature cakes",
+        p: instructions,
+        setshowIns: setIsInsVis
+      }
+    : { h2: "", h1: "Cupcakes", p: instructions };
 
   const timeOpts = [
     "10:00 AM",
@@ -155,15 +158,20 @@ const SignatureForm = (props: SignatureFormProps) => {
       ]);
     setCakeDetails((prevState) => [
       ...prevState,
-      { index: cakeOrderCountArr.length }
+      {
+        index: cakeOrderCountArr.length,
+        design:
+          DESIGN_CONT[0].flav.charAt(0).toUpperCase() +
+          DESIGN_CONT[0].flav.slice(1)
+      }
     ]);
     setEditIconIndex(+cakeDetails[cakeDetails.length - 1].index + 1);
   };
 
   const cakeDetailsCheck = () => {
-    if (location.pathname === "/signature-form") {
+    if (location.pathname.includes("/signature-form")) {
       const lastItem = cakeDetails[cakeDetails.length - 1];
-      if (lastItem && lastItem.flavor && lastItem.size) {
+      if (lastItem && lastItem.design && lastItem.flavor && lastItem.size) {
         return true;
       } else {
         return false;
@@ -283,7 +291,7 @@ const SignatureForm = (props: SignatureFormProps) => {
 
     if (isValidCommonFields()) {
       if (
-        location.pathname === "/signature-form" &&
+        location.pathname.includes("/signature-form") &&
         isValidSignatureFormFields()
       ) {
         setAllData(true);
@@ -381,7 +389,7 @@ const SignatureForm = (props: SignatureFormProps) => {
         }
       };
 
-      if (location.pathname === "/signature-form") {
+      if (location.pathname.includes("/signature-form")) {
         orderFieldErrs(cakeDetails, "size", "sizeErr");
       } else {
         orderFieldErrs(cupcakeDetails, "quantity", "quantityErr");
@@ -391,7 +399,7 @@ const SignatureForm = (props: SignatureFormProps) => {
 
   const sendEmail = async () => {
     let data;
-    if (location.pathname === "/signature-form") {
+    if (location.pathname.includes("/signature-form")) {
       data = {
         pickupDate,
         fullName,
@@ -471,7 +479,7 @@ const SignatureForm = (props: SignatureFormProps) => {
     };
     let updatedItem;
 
-    if (location.pathname === "/signature-form") {
+    if (location.pathname.includes("/signature-form")) {
       isEmpty(flavSelectRefs, "Cake Flavor", setEmptyFlav);
       isEmpty(sizeSelectRefs, "Cake Size", setEmptySize);
 
@@ -507,9 +515,9 @@ const SignatureForm = (props: SignatureFormProps) => {
     setErrObj(updatedItem);
   }, [cakeDetails, cupcakeDetails]);
 
-  useEffect(() => {
-    console.log(isInsVis);
-  }, [isInsVis]);
+  useEffect(() => {}, [isInsVis]);
+
+  console.log(errObj);
 
   return (
     <>
@@ -546,7 +554,77 @@ const SignatureForm = (props: SignatureFormProps) => {
                   encType="multipart/form-data"
                   autoComplete="off"
                 >
-                  <h2 className="form-sec-head">Pickup Information</h2>
+                  <h2 className="form-sec-head">Order details</h2>
+
+                  {location.pathname === "/cupcake-form" ? (
+                    <CupcakeDetailsGroup
+                      cakeOrderCountArr={cakeOrderCountArr}
+                      setCakeOrderCountArr={setCakeOrderCountArr}
+                      errObj={errObj}
+                      cakeDetails={cupcakeDetails}
+                      setCakeDetails={setCupcakeDetails}
+                      editIconIndex={editIconIndex}
+                      setEditIconIndex={setEditIconIndex}
+                      flavSelectRefs={ccFlavSelectRefs}
+                      quantitySelectRefs={quantitySelectRefs}
+                    />
+                  ) : (
+                    <CakeDetailsGroup
+                      cakeOrderCountArr={cakeOrderCountArr}
+                      setCakeOrderCountArr={setCakeOrderCountArr}
+                      errObj={errObj}
+                      cakeDetails={cakeDetails}
+                      setCakeDetails={setCakeDetails}
+                      editIconIndex={editIconIndex}
+                      setEditIconIndex={setEditIconIndex}
+                      flavSelectRefs={flavSelectRefs}
+                      sizeSelectRefs={sizeSelectRefs}
+                      designSelectRefs={designSelectRefs}
+                    />
+                  )}
+                  {location.pathname.includes("/signature-form") ? (
+                    <button
+                      className={
+                        cakeDetailsCheck()
+                          ? "add-cake-btn"
+                          : "add-cake-btn-disabled"
+                      }
+                      onClick={(e) => {
+                        handleAddCake(e);
+                      }}
+                    >
+                      <span>&#x2b;</span>
+                      <span>Add a Cake</span>
+                    </button>
+                  ) : (
+                    <button
+                      className={
+                        cakeDetailsCheck()
+                          ? "add-cake-btn"
+                          : "add-cake-btn-disabled"
+                      }
+                      onClick={(e) => {
+                        e.preventDefault();
+                        cakeDetailsCheck() &&
+                          setCakeOrderCountArr((prevState) => [
+                            ...prevState,
+                            cakeOrderCountArr.length
+                          ]);
+                        setCupcakeDetails((prevState) => [
+                          ...prevState,
+                          { index: cakeOrderCountArr.length }
+                        ]);
+                        setEditIconIndex(
+                          +cupcakeDetails[cupcakeDetails.length - 1].index + 1
+                        );
+                      }}
+                    >
+                      <span>&#x2b;</span>
+                      <span>Add Cupcakes</span>
+                    </button>
+                  )}
+
+                  <h2 className="form-sec-head">Pickup Details</h2>
                   <div className="signature-event-details">
                     <div className="input-label-box sig-event-box">
                       <input
@@ -594,75 +672,7 @@ const SignatureForm = (props: SignatureFormProps) => {
                     </div>
                   </div>
 
-                  <h2 className="form-sec-head">Order Information</h2>
-
-                  {location.pathname === "/cupcake-form" ? (
-                    <CupcakeDetailsGroup
-                      cakeOrderCountArr={cakeOrderCountArr}
-                      setCakeOrderCountArr={setCakeOrderCountArr}
-                      errObj={errObj}
-                      cakeDetails={cupcakeDetails}
-                      setCakeDetails={setCupcakeDetails}
-                      editIconIndex={editIconIndex}
-                      setEditIconIndex={setEditIconIndex}
-                      flavSelectRefs={ccFlavSelectRefs}
-                      quantitySelectRefs={quantitySelectRefs}
-                    />
-                  ) : (
-                    <CakeDetailsGroup
-                      cakeOrderCountArr={cakeOrderCountArr}
-                      setCakeOrderCountArr={setCakeOrderCountArr}
-                      errObj={errObj}
-                      cakeDetails={cakeDetails}
-                      setCakeDetails={setCakeDetails}
-                      editIconIndex={editIconIndex}
-                      setEditIconIndex={setEditIconIndex}
-                      flavSelectRefs={flavSelectRefs}
-                      sizeSelectRefs={sizeSelectRefs}
-                    />
-                  )}
-                  {location.pathname === "/signature-form" ? (
-                    <button
-                      className={
-                        cakeDetailsCheck()
-                          ? "add-cake-btn"
-                          : "add-cake-btn-disabled"
-                      }
-                      onClick={(e) => {
-                        handleAddCake(e);
-                      }}
-                    >
-                      <span>&#x2b;</span>
-                      <span>Add a Cake</span>
-                    </button>
-                  ) : (
-                    <button
-                      className={
-                        cakeDetailsCheck()
-                          ? "add-cake-btn"
-                          : "add-cake-btn-disabled"
-                      }
-                      onClick={(e) => {
-                        e.preventDefault();
-                        cakeDetailsCheck() &&
-                          setCakeOrderCountArr((prevState) => [
-                            ...prevState,
-                            cakeOrderCountArr.length
-                          ]);
-                        setCupcakeDetails((prevState) => [
-                          ...prevState,
-                          { index: cakeOrderCountArr.length }
-                        ]);
-                        setEditIconIndex(
-                          +cupcakeDetails[cupcakeDetails.length - 1].index + 1
-                        );
-                      }}
-                    >
-                      <span>&#x2b;</span>
-                      <span>Add Cupcakes</span>
-                    </button>
-                  )}
-                  <h2 className="form-sec-head">Contact Information</h2>
+                  <h2 className="form-sec-head">Contact Details</h2>
 
                   <div className="input-label-box">
                     <input
